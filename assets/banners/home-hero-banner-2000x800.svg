@@ -1,0 +1,103 @@
+<svg width="2000" height="800" viewBox="0 0 2000 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="2000" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#17080B"/>
+      <stop offset="0.32" stop-color="#6F0610"/>
+      <stop offset="0.68" stop-color="#B5000B"/>
+      <stop offset="1" stop-color="#E7B657"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1510 260) rotate(122) scale(620 430)">
+      <stop stop-color="#FFE8A3" stop-opacity="0.92"/>
+      <stop offset="0.36" stop-color="#D59A2B" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#1A0709" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="softRed" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 300) rotate(38) scale(640 360)">
+      <stop stop-color="#F0444A" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F0444A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF1B8"/>
+      <stop offset="0.32" stop-color="#DCA13A"/>
+      <stop offset="0.62" stop-color="#A96E16"/>
+      <stop offset="1" stop-color="#FFF4BD"/>
+    </linearGradient>
+    <linearGradient id="giftTop" x1="1060" y1="235" x2="1740" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCB79"/>
+      <stop offset="0.35" stop-color="#E1782E"/>
+      <stop offset="1" stop-color="#A93218"/>
+    </linearGradient>
+    <linearGradient id="giftSide" x1="1260" y1="360" x2="1810" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A94C"/>
+      <stop offset="1" stop-color="#99240F"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="1180" y1="260" x2="1650" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFDCA4"/>
+      <stop offset="0.47" stop-color="#F88937"/>
+      <stop offset="1" stop-color="#B83B16"/>
+    </linearGradient>
+    <filter id="blur24" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="34" stdDeviation="30" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="2000" height="800" fill="url(#bg)"/>
+  <rect width="2000" height="800" fill="url(#goldGlow)"/>
+  <rect width="2000" height="800" fill="url(#softRed)"/>
+
+  <path d="M0 608C220 542 360 595 560 536C780 470 880 310 1130 306C1450 302 1640 450 2000 345V800H0V608Z" fill="#12090B" fill-opacity="0.32"/>
+  <path d="M0 690C315 595 540 725 865 610C1240 478 1395 228 2000 358V800H0V690Z" fill="#F6C76A" fill-opacity="0.10"/>
+
+  <g opacity="0.42" filter="url(#blur24)">
+    <circle cx="172" cy="130" r="74" fill="#FFF0B7"/>
+    <circle cx="268" cy="600" r="126" fill="#E30613"/>
+    <circle cx="1784" cy="160" r="92" fill="#FFE7A5"/>
+    <circle cx="1510" cy="650" r="160" fill="#FFD98B"/>
+  </g>
+
+  <g opacity="0.46">
+    <circle cx="178" cy="186" r="5" fill="#FFE7A5"/>
+    <circle cx="244" cy="252" r="7" fill="#FFE7A5"/>
+    <circle cx="392" cy="178" r="4" fill="#FFE7A5"/>
+    <circle cx="506" cy="308" r="6" fill="#FFE7A5"/>
+    <circle cx="1648" cy="116" r="5" fill="#FFE7A5"/>
+    <circle cx="1745" cy="248" r="7" fill="#FFE7A5"/>
+    <circle cx="1878" cy="326" r="5" fill="#FFE7A5"/>
+  </g>
+
+  <g filter="url(#softShadow)" opacity="0.98">
+    <rect x="212" y="238" width="300" height="188" rx="22" transform="rotate(-10 212 238)" fill="#111" fill-opacity="0.78"/>
+    <rect x="250" y="216" width="300" height="188" rx="22" transform="rotate(-10 250 216)" fill="url(#gold)"/>
+    <rect x="360" y="304" width="300" height="188" rx="22" transform="rotate(7 360 304)" fill="#111" fill-opacity="0.72"/>
+    <rect x="398" y="280" width="300" height="188" rx="22" transform="rotate(7 398 280)" fill="url(#gold)"/>
+    <rect x="565" y="198" width="300" height="188" rx="22" transform="rotate(15 565 198)" fill="#111" fill-opacity="0.64"/>
+    <rect x="600" y="176" width="300" height="188" rx="22" transform="rotate(15 600 176)" fill="url(#gold)"/>
+    <path d="M300 452C423 507 594 505 756 430" stroke="#FFE6A2" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+    <path d="M315 492C492 565 666 534 806 466" stroke="#B5000B" stroke-width="12" stroke-linecap="round" opacity="0.52"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <ellipse cx="1502" cy="684" rx="408" ry="48" fill="#360509" fill-opacity="0.38"/>
+    <path d="M1076 392L1508 270L1872 396L1436 540L1076 392Z" fill="url(#giftTop)"/>
+    <path d="M1076 392L1436 540V724L1076 570V392Z" fill="#B93317"/>
+    <path d="M1436 540L1872 396V570L1436 724V540Z" fill="url(#giftSide)"/>
+    <path d="M1252 342L1604 468V650L1512 684V506L1162 380L1252 342Z" fill="url(#ribbon)"/>
+    <path d="M1460 286L1544 258L1540 724L1452 724L1460 286Z" fill="#F18B3E" opacity="0.82"/>
+    <path d="M1168 317C1068 258 1052 182 1136 148C1220 114 1338 202 1446 318C1322 343 1244 361 1168 317Z" fill="url(#ribbon)"/>
+    <path d="M1618 312C1730 252 1748 176 1664 142C1578 108 1462 202 1360 318C1482 342 1544 352 1618 312Z" fill="url(#ribbon)"/>
+    <path d="M1380 290C1308 198 1280 126 1340 94C1400 62 1482 132 1514 244C1462 252 1412 268 1380 290Z" fill="#FBA95B"/>
+    <path d="M1450 288C1514 196 1554 126 1496 94C1438 62 1350 132 1320 242C1374 252 1418 268 1450 288Z" fill="#E9782D"/>
+    <path d="M1076 392L1508 270L1872 396" stroke="#FFD18A" stroke-width="10" stroke-opacity="0.34"/>
+    <path d="M1076 570L1436 724L1872 570" stroke="#64130C" stroke-width="8" stroke-opacity="0.3"/>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="0" y="0" width="2000" height="800" fill="url(#goldGlow)" opacity="0.12"/>
+    <path d="M0 0H2000V800H0V0Z" fill="none"/>
+  </g>
+</svg>

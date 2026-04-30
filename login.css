@@ -1,0 +1,28 @@
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.brand-logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.otp-code-input::-webkit-outer-spin-button,
+.otp-code-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.otp-code-input {
+  -moz-appearance: textfield;
+  caret-color: #b5000b;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.36em;
+  padding-left: 0.36em;
+}

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hediyemo Proje Dokumani</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#aa0015',
+            'primary-container': '#c0000c',
+            secondary: '#6c6f7b',
+            surface: '#f9f9fa',
+            background: '#f9f9fa',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f3f3f4',
+            'surface-container-highest': '#e2e2e3',
+            'on-surface': '#1a1c1d',
+            'on-surface-variant': '#5e3f3b'
+          },
+          fontFamily: {
+            headline: ['Plus Jakarta Sans'],
+            body: ['Inter'],
+            label: ['Inter']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .filter-scroll { scrollbar-width: thin; scrollbar-color: rgba(161,161,170,.55) rgba(244,244,245,.75); }
+    .filter-scroll::-webkit-scrollbar { width: 8px; }
+    .filter-scroll::-webkit-scrollbar-track { background: rgba(244,244,245,.8); border-radius: 9999px; }
+    .filter-scroll::-webkit-scrollbar-thumb { background: rgba(161,161,170,.7); border-radius: 9999px; }
+    @keyframes contactBorderPulse {
+      0%,100% { opacity:.65; box-shadow:0 0 0 0 rgba(170,0,21,.18), 0 0 20px rgba(170,0,21,.22); }
+      50% { opacity:1; box-shadow:0 0 0 5px rgba(170,0,21,.10), 0 0 24px rgba(170,0,21,.32); }
+    }
+    .contact-pulse-border { border-color: rgba(170,0,21,.9); animation: contactBorderPulse 2.2s ease-in-out infinite; }
+    .service-ribbon { position:absolute; top:1.1rem; right:1.1rem; z-index:10; display:flex; min-width:8.8rem; justify-content:center; border-radius:1.1rem; background:linear-gradient(180deg, rgba(192,0,12,.88) 0%, rgba(170,0,21,.82) 100%); padding:.85rem .9rem; text-align:center; }
+    .service-ribbon--header { left:1rem; right:1rem; top:1rem; min-width:auto; border-radius:1.25rem; padding:.7rem 1rem; }
+    .service-ribbon__text { display:flex; flex-direction:column; align-items:center; gap:.08rem; color:#fff; line-height:1; }
+    .service-ribbon__points { font-size:1.6rem; font-weight:800; letter-spacing:-.03em; }
+    .service-ribbon__subpoints { font-size:1rem; font-weight:800; }
+    .service-ribbon__label { font-size:1rem; font-weight:800; }
+    .service-ribbon--header .service-ribbon__text { flex-direction:row; gap:.4rem; }
+    .stats-overview-grid { display:grid; gap:1.25rem; grid-template-columns:repeat(1,minmax(0,1fr)); }
+    @media (min-width: 768px) { .stats-overview-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/10">
+  <div class="mx-auto max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8">
+    <header class="rounded-[2rem] border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-8 lg:px-10">
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-2 rounded-full bg-primary/8 px-4 py-2 text-[12px] font-extrabold uppercase tracking-[0.2em] text-primary">
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            Proje Dokumani
+          </span>
+          <h1 class="mt-5 text-[2.3rem] font-black tracking-tight text-zinc-900 sm:text-[3.1rem]">Hediyemo HTML / Tailwind Bilesen Rehberi</h1>
+          <p class="mt-4 max-w-3xl text-[1.08rem] leading-8 text-zinc-600">
+            Bu sayfa, projedeki ortak shell yapilarini, tekrar kullanilan kartlari, yardimci siniflari ve JS akislarini tek referans noktasi olarak toplar. Yeni alan ekleyecek veya mevcut HTML bloklarini duzenleyecek ekipler dogrudan buradaki ornekleri kopyalayip kullanabilir.
+          </p>
+        </div>
+        <nav class="grid gap-3 sm:grid-cols-2 lg:w-[24rem]">
+          <a href="#page-map" class="rounded-[1.2rem] border border-zinc-200 bg-zinc-50 px-5 py-4 text-[1rem] font-bold text-zinc-700 transition-colors hover:border-primary hover:text-primary">Sayfa Haritasi</a>
+          <a href="#components" class="rounded-[1.2rem] border border-zinc-200 bg-zinc-50 px-5 py-4 text-[1rem] font-bold text-zinc-700 transition-colors hover:border-primary hover:text-primary">Canli Bilesenler</a>
+          <a href="#js-patterns" class="rounded-[1.2rem] border border-zinc-200 bg-zinc-50 px-5 py-4 text-[1rem] font-bold text-zinc-700 transition-colors hover:border-primary hover:text-primary">JS Kaliplari</a>
+          <a href="#class-index" class="rounded-[1.2rem] border border-zinc-200 bg-zinc-50 px-5 py-4 text-[1rem] font-bold text-zinc-700 transition-colors hover:border-primary hover:text-primary">Class Indeksi</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mt-8 space-y-8">
+      <section id="page-map" class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">1. Sayfa Haritasi</h2>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Projede su anda aktif kullanilan sayfalar ve her birinin temel sorumlulugu.</p>
+        </div>
+        <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3"><article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">index.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Ana vitrin, filtreler, ürün grid, popüler markalar ve ortak shell.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">yardım.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">SSS, marka kullanım koşulları ve mesaj bırak akışı.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">login.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Giriş ekranı ve auth odaklı landing layout.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">sepet.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sepet adımları, ürün satırları ve sipariş özeti.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">puan-hareketlerim.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">İstatistik kartları ve puan geçmiş tablosu.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">siparislerim.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sipariş listesi şablonu ve özet kartları.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">bilgilerim.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Hesap bilgileri ve parola güncelleme alanı.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">kayitli-adreslerim.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Adres defteri kartları ve adres form offcanvas akışı.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article>
+<article class="rounded-[1.35rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-zinc-900">kayitli-telefonlarim.html</h3>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Telefon defteri kartları, OTP doğrulama ve üstten açılan panel.</p>
+        </div>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">Sayfa</span>
+      </div>
+    </article></div>
+      </section>
+
+      <section class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">2. Tema, Token ve Ortak Kurallar</h2>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Bu projede Tailwind utility class kullanimi baskin. Buna ek olarak birkac semantik helper class ve ortak shell prensibi var.</p>
+        </div>
+        <div class="grid gap-6 xl:grid-cols-[1.1fr_1.9fr]">
+          <div class="rounded-[1.5rem] border border-zinc-200 bg-zinc-50 p-6">
+            <h3 class="text-[1.45rem] font-extrabold tracking-tight text-zinc-900">Renk / Font / Radius Ozeti</h3>
+            <div class="mt-5 space-y-4 text-[1rem] leading-7 text-zinc-700">
+              <p><strong class="text-zinc-900">Ana renk:</strong> <code class="font-bold text-primary">primary / #aa0015</code></p>
+              <p><strong class="text-zinc-900">Arkaplan:</strong> <code>bg-background</code>, <code>bg-surface</code>, <code>bg-surface-container-lowest</code></p>
+              <p><strong class="text-zinc-900">Yazi aileleri:</strong> <code>font-headline</code> (Plus Jakarta Sans), <code>font-body</code> (Inter)</p>
+              <p><strong class="text-zinc-900">Yumusak radius:</strong> en sik <code>rounded-[1.15rem]</code>, <code>rounded-[1.75rem]</code>, <code>rounded-full</code></p>
+              <p><strong class="text-zinc-900">Ortak kabuk:</strong> header / footer / hesap menu / sepet drawer her sayfada ayni shell mantigi ile tekrar eder.</p>
+            </div>
+          </div>
+          <div class="space-y-3"><div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Hizmet bedeli ribbon gövdesi. Ürün kartı köşesinde veya header şeridi olarak kullanılır.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon--header</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Ribbon&#x27;ı kartın üst başlığı gibi yatay tam genişlikte gösterir.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon__points</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Ribbon içindeki puan değerini öne çıkarır.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon__subpoints</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Puan alt etiketi / kısa yardımcı satır.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon__label</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Hizmet / Bedeli gibi etiket satırları.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.service-ribbon__text</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Ribbon iç metin kapsayıcısı.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.contact-pulse-border</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Bize Ulaşın butonundaki pulse animasyonlu dış halka.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.filter-scroll</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">İç scroll gereken filtre listeleri için scrollbar stilini düzenler.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.no-scrollbar</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Yatay scroll alanlarında scrollbar&#x27;ı gizler.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.stats-overview-grid</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Puan hareketleri istatistik kartlarını responsive 3&#x27;lü grid haline getirir.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.help-tab-trigger</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Yardım sayfası sekme buton ortak stili.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.help-tab-panel</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Yardım sayfası sekme panel kapsayıcısı.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[18rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-primary">.shadow-shell</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Bazı ortak bloklarda kullanılan yumuşak yüzey gölgesi.</p>
+    </div></div>
+        </div>
+      </section>
+
+      <section class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">3. Ortak ID ve Hook Noktalari</h2>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Asagidaki ID'ler ve bloklar JS akislarinda tekrar kullanilir. Yeni bir sayfaya shell tasirken ayni isimleri korumak entegrasyonu kolaylastirir.</p>
+        </div>
+        <div class="space-y-3"><div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">accountMenuButton / accountMenuPanel</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Hesabım dropdown aç/kapa davranışı.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">cartButton / cartModal / cartModalPanel</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Sepet offcanvas açılış ve kapanışı.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">chatLauncher</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Bize Ulaşın modal / panel tetikleyicisi.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">mobileFiltersToggle / mobileFiltersToggleLabel / mobileFiltersToggleIcon</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Mobil filtre görünürlük kontrolü.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">policyModal / policyModalTitle / policyModalContent</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Aydınlatma Metni ve Çerez Politikası panel içeriği.</p>
+    </div>
+<div class="grid gap-3 rounded-[1.15rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[22rem_1fr]">
+      <code class="text-[0.98rem] font-bold text-zinc-800">brandTermsSelect / brandTermsTitle / brandTermsList / brandTermsImage</code>
+      <p class="text-[1rem] leading-7 text-zinc-600">Yardım sayfasındaki marka kullanım koşulları akışı.</p>
+    </div></div>
+      </section>
+
+      <section id="components" class="space-y-6">
+        <div class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">4. Canli Bilesen Kutuphanesi</h2>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Her blokta solda canli onizleme, sagda ise kopyalanabilir HTML bulunur. Kodlar projedeki mevcut class yapisina uygun tutuldu.</p>
+        </div>
+        <section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Header Puan Alani</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Desktop header icindeki puan blogu. Mobilde daha kompakt versiyonu kullanilir.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><div class="hidden lg:flex lg:flex-col lg:items-end lg:justify-center lg:px-3 lg:py-2">
+  <span class="text-[10px] font-medium uppercase tracking-[0.22em] text-secondary">Puanım</span>
+  <span class="text-[24px] font-extrabold tracking-tight text-primary">35.500</span>
+</div></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;div class=&quot;hidden lg:flex lg:flex-col lg:items-end lg:justify-center lg:px-3 lg:py-2&quot;&gt;
+  &lt;span class=&quot;text-[10px] font-medium uppercase tracking-[0.22em] text-secondary&quot;&gt;Puanım&lt;/span&gt;
+  &lt;span class=&quot;text-[24px] font-extrabold tracking-tight text-primary&quot;&gt;35.500&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Hesabim Butonu</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Dropdown acan ortak hesap butonu.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><button id="accountMenuButton" type="button" aria-expanded="false"
+  class="flex items-center justify-center gap-3 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-5 py-3 text-zinc-700 transition-all duration-200 hover:border-primary hover:bg-white">
+  <span class="material-symbols-outlined text-[24px]">person</span>
+  <span class="text-[18px] font-bold tracking-tight">Hesabım</span>
+  <span class="material-symbols-outlined text-[20px] text-zinc-400">expand_more</span>
+</button></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;button id=&quot;accountMenuButton&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot;
+  class=&quot;flex items-center justify-center gap-3 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-5 py-3 text-zinc-700 transition-all duration-200 hover:border-primary hover:bg-white&quot;&gt;
+  &lt;span class=&quot;material-symbols-outlined text-[24px]&quot;&gt;person&lt;/span&gt;
+  &lt;span class=&quot;text-[18px] font-bold tracking-tight&quot;&gt;Hesabım&lt;/span&gt;
+  &lt;span class=&quot;material-symbols-outlined text-[20px] text-zinc-400&quot;&gt;expand_more&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Varsayilan Urun Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Ana sayfa urun grid&#x27;inde en cok tekrar eden kart tipi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="group overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
+  <div class="flex min-h-[260px] flex-col items-center justify-between px-6 pt-8 text-center">
+    <div class="flex h-36 w-full items-center justify-center">
+      <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-28 w-auto object-contain" />
+    </div>
+    <div class="pb-5">
+      <p class="text-[2.15rem] font-black tracking-tight text-primary">1.000 TL</p>
+      <p class="mt-2 text-[1.2rem] font-semibold text-zinc-600">Hediye Ceki</p>
+    </div>
+  </div>
+  <a href="./urun-detay.html" class="flex items-center justify-center gap-2 rounded-t-none bg-zinc-900 px-6 py-5 text-[1.1rem] font-extrabold uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary">
+    <span class="material-symbols-outlined text-[18px]">north_east</span>
+    Incele
+  </a>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;group overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]&quot;&gt;
+  &lt;div class=&quot;flex min-h-[260px] flex-col items-center justify-between px-6 pt-8 text-center&quot;&gt;
+    &lt;div class=&quot;flex h-36 w-full items-center justify-center&quot;&gt;
+      &lt;img src=&quot;./assets/brands/mavi-logo.png&quot; alt=&quot;Mavi&quot; class=&quot;max-h-28 w-auto object-contain&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pb-5&quot;&gt;
+      &lt;p class=&quot;text-[2.15rem] font-black tracking-tight text-primary&quot;&gt;1.000 TL&lt;/p&gt;
+      &lt;p class=&quot;mt-2 text-[1.2rem] font-semibold text-zinc-600&quot;&gt;Hediye Ceki&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;a href=&quot;./urun-detay.html&quot; class=&quot;flex items-center justify-center gap-2 rounded-t-none bg-zinc-900 px-6 py-5 text-[1.1rem] font-extrabold uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary&quot;&gt;
+    &lt;span class=&quot;material-symbols-outlined text-[18px]&quot;&gt;north_east&lt;/span&gt;
+    Incele
+  &lt;/a&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Ribbon&#x27;li Urun Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Hizmet bedeli olan urunler icin header ribbon varyasyonu.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="relative overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white shadow-sm">
+  <div class="service-ribbon service-ribbon--header" aria-label="+160 puan hizmet bedeli">
+    <span class="service-ribbon__text">
+      <span class="service-ribbon__points">+160</span>
+      <span class="service-ribbon__subpoints">Puan</span>
+      <span class="service-ribbon__label">Hizmet Bedeli</span>
+    </span>
+  </div>
+  <div class="flex min-h-[260px] flex-col items-center justify-between px-6 pt-24 text-center">
+    <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-28 w-auto object-contain" />
+    <div class="pb-5">
+      <p class="text-[2.15rem] font-black tracking-tight text-primary">1.000 TL</p>
+      <p class="mt-2 text-[1.2rem] font-semibold text-zinc-600">Hediye Ceki</p>
+    </div>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;relative overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white shadow-sm&quot;&gt;
+  &lt;div class=&quot;service-ribbon service-ribbon--header&quot; aria-label=&quot;+160 puan hizmet bedeli&quot;&gt;
+    &lt;span class=&quot;service-ribbon__text&quot;&gt;
+      &lt;span class=&quot;service-ribbon__points&quot;&gt;+160&lt;/span&gt;
+      &lt;span class=&quot;service-ribbon__subpoints&quot;&gt;Puan&lt;/span&gt;
+      &lt;span class=&quot;service-ribbon__label&quot;&gt;Hizmet Bedeli&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex min-h-[260px] flex-col items-center justify-between px-6 pt-24 text-center&quot;&gt;
+    &lt;img src=&quot;./assets/brands/opet-logo.png&quot; alt=&quot;Opet&quot; class=&quot;max-h-28 w-auto object-contain&quot; /&gt;
+    &lt;div class=&quot;pb-5&quot;&gt;
+      &lt;p class=&quot;text-[2.15rem] font-black tracking-tight text-primary&quot;&gt;1.000 TL&lt;/p&gt;
+      &lt;p class=&quot;mt-2 text-[1.2rem] font-semibold text-zinc-600&quot;&gt;Hediye Ceki&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Populer Marka Dairesi</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Marka slider / grid icin dairesel logo komponenti.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><button class="flex h-28 w-28 items-center justify-center rounded-full border border-zinc-100 bg-white p-2 shadow-sm transition-all hover:shadow-md">
+  <img src="./assets/brands/hepsiburada-logo.png" alt="Hepsiburada" class="max-h-[3.7rem] max-w-[4rem] object-contain" />
+</button></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;button class=&quot;flex h-28 w-28 items-center justify-center rounded-full border border-zinc-100 bg-white p-2 shadow-sm transition-all hover:shadow-md&quot;&gt;
+  &lt;img src=&quot;./assets/brands/hepsiburada-logo.png&quot; alt=&quot;Hepsiburada&quot; class=&quot;max-h-[3.7rem] max-w-[4rem] object-contain&quot; /&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Filtre Kutusu</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Kategoriler / Markalar / Kullanim Alani tarafinda kullanilan filter card.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><section class="rounded-[1.75rem] border border-zinc-200 bg-white px-5 py-6 shadow-sm">
+  <div class="mb-5 flex items-center justify-between">
+    <h3 class="text-[1.85rem] font-extrabold tracking-tight text-zinc-800">Kategoriler</h3>
+  </div>
+  <input type="text" placeholder="Kategori adini yazin"
+    class="mb-5 h-14 w-full rounded-[1.15rem] border border-zinc-300 bg-white px-5 text-[18px] font-medium text-zinc-700 placeholder:text-zinc-400 focus:border-primary focus:ring-2 focus:ring-primary/20" />
+  <div class="filter-scroll max-h-[360px] space-y-4 overflow-y-auto pr-3">
+    <label class="flex items-center gap-4 text-[1.45rem] font-medium text-zinc-700">
+      <input type="checkbox" class="h-7 w-7 rounded border-zinc-300 text-primary focus:ring-primary/20" />
+      Giyim
+    </label>
+    <label class="flex items-center gap-4 text-[1.45rem] font-medium text-zinc-700">
+      <input type="checkbox" class="h-7 w-7 rounded border-zinc-300 text-primary focus:ring-primary/20" checked />
+      Market
+    </label>
+  </div>
+</section></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;section class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white px-5 py-6 shadow-sm&quot;&gt;
+  &lt;div class=&quot;mb-5 flex items-center justify-between&quot;&gt;
+    &lt;h3 class=&quot;text-[1.85rem] font-extrabold tracking-tight text-zinc-800&quot;&gt;Kategoriler&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Kategori adini yazin&quot;
+    class=&quot;mb-5 h-14 w-full rounded-[1.15rem] border border-zinc-300 bg-white px-5 text-[18px] font-medium text-zinc-700 placeholder:text-zinc-400 focus:border-primary focus:ring-2 focus:ring-primary/20&quot; /&gt;
+  &lt;div class=&quot;filter-scroll max-h-[360px] space-y-4 overflow-y-auto pr-3&quot;&gt;
+    &lt;label class=&quot;flex items-center gap-4 text-[1.45rem] font-medium text-zinc-700&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; class=&quot;h-7 w-7 rounded border-zinc-300 text-primary focus:ring-primary/20&quot; /&gt;
+      Giyim
+    &lt;/label&gt;
+    &lt;label class=&quot;flex items-center gap-4 text-[1.45rem] font-medium text-zinc-700&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; class=&quot;h-7 w-7 rounded border-zinc-300 text-primary focus:ring-primary/20&quot; checked /&gt;
+      Market
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Istatistik Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Puan hareketleri ekranindaki ust bilgi kartlarinin baz semasi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="rounded-[1.75rem] border border-sky-200 bg-sky-50 px-6 py-6">
+  <div class="flex items-start gap-4">
+    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+      <span class="material-symbols-outlined text-[28px]">south_west</span>
+    </div>
+    <div>
+      <p class="text-[15px] font-bold uppercase tracking-[0.16em] text-sky-800">Toplam Yuklenen Puan</p>
+      <p class="mt-3 text-[2.65rem] font-black tracking-tight text-sky-700">750</p>
+    </div>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;rounded-[1.75rem] border border-sky-200 bg-sky-50 px-6 py-6&quot;&gt;
+  &lt;div class=&quot;flex items-start gap-4&quot;&gt;
+    &lt;div class=&quot;flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-sky-700&quot;&gt;
+      &lt;span class=&quot;material-symbols-outlined text-[28px]&quot;&gt;south_west&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;text-[15px] font-bold uppercase tracking-[0.16em] text-sky-800&quot;&gt;Toplam Yuklenen Puan&lt;/p&gt;
+      &lt;p class=&quot;mt-3 text-[2.65rem] font-black tracking-tight text-sky-700&quot;&gt;750&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Adres Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Kayitli adresler sayfasinda kullanilan kart tipi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="rounded-[1.75rem] border border-zinc-200 bg-white p-7 shadow-sm">
+  <div class="mb-5 flex items-start justify-between gap-4">
+    <h3 class="text-[1.9rem] font-extrabold tracking-tight text-zinc-900">Ev Adresim</h3>
+    <span class="rounded-full bg-primary/8 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.22em] text-primary">Varsayilan</span>
+  </div>
+  <p class="text-[1.35rem] font-semibold leading-8 text-zinc-700">Aydinlar Mah. Kamer Sok. Havacilar Cad. No:44/A<br/>Sancaktepe / Istanbul</p>
+  <div class="mt-6 flex items-center justify-between">
+    <button class="inline-flex items-center gap-2 text-[1.35rem] font-semibold text-green-600 hover:text-green-700">
+      <span class="material-symbols-outlined">edit_square</span> Adresi Duzenle
+    </button>
+    <button class="inline-flex items-center gap-2 text-[1.35rem] font-semibold text-red-500 hover:text-red-600">
+      <span class="material-symbols-outlined">delete</span> Sil
+    </button>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white p-7 shadow-sm&quot;&gt;
+  &lt;div class=&quot;mb-5 flex items-start justify-between gap-4&quot;&gt;
+    &lt;h3 class=&quot;text-[1.9rem] font-extrabold tracking-tight text-zinc-900&quot;&gt;Ev Adresim&lt;/h3&gt;
+    &lt;span class=&quot;rounded-full bg-primary/8 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.22em] text-primary&quot;&gt;Varsayilan&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;text-[1.35rem] font-semibold leading-8 text-zinc-700&quot;&gt;Aydinlar Mah. Kamer Sok. Havacilar Cad. No:44/A&lt;br/&gt;Sancaktepe / Istanbul&lt;/p&gt;
+  &lt;div class=&quot;mt-6 flex items-center justify-between&quot;&gt;
+    &lt;button class=&quot;inline-flex items-center gap-2 text-[1.35rem] font-semibold text-green-600 hover:text-green-700&quot;&gt;
+      &lt;span class=&quot;material-symbols-outlined&quot;&gt;edit_square&lt;/span&gt; Adresi Duzenle
+    &lt;/button&gt;
+    &lt;button class=&quot;inline-flex items-center gap-2 text-[1.35rem] font-semibold text-red-500 hover:text-red-600&quot;&gt;
+      &lt;span class=&quot;material-symbols-outlined&quot;&gt;delete&lt;/span&gt; Sil
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Telefon Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Kayitli telefonlar sayfasindaki kart tipi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm">
+  <div class="mb-3 flex items-start justify-between gap-4">
+    <p class="text-[1.15rem] font-semibold text-zinc-500">Kendi cep telefonum</p>
+    <span class="rounded-full bg-primary/8 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.22em] text-primary">Varsayilan</span>
+  </div>
+  <p class="text-[2.15rem] font-black tracking-tight text-zinc-900">0554 312 49 17</p>
+  <div class="mt-6 flex items-center justify-between">
+    <button class="inline-flex items-center gap-2 text-[1.35rem] font-semibold text-green-600"><span class="material-symbols-outlined">edit_square</span>Duzenle</button>
+    <button class="inline-flex items-center gap-2 text-[1.35rem] font-semibold text-red-500"><span class="material-symbols-outlined">delete</span>Sil</button>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm&quot;&gt;
+  &lt;div class=&quot;mb-3 flex items-start justify-between gap-4&quot;&gt;
+    &lt;p class=&quot;text-[1.15rem] font-semibold text-zinc-500&quot;&gt;Kendi cep telefonum&lt;/p&gt;
+    &lt;span class=&quot;rounded-full bg-primary/8 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.22em] text-primary&quot;&gt;Varsayilan&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;text-[2.15rem] font-black tracking-tight text-zinc-900&quot;&gt;0554 312 49 17&lt;/p&gt;
+  &lt;div class=&quot;mt-6 flex items-center justify-between&quot;&gt;
+    &lt;button class=&quot;inline-flex items-center gap-2 text-[1.35rem] font-semibold text-green-600&quot;&gt;&lt;span class=&quot;material-symbols-outlined&quot;&gt;edit_square&lt;/span&gt;Duzenle&lt;/button&gt;
+    &lt;button class=&quot;inline-flex items-center gap-2 text-[1.35rem] font-semibold text-red-500&quot;&gt;&lt;span class=&quot;material-symbols-outlined&quot;&gt;delete&lt;/span&gt;Sil&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Siparis Karti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Siparislerim sayfasi icin kullanilan siparis ozeti satiri.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="rounded-[1.75rem] border border-zinc-200 bg-white p-7 shadow-sm">
+  <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+    <div>
+      <p class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Siparis No: HM-2026-00124</p>
+      <p class="mt-2 text-[1.05rem] font-medium text-zinc-500">Siparis Tarihi: 29 Nisan 2026</p>
+      <p class="mt-4 text-[1.1rem] leading-7 text-zinc-700">Mavi Hediye Ceki (100 TL), Opet Hediye Ceki (50 TL), Genc Altin 1 GR (24 Ayar)</p>
+    </div>
+    <div class="md:text-right">
+      <p class="text-[1.05rem] font-semibold uppercase tracking-[0.14em] text-zinc-500">Toplam Tutar</p>
+      <p class="mt-2 text-[2rem] font-black tracking-tight text-primary">7.564 Puan</p>
+      <a href="./detay.html" class="mt-4 inline-flex items-center gap-2 text-[1rem] font-bold text-primary hover:text-secondary">
+        Siparis Detayi <span class="material-symbols-outlined text-[18px]">north_east</span>
+      </a>
+    </div>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white p-7 shadow-sm&quot;&gt;
+  &lt;div class=&quot;flex flex-col gap-4 md:flex-row md:items-start md:justify-between&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;text-[1.6rem] font-extrabold tracking-tight text-zinc-900&quot;&gt;Siparis No: HM-2026-00124&lt;/p&gt;
+      &lt;p class=&quot;mt-2 text-[1.05rem] font-medium text-zinc-500&quot;&gt;Siparis Tarihi: 29 Nisan 2026&lt;/p&gt;
+      &lt;p class=&quot;mt-4 text-[1.1rem] leading-7 text-zinc-700&quot;&gt;Mavi Hediye Ceki (100 TL), Opet Hediye Ceki (50 TL), Genc Altin 1 GR (24 Ayar)&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;md:text-right&quot;&gt;
+      &lt;p class=&quot;text-[1.05rem] font-semibold uppercase tracking-[0.14em] text-zinc-500&quot;&gt;Toplam Tutar&lt;/p&gt;
+      &lt;p class=&quot;mt-2 text-[2rem] font-black tracking-tight text-primary&quot;&gt;7.564 Puan&lt;/p&gt;
+      &lt;a href=&quot;./detay.html&quot; class=&quot;mt-4 inline-flex items-center gap-2 text-[1rem] font-bold text-primary hover:text-secondary&quot;&gt;
+        Siparis Detayi &lt;span class=&quot;material-symbols-outlined text-[18px]&quot;&gt;north_east&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Sepet Satiri</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sepet sayfasinda urun satiri ve puan rozeti yapisi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><article class="rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm">
+  <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+    <div class="flex items-center gap-5">
+      <div class="flex h-28 w-28 items-center justify-center rounded-[1.25rem] border border-zinc-200 bg-white">
+        <img src="./assets/brands/genc-altin-logo.png" alt="Genc Altin" class="max-h-20 w-auto object-contain" />
+      </div>
+      <div>
+        <h3 class="text-[1.7rem] font-extrabold tracking-tight text-zinc-900">1 Gr. Kulce Altin (24 Ayar)</h3>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <span class="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 text-[1.1rem] font-semibold text-zinc-600">
+            <span class="material-symbols-outlined text-[20px]">inventory_2</span> Adet: 3
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-[1.35rem] font-extrabold text-primary">2.388 Puan</span>
+        </div>
+      </div>
+    </div>
+    <button class="inline-flex items-center gap-2 self-start rounded-full border border-primary px-4 py-2 text-[1rem] font-bold text-primary hover:bg-primary hover:text-white">
+      <span class="material-symbols-outlined text-[18px]">delete</span> Kaldir
+    </button>
+  </div>
+</article></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;article class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm&quot;&gt;
+  &lt;div class=&quot;flex flex-col gap-5 md:flex-row md:items-center md:justify-between&quot;&gt;
+    &lt;div class=&quot;flex items-center gap-5&quot;&gt;
+      &lt;div class=&quot;flex h-28 w-28 items-center justify-center rounded-[1.25rem] border border-zinc-200 bg-white&quot;&gt;
+        &lt;img src=&quot;./assets/brands/genc-altin-logo.png&quot; alt=&quot;Genc Altin&quot; class=&quot;max-h-20 w-auto object-contain&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h3 class=&quot;text-[1.7rem] font-extrabold tracking-tight text-zinc-900&quot;&gt;1 Gr. Kulce Altin (24 Ayar)&lt;/h3&gt;
+        &lt;div class=&quot;mt-4 flex flex-wrap items-center gap-3&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 text-[1.1rem] font-semibold text-zinc-600&quot;&gt;
+            &lt;span class=&quot;material-symbols-outlined text-[20px]&quot;&gt;inventory_2&lt;/span&gt; Adet: 3
+          &lt;/span&gt;
+          &lt;span class=&quot;inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-[1.35rem] font-extrabold text-primary&quot;&gt;2.388 Puan&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;inline-flex items-center gap-2 self-start rounded-full border border-primary px-4 py-2 text-[1rem] font-bold text-primary hover:bg-primary hover:text-white&quot;&gt;
+      &lt;span class=&quot;material-symbols-outlined text-[18px]&quot;&gt;delete&lt;/span&gt; Kaldir
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Sepet Ozeti</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sepet sag sutun toplam alani.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><aside class="rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm">
+  <h3 class="text-[1.75rem] font-extrabold tracking-tight text-zinc-900">Siparis Ozeti</h3>
+  <div class="mt-6 space-y-4 text-[1.1rem] text-zinc-600">
+    <div class="flex items-center justify-between"><span>Urunler Toplami</span><strong class="text-zinc-800">7.164 Puan</strong></div>
+    <div class="flex items-center justify-between"><span>Hizmet Bedeli</span><strong class="text-zinc-800">400 Puan</strong></div>
+  </div>
+  <div class="my-6 h-px bg-zinc-200"></div>
+  <div class="flex items-center justify-between text-[1.35rem] font-black text-zinc-900">
+    <span>Sepet Toplami</span><span class="text-primary">7.564 Puan</span>
+  </div>
+  <a href="#" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[1.15rem] bg-primary px-6 py-4 text-[1.05rem] font-extrabold text-white shadow-[0_8px_24px_rgba(227,6,19,0.2)] hover:brightness-110">
+    Devam Et <span class="material-symbols-outlined text-[18px]">east</span>
+  </a>
+</aside></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;aside class=&quot;rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm&quot;&gt;
+  &lt;h3 class=&quot;text-[1.75rem] font-extrabold tracking-tight text-zinc-900&quot;&gt;Siparis Ozeti&lt;/h3&gt;
+  &lt;div class=&quot;mt-6 space-y-4 text-[1.1rem] text-zinc-600&quot;&gt;
+    &lt;div class=&quot;flex items-center justify-between&quot;&gt;&lt;span&gt;Urunler Toplami&lt;/span&gt;&lt;strong class=&quot;text-zinc-800&quot;&gt;7.164 Puan&lt;/strong&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex items-center justify-between&quot;&gt;&lt;span&gt;Hizmet Bedeli&lt;/span&gt;&lt;strong class=&quot;text-zinc-800&quot;&gt;400 Puan&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;my-6 h-px bg-zinc-200&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;flex items-center justify-between text-[1.35rem] font-black text-zinc-900&quot;&gt;
+    &lt;span&gt;Sepet Toplami&lt;/span&gt;&lt;span class=&quot;text-primary&quot;&gt;7.564 Puan&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;a href=&quot;#&quot; class=&quot;mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[1.15rem] bg-primary px-6 py-4 text-[1.05rem] font-extrabold text-white shadow-[0_8px_24px_rgba(227,6,19,0.2)] hover:brightness-110&quot;&gt;
+    Devam Et &lt;span class=&quot;material-symbols-outlined text-[18px]&quot;&gt;east&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/aside&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Yardim Sekmeleri</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Yardim sayfasinda sekme tetikleyici ailesi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><div class="rounded-[2rem] border border-zinc-200 bg-white p-3 shadow-sm">
+  <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+    <button class="help-tab-trigger rounded-[1.4rem] bg-primary px-6 py-5 text-left text-white">
+      <span class="inline-flex items-center gap-3 text-[1.35rem] font-extrabold"><span class="material-symbols-outlined">quiz</span>Nasil Calisir</span>
+    </button>
+    <button class="help-tab-trigger rounded-[1.4rem] bg-zinc-50 px-6 py-5 text-left text-zinc-600">
+      <span class="inline-flex items-center gap-3 text-[1.35rem] font-bold"><span class="material-symbols-outlined">fact_check</span>Marka Kullanim Kosullari</span>
+    </button>
+    <button class="help-tab-trigger rounded-[1.4rem] bg-zinc-50 px-6 py-5 text-left text-zinc-600">
+      <span class="inline-flex items-center gap-3 text-[1.35rem] font-bold"><span class="material-symbols-outlined">support_agent</span>Bize Ulasin</span>
+    </button>
+  </div>
+</div></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;div class=&quot;rounded-[2rem] border border-zinc-200 bg-white p-3 shadow-sm&quot;&gt;
+  &lt;div class=&quot;grid grid-cols-1 gap-3 md:grid-cols-3&quot;&gt;
+    &lt;button class=&quot;help-tab-trigger rounded-[1.4rem] bg-primary px-6 py-5 text-left text-white&quot;&gt;
+      &lt;span class=&quot;inline-flex items-center gap-3 text-[1.35rem] font-extrabold&quot;&gt;&lt;span class=&quot;material-symbols-outlined&quot;&gt;quiz&lt;/span&gt;Nasil Calisir&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;help-tab-trigger rounded-[1.4rem] bg-zinc-50 px-6 py-5 text-left text-zinc-600&quot;&gt;
+      &lt;span class=&quot;inline-flex items-center gap-3 text-[1.35rem] font-bold&quot;&gt;&lt;span class=&quot;material-symbols-outlined&quot;&gt;fact_check&lt;/span&gt;Marka Kullanim Kosullari&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;help-tab-trigger rounded-[1.4rem] bg-zinc-50 px-6 py-5 text-left text-zinc-600&quot;&gt;
+      &lt;span class=&quot;inline-flex items-center gap-3 text-[1.35rem] font-bold&quot;&gt;&lt;span class=&quot;material-symbols-outlined&quot;&gt;support_agent&lt;/span&gt;Bize Ulasin&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">3 Adimli Stepper</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sepet akisindaki 1-2-3 ilerleme blogu.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><section class="rounded-[1.75rem] bg-zinc-50 px-8 py-10">
+  <div class="grid grid-cols-3 gap-6 text-center">
+    <div class="relative">
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lime-500 text-[28px] font-black text-white">1</div>
+      <p class="mt-3 text-[1.05rem] font-bold text-zinc-800">Alisveris Sepetiniz</p>
+    </div>
+    <div>
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 text-[28px] font-black text-zinc-700">2</div>
+      <p class="mt-3 text-[1.05rem] font-bold text-zinc-600">Teslimat Bilgileriniz</p>
+    </div>
+    <div>
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 text-[28px] font-black text-zinc-700">3</div>
+      <p class="mt-3 text-[1.05rem] font-bold text-zinc-600">Onay Sayfasi</p>
+    </div>
+  </div>
+</section></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;section class=&quot;rounded-[1.75rem] bg-zinc-50 px-8 py-10&quot;&gt;
+  &lt;div class=&quot;grid grid-cols-3 gap-6 text-center&quot;&gt;
+    &lt;div class=&quot;relative&quot;&gt;
+      &lt;div class=&quot;mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lime-500 text-[28px] font-black text-white&quot;&gt;1&lt;/div&gt;
+      &lt;p class=&quot;mt-3 text-[1.05rem] font-bold text-zinc-800&quot;&gt;Alisveris Sepetiniz&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 text-[28px] font-black text-zinc-700&quot;&gt;2&lt;/div&gt;
+      &lt;p class=&quot;mt-3 text-[1.05rem] font-bold text-zinc-600&quot;&gt;Teslimat Bilgileriniz&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-zinc-200 text-[28px] font-black text-zinc-700&quot;&gt;3&lt;/div&gt;
+      &lt;p class=&quot;mt-3 text-[1.05rem] font-bold text-zinc-600&quot;&gt;Onay Sayfasi&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+<section class="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-6 py-5">
+        <h3 class="text-[1.6rem] font-extrabold tracking-tight text-zinc-900">Bize Ulasin CTA</h3>
+        <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Sayfa sag altinda sabit duran floating destek cagrisi.</p>
+      </div>
+      <div class="grid gap-0 lg:grid-cols-2">
+        <div class="bg-zinc-50/70 p-6">
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-300 bg-white p-6"><button id="chatLauncher" type="button"
+  class="relative inline-flex w-max items-center gap-3 whitespace-nowrap rounded-full bg-black px-6 py-3 text-white shadow-[0_18px_40px_rgba(0,0,0,0.24)] transition-transform duration-300 hover:-translate-y-0.5">
+  <span class="contact-pulse-border pointer-events-none absolute inset-0 rounded-full border"></span>
+  <span class="font-headline text-[13px] font-extrabold uppercase tracking-[0.35em] text-white">Bize Ulasin</span>
+  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
+    <span class="material-symbols-outlined text-[20px] text-white">mode_comment</span>
+  </span>
+</button></div>
+        </div>
+        <div class="border-t border-zinc-200 bg-zinc-900 p-0 lg:border-l lg:border-t-0">
+          <pre class="overflow-x-auto p-6 text-[13px] leading-6 text-zinc-100"><code>&lt;button id=&quot;chatLauncher&quot; type=&quot;button&quot;
+  class=&quot;relative inline-flex w-max items-center gap-3 whitespace-nowrap rounded-full bg-black px-6 py-3 text-white shadow-[0_18px_40px_rgba(0,0,0,0.24)] transition-transform duration-300 hover:-translate-y-0.5&quot;&gt;
+  &lt;span class=&quot;contact-pulse-border pointer-events-none absolute inset-0 rounded-full border&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;font-headline text-[13px] font-extrabold uppercase tracking-[0.35em] text-white&quot;&gt;Bize Ulasin&lt;/span&gt;
+  &lt;span class=&quot;flex h-10 w-10 items-center justify-center rounded-full bg-white/10&quot;&gt;
+    &lt;span class=&quot;material-symbols-outlined text-[20px] text-white&quot;&gt;mode_comment&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+      </section>
+
+      <section id="js-patterns" class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">5. Tekrar Kullanilabilir JS Kaliplari</h2>
+          <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Projede vanilla JS tercih ediliyor. Asagidaki ornekler dogrudan mevcut sayfalardaki calisan akislarin sadeleştirilmis versiyonlari.</p>
+        </div>
+        <div class="space-y-5"><section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Hesabim Dropdown (click + hover)</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>const accountMenuButton = document.getElementById(&#x27;accountMenuButton&#x27;);
+const accountMenuPanel = document.getElementById(&#x27;accountMenuPanel&#x27;);
+let accountMenuCloseTimer;
+
+function openAccountMenu() {
+  clearTimeout(accountMenuCloseTimer);
+  accountMenuButton.setAttribute(&#x27;aria-expanded&#x27;, &#x27;true&#x27;);
+  accountMenuButton.classList.add(&#x27;border-primary&#x27;, &#x27;bg-white&#x27;);
+  accountMenuPanel.classList.remove(&#x27;pointer-events-none&#x27;, &#x27;invisible&#x27;, &#x27;translate-y-2&#x27;, &#x27;opacity-0&#x27;);
+  accountMenuPanel.classList.add(&#x27;pointer-events-auto&#x27;, &#x27;visible&#x27;, &#x27;translate-y-0&#x27;, &#x27;opacity-100&#x27;);
+}
+
+function closeAccountMenu() {
+  accountMenuButton.setAttribute(&#x27;aria-expanded&#x27;, &#x27;false&#x27;);
+  accountMenuButton.classList.remove(&#x27;border-primary&#x27;, &#x27;bg-white&#x27;);
+  accountMenuPanel.classList.add(&#x27;pointer-events-none&#x27;, &#x27;invisible&#x27;, &#x27;translate-y-2&#x27;, &#x27;opacity-0&#x27;);
+  accountMenuPanel.classList.remove(&#x27;pointer-events-auto&#x27;, &#x27;visible&#x27;, &#x27;translate-y-0&#x27;, &#x27;opacity-100&#x27;);
+}
+
+accountMenuButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+  const expanded = accountMenuButton.getAttribute(&#x27;aria-expanded&#x27;) === &#x27;true&#x27;;
+  expanded ? closeAccountMenu() : openAccountMenu();
+});
+
+accountMenuButton.addEventListener(&#x27;mouseenter&#x27;, openAccountMenu);
+accountMenuPanel.addEventListener(&#x27;mouseenter&#x27;, () =&gt; clearTimeout(accountMenuCloseTimer));
+accountMenuButton.addEventListener(&#x27;mouseleave&#x27;, () =&gt; accountMenuCloseTimer = setTimeout(closeAccountMenu, 120));
+accountMenuPanel.addEventListener(&#x27;mouseleave&#x27;, () =&gt; accountMenuCloseTimer = setTimeout(closeAccountMenu, 120));</code></pre>
+    </section>
+<section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Sepet Offcanvas</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>const cartButton = document.getElementById(&#x27;cartButton&#x27;);
+const cartModal = document.getElementById(&#x27;cartModal&#x27;);
+const cartModalPanel = document.getElementById(&#x27;cartModalPanel&#x27;);
+
+function openCartModal() {
+  cartModal.classList.remove(&#x27;hidden&#x27;);
+  cartModal.classList.add(&#x27;flex&#x27;);
+  requestAnimationFrame(() =&gt; {
+    cartModal.classList.remove(&#x27;pointer-events-none&#x27;, &#x27;opacity-0&#x27;);
+    cartModal.classList.add(&#x27;opacity-100&#x27;);
+    cartModalPanel.classList.remove(&#x27;translate-x-full&#x27;);
+    cartModalPanel.classList.add(&#x27;translate-x-0&#x27;);
+  });
+}
+
+function closeCartModal() {
+  cartModal.classList.add(&#x27;pointer-events-none&#x27;, &#x27;opacity-0&#x27;);
+  cartModal.classList.remove(&#x27;opacity-100&#x27;);
+  cartModalPanel.classList.remove(&#x27;translate-x-0&#x27;);
+  cartModalPanel.classList.add(&#x27;translate-x-full&#x27;);
+  setTimeout(() =&gt; {
+    cartModal.classList.add(&#x27;hidden&#x27;);
+    cartModal.classList.remove(&#x27;flex&#x27;);
+  }, 300);
+}</code></pre>
+    </section>
+<section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Mobil Filtre Ac / Kapat</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>const mobileFiltersToggle = document.getElementById(&#x27;mobileFiltersToggle&#x27;);
+const mobileFiltersToggleLabel = document.getElementById(&#x27;mobileFiltersToggleLabel&#x27;);
+const mobileFiltersToggleIcon = document.getElementById(&#x27;mobileFiltersToggleIcon&#x27;);
+const mobileFiltersPanel = document.getElementById(&#x27;mobileFiltersPanel&#x27;);
+
+function setMobileFiltersOpen(isOpen) {
+  mobileFiltersToggle.setAttribute(&#x27;aria-expanded&#x27;, String(isOpen));
+  mobileFiltersPanel.classList.toggle(&#x27;hidden&#x27;, !isOpen);
+  mobileFiltersToggleIcon.classList.toggle(&#x27;rotate-180&#x27;, isOpen);
+  mobileFiltersToggleLabel.textContent = isOpen ? &#x27;Gizle&#x27; : &#x27;Goster&#x27;;
+}
+
+mobileFiltersToggle.addEventListener(&#x27;click&#x27;, () =&gt; {
+  const isOpen = mobileFiltersToggle.getAttribute(&#x27;aria-expanded&#x27;) === &#x27;true&#x27;;
+  setMobileFiltersOpen(!isOpen);
+});</code></pre>
+    </section>
+<section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Marka Kullanim Kosullari Select</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>const brandTermsMap = {
+  mavi: {
+    title: &#x27;Mavi Hediye Ceki Kullanim Kosullari&#x27;,
+    image: &#x27;./assets/brands/mavi-logo.png&#x27;,
+    rules: [
+      &#x27;Sadece Mavi magazalarinda gecerlidir.&#x27;,
+      &#x27;Tek seferde kullanilir.&#x27;,
+      &#x27;12 ay icinde kullanilmalidir.&#x27;
+    ]
+  },
+  opet: {
+    title: &#x27;Opet Hediye Ceki Kullanim Kosullari&#x27;,
+    image: &#x27;./assets/brands/opet-logo.png&#x27;,
+    rules: [
+      &#x27;Secili istasyonlarda gecerli olabilir.&#x27;,
+      &#x27;Bakiye parcali kullanima uygundur.&#x27;
+    ]
+  }
+};
+
+function renderBrandTerms(brandKey) {
+  const data = brandTermsMap[brandKey];
+  if (!data) return;
+  brandTermsTitle.textContent = data.title;
+  brandTermsImage.src = data.image;
+  brandTermsList.innerHTML = data.rules.map(rule =&gt; `&lt;li&gt;${rule}&lt;/li&gt;`).join(&#x27;&#x27;);
+}</code></pre>
+    </section>
+<section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Adres / Telefon Onay Patterni</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>saveButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+  const wantsSave = window.confirm(&#x27;Bilgileri kaydetmek istediginize emin misiniz?&#x27;);
+  if (!wantsSave) return;
+
+  const otp = otpInput.value.trim();
+  if (otp !== &#x27;1234&#x27;) {
+    otpError.textContent = &#x27;Gecersiz OTP kodu&#x27;;
+    return;
+  }
+
+  persistFormData();
+  closePanel();
+});</code></pre>
+    </section>
+<section class="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm">
+      <div class="border-b border-zinc-200 px-5 py-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Basit Urun Render Patterni</h3>
+      </div>
+      <pre class="overflow-x-auto bg-zinc-900 p-6 text-[13px] leading-6 text-zinc-100"><code>function renderProducts(items) {
+  productGrid.innerHTML = items.map((item) =&gt; `
+    &lt;article class=&quot;group overflow-hidden rounded-[1.75rem] border border-zinc-200/70 bg-white shadow-sm&quot;&gt;
+      ${item.feePoints ? `&lt;div class=&quot;service-ribbon service-ribbon--header&quot;&gt;...&lt;/div&gt;` : &#x27;&#x27;}
+      &lt;div class=&quot;flex min-h-[260px] flex-col items-center justify-between px-6 pt-8 text-center&quot;&gt;
+        &lt;img src=&quot;${item.logo}&quot; alt=&quot;${item.brand}&quot; class=&quot;max-h-28 w-auto object-contain&quot; /&gt;
+        &lt;div class=&quot;pb-5&quot;&gt;
+          &lt;p class=&quot;text-[2.15rem] font-black tracking-tight text-primary&quot;&gt;${item.price}&lt;/p&gt;
+          &lt;p class=&quot;mt-2 text-[1.2rem] font-semibold text-zinc-600&quot;&gt;${item.subtitle}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  `).join(&#x27;&#x27;);
+}</code></pre>
+    </section></div>
+      </section>
+
+      <section class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6">
+          <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">6. Calisma Kurallari ve Ekleme Notlari</h2>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-2">
+          <div class="rounded-[1.4rem] border border-zinc-200 bg-zinc-50 p-6">
+            <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Yeni Sayfa Eklerken</h3>
+            <ul class="mt-4 space-y-3 text-[1rem] leading-7 text-zinc-600">
+              <li>1. Ortak header / footer / chat launcher bloklarini mevcut bir sayfadan tasiyin.</li>
+              <li>2. Hesabim dropdown ve sepet offcanvas ID'lerini ayni birakin.</li>
+              <li>3. Renklerde once <code>primary</code>, <code>zinc</code>, <code>surface</code> ailesini kullanin.</li>
+              <li>4. Yeni kart yazarken en dis blokta genelde <code>rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm</code> yapisi kullaniliyor.</li>
+            </ul>
+          </div>
+          <div class="rounded-[1.4rem] border border-zinc-200 bg-zinc-50 p-6">
+            <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Mevcut Bileseni Duzenlerken</h3>
+            <ul class="mt-4 space-y-3 text-[1rem] leading-7 text-zinc-600">
+              <li>1. Ayni bilesen birden fazla sayfada varsa yalniz bir kopyayi degil tum shell kopyalarini kontrol edin.</li>
+              <li>2. Mobil / desktop kirilimlarini birlikte dusunun; bircok blokta <code>md:</code> ve <code>lg:</code> varyantlari aktif.</li>
+              <li>3. JS baglantili alanlarda ID degisirse ilgili script de guncellenmelidir.</li>
+              <li>4. Yeni utility eklemekten once mevcut sinif indeksinde ayni isi goren class var mi kontrol edin.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="class-index" class="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <div class="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2 class="text-[2rem] font-black tracking-tight text-zinc-900">7. Tum Class Indeksi</h2>
+            <p class="mt-2 text-[1rem] leading-7 text-zinc-600">Projede gecen benzersiz utility / custom class sayisi: <strong>616</strong>. Asagidaki alandan arayabilir veya kategori bazli tarayabilirsiniz.</p>
+          </div>
+          <div class="w-full lg:max-w-sm">
+            <label for="classSearch" class="mb-2 block text-[0.95rem] font-semibold text-zinc-600">Class ara</label>
+            <input id="classSearch" type="text" placeholder="orn: rounded, bg-primary, md:flex"
+              class="h-12 w-full rounded-[1rem] border border-zinc-300 bg-white px-4 text-[1rem] text-zinc-700 placeholder:text-zinc-400 focus:border-primary focus:ring-2 focus:ring-primary/20" />
+          </div>
+        </div>
+        <div class="space-y-4"><section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Layout</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">27 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="col-span-12">col-span-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="col-span-full">col-span-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex">flex</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex-1">flex-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex-col">flex-col</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex-col-reverse">flex-col-reverse</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex-grow">flex-grow</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="flex-wrap">flex-wrap</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="grid">grid</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="grid-cols-1">grid-cols-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="grid-cols-12">grid-cols-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="grid-cols-3">grid-cols-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="grid-cols-[2.2fr_1.2fr_1fr]">grid-cols-[2.2fr_1.2fr_1fr]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="items-center">items-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="items-end">items-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="items-start">items-start</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="items-stretch">items-stretch</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="justify-between">justify-between</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="justify-center">justify-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="justify-end">justify-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="justify-self-center">justify-self-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="justify-start">justify-start</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="order-1">order-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="order-2">order-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="order-3">order-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="self-end">self-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shrink-0">shrink-0</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Spacing</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">86 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-1">gap-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-1.5">gap-1.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-2">gap-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-3">gap-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-4">gap-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-5">gap-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-6">gap-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-8">gap-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-x-6">gap-x-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="gap-y-2">gap-y-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="m-5">m-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-10">mb-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-12">mb-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-2">mb-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-3">mb-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-4">mb-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-5">mb-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-6">mb-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-7">mb-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mb-8">mb-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="ml-1">ml-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="ml-auto">ml-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-0.5">mt-0.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-1">mt-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-16">mt-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-2">mt-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-3">mt-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-4">mt-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-5">mt-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-6">mt-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-7">mt-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-8">mt-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mt-auto">mt-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="mx-auto">mx-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="my-1">my-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="p-2">p-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="p-4">p-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="p-5">p-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="p-6">p-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="p-8">p-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pb-1">pb-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pb-2">pb-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pb-24">pb-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pb-5">pb-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pb-6">pb-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-1">pr-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-14">pr-14</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-16">pr-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-3">pr-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-5">pr-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pr-8">pr-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-1">pt-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-2">pt-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-3">pt-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-4">pt-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-5">pt-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pt-8">pt-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-1">px-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-1.5">px-1.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-2">px-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-3">px-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-4">px-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-5">px-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-6">px-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="px-8">px-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-0">py-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-1">py-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-1.5">py-1.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-10">py-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-12">py-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-14">py-14</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-2">py-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-2.5">py-2.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-3">py-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-3.5">py-3.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-4">py-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-5">py-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-6">py-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-7">py-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="py-8">py-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-1.5">space-y-1.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-2">space-y-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-3">space-y-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-4">space-y-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-5">space-y-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="space-y-6">space-y-6</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Sizing ve Konum</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">124 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="aspect-[21/9]">aspect-[21/9]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bottom-0">bottom-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bottom-24">bottom-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bottom-[-4.75rem]">bottom-[-4.75rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bottom-[4.5rem]">bottom-[4.5rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-10">h-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-11">h-11</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-12">h-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-14">h-14</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-16">h-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-20">h-20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-24">h-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-28">h-28</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-36">h-36</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-44">h-44</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-5">h-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-6">h-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-60">h-60</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-64">h-64</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-7">h-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-96">h-96</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-full">h-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="h-px">h-px</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hidden">hidden</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:-translate-y-0.5">hover:-translate-y-0.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-primary">hover:bg-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-primary/5">hover:bg-primary/5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-red-50">hover:bg-red-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-surface-container-low">hover:bg-surface-container-low</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-white">hover:bg-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-zinc-200">hover:bg-zinc-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:bg-zinc-50">hover:bg-zinc-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:border-primary">hover:border-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:border-zinc-400">hover:border-zinc-400</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:brightness-110">hover:brightness-110</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:scale-[1.01]">hover:scale-[1.01]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:shadow-[0_12px_32px_rgba(227,6,19,0.3)]">hover:shadow-[0_12px_32px_rgba(227,6,19,0.3)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:shadow-[0_20px_50px_rgba(26,28,28,0.08)]">hover:shadow-[0_20px_50px_rgba(26,28,28,0.08)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:shadow-md">hover:shadow-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-green-700">hover:text-green-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-primary">hover:text-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-red-600">hover:text-red-600</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-secondary">hover:text-secondary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-white">hover:text-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="hover:text-zinc-900">hover:text-zinc-900</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="inset-0">inset-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="inset-x-0">inset-x-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="inset-y-0">inset-y-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="left-1/3">left-1/3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="left-24">left-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="left-4">left-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-10">max-h-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-12">max-h-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-28">max-h-28</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-[3.7rem]">max-h-[3.7rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-[360px]">max-h-[360px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-[88vh]">max-h-[88vh]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-[calc(100vh-2rem)]">max-h-[calc(100vh-2rem)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-[calc(88vh-6.5rem)]">max-h-[calc(88vh-6.5rem)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-h-full">max-h-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-2xl">max-w-2xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-3xl">max-w-3xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-4xl">max-w-4xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-[1120px]">max-w-[1120px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-[1180px]">max-w-[1180px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-[1440px]">max-w-[1440px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-[4rem]">max-w-[4rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-[78%]">max-w-[78%]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-full">max-w-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-lg">max-w-lg</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-md">max-w-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-sm">max-w-sm</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="max-w-xl">max-w-xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="min-h-[260px]">min-h-[260px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="min-h-[34rem]">min-h-[34rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="min-h-screen">min-h-screen</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="min-w-0">min-w-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="min-w-[24px]">min-w-[24px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="overflow-hidden">overflow-hidden</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="overflow-x-auto">overflow-x-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="overflow-y-auto">overflow-y-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="right-0">right-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="right-10">right-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="right-24">right-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="right-4">right-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="right-6">right-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-16">top-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-20">top-20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-24">top-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-36">top-36</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-4">top-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="top-[calc(100%+10px)]">top-[calc(100%+10px)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="translate-x-full">translate-x-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="translate-y-2">translate-y-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="translate-y-full">translate-y-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="truncate">truncate</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-10">w-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-11">w-11</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-12">w-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-14">w-14</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-24">w-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-28">w-28</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-36">w-36</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-44">w-44</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-5">w-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-60">w-60</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-64">w-64</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-7">w-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-96">w-96</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-auto">w-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-full">w-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="w-max">w-max</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="whitespace-nowrap">whitespace-nowrap</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-10">z-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-30">z-30</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-50">z-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[40]">z-[40]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[58]">z-[58]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[59]">z-[59]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[75]">z-[75]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[79]">z-[79]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[80]">z-[80]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="z-[92]">z-[92]</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Tipografi</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">91 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-black">font-black</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-bold">font-bold</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-extrabold">font-extrabold</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-headline">font-headline</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-medium">font-medium</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="font-semibold">font-semibold</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-6">leading-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-7">leading-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-8">leading-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-none">leading-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-relaxed">leading-relaxed</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="leading-tight">leading-tight</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-2xl">text-2xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-3xl">text-3xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.02rem]">text-[1.02rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.05rem]">text-[1.05rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.15rem]">text-[1.15rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.1rem]">text-[1.1rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.2rem]">text-[1.2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.35rem]">text-[1.35rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.45rem]">text-[1.45rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.65rem]">text-[1.65rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.6rem]">text-[1.6rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.75rem]">text-[1.75rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.7rem]">text-[1.7rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.85rem]">text-[1.85rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1.9rem]">text-[1.9rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[10px]">text-[10px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[11px]">text-[11px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[12px]">text-[12px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[13px]">text-[13px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[14px]">text-[14px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[15px]">text-[15px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[16px]">text-[16px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[17px]">text-[17px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[18px]">text-[18px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[19px]">text-[19px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[1rem]">text-[1rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[2.15rem]">text-[2.15rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[2.65rem]">text-[2.65rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[20px]">text-[20px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[22px]">text-[22px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[24px]">text-[24px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[28px]">text-[28px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[2rem]">text-[2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-[30px]">text-[30px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-base">text-base</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-center">text-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-green-600">text-green-600</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-left">text-left</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-lg">text-lg</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-lime-700">text-lime-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-lime-800">text-lime-800</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-on-background">text-on-background</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-on-primary">text-on-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-on-surface">text-on-surface</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-on-surface-variant">text-on-surface-variant</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-primary">text-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-red-500">text-red-500</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-red-600">text-red-600</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-red-700">text-red-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-right">text-right</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-rose-700">text-rose-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-rose-800">text-rose-800</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-secondary">text-secondary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-sky-600">text-sky-600</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-sky-700">text-sky-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-sky-800">text-sky-800</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-sky-900">text-sky-900</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-sm">text-sm</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-white">text-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-white/80">text-white/80</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-xl">text-xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-xs">text-xs</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-400">text-zinc-400</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-500">text-zinc-500</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-600">text-zinc-600</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-700">text-zinc-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-800">text-zinc-800</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="text-zinc-900">text-zinc-900</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.08em]">tracking-[0.08em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.12em]">tracking-[0.12em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.14em]">tracking-[0.14em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.16em]">tracking-[0.16em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.18em]">tracking-[0.18em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.22em]">tracking-[0.22em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-[0.35em]">tracking-[0.35em]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-tight">tracking-tight</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-tighter">tracking-tighter</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="tracking-widest">tracking-widest</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="uppercase">uppercase</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Arkaplan ve Renk</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">46 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-background">bg-background</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-black">bg-black</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-black/35">bg-black/35</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-black/45">bg-black/45</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-emerald-100/80">bg-emerald-100/80</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-gradient-to-br">bg-gradient-to-br</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-gradient-to-tr">bg-gradient-to-tr</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-indigo-100/90">bg-indigo-100/90</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-lime-100">bg-lime-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-lime-50">bg-lime-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-lime-500">bg-lime-500</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-primary">bg-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-primary-container">bg-primary-container</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-primary/10">bg-primary/10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-primary/5">bg-primary/5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-primary/8">bg-primary/8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-rose-100">bg-rose-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-rose-50">bg-rose-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-secondary-container/20">bg-secondary-container/20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-sky-100">bg-sky-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-sky-100/90">bg-sky-100/90</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-sky-50">bg-sky-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-surface">bg-surface</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-surface-container-highest">bg-surface-container-highest</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-surface-container-low">bg-surface-container-low</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-surface-container-lowest">bg-surface-container-lowest</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-tertiary-container/10">bg-tertiary-container/10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-white">bg-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-white/10">bg-white/10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-white/70">bg-white/70</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-white/80">bg-white/80</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-100">bg-zinc-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-100/70">bg-zinc-100/70</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-100/90">bg-zinc-100/90</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-200">bg-zinc-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-300">bg-zinc-300</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-50">bg-zinc-50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-50/70">bg-zinc-50/70</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-50/80">bg-zinc-50/80</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="bg-zinc-900">bg-zinc-900</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="from-primary/90">from-primary/90</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="from-zinc-100">from-zinc-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="to-transparent">to-transparent</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="to-zinc-100">to-zinc-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="via-primary-container/40">via-primary-container/40</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="via-white">via-white</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Border ve Radius</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">47 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border">border</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-2">border-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-[4px]">border-[4px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-b">border-b</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-b-2">border-b-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-dashed">border-dashed</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-lime-200">border-lime-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-none">border-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-primary">border-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-primary/20">border-primary/20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-red-700">border-red-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-rose-200">border-rose-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-sky-100">border-sky-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-sky-200">border-sky-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-surface-container-highest">border-surface-container-highest</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-t">border-t</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-transparent">border-transparent</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-white/10">border-white/10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-white/20">border-white/20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-zinc-100">border-zinc-100</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-zinc-200">border-zinc-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-zinc-200/70">border-zinc-200/70</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-zinc-300">border-zinc-300</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="border-zinc-300/80">border-zinc-300/80</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="ring-2">ring-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="ring-white">ring-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded">rounded</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-2xl">rounded-2xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[0.9rem]">rounded-[0.9rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.05rem]">rounded-[1.05rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.15rem]">rounded-[1.15rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.1rem]">rounded-[1.1rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.25rem]">rounded-[1.25rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.35rem]">rounded-[1.35rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.45rem]">rounded-[1.45rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.4rem]">rounded-[1.4rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.5rem]">rounded-[1.5rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1.75rem]">rounded-[1.75rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[1rem]">rounded-[1rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-[2rem]">rounded-[2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-full">rounded-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-l-[2rem]">rounded-l-[2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-md">rounded-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-t-[1.75rem]">rounded-t-[1.75rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-tl-md">rounded-tl-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-tr-md">rounded-tr-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="rounded-xl">rounded-xl</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Durum ve Efekt</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">37 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="active:scale-[0.98]">active:scale-[0.98]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="backdrop-blur-md">backdrop-blur-md</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="backdrop-blur-xl">backdrop-blur-xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="blur-[100px]">blur-[100px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="blur-[120px]">blur-[120px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="duration-200">duration-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="duration-300">duration-300</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="duration-700">duration-700</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus-visible:bg-white">focus-visible:bg-white</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus-visible:border-primary">focus-visible:border-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:border-primary">focus:border-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:border-zinc-400">focus:border-zinc-400</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:ring-2">focus:ring-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:ring-primary">focus:ring-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:ring-primary/20">focus:ring-primary/20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="focus:ring-zinc-200">focus:ring-zinc-200</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="group">group</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="group-hover:bg-primary">group-hover:bg-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="group-hover:scale-105">group-hover:scale-105</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="group-open:rotate-180">group-open:rotate-180</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="opacity-0">opacity-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="selection:bg-primary-container/20">selection:bg-primary-container/20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="selection:text-primary">selection:text-primary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_-20px_60px_rgba(0,0,0,0.18)]">shadow-[0_-20px_60px_rgba(0,0,0,0.18)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_18px_40px_rgba(0,0,0,0.12)]">shadow-[0_18px_40px_rgba(0,0,0,0.12)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_18px_40px_rgba(0,0,0,0.24)]">shadow-[0_18px_40px_rgba(0,0,0,0.24)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_24px_80px_rgba(0,0,0,0.22)]">shadow-[0_24px_80px_rgba(0,0,0,0.22)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_28px_70px_rgba(0,0,0,0.2)]">shadow-[0_28px_70px_rgba(0,0,0,0.2)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_8px_18px_rgba(170,0,21,0.24)]">shadow-[0_8px_18px_rgba(170,0,21,0.24)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-[0_8px_24px_rgba(227,6,19,0.2)]">shadow-[0_8px_24px_rgba(227,6,19,0.2)]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-sm">shadow-sm</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-xl">shadow-xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="transition-all">transition-all</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="transition-colors">transition-colors</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="transition-opacity">transition-opacity</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="transition-shadow">transition-shadow</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="transition-transform">transition-transform</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Responsive Varyantlar</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">117 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:col-span-2">lg:col-span-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:flex">lg:flex</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:flex-col">lg:flex-col</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:gap-10">lg:gap-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:gap-4">lg:gap-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:gap-8">lg:gap-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:grid-cols-10">lg:grid-cols-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:grid-cols-2">lg:grid-cols-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:grid-cols-3">lg:grid-cols-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:hidden">lg:hidden</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:items-end">lg:items-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:justify-center">lg:justify-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:p-24">lg:p-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:p-7">lg:p-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:p-8">lg:p-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:px-10">lg:px-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:px-24">lg:px-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:px-3">lg:px-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:px-6">lg:px-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:px-8">lg:px-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:py-12">lg:py-12</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:py-2">lg:py-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:text-7xl">lg:text-7xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:text-[2.2rem]">lg:text-[2.2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="lg:whitespace-nowrap">lg:whitespace-nowrap</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:-right-2">md:-right-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:-top-1.5">md:-top-1.5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:aspect-[25/9]">md:aspect-[25/9]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:bg-transparent">md:bg-transparent</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:block">md:block</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:bottom-[4.5rem]">md:bottom-[4.5rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:col-span-3">md:col-span-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:col-span-9">md:col-span-9</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:flex">md:flex</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:flex-1">md:flex-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:flex-nowrap">md:flex-nowrap</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:flex-row">md:flex-row</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:gap-2">md:gap-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:gap-3">md:gap-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:gap-6">md:gap-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:grid-cols-2">md:grid-cols-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:h-14">md:h-14</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:hidden">md:hidden</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:items-center">md:items-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:justify-end">md:justify-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:justify-start">md:justify-start</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:max-h-none">md:max-h-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:min-h-0">md:min-h-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:ml-auto">md:ml-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:mt-0">md:mt-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:order-none">md:order-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:overflow-visible">md:overflow-visible</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:p-16">md:p-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:pb-0">md:pb-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:pr-0">md:pr-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:pr-5">md:pr-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:pt-0">md:pt-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:pt-2">md:pt-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:px-0">md:px-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:px-16">md:px-16</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:px-3">md:px-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:px-4">md:px-4</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:px-6">md:px-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:py-2">md:py-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:py-3">md:py-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:right-8">md:right-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:rounded-none">md:rounded-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:shadow-none">md:shadow-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:shrink-0">md:shrink-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:space-y-6">md:space-y-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:static">md:static</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:sticky">md:sticky</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:text-5xl">md:text-5xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:text-[18px]">md:text-[18px]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:text-sm">md:text-sm</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:text-xl">md:text-xl</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:top-0">md:top-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:translate-y-0">md:translate-y-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:w-[45%]">md:w-[45%]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:w-[55%]">md:w-[55%]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:w-auto">md:w-auto</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="md:z-[70]">md:z-[70]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:flex">sm:flex</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:flex-row">sm:flex-row</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:gap-6">sm:gap-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:grid-cols-2">sm:grid-cols-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:grid-cols-3">sm:grid-cols-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:grid-cols-5">sm:grid-cols-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:h-20">sm:h-20</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:h-8">sm:h-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:items-center">sm:items-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:justify-between">sm:justify-between</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:justify-end">sm:justify-end</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:p-10">sm:p-10</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:p-6">sm:p-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:pt-5">sm:pt-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:px-5">sm:px-5</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:px-6">sm:px-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:px-7">sm:px-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:px-8">sm:px-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:py-0">sm:py-0</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:py-6">sm:py-6</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:py-7">sm:py-7</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:py-8">sm:py-8</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:rounded-[2rem]">sm:rounded-[2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:self-center">sm:self-center</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:text-[2.15rem]">sm:text-[2.15rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:text-[2.25rem]">sm:text-[2.25rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:text-[2rem]">sm:text-[2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:text-[3.2rem]">sm:text-[3.2rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sm:w-[40%]">sm:w-[40%]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:grid-cols-2">xl:grid-cols-2</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:grid-cols-3">xl:grid-cols-3</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:grid-cols-[0.78fr_2.22fr]">xl:grid-cols-[0.78fr_2.22fr]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:grid-cols-[minmax(0,1fr)_23rem]">xl:grid-cols-[minmax(0,1fr)_23rem]</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:sticky">xl:sticky</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="xl:top-28">xl:top-28</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Custom Siniflar</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">12 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="contact-pulse-border">contact-pulse-border</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="filter-scroll">filter-scroll</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="help-tab-panel">help-tab-panel</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="help-tab-trigger">help-tab-trigger</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="no-scrollbar">no-scrollbar</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="service-ribbon">service-ribbon</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="service-ribbon__label">service-ribbon__label</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="service-ribbon__points">service-ribbon__points</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="service-ribbon__subpoints">service-ribbon__subpoints</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="service-ribbon__text">service-ribbon__text</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="shadow-shell">shadow-shell</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="stats-overview-grid">stats-overview-grid</span></div>
+    </section>
+<section class="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center justify-between gap-4">
+        <h3 class="text-[1.35rem] font-extrabold tracking-tight text-zinc-900">Diger</h3>
+        <span class="rounded-full bg-primary/8 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary">29 class</span>
+      </div>
+      <div class="flex flex-wrap gap-2"><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="-left-24">-left-24</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="-right-1">-right-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="-top-1">-top-1</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="-translate-y-full">-translate-y-full</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="absolute">absolute</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="block">block</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="cursor-pointer">cursor-pointer</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="fixed">fixed</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="inline-flex">inline-flex</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="invisible">invisible</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="light">light</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="material-symbols-outlined">material-symbols-outlined</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="object-contain">object-contain</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="object-cover">object-cover</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="outline-none">outline-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="placeholder:text-on-surface-variant/50">placeholder:text-on-surface-variant/50</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="placeholder:text-secondary">placeholder:text-secondary</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="placeholder:text-zinc-400">placeholder:text-zinc-400</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="pointer-events-none">pointer-events-none</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="relative">relative</span><span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[12px] font-medium text-zinc-700 class-pill" data-class-name="sticky">sticky</span></div>
+    </section></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const classSearch = document.getElementById('classSearch');
+    if (classSearch) {
+      classSearch.addEventListener('input', () => {
+        const query = classSearch.value.trim().toLowerCase();
+        document.querySelectorAll('.class-pill').forEach((pill) => {
+          const token = pill.getAttribute('data-class-name').toLowerCase();
+          const match = !query || token.includes(query);
+          pill.style.display = match ? 'inline-flex' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

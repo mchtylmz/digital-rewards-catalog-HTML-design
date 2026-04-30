@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hediyemo Puan Hareketlerim</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'outline-variant': '#e5bdb9',
+            'surface-variant': '#e2e2e2',
+            'primary-fixed': '#ffdad6',
+            error: '#ba1a1a',
+            'on-primary-container': '#ffe8e6',
+            'tertiary-fixed-dim': '#84cfff',
+            'surface-tint': '#be0b1c',
+            'primary-container': '#d12027',
+            'on-secondary-fixed': '#1b1c1c',
+            'on-secondary-container': '#656464',
+            'error-container': '#ffdad6',
+            outline: '#906f6c',
+            'on-tertiary-fixed-variant': '#004c6c',
+            'on-primary': '#ffffff',
+            'on-primary-fixed-variant': '#930011',
+            background: '#f9f9f9',
+            'tertiary-fixed': '#c7e7ff',
+            'inverse-primary': '#ffb3ad',
+            'tertiary-container': '#0073a1',
+            secondary: '#5f5e5e',
+            'surface-container-highest': '#e2e2e2',
+            'on-tertiary': '#ffffff',
+            tertiary: '#00597e',
+            'secondary-container': '#e4e2e1',
+            surface: '#f9f9f9',
+            'surface-dim': '#dadada',
+            'surface-bright': '#f9f9f9',
+            'on-error': '#ffffff',
+            'surface-container': '#eeeeee',
+            'inverse-surface': '#2f3131',
+            'on-error-container': '#93000a',
+            'on-tertiary-container': '#def0ff',
+            'on-background': '#1a1c1c',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-high': '#e8e8e8',
+            'primary-fixed-dim': '#ffb3ad',
+            'on-secondary-fixed-variant': '#474747',
+            'on-secondary': '#ffffff',
+            'surface-container-low': '#f3f3f3',
+            'on-surface': '#1a1c1c',
+            'on-surface-variant': '#5c403d',
+            'secondary-fixed-dim': '#c8c6c6',
+            primary: '#aa0015',
+            'on-primary-fixed': '#410003',
+            'secondary-fixed': '#e4e2e1',
+            'on-tertiary-fixed': '#001e2e',
+            'inverse-on-surface': '#f1f1f1'
+          },
+          fontFamily: {
+            headline: ['Manrope', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            label: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            shell: '0 10px 40px rgba(26, 28, 28, 0.06)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    .font-headline {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .contact-pulse-border {
+      border-width: 1.5px;
+      border-color: rgba(170, 0, 21, 0.88);
+      animation: contactBorderPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes contactBorderPulse {
+      0%, 100% {
+        opacity: 0.82;
+        box-shadow:
+          0 0 0 1px rgba(170, 0, 21, 0.4),
+          0 0 10px rgba(170, 0, 21, 0.18);
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow:
+          0 0 0 2px rgba(170, 0, 21, 0.9),
+          0 0 18px rgba(170, 0, 21, 0.36),
+          0 0 30px rgba(170, 0, 21, 0.16);
+      }
+    }
+
+    details > summary {
+      list-style: none;
+    }
+
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .stats-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .stats-overview-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-surface text-on-surface flex flex-col">
+  <header class="z-50 w-full bg-white/80 shadow-shell backdrop-blur-xl md:sticky md:top-0">
+    <div class="border-b border-zinc-200/70 bg-white/70">
+      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-2 text-[11px] text-secondary sm:h-8 sm:px-6 sm:py-0 lg:px-8">
+        <div class="flex min-w-0 items-center gap-3 sm:gap-6">
+          <a class="inline-flex items-center gap-1.5 truncate transition-colors hover:text-primary" href="mailto:destek@hediyemo.com">
+            <span class="material-symbols-outlined text-[14px]">mail</span>
+            <span class="truncate">destek@hediyemo.com</span>
+          </a>
+          <a class="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="tel:+908505329090">
+            <span class="material-symbols-outlined text-[14px]">call</span>
+            <span>0 (850) 532 9090</span>
+          </a>
+        </div>
+        <div class="flex shrink-0 items-center gap-6">
+          <a class="inline-flex items-center gap-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.12em] text-primary transition-colors hover:text-zinc-900" href="./yardım.html">
+            <span class="material-symbols-outlined text-[15px]">headset_mic</span>
+            <span>Yardım</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mx-auto flex max-w-[1440px] flex-wrap gap-3 px-4 py-4 md:flex-nowrap md:items-center md:gap-6 md:px-6 md:py-3 lg:px-8">
+      <div class="order-1 flex w-full items-center justify-center md:order-none md:w-auto md:shrink-0 md:justify-start">
+        <a href="./index.html" aria-label="Hediyemo logo" class="block shrink-0">
+          <img
+            class="h-16 w-auto object-contain md:h-14"
+            alt="Hediyemo logo"
+            src="https://mivento.hediyemo.com/templates/img/logo.png?v=2.0.10_1777286381"
+          />
+        </a>
+      </div>
+
+      <div class="order-3 mt-2 w-full md:order-none md:mt-0 md:flex-1 md:px-4 lg:px-6">
+        <div class="relative w-full">
+          <input
+            type="text"
+            placeholder="Hediye kartı veya marka ara..."
+            class="h-14 w-full rounded-full border-none bg-surface-container-low px-6 pr-16 py-0 text-[15px] leading-none text-on-surface placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+          />
+          <button class="absolute inset-y-0 right-0 flex items-center pr-5 text-primary" type="button" aria-label="Ara">
+            <span class="material-symbols-outlined text-[30px] leading-none">search</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="order-2 w-full md:order-none md:ml-auto md:w-auto">
+        <div class="grid w-full grid-cols-3 gap-2 md:flex md:items-center md:gap-3 lg:gap-4">
+          <div class="flex min-w-0 flex-col justify-center rounded-[1.15rem] bg-zinc-100/90 px-3 py-3 md:hidden">
+            <span class="text-[10px] font-medium uppercase tracking-[0.18em] text-secondary">Puanım</span>
+            <span class="mt-1 text-[24px] font-black leading-none tracking-tight text-primary">35.500</span>
+          </div>
+          <div class="hidden lg:flex lg:flex-col lg:items-end lg:justify-center lg:px-3 lg:py-2">
+            <span class="text-[10px] font-medium uppercase tracking-[0.22em] text-secondary">Puanım</span>
+            <span class="text-[24px] font-extrabold tracking-tight text-primary">35.500</span>
+          </div>
+          <div class="relative min-w-0 md:w-auto">
+              <button
+                id="accountMenuButton"
+                class="grid h-full w-full min-w-0 grid-cols-[auto_auto] grid-rows-[auto_auto] place-content-center place-items-center gap-x-1 gap-y-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:grid-cols-none md:grid-rows-none md:gap-2 md:px-3 md:py-2 md:text-sm"
+                type="button"
+                aria-label="Hesabım"
+                aria-expanded="false"
+              >
+                <span class="material-symbols-outlined col-span-2 text-[20px] md:col-span-1 md:text-[24px]">person</span>
+                <span class="max-w-[54px] truncate text-center leading-tight md:max-w-none">Hesabım</span>
+                <span class="material-symbols-outlined text-[14px] text-zinc-400 md:text-[18px]">expand_more</span>
+              </button>
+              <div
+                id="accountMenuPanel"
+                class="pointer-events-none invisible absolute right-0 top-[calc(100%+10px)] z-30 w-64 translate-y-2 rounded-2xl border border-zinc-200 bg-white p-2 opacity-0 shadow-[0_18px_40px_rgba(0,0,0,0.12)] transition-all duration-200"
+              >
+                <div class="mb-2 rounded-[1.1rem] bg-zinc-50 px-3 py-3">
+                  <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Hoş geldin</p>
+                  <p class="mt-1 font-headline text-[1rem] font-bold tracking-tight text-zinc-800">Mucahit Yılmaz</p>
+                </div>
+            <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./puan-hareketlerim.html">
+              <span class="material-symbols-outlined text-[19px]">stars</span>
+              <span>Puan Kazanımlarım</span>
+            </a>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./siparislerim.html">
+                  <span class="material-symbols-outlined text-[19px]">receipt_long</span>
+                  <span>Siparişlerim</span>
+                </a>
+                <div class="my-1 border-t border-zinc-100"></div>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./kayitli-telefonlarim.html">
+                  <span class="material-symbols-outlined text-[19px]">phone_iphone</span>
+                  <span>Kayıtlı Telefonlarım</span>
+                </a>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./kayitli-adreslerim.html">
+                  <span class="material-symbols-outlined text-[19px]">location_on</span>
+                  <span>Kayıtlı Adreslerim</span>
+                </a>
+                <div class="my-1 border-t border-zinc-100"></div>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./bilgilerim.html">
+                  <span class="material-symbols-outlined text-[19px]">manage_accounts</span>
+                  <span>Hesap Bilgilerimi Güncelle</span>
+                </a>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50" href="#">
+                  <span class="material-symbols-outlined text-[19px]">logout</span>
+                  <span>Çıkış Yap</span>
+                </a>
+              </div>
+          </div>
+          <button
+            id="cartButton"
+            class="relative grid h-full w-full min-w-0 place-content-center place-items-center gap-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 pr-3 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:gap-2 md:px-3 md:pr-5 md:py-2 md:text-sm"
+            type="button"
+            aria-label="Sepetim"
+            aria-expanded="false"
+          >
+            <span class="material-symbols-outlined text-[20px] md:text-[24px]">shopping_bag</span>
+            <span class="truncate text-center leading-tight">Sepetim</span>
+            <span class="absolute -right-1 -top-1 inline-flex h-6 min-w-[24px] items-center justify-center rounded-full bg-primary px-1.5 text-[13px] font-extrabold leading-none text-white shadow-[0_8px_18px_rgba(170,0,21,0.24)] ring-2 ring-white md:-right-2 md:-top-1.5">3</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <section class="mx-auto max-w-[1440px] px-6 py-10 lg:px-8 lg:py-12">
+      <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+        <span class="material-symbols-outlined text-[16px]">stars</span>
+        Puan Hareketleri
+      </span>
+
+      <div class="mt-5 overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white">
+        <div class="border-b border-zinc-200 px-5 py-6 sm:px-7">
+          <h1 class="font-headline text-[1.85rem] font-extrabold tracking-tight text-zinc-900 sm:text-[2.15rem]">Puan Hareketlerim</h1>
+          <p class="mt-2 max-w-3xl text-sm leading-7 text-zinc-600">Hesabınıza tanımlanan puan yüklemelerini, yükleme tarihlerini ve tutarlarını bu alandan takip edebilirsiniz.</p>
+
+          <div class="stats-overview-grid mt-6">
+            <article class="rounded-[1.4rem] border border-sky-200 bg-sky-50 px-5 py-5">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+                  <span class="material-symbols-outlined text-[22px]">south_west</span>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[12px] font-black uppercase tracking-[0.16em] text-sky-800">Toplam Yüklenen Puan</p>
+                  <div class="mt-3">
+                    <p class="font-headline text-[2rem] font-extrabold tracking-tight text-sky-700">750</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[1.4rem] border border-rose-200 bg-rose-50 px-5 py-5">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-rose-100 text-rose-700">
+                  <span class="material-symbols-outlined text-[22px]">north_east</span>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[12px] font-black uppercase tracking-[0.16em] text-rose-800">Toplam Harcanan Puan</p>
+                  <div class="mt-3">
+                    <p class="font-headline text-[2rem] font-extrabold tracking-tight text-rose-700">277</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[1.4rem] border border-lime-200 bg-lime-50 px-5 py-5">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-lime-100 text-lime-700">
+                  <span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[12px] font-black uppercase tracking-[0.16em] text-lime-800">Kalan Puanım</p>
+                  <div class="mt-3">
+                    <p class="font-headline text-[2rem] font-extrabold tracking-tight text-lime-700">444</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="hidden md:block">
+          <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 border-b border-zinc-200 bg-zinc-50/80 px-5 py-4 text-sm font-extrabold uppercase tracking-[0.08em] text-zinc-600 sm:px-7">
+            <span>Yükleme Adı</span>
+            <span>Yükleme Tarihi</span>
+            <span>Yüklenen Puan</span>
+          </div>
+
+          <div id="pointsDesktopRows">
+            <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 border-b border-zinc-100 px-5 py-5 text-[1rem] text-zinc-700 sm:px-7">
+              <span class="font-medium text-zinc-800">Hediyemo Puan Yükleme</span>
+              <span>22 Kasım 2023</span>
+              <span class="font-bold text-primary">1.200</span>
+            </div>
+            <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 border-b border-zinc-100 bg-zinc-50/70 px-5 py-5 text-[1rem] text-zinc-700 sm:px-7">
+              <span class="font-medium text-zinc-800">Hediyemo Puan Yükleme</span>
+              <span>23 Kasım 2023</span>
+              <span class="font-bold text-primary">5.000</span>
+            </div>
+            <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 border-b border-zinc-100 px-5 py-5 text-[1rem] text-zinc-700 sm:px-7">
+              <span class="font-medium text-zinc-800">Kampanya Bonus Puanı</span>
+              <span>20 Kasım 2023</span>
+              <span class="font-bold text-primary">800</span>
+            </div>
+            <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 border-b border-zinc-100 bg-zinc-50/70 px-5 py-5 text-[1rem] text-zinc-700 sm:px-7">
+              <span class="font-medium text-zinc-800">Müşteri Sadakat Yüklemesi</span>
+              <span>18 Kasım 2023</span>
+              <span class="font-bold text-primary">2.500</span>
+            </div>
+            <div class="grid grid-cols-[2.2fr_1.2fr_1fr] gap-6 px-5 py-5 text-[1rem] text-zinc-700 sm:px-7">
+              <span class="font-medium text-zinc-800">Hediyemo Puan Yükleme</span>
+              <span>15 Kasım 2023</span>
+              <span class="font-bold text-primary">1.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4 px-5 py-5 md:hidden">
+          <div class="rounded-[1.35rem] border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Adı</p>
+                <p class="mt-1 font-headline text-[1.05rem] font-bold text-zinc-900">Hediyemo Puan Yükleme</p>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Tarihi</p>
+                  <p class="mt-1 text-sm text-zinc-700">22 Kasım 2023</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yüklenen Puan</p>
+                  <p class="mt-1 font-headline text-[1.2rem] font-extrabold text-primary">1.200</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.35rem] border border-zinc-200 bg-zinc-50/70 p-4 shadow-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Adı</p>
+                <p class="mt-1 font-headline text-[1.05rem] font-bold text-zinc-900">Hediyemo Puan Yükleme</p>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Tarihi</p>
+                  <p class="mt-1 text-sm text-zinc-700">23 Kasım 2023</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yüklenen Puan</p>
+                  <p class="mt-1 font-headline text-[1.2rem] font-extrabold text-primary">5.000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.35rem] border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Adı</p>
+                <p class="mt-1 font-headline text-[1.05rem] font-bold text-zinc-900">Kampanya Bonus Puanı</p>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Tarihi</p>
+                  <p class="mt-1 text-sm text-zinc-700">20 Kasım 2023</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yüklenen Puan</p>
+                  <p class="mt-1 font-headline text-[1.2rem] font-extrabold text-primary">800</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.35rem] border border-zinc-200 bg-zinc-50/70 p-4 shadow-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Adı</p>
+                <p class="mt-1 font-headline text-[1.05rem] font-bold text-zinc-900">Müşteri Sadakat Yüklemesi</p>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Tarihi</p>
+                  <p class="mt-1 text-sm text-zinc-700">18 Kasım 2023</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yüklenen Puan</p>
+                  <p class="mt-1 font-headline text-[1.2rem] font-extrabold text-primary">2.500</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.35rem] border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Adı</p>
+                <p class="mt-1 font-headline text-[1.05rem] font-bold text-zinc-900">Hediyemo Puan Yükleme</p>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yükleme Tarihi</p>
+                  <p class="mt-1 text-sm text-zinc-700">15 Kasım 2023</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">Yüklenen Puan</p>
+                  <p class="mt-1 font-headline text-[1.2rem] font-extrabold text-primary">1.000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="footerContactCta" class="mx-auto w-full max-w-[1440px] px-6 pb-8 lg:px-8">
+    <div class="overflow-hidden rounded-[1.75rem] border border-primary/15 bg-gradient-to-r from-primary/10 via-white to-zinc-50 p-6 shadow-sm sm:p-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-start gap-4">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+            <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;">mode_comment</span>
+          </span>
+          <div>
+            <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
+            <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
+          </div>
+        </div>
+        <button
+          id="chatLauncher"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          <span>Bize Ulaşın</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-auto w-full border-t border-surface-container-highest bg-zinc-50 px-6 py-8 lg:px-8">
+    <div class="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 md:flex-row">
+      <span class="text-xs uppercase tracking-widest text-zinc-400">© 2024 CURATED GALLERY. ALL RIGHTS RESERVED.</span>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
+        <button
+          type="button"
+          data-policy-trigger
+          data-policy-type="clarification"
+          class="text-xs font-semibold uppercase tracking-widest text-zinc-400 transition-colors hover:text-primary"
+        >
+          Aydınlatma Metni
+        </button>
+        <button
+          type="button"
+          data-policy-trigger
+          data-policy-type="cookies"
+          class="text-xs font-semibold uppercase tracking-widest text-zinc-400 transition-colors hover:text-primary"
+        >
+          Çerez Politikası
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    id="policyModal"
+    class="pointer-events-none fixed inset-0 z-[75] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="policyModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-start justify-between gap-4 border-b border-zinc-100 px-6 py-5">
+        <div>
+          <p id="policyModalTitle" class="font-headline text-lg font-extrabold text-zinc-900">Aydınlatma Metni</p>
+          <p class="mt-1 text-xs text-secondary">Politika metni sağ panel içinde gösterilir.</p>
+        </div>
+        <button
+          type="button"
+          data-policy-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto px-6 py-6">
+        <div id="policyModalContent" class="space-y-4 text-sm leading-7 text-zinc-700">
+          <p>Bu alanda ilgili politika içeriği yer alacaktır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div
+    id="chatModal"
+    class="pointer-events-none fixed inset-0 z-[80] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="chatModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-center justify-between border-b border-zinc-100 px-5 py-4">
+        <div>
+          <p class="font-headline text-lg font-extrabold text-zinc-900">Canlı Destek</p>
+          <p class="mt-1 text-xs text-secondary">Bize yazın, destek ekibimiz en kısa sürede dönüş yapsın.</p>
+        </div>
+        <button
+          type="button"
+          data-chat-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-5 py-6">
+        <div class="mx-auto max-w-2xl space-y-5">
+          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+            Merhaba, hediyemo destek hattına hoş geldiniz. Sipariş, puan ve kullanım sorularınız için bize yazabilirsiniz.
+          </div>
+          <div class="ml-auto max-w-[78%] rounded-[1.5rem] rounded-tr-md bg-black px-4 py-3 text-sm leading-6 text-white shadow-sm">
+            Merhaba, puanlarımı kullanırken ödeme adımında sorun yaşıyorum.
+          </div>
+          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+            Hemen kontrol edelim. İsterseniz sipariş numarası veya ekran görüntüsü paylaşabilirsiniz.
+          </div>
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-500">
+            Destek görüşmeleri bu panel içinde akış halinde gösterilir. Uzun konuşmalarda alan kendi içinde scroll eder.
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 bg-white px-5 py-5">
+        <div class="mx-auto max-w-2xl">
+          <label class="block">
+            <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Mesajınız</span>
+            <textarea
+              rows="6"
+              placeholder="Size nasıl yardımcı olabiliriz?"
+              class="w-full rounded-[1.25rem] border-none bg-surface-container-low px-4 py-4 text-sm text-zinc-900 placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+            ></textarea>
+          </label>
+
+          <div class="mt-4 flex items-center justify-end gap-3">
+            <button
+              type="button"
+              data-chat-close
+              class="rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50"
+            >
+              Vazgeç
+            </button>
+            <button
+              type="button"
+              class="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Gönder
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="cartModal"
+    class="pointer-events-none fixed inset-0 z-[79] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="cartModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-center justify-between border-b border-zinc-100 px-6 py-5">
+        <div>
+          <p class="font-headline text-lg font-extrabold text-zinc-900">Sepetim</p>
+          <p class="mt-1 text-xs text-secondary">Sepetinizdeki ürünleri buradan yönetebilirsiniz.</p>
+        </div>
+        <button
+          type="button"
+          data-cart-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-6 py-6">
+        <div class="space-y-4">
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-headline text-base font-bold text-zinc-900">Amazon.com.tr</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+              </div>
+              <span class="text-sm font-semibold text-primary">1.000 TL</span>
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
+                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+                <span>Adet: 1</span>
+              </div>
+              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                <span>Kaldır</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-headline text-base font-bold text-zinc-900">Opet</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+              </div>
+              <span class="text-sm font-semibold text-primary">1.000 TL</span>
+            </div>
+            <div class="mt-2 inline-flex rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-[12px] font-semibold text-primary">
+              +160 hizmet bedeli uygulanır
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
+                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+                <span>Adet: 1</span>
+              </div>
+              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                <span>Kaldır</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 bg-white px-6 py-5">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between text-sm text-zinc-500">
+            <span>Ürün Toplamı</span>
+            <span>2.000 TL</span>
+          </div>
+          <div class="flex items-center justify-between text-sm text-zinc-500">
+            <span>Hizmet Bedeli</span>
+            <span>+160</span>
+          </div>
+          <div class="flex items-center justify-between border-t border-zinc-100 pt-3">
+            <span class="font-headline text-base font-extrabold text-zinc-900">Genel Toplam</span>
+            <span class="font-headline text-lg font-extrabold text-primary">2.000 TL</span>
+          </div>
+          <a href="./sepet.html" class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5">
+            Alışverişi Tamamla
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const accountMenuButton = document.getElementById('accountMenuButton');
+    const accountMenuPanel = document.getElementById('accountMenuPanel');
+    const cartButton = document.getElementById('cartButton');
+    const cartModal = document.getElementById('cartModal');
+    const cartModalPanel = document.getElementById('cartModalPanel');
+    const cartCloseButtons = document.querySelectorAll('[data-cart-close]');
+    const chatLauncher = document.getElementById('chatLauncher');
+    const chatModal = document.getElementById('chatModal');
+    const chatModalPanel = document.getElementById('chatModalPanel');
+    const chatCloseButtons = document.querySelectorAll('[data-chat-close]');
+    const policyModal = document.getElementById('policyModal');
+    const policyModalPanel = document.getElementById('policyModalPanel');
+    const policyModalTitle = document.getElementById('policyModalTitle');
+    const policyModalContent = document.getElementById('policyModalContent');
+    const policyTriggers = document.querySelectorAll('[data-policy-trigger]');
+    const policyCloseButtons = document.querySelectorAll('[data-policy-close]');
+    const profileInfoForm = document.getElementById('profileInfoForm');
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordToggleButtons = document.querySelectorAll('[data-password-toggle]');
+
+    const policyContentMap = {
+      clarification: {
+        title: 'Aydınlatma Metni',
+        body: `
+          <p>Bu aydınlatma metni, hediyemo platformu üzerinden sunulan hizmetler kapsamında kişisel verilerin hangi amaçlarla işlendiğine, hangi yöntemlerle toplandığına ve hangi çerçevede korunduğuna ilişkin genel bilgilendirme amacıyla hazırlanmıştır.</p>
+          <p>Kimlik bilgileri, iletişim verileri, sipariş geçmişi, puan kullanım detayları, üyelik hareketleri, çağrı merkezi kayıtları ve destek talepleri; hizmetin sürdürülebilmesi, işlem güvenliğinin sağlanması, kullanıcı deneyiminin iyileştirilmesi ve mevzuata uyum yükümlülüklerinin yerine getirilebilmesi amacıyla işlenebilir.</p>
+          <p>Kişisel veriler, internet sitesi üzerindeki formlar, üyelik ekranları, çağrı merkezi görüşmeleri, canlı destek kayıtları, e-posta yazışmaları ve benzeri dijital temas noktaları üzerinden toplanabilir.</p>
+          <p>İlgili kişi olarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme haklarına sahipsiniz.</p>
+        `
+      },
+      cookies: {
+        title: 'Çerez Politikası',
+        body: `
+          <p>Bu çerez politikası, hediyemo internet sitesi ve bağlantılı dijital deneyimlerde kullanılan çerez türleri hakkında kullanıcıları bilgilendirmek amacıyla hazırlanmıştır.</p>
+          <p>Zorunlu çerezler; oturum yönetimi, güvenlik doğrulaması ve temel sayfa işlevleri için gereklidir.</p>
+          <p>Analitik çerezler; ziyaretçi davranışlarını anonim olarak analiz ederek deneyimin iyileştirilmesine yardımcı olur.</p>
+          <p>Kullanıcılar tarayıcı ayarları üzerinden çerez tercihlerini değiştirebilir veya bazı çerez türlerini devre dışı bırakabilir.</p>
+        `
+      }
+    };
+    if (profileInfoForm) {
+      profileInfoForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        window.alert('Hesap bilgileriniz güncellendi.');
+      });
+    }
+
+    if (passwordForm) {
+      passwordForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const currentPassword = document.getElementById('currentPassword');
+        const newPassword = document.getElementById('newPassword');
+        const repeatPassword = document.getElementById('repeatPassword');
+
+        if (!currentPassword.value.trim() || !newPassword.value.trim() || !repeatPassword.value.trim()) {
+          window.alert('Lütfen tüm parola alanlarını doldurun.');
+          return;
+        }
+
+        if (newPassword.value !== repeatPassword.value) {
+          window.alert('Yeni parola alanları birbiriyle eşleşmiyor.');
+          return;
+        }
+
+        window.alert('Parolanız güncellendi.');
+        passwordForm.reset();
+      });
+    }
+
+    passwordToggleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        if (!target) return;
+
+        const isPassword = target.type === 'password';
+        target.type = isPassword ? 'text' : 'password';
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+        }
+      });
+    });
+
+    let accountMenuHoverTimer = null;
+
+    const clearAccountMenuHoverTimer = () => {
+      if (accountMenuHoverTimer) {
+        window.clearTimeout(accountMenuHoverTimer);
+        accountMenuHoverTimer = null;
+      }
+    };
+
+    const openAccountMenu = () => {
+      if (!accountMenuButton || !accountMenuPanel) return;
+      clearAccountMenuHoverTimer();
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        const rect = accountMenuButton.getBoundingClientRect();
+        accountMenuPanel.style.position = 'fixed';
+        accountMenuPanel.style.left = '1rem';
+        accountMenuPanel.style.right = '1rem';
+        accountMenuPanel.style.top = `${rect.bottom + 10}px`;
+        accountMenuPanel.style.width = 'auto';
+        accountMenuPanel.style.maxWidth = 'none';
+      } else {
+        accountMenuPanel.style.position = '';
+        accountMenuPanel.style.left = '';
+        accountMenuPanel.style.right = '';
+        accountMenuPanel.style.top = '';
+        accountMenuPanel.style.width = '';
+        accountMenuPanel.style.maxWidth = '';
+      }
+
+      accountMenuButton.setAttribute('aria-expanded', 'true');
+      accountMenuButton.classList.add('border-primary', 'bg-white');
+      accountMenuPanel.classList.remove('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
+      accountMenuPanel.classList.add('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
+    };
+
+    const closeAccountMenu = () => {
+      if (!accountMenuButton || !accountMenuPanel) return;
+      clearAccountMenuHoverTimer();
+      accountMenuButton.setAttribute('aria-expanded', 'false');
+      accountMenuButton.classList.remove('border-primary', 'bg-white');
+      accountMenuPanel.classList.add('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
+      accountMenuPanel.classList.remove('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
+    };
+
+    const scheduleCloseAccountMenu = () => {
+      clearAccountMenuHoverTimer();
+      accountMenuHoverTimer = window.setTimeout(() => {
+        if (window.innerWidth >= 768) {
+          closeAccountMenu();
+        }
+      }, 140);
+    };
+
+    if (accountMenuButton && accountMenuPanel) {
+      accountMenuButton.addEventListener('click', () => {
+        const expanded = accountMenuButton.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeAccountMenu();
+        } else {
+          openAccountMenu();
+        }
+      });
+
+      accountMenuButton.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          openAccountMenu();
+        }
+      });
+
+      accountMenuButton.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          scheduleCloseAccountMenu();
+        }
+      });
+
+      accountMenuPanel.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          clearAccountMenuHoverTimer();
+        }
+      });
+
+      accountMenuPanel.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          scheduleCloseAccountMenu();
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!accountMenuButton.contains(event.target) && !accountMenuPanel.contains(event.target)) {
+          closeAccountMenu();
+        }
+      });
+    }
+
+    const openPolicyModal = (type) => {
+      const content = policyContentMap[type];
+      if (!content) return;
+      policyModalTitle.textContent = content.title;
+      policyModalContent.innerHTML = content.body;
+      policyModal.classList.remove('hidden');
+      policyModal.classList.add('flex');
+      requestAnimationFrame(() => {
+        policyModal.classList.remove('pointer-events-none', 'opacity-0');
+        policyModal.classList.add('opacity-100');
+        policyModalPanel.classList.remove('translate-x-full');
+        policyModalPanel.classList.add('translate-x-0');
+      });
+      document.body.classList.add('overflow-hidden');
+      policyModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closePolicyModal = () => {
+      policyModal.classList.add('pointer-events-none', 'opacity-0');
+      policyModal.classList.remove('opacity-100');
+      policyModalPanel.classList.remove('translate-x-0');
+      policyModalPanel.classList.add('translate-x-full');
+      policyModal.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => {
+        policyModal.classList.add('hidden');
+        policyModal.classList.remove('flex');
+      }, 300);
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    policyTriggers.forEach((button) => {
+      button.addEventListener('click', () => openPolicyModal(button.dataset.policyType));
+    });
+
+    policyCloseButtons.forEach((button) => {
+      button.addEventListener('click', closePolicyModal);
+    });
+
+    policyModal.addEventListener('click', (event) => {
+      if (event.target === policyModal) {
+        closePolicyModal();
+      }
+    });
+
+    const openCartModal = () => {
+      if (!cartButton || !cartModal || !cartModalPanel) return;
+      cartButton.setAttribute('aria-expanded', 'true');
+      cartButton.classList.add('border-primary', 'bg-white');
+      cartModal.classList.remove('hidden');
+      cartModal.classList.add('flex');
+      requestAnimationFrame(() => {
+        cartModal.classList.remove('pointer-events-none', 'opacity-0');
+        cartModal.classList.add('opacity-100');
+        cartModalPanel.classList.remove('translate-x-full');
+        cartModalPanel.classList.add('translate-x-0');
+      });
+      document.body.classList.add('overflow-hidden');
+      cartModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeCartModal = () => {
+      if (!cartButton || !cartModal || !cartModalPanel) return;
+      cartButton.setAttribute('aria-expanded', 'false');
+      cartButton.classList.remove('border-primary', 'bg-white');
+      cartModal.classList.add('pointer-events-none', 'opacity-0');
+      cartModal.classList.remove('opacity-100');
+      cartModalPanel.classList.remove('translate-x-0');
+      cartModalPanel.classList.add('translate-x-full');
+      cartModal.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => {
+        cartModal.classList.add('hidden');
+        cartModal.classList.remove('flex');
+      }, 300);
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    if (cartButton) {
+      cartButton.addEventListener('click', openCartModal);
+    }
+
+    cartCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeCartModal);
+    });
+
+    if (cartModal) {
+      cartModal.addEventListener('click', (event) => {
+        if (event.target === cartModal) {
+          closeCartModal();
+        }
+      });
+    }
+
+    const openChatModal = () => {
+      if (!chatModal || !chatModalPanel) return;
+      chatModal.classList.remove('hidden');
+      chatModal.classList.add('flex');
+      requestAnimationFrame(() => {
+        chatModal.classList.remove('pointer-events-none', 'opacity-0');
+        chatModal.classList.add('opacity-100');
+        chatModalPanel.classList.remove('translate-x-full');
+        chatModalPanel.classList.add('translate-x-0');
+      });
+      document.body.classList.add('overflow-hidden');
+      chatModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeChatModal = () => {
+      chatModal.classList.add('pointer-events-none', 'opacity-0');
+      chatModal.classList.remove('opacity-100');
+      chatModalPanel.classList.remove('translate-x-0');
+      chatModalPanel.classList.add('translate-x-full');
+      chatModal.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => {
+        chatModal.classList.add('hidden');
+        chatModal.classList.remove('flex');
+      }, 300);
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    if (chatLauncher) {
+      chatLauncher.addEventListener('click', openChatModal);
+    }
+
+    chatCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeChatModal);
+    });
+
+    chatModal.addEventListener('click', (event) => {
+      if (event.target === chatModal) {
+        closeChatModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAccountMenu();
+      }
+
+      if (event.key === 'Escape' && policyModal.getAttribute('aria-hidden') === 'false') {
+        closePolicyModal();
+      }
+
+      if (event.key === 'Escape' && cartModal.getAttribute('aria-hidden') === 'false') {
+        closeCartModal();
+      }
+
+      if (event.key === 'Escape' && chatModal.getAttribute('aria-hidden') === 'false') {
+        closeChatModal();
+      }
+
+    });
+  </script>
+</body>
+</html>

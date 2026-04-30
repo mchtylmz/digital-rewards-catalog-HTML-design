@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hediyemo Tailwind</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'outline-variant': '#e5bdb9',
+            'surface-variant': '#e2e2e2',
+            'primary-fixed': '#ffdad6',
+            error: '#ba1a1a',
+            'on-primary-container': '#ffe8e6',
+            'tertiary-fixed-dim': '#84cfff',
+            'surface-tint': '#be0b1c',
+            'primary-container': '#d12027',
+            'on-secondary-fixed': '#1b1c1c',
+            'on-secondary-container': '#656464',
+            'error-container': '#ffdad6',
+            outline: '#906f6c',
+            'on-tertiary-fixed-variant': '#004c6c',
+            'on-primary': '#ffffff',
+            'on-primary-fixed-variant': '#930011',
+            background: '#f9f9f9',
+            'tertiary-fixed': '#c7e7ff',
+            'inverse-primary': '#ffb3ad',
+            'tertiary-container': '#0073a1',
+            secondary: '#5f5e5e',
+            'surface-container-highest': '#e2e2e2',
+            'on-tertiary': '#ffffff',
+            tertiary: '#00597e',
+            'secondary-container': '#e4e2e1',
+            surface: '#f9f9f9',
+            'surface-dim': '#dadada',
+            'surface-bright': '#f9f9f9',
+            'on-error': '#ffffff',
+            'surface-container': '#eeeeee',
+            'inverse-surface': '#2f3131',
+            'on-error-container': '#93000a',
+            'on-tertiary-container': '#def0ff',
+            'on-background': '#1a1c1c',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-high': '#e8e8e8',
+            'primary-fixed-dim': '#ffb3ad',
+            'on-secondary-fixed-variant': '#474747',
+            'on-secondary': '#ffffff',
+            'surface-container-low': '#f3f3f3',
+            'on-surface': '#1a1c1c',
+            'on-surface-variant': '#5c403d',
+            'secondary-fixed-dim': '#c8c6c6',
+            primary: '#aa0015',
+            'on-primary-fixed': '#410003',
+            'secondary-fixed': '#e4e2e1',
+            'on-tertiary-fixed': '#001e2e',
+            'inverse-on-surface': '#f1f1f1'
+          },
+          borderRadius: {
+            DEFAULT: '0.25rem',
+            lg: '1rem',
+            xl: '1.25rem',
+            full: '9999px'
+          },
+          fontFamily: {
+            headline: ['Manrope', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            label: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            shell: '0 10px 40px rgba(26, 28, 28, 0.06)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    .font-headline {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .filter-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #b8b8b8 #ececec;
+    }
+
+    .filter-scroll::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .filter-scroll::-webkit-scrollbar-track {
+      background: #ececec;
+      border-radius: 9999px;
+    }
+
+    .filter-scroll::-webkit-scrollbar-thumb {
+      background: #b8b8b8;
+      border-radius: 9999px;
+    }
+
+    .contact-pulse-border {
+      border-width: 1.5px;
+      border-color: rgba(170, 0, 21, 0.88);
+      animation: contactBorderPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes contactBorderPulse {
+      0%, 100% {
+        opacity: 0.82;
+        box-shadow:
+          0 0 0 1px rgba(170, 0, 21, 0.4),
+          0 0 10px rgba(170, 0, 21, 0.18);
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow:
+          0 0 0 2px rgba(170, 0, 21, 0.9),
+          0 0 18px rgba(170, 0, 21, 0.36),
+          0 0 30px rgba(170, 0, 21, 0.16);
+      }
+    }
+
+    .service-ribbon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 12;
+      display: flex;
+      min-height: 5.65rem;
+      width: 6.15rem;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0.5rem 0.48rem 0.38rem;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(191, 18, 32, 0.92) 0%, rgba(152, 7, 21, 0.89) 100%);
+      border-top-right-radius: 1.25rem;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 0.85rem;
+      box-shadow: none;
+    }
+
+    .service-ribbon--header {
+      left: 0;
+      right: 0;
+      width: 100%;
+      min-height: auto;
+      padding: 0.7rem 1rem 0.72rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: 0.9rem;
+      border-bottom-right-radius: 0.9rem;
+    }
+
+    .service-ribbon::after {
+      content: none;
+    }
+
+    .service-ribbon__text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.04rem;
+      line-height: 1;
+    }
+
+    .service-ribbon__points {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .service-ribbon__subpoints {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .service-ribbon__label {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .service-ribbon--header .service-ribbon__text {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.34rem;
+    }
+
+    .service-ribbon--header .service-ribbon__label {
+      letter-spacing: 0.02em;
+    }
+
+    .service-ribbon--burst {
+      top: 0.5rem;
+      right: 0.5rem;
+      min-height: 5.85rem;
+      width: 5.85rem;
+      align-items: center;
+      padding: 0.68rem;
+      border-radius: 0;
+      background: linear-gradient(135deg, rgba(211, 59, 191, 0.94), rgba(128, 75, 236, 0.94));
+      clip-path: polygon(50% 0%, 60% 17%, 79% 9%, 83% 29%, 100% 38%, 86% 52%, 95% 71%, 73% 72%, 62% 91%, 50% 77%, 38% 91%, 27% 72%, 5% 71%, 14% 52%, 0% 38%, 17% 29%, 21% 9%, 40% 17%);
+    }
+
+    .service-ribbon--burst .service-ribbon__text {
+      align-items: center;
+      gap: 0.08rem;
+      line-height: 0.95;
+      margin-top: -10px;
+    }
+
+    .service-ribbon--burst .service-ribbon__percent {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .service-ribbon--burst .service-ribbon__label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.02;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+  </style>
+</head>
+<body class="min-h-screen bg-surface text-on-surface flex flex-col">
+  <header class="z-50 w-full bg-white/80 shadow-shell backdrop-blur-xl md:sticky md:top-0">
+    <div class="border-b border-zinc-200/70 bg-white/70">
+      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-2 text-[11px] text-secondary sm:h-8 sm:px-6 sm:py-0 lg:px-8">
+        <div class="flex min-w-0 items-center gap-3 sm:gap-6">
+          <a class="inline-flex items-center gap-1.5 truncate transition-colors hover:text-primary" href="mailto:destek@hediyemo.com">
+            <span class="material-symbols-outlined text-[14px]">mail</span>
+            <span class="truncate">destek@hediyemo.com</span>
+          </a>
+          <a class="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="tel:+908505329090">
+            <span class="material-symbols-outlined text-[14px]">call</span>
+            <span>0 (850) 532 9090</span>
+          </a>
+        </div>
+        <div class="flex shrink-0 items-center gap-6">
+          <a class="inline-flex items-center gap-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500 transition-colors hover:text-zinc-900" href="./yardım.html">
+            <span class="material-symbols-outlined text-[15px]">headset_mic</span>
+            <span>Yardım</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mx-auto flex max-w-[1440px] flex-wrap gap-3 px-4 py-4 md:flex-nowrap md:items-center md:gap-6 md:px-6 md:py-3 lg:px-8">
+      <div class="order-1 flex w-full items-center justify-center md:order-none md:w-auto md:shrink-0 md:justify-start">
+        <a href="#" aria-label="Hediyemo logo" class="block shrink-0">
+          <img
+            class="h-16 w-auto object-contain md:h-14"
+            alt="Hediyemo logo"
+            src="https://mivento.hediyemo.com/templates/img/logo.png?v=2.0.10_1777286381"
+          />
+        </a>
+      </div>
+
+      <div class="order-3 mt-2 w-full md:order-none md:mt-0 md:flex-1 md:px-4 lg:px-6">
+        <div class="relative w-full">
+          <input
+            type="text"
+            placeholder="Hediye kartı veya marka ara..."
+            class="h-14 w-full rounded-full border-none bg-surface-container-low px-6 pr-16 py-0 text-[15px] leading-none text-on-surface placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+          />
+          <button class="absolute inset-y-0 right-0 flex items-center pr-5 text-primary" type="button" aria-label="Ara">
+            <span class="material-symbols-outlined text-[30px] leading-none">search</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="order-2 w-full md:order-none md:ml-auto md:w-auto">
+        <div class="grid w-full grid-cols-3 gap-2 md:flex md:items-center md:gap-3 lg:gap-4">
+          <div class="flex min-w-0 flex-col justify-center rounded-[1.15rem] bg-zinc-100/90 px-3 py-3 md:hidden">
+            <span class="text-[10px] font-medium uppercase tracking-[0.18em] text-secondary">Puanım</span>
+            <span class="mt-1 text-[24px] font-black leading-none tracking-tight text-primary">35.500</span>
+          </div>
+          <div class="hidden lg:flex lg:flex-col lg:items-end lg:justify-center lg:px-3 lg:py-2">
+            <span class="text-[10px] font-medium uppercase tracking-[0.22em] text-secondary">Puanım</span>
+            <span class="text-[24px] font-extrabold tracking-tight text-primary">35.500</span>
+          </div>
+        <div class="relative min-w-0 md:w-auto">
+          <button
+            id="accountMenuButton"
+            class="grid h-full w-full min-w-0 grid-cols-[auto_auto] grid-rows-[auto_auto] place-content-center place-items-center gap-x-1 gap-y-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:grid-cols-none md:grid-rows-none md:gap-2 md:px-3 md:py-2 md:text-sm"
+            type="button"
+            aria-label="Hesabım"
+            aria-expanded="false"
+          >
+            <span class="material-symbols-outlined col-span-2 text-[20px] md:col-span-1 md:text-[24px]">person</span>
+            <span class="max-w-[54px] truncate text-center leading-tight md:max-w-none">Hesabım</span>
+            <span class="material-symbols-outlined text-[14px] text-zinc-400 md:text-[18px]">expand_more</span>
+          </button>
+          <div
+            id="accountMenuPanel"
+            class="pointer-events-none invisible absolute right-0 top-[calc(100%+10px)] z-30 w-64 translate-y-2 rounded-2xl border border-zinc-200 bg-white p-2 opacity-0 shadow-[0_18px_40px_rgba(0,0,0,0.12)] transition-all duration-200"
+          >
+            <div class="mb-2 rounded-[1.1rem] bg-zinc-50 px-3 py-3">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Hoş geldin</p>
+              <p class="mt-1 font-headline text-[1rem] font-bold tracking-tight text-zinc-800">Mucahit Yılmaz</p>
+            </div>
+            <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./puan-hareketlerim.html">
+              <span class="material-symbols-outlined text-[19px]">stars</span>
+              <span>Puan Kazanımlarım</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./siparislerim.html">
+              <span class="material-symbols-outlined text-[19px]">receipt_long</span>
+              <span>Siparişlerim</span>
+            </a>
+            <div class="my-1 border-t border-zinc-100"></div>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./kayitli-telefonlarim.html">
+                  <span class="material-symbols-outlined text-[19px]">phone_iphone</span>
+                  <span>Kayıtlı Telefonlarım</span>
+                </a>
+                <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./kayitli-adreslerim.html">
+                  <span class="material-symbols-outlined text-[19px]">location_on</span>
+                  <span>Kayıtlı Adreslerim</span>
+                </a>
+            <div class="my-1 border-t border-zinc-100"></div>
+            <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50" href="./bilgilerim.html">
+              <span class="material-symbols-outlined text-[19px]">manage_accounts</span>
+              <span>Hesap Bilgilerimi Güncelle</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50" href="#">
+              <span class="material-symbols-outlined text-[19px]">logout</span>
+              <span>Çıkış Yap</span>
+            </a>
+          </div>
+        </div>
+        <button
+          id="cartButton"
+          class="relative grid h-full w-full min-w-0 place-content-center place-items-center gap-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 pr-3 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:gap-2 md:px-3 md:pr-5 md:py-2 md:text-sm"
+          type="button"
+          aria-label="Sepetim"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined text-[20px] md:text-[24px]">shopping_bag</span>
+          <span class="truncate text-center leading-tight">Sepetim</span>
+          <span class="absolute -right-1 -top-1 inline-flex h-6 min-w-[24px] items-center justify-center rounded-full bg-primary px-1.5 text-[13px] font-extrabold leading-none text-white shadow-[0_8px_18px_rgba(170,0,21,0.24)] ring-2 ring-white md:-right-2 md:-top-1.5">3</span>
+        </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="hidden border-t border-white/10 bg-surface-container-low lg:hidden">
+      <div class="no-scrollbar mx-auto flex h-12 max-w-[1440px] items-end gap-8 overflow-x-auto px-6 lg:px-8">
+        <a class="inline-flex h-full items-center whitespace-nowrap border-b-2 border-red-700 font-headline text-sm font-bold uppercase tracking-tight leading-none text-red-700" href="#">Anasayfa</a>
+        <a class="inline-flex h-full items-center whitespace-nowrap border-b-2 border-transparent font-headline text-sm font-bold uppercase tracking-tight leading-none text-zinc-500 transition-colors hover:text-zinc-900" href="#">Markalar</a>
+        <a class="inline-flex h-full items-center whitespace-nowrap border-b-2 border-transparent font-headline text-sm font-bold uppercase tracking-tight leading-none text-zinc-500 transition-colors hover:text-zinc-900" href="#">Koleksiyonlar</a>
+        <a class="inline-flex h-full items-center whitespace-nowrap border-b-2 border-transparent font-headline text-sm font-bold uppercase tracking-tight leading-none text-zinc-500 transition-colors hover:text-zinc-900" href="./yardım.html">Yardım</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-1">
+    <section class="mx-auto max-w-[1440px] px-6 py-10 lg:px-8 lg:py-12">
+      <div class="group relative w-full overflow-hidden rounded-xl shadow-xl aspect-[5/2]">
+        <img
+          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          alt="Hediyemo kampanya bannerı"
+          src="./assets/banners/home-hero-banner-2000x800.svg"
+        />
+      </div>
+    </section>
+
+    <!-- POPÜLER MARKALAR alanı gizlendi. Tekrar kullanılacaksa bu bölüm geri alınabilir. -->
+
+    <section class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 pb-24 lg:gap-10 lg:px-8">
+      <aside class="col-span-12 space-y-4 md:col-span-3 md:space-y-6">
+        <button
+          id="mobileFiltersToggle"
+          class="flex w-full items-center justify-between rounded-[1.35rem] border border-zinc-300 bg-white px-5 py-3.5 text-left md:hidden"
+          type="button"
+          aria-expanded="false"
+          aria-controls="filtersPanel"
+        >
+          <span class="font-headline text-[17px] font-bold tracking-tight text-zinc-700">Hediye Çeklerini Filtrele</span>
+          <span class="flex items-center gap-1.5">
+            <span id="mobileFiltersToggleLabel" class="text-[12px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Göster</span>
+            <span id="mobileFiltersToggleIcon" class="material-symbols-outlined text-[22px] text-zinc-500 transition-transform duration-200">expand_more</span>
+          </span>
+        </button>
+        <div id="filtersPanel" class="hidden md:block">
+          <div id="filtersPanelBackdrop" class="fixed inset-0 z-[58] bg-black/35 opacity-0 transition-opacity duration-300 md:hidden"></div>
+          <div id="filtersPanelSheet" class="fixed inset-x-0 bottom-0 z-[59] max-h-[88vh] translate-y-full rounded-t-[1.75rem] bg-surface px-4 pb-5 pt-4 shadow-[0_-20px_60px_rgba(0,0,0,0.18)] transition-transform duration-300 md:static md:max-h-none md:translate-y-0 md:rounded-none md:bg-transparent md:px-0 md:pb-0 md:pt-0 md:shadow-none">
+            <div class="mb-4 flex items-center justify-between md:hidden">
+              <div>
+                <p class="font-headline text-lg font-extrabold tracking-tight text-zinc-900">Hediye Çeklerini Filtrele</p>
+                <p class="mt-1 text-xs text-zinc-500">Seçimlerini yapıp uygula.</p>
+              </div>
+              <button
+                id="mobileFiltersClose"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700"
+                type="button"
+                aria-label="Filtre panelini kapat"
+              >
+                <span class="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
+            <div class="max-h-[calc(88vh-6.5rem)] space-y-6 overflow-y-auto pr-1 md:max-h-none md:overflow-visible md:pr-0">
+            <div class="flex justify-start">
+              <button id="resetFiltersButton" class="hidden inline-flex items-center gap-2 rounded-full border border-primary bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white" type="button">
+                <span class="material-symbols-outlined text-[18px]">restart_alt</span>
+                <span>Filtreyi Sıfırla</span>
+              </button>
+            </div>
+            <div>
+              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Kullanım Alanı</h3>
+                <div class="mt-6 space-y-4">
+                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="digital" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                    <span>Dijital Kodlar</span>
+                  </label>
+                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="store" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                    <span>Mağaza Çekleri</span>
+                  </label>
+                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="physical" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                    <span>Fiziksel Ürünler</span>
+                  </label>
+                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="online" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                    <span>Online Kullanım</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Markalar</h3>
+                <div class="mt-6">
+                  <input
+                    id="brandSearch"
+                    type="text"
+                    placeholder="Marka adını yazın"
+                    class="w-full rounded-[0.9rem] border border-zinc-300 bg-white px-5 py-4 text-[17px] text-zinc-700 placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-200"
+                  />
+                </div>
+
+                <div id="brandList" class="filter-scroll mt-7 max-h-[360px] space-y-4 overflow-y-auto pr-3">
+              <label data-brand-option data-brand-name="Amazon.com.tr" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Amazon.com.tr" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Amazon.com.tr</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/amazon-logo.png" alt="Amazon.com.tr logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="Mavi" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Mavi" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Mavi</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi logo" /></span>
+              </label>
+	              <label data-brand-option data-brand-name="Boyner" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Boyner" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	                <span>Boyner</span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner logo" /></span>
+	              </label>
+	              <label data-brand-option data-brand-name="Altınyıldız Classics" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Altınyıldız Classics" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	                <span>Altınyıldız Classics</span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/altinyildizclassics-logo.png" alt="Altınyıldız Classics logo" /></span>
+	              </label>
+	              <label data-brand-option data-brand-name="Ayakkabı Dünyası" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Ayakkabı Dünyası" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	                <span>Ayakkabı Dünyası</span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/ayakkabidunyasi-logo.png" alt="Ayakkabı Dünyası logo" /></span>
+	              </label>
+	              <label data-brand-option data-brand-name="HepsiBurada" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="HepsiBurada" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	                <span>HepsiBurada</span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/hepsiburada-logo.png" alt="HepsiBurada logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="IKEA" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="IKEA" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>IKEA</span>
+                <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-[#0058a3] px-1 text-[9px] font-extrabold uppercase text-[#ffdb00]">IKEA</span>
+              </label>
+              <label data-brand-option data-brand-name="Arzum" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Arzum" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Arzum</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/arzum-logo.png" alt="Arzum logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="CarrefourSA" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="CarrefourSA" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>CarrefourSA</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/CarrefourSA-logo.png" alt="CarrefourSA logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="Teknosa" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Teknosa" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Teknosa</span>
+                <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-zinc-950 px-1 text-[9px] font-extrabold uppercase text-white">Teknosa</span>
+              </label>
+              <label data-brand-option data-brand-name="Defacto" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Defacto" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Defacto</span>
+                <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-zinc-50 px-1 text-[9px] font-semibold text-zinc-500">DeFacto</span>
+              </label>
+              <label data-brand-option data-brand-name="Opet" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Opet" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Opet</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/opet-logo.png" alt="Opet logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="Genç Altın" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Genç Altın" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Genç Altın</span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/genc-altin-logo.png" alt="Genç Altın logo" /></span>
+              </label>
+              <label data-brand-option data-brand-name="Koçtaş" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Koçtaş" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Koçtaş</span>
+                <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-orange-50 px-1 text-[9px] font-extrabold text-orange-600">Koçtaş</span>
+              </label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Kategoriler</h3>
+                <div class="mt-6">
+                  <input
+                    id="categorySearch"
+                    type="text"
+                    placeholder="Kategori adını yazın"
+                    class="w-full rounded-[0.9rem] border border-zinc-300 bg-white px-5 py-4 text-[17px] text-zinc-700 placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-200"
+                  />
+                </div>
+
+                <div id="categoryList" class="filter-scroll mt-7 max-h-[360px] space-y-4 overflow-y-auto pr-3">
+              <label data-category-option data-category-name="Giyim" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="giyim" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Giyim</span>
+              </label>
+              <label data-category-option data-category-name="Market" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="market" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Market</span>
+              </label>
+              <label data-category-option data-category-name="Yakıt" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="yakit" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Yakıt</span>
+              </label>
+              <label data-category-option data-category-name="Turizm" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="turizm" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Turizm</span>
+              </label>
+              <label data-category-option data-category-name="Elektronik" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="elektronik" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Elektronik</span>
+              </label>
+              <label data-category-option data-category-name="Küçük Ev Aletleri" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kucuk-ev-aletleri" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Küçük Ev Aletleri</span>
+              </label>
+              <label data-category-option data-category-name="Spor" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="spor" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Spor</span>
+              </label>
+              <label data-category-option data-category-name="Kozmetik" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kozmetik" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Kozmetik</span>
+              </label>
+              <label data-category-option data-category-name="Kitap" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kitap" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Kitap</span>
+              </label>
+              <label data-category-option data-category-name="Oyun" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="oyun" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Oyun</span>
+              </label>
+              <label data-category-option data-category-name="Teknoloji" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="teknoloji" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Teknoloji</span>
+              </label>
+              <label data-category-option data-category-name="Ev ve Yaşam" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="ev-yasam" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                <span>Ev ve Yaşam</span>
+              </label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Fiyat Aralığı</h3>
+                <div class="mt-6">
+                  <label class="flex cursor-pointer items-start gap-3 text-[17px] font-medium leading-7 text-zinc-700">
+                    <input id="balanceFilterCheckbox" class="mt-0.5 h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                    <span>Bakiyeme uygun olan hediye çeklerini göster</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky bottom-0 bg-surface pt-2 pb-1 md:static md:bg-transparent md:pt-2 md:pb-0">
+              <button id="applyFiltersButton" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 font-headline text-xs font-extrabold uppercase tracking-widest text-white transition-all hover:brightness-110" type="button">
+                <span class="material-symbols-outlined text-[20px]">tune</span>
+                <span>FİLTRE UYGULA</span>
+              </button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="col-span-12 md:col-span-9">
+        <div class="mb-8 flex flex-wrap items-center justify-start gap-3">
+          <span id="filterStatus" class="hidden rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Filtre uygulandı</span>
+        </div>
+
+        <div id="productGrid" class="grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"></div>
+
+        <div id="productsPagination" class="mt-16 flex items-center justify-center gap-4">
+          <button class="flex h-10 w-10 items-center justify-center rounded-full border border-surface-container-highest text-secondary transition-colors hover:bg-primary hover:text-white" type="button">
+            <span class="material-symbols-outlined text-sm">west</span>
+          </button>
+          <div class="flex gap-2">
+            <button class="h-10 w-10 rounded-full bg-primary text-sm font-bold text-white" type="button">1</button>
+            <button class="h-10 w-10 rounded-full border border-surface-container-highest bg-white text-sm font-bold text-secondary transition-colors hover:bg-surface-container-low" type="button">2</button>
+            <button class="h-10 w-10 rounded-full border border-surface-container-highest bg-white text-sm font-bold text-secondary transition-colors hover:bg-surface-container-low" type="button">3</button>
+            <span class="flex items-end px-2 pb-2 text-secondary">...</span>
+            <button class="h-10 w-10 rounded-full border border-surface-container-highest bg-white text-sm font-bold text-secondary transition-colors hover:bg-surface-container-low" type="button">12</button>
+          </div>
+          <button class="flex h-10 w-10 items-center justify-center rounded-full border border-surface-container-highest text-secondary transition-colors hover:bg-primary hover:text-white" type="button">
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="footerContactCta" class="mx-auto w-full max-w-[1440px] px-6 pb-8 lg:px-8">
+    <div class="overflow-hidden rounded-[1.75rem] border border-primary/15 bg-gradient-to-r from-primary/10 via-white to-zinc-50 p-6 shadow-sm sm:p-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-start gap-4">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+            <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;">mode_comment</span>
+          </span>
+          <div>
+            <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
+            <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
+          </div>
+        </div>
+        <button
+          id="chatLauncher"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          <span>Bize Ulaşın</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-auto w-full border-t border-surface-container-highest bg-zinc-50 px-6 py-8 lg:px-8">
+    <div class="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 md:flex-row">
+      <span class="text-xs uppercase tracking-widest text-zinc-400">© 2024 CURATED GALLERY. ALL RIGHTS RESERVED.</span>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
+        <button
+          type="button"
+          data-policy-trigger
+          data-policy-type="clarification"
+          class="text-xs font-semibold uppercase tracking-widest text-zinc-400 transition-colors hover:text-primary"
+        >
+          Aydınlatma Metni
+        </button>
+        <button
+          type="button"
+          data-policy-trigger
+          data-policy-type="cookies"
+          class="text-xs font-semibold uppercase tracking-widest text-zinc-400 transition-colors hover:text-primary"
+        >
+          Çerez Politikası
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    id="policyModal"
+    class="pointer-events-none fixed inset-0 z-[75] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="policyModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-start justify-between gap-4 border-b border-zinc-100 px-6 py-5">
+        <div>
+          <p id="policyModalTitle" class="font-headline text-lg font-extrabold text-zinc-900">Aydınlatma Metni</p>
+          <p class="mt-1 text-xs text-secondary">Politika metni sağ panel içinde gösterilir.</p>
+        </div>
+        <button
+          type="button"
+          data-policy-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto px-6 py-6">
+        <div id="policyModalContent" class="space-y-4 text-sm leading-7 text-zinc-700">
+          <p>Bu alanda ilgili politika içeriği yer alacaktır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div
+    id="chatModal"
+    class="pointer-events-none fixed inset-0 z-[80] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="chatModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-center justify-between border-b border-zinc-100 px-5 py-4">
+        <div>
+          <p class="font-headline text-lg font-extrabold text-zinc-900">Canlı Destek</p>
+          <p class="mt-1 text-xs text-secondary">Bize yazın, destek ekibimiz en kısa sürede dönüş yapsın.</p>
+        </div>
+        <button
+          type="button"
+          data-chat-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-5 py-6">
+        <div class="mx-auto max-w-2xl space-y-5">
+          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+            Merhaba, hediyemo destek hattına hoş geldiniz. Sipariş, puan ve kullanım sorularınız için bize yazabilirsiniz.
+          </div>
+          <div class="ml-auto max-w-[78%] rounded-[1.5rem] rounded-tr-md bg-black px-4 py-3 text-sm leading-6 text-white shadow-sm">
+            Merhaba, puanlarımı kullanırken ödeme adımında sorun yaşıyorum.
+          </div>
+          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+            Hemen kontrol edelim. İsterseniz sipariş numarası veya ekran görüntüsü paylaşabilirsiniz.
+          </div>
+          <div class="rounded-[1.5rem] border border-dashed border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-500">
+            Destek görüşmeleri bu panel içinde akış halinde gösterilir. Uzun konuşmalarda alan kendi içinde scroll eder.
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 bg-white px-5 py-5">
+        <div class="mx-auto max-w-2xl">
+          <label class="block">
+            <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Mesajınız</span>
+            <textarea
+              rows="6"
+              placeholder="Size nasıl yardımcı olabiliriz?"
+              class="w-full rounded-[1.25rem] border-none bg-surface-container-low px-4 py-4 text-sm text-zinc-900 placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+            ></textarea>
+          </label>
+
+          <div class="mt-4 flex items-center justify-end gap-3">
+            <button
+              type="button"
+              data-chat-close
+              class="rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50"
+            >
+              Vazgeç
+            </button>
+            <button
+              type="button"
+              class="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Gönder
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="cartModal"
+    class="pointer-events-none fixed inset-0 z-[79] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="cartModalPanel"
+      class="flex h-full w-full sm:w-[40%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-center justify-between border-b border-zinc-100 px-6 py-5">
+        <div>
+          <p class="font-headline text-lg font-extrabold text-zinc-900">Sepetim</p>
+          <p class="mt-1 text-xs text-secondary">Sepetinizdeki ürünleri buradan yönetebilirsiniz.</p>
+        </div>
+        <button
+          type="button"
+          data-cart-close
+          aria-label="Kapat"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-6 py-6">
+        <div class="space-y-4">
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-headline text-base font-bold text-zinc-900">Amazon.com.tr</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+              </div>
+              <span class="text-sm font-semibold text-primary">1.000 TL</span>
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
+                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+                <span>Adet: 1</span>
+              </div>
+              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                <span>Kaldır</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-headline text-base font-bold text-zinc-900">Teknosa</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+              </div>
+              <span class="text-sm font-semibold text-primary">2.000 TL</span>
+            </div>
+            <div class="mt-2 inline-flex rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-[12px] font-semibold text-primary">
+              +1500 hizmet bedeli uygulanır
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
+                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+                <span>Adet: 2</span>
+              </div>
+              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                <span>Kaldır</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 bg-white px-6 py-5">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between text-sm text-zinc-500">
+            <span>Ürün Toplamı</span>
+            <span>3.000 TL</span>
+          </div>
+          <div class="flex items-center justify-between text-sm text-zinc-500">
+            <span>Hizmet Bedeli</span>
+            <span>+1500</span>
+          </div>
+          <div class="flex items-center justify-between border-t border-zinc-100 pt-3">
+            <span class="font-headline text-base font-extrabold text-zinc-900">Genel Toplam</span>
+            <span class="font-headline text-lg font-extrabold text-primary">3.000 TL</span>
+          </div>
+          <a href="./sepet.html" class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5">
+            Alışverişi Tamamla
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const productGrid = document.getElementById('productGrid');
+    const productsPagination = document.getElementById('productsPagination');
+    const productItems = [
+      {
+        name: 'Amazon.com.tr',
+        type: 'Hediye Çeki',
+        price: '1.000 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDfCT-ZsygOZSznZxPc4IJl-KKqWwhkkLDsmuNXWj7nza9YqMO85V0cUCqwquJWy6KZE0piA0g2YwbqJrqftzw4oAOQPZtPWhKMX_Vr9JLCjU6Fo5KQfBA6meGEhM6JFpSK9v2Km2aaQrdAr5UEz_3T0uQ0OiLTRC63kkvmNWvTezQGh1CJpirlQRE1-9wUucrIgU8R24qWMYEu9ffnGzg6jSwbJhUdrwamhnp3ZAy7YWyjJ3xuWMC24I4el76HnAmjBLvZ_vkpqhw',
+        tag: 'POPÜLER',
+        tagClass: 'bg-primary'
+      },
+      {
+        name: 'Mavi',
+        type: 'Mağaza Çeki',
+        price: '500 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
+      },
+      {
+        name: 'Boyner',
+        type: 'Alışveriş Kartı',
+        price: '2.500 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
+      },
+      {
+        name: 'HepsiBurada',
+        type: 'Dijital Hediye Çeki',
+        price: '1.500 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+      },
+      {
+        name: 'HepsiBurada',
+        type: 'Dijital Hediye Çeki',
+        price: '150.000 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+      },
+      {
+        name: 'IKEA',
+        type: 'Ev Yaşam Çeki',
+        price: '5.000 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
+      },
+      {
+        name: 'Arzum',
+        type: 'Hediye Kodu',
+        price: '750 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2qM3jq-OrDq1iuRN3pp01DjZOw5aK3cXU_kc7n0_KIYJQU92RNx0ZlXvsYWgi7lb_nRWsdZG0TgaTrKJqFZ0arTKx9RPFfhvx2uoYSD6maGA8RA0f84eziicoGNIJDWTCn3YmMrNA4HLmuklyty0xft8Wk7jU4pmb_1y711iE7xCyzmYyx-4upAcToHsbtx0OBJTy1kl-jFy0L7RhLTRY9RGWdO3xjvaOvfjthJbLKL4GBFIYZZQsy24I_X-oV7DHrmyxvhVNhRk'
+      },
+      {
+        name: 'CarrefourSA',
+        type: 'Market Kartı',
+        price: '1.250 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw',
+        feePoints: 1000,
+        ribbonStyle: 'side'
+      },
+      {
+        name: 'Teknosa',
+        type: 'Teknoloji Kartı',
+        price: '2.000 TL',
+        image: './assets/brands/boyner-logo.png',
+        feePoints: 1500,
+        ribbonStyle: 'header'
+      },
+      {
+        name: 'Defacto',
+        type: 'Moda Çeki',
+        price: '900 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A',
+        feePoints: 750,
+        ribbonStyle: 'side'
+      },
+      {
+        name: 'Genç Altın',
+        type: '1 gr Altın',
+        price: '7.268 TL',
+        description: '1 GR (24 Ayar) Altın',
+        image: './assets/brands/genc-altin-logo.png'
+      },
+      {
+        name: 'Genç Altın',
+        type: '2.5 gr Altın',
+        price: '18.170 TL',
+        description: '2.5 GR (24 Ayar) Altın',
+        image: './assets/brands/genc-altin-logo.png'
+      },
+      {
+        name: 'Opet',
+        type: 'Akaryakıt Çeki',
+        price: '1.000 TL',
+        image: './assets/brands/opet-logo.png',
+        feePoints: 160,
+        ribbonStyle: 'header'
+      },
+      {
+        name: 'Opet',
+        type: 'Akaryakıt Çeki',
+        price: '50 TL',
+        image: './assets/brands/opet-logo.png',
+        feePoints: 160,
+        ribbonStyle: 'header'
+      },
+      {
+        name: 'Opet',
+        type: 'Akaryakıt Çeki',
+        price: '10.000 TL',
+        image: './assets/brands/opet-logo.png',
+        feePoints: 160,
+        ribbonStyle: 'header'
+      },
+      {
+        name: 'Koçtaş',
+        type: 'Ev Yaşam Çeki',
+        price: '1.750 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
+      },
+      {
+        name: 'Pazarama',
+        type: 'Alışveriş Çeki',
+        price: '1.100 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDfCT-ZsygOZSznZxPc4IJl-KKqWwhkkLDsmuNXWj7nza9YqMO85V0cUCqwquJWy6KZE0piA0g2YwbqJrqftzw4oAOQPZtPWhKMX_Vr9JLCjU6Fo5KQfBA6meGEhM6JFpSK9v2Km2aaQrdAr5UEz_3T0uQ0OiLTRC63kkvmNWvTezQGh1CJpirlQRE1-9wUucrIgU8R24qWMYEu9ffnGzg6jSwbJhUdrwamhnp3ZAy7YWyjJ3xuWMC24I4el76HnAmjBLvZ_vkpqhw'
+      },
+      {
+        name: 'Altınyıldız',
+        type: 'Giyim Çeki',
+        price: '1.300 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
+      },
+      {
+        name: 'Migros',
+        type: 'Market Çeki',
+        price: '850 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+      },
+      {
+        name: 'LC Waikiki',
+        type: 'Moda Çeki',
+        price: '700 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
+      },
+      {
+        name: 'MediaMarkt',
+        type: 'Teknoloji Kartı',
+        price: '2.250 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
+      },
+      {
+        name: 'Watsons',
+        type: 'Kozmetik Çeki',
+        price: '650 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2qM3jq-OrDq1iuRN3pp01DjZOw5aK3cXU_kc7n0_KIYJQU92RNx0ZlXvsYWgi7lb_nRWsdZG0TgaTrKJqFZ0arTKx9RPFfhvx2uoYSD6maGA8RA0f84eziicoGNIJDWTCn3YmMrNA4HLmuklyty0xft8Wk7jU4pmb_1y711iE7xCyzmYyx-4upAcToHsbtx0OBJTy1kl-jFy0L7RhLTRY9RGWdO3xjvaOvfjthJbLKL4GBFIYZZQsy24I_X-oV7DHrmyxvhVNhRk'
+      },
+      {
+        name: 'Penti',
+        type: 'Giyim Kartı',
+        price: '950 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
+      },
+      {
+        name: 'Toyzz Shop',
+        type: 'Oyuncak Çeki',
+        price: '1.050 TL',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
+      },
+    ];
+
+    const productMeta = {
+      'Amazon.com.tr': { usageModes: ['digital', 'online'], categories: ['teknoloji', 'oyun'], balanceEligible: true },
+      'Mavi': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
+      'Boyner': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: false },
+      'HepsiBurada': { usageModes: ['digital', 'online'], categories: ['elektronik', 'ev-yasam'], balanceEligible: false },
+      'IKEA': { usageModes: ['store', 'physical'], categories: ['ev-yasam'], balanceEligible: false },
+      'Arzum': { usageModes: ['digital', 'online'], categories: ['kucuk-ev-aletleri', 'ev-yasam'], balanceEligible: true },
+      'CarrefourSA': { usageModes: ['store', 'physical'], categories: ['market'], balanceEligible: true },
+      'Teknosa': { usageModes: ['store', 'online'], categories: ['teknoloji', 'elektronik'], balanceEligible: false },
+      'Defacto': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
+      'Genç Altın': { usageModes: ['store', 'physical'], categories: ['market'], balanceEligible: false },
+      'Opet': { usageModes: ['store', 'physical'], categories: ['yakit'], balanceEligible: true },
+      'Koçtaş': { usageModes: ['store', 'physical'], categories: ['ev-yasam'], balanceEligible: false },
+      'Pazarama': { usageModes: ['digital', 'online'], categories: ['yakit', 'turizm'], balanceEligible: true },
+      'Altınyıldız': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: false },
+      'Migros': { usageModes: ['store', 'physical'], categories: ['market', 'yakit'], balanceEligible: true },
+      'LC Waikiki': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
+      'MediaMarkt': { usageModes: ['store', 'online'], categories: ['teknoloji', 'elektronik'], balanceEligible: false },
+      'Watsons': { usageModes: ['store', 'online'], categories: ['kozmetik'], balanceEligible: true },
+      'Penti': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
+      'Toyzz Shop': { usageModes: ['store', 'physical'], categories: ['oyun'], balanceEligible: true }
+    };
+
+    const brandAssetMap = {
+      'Amazon.com.tr': './assets/brands/amazon-logo.png',
+      'Boyner': './assets/brands/boyner-logo.png',
+      'CarrefourSA': './assets/brands/CarrefourSA-logo.png',
+      'Genç Altın': './assets/brands/genc-altin-logo.png',
+      'HepsiBurada': './assets/brands/hepsiburada-logo.png',
+      'Mavi': './assets/brands/mavi-logo.png',
+      'Opet': './assets/brands/opet-logo.png',
+    };
+
+    const productCatalog = productItems.map((item) => ({
+      ...item,
+      image: brandAssetMap[item.name] || item.image,
+      ...(productMeta[item.name] || {}),
+    }));
+
+    let productLayoutMode = 'grid3';
+    let currentRenderedProducts = productCatalog;
+    const productLayoutButtons = document.querySelectorAll('[data-product-layout]');
+    const productGridLayoutClasses = {
+      grid4: 'grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5',
+      grid3: 'grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6',
+      list: 'grid grid-cols-1 gap-4',
+    };
+
+    const applyProductLayout = () => {
+      if (!productGrid) return;
+      productGrid.className = productGridLayoutClasses[productLayoutMode] || productGridLayoutClasses.grid3;
+      productLayoutButtons.forEach((button) => {
+        const isActive = button.dataset.productLayout === productLayoutMode;
+        button.classList.toggle('bg-primary', isActive);
+        button.classList.toggle('text-white', isActive);
+        button.classList.toggle('text-zinc-600', !isActive);
+      });
+    };
+
+    const renderProducts = (items) => {
+      if (!productGrid) return;
+      currentRenderedProducts = items;
+      applyProductLayout();
+      const isListLayout = productLayoutMode === 'list';
+
+      if (!items.length) {
+        if (productsPagination) {
+          productsPagination.classList.add('hidden');
+        }
+        productGrid.innerHTML = `
+          <div class="col-span-full rounded-[1.5rem] border border-zinc-200 bg-white px-8 py-14 text-center shadow-sm">
+            <p class="font-headline text-2xl font-bold text-zinc-900">Filtreye uygun kart bulunamadı</p>
+            <p class="mt-3 text-sm text-zinc-500">Filtreleri sıfırlayarak tüm kartları tekrar görüntüleyebilirsiniz.</p>
+          </div>
+        `;
+        return;
+      }
+
+      if (productsPagination) {
+        productsPagination.classList.toggle('hidden', items.length <= 9);
+      }
+
+      productGrid.innerHTML = items.map((item) => `
+        <div class="group relative flex h-full ${isListLayout ? 'flex-col items-stretch gap-4 rounded-xl border-2 border-primary/30 bg-white p-4 text-left shadow-sm transition-all hover:border-primary/55 hover:shadow-[0_16px_42px_rgba(26,28,28,0.07)] sm:flex-row sm:items-center' : 'flex-col overflow-hidden rounded-xl border-2 border-primary/25 bg-surface-container-lowest text-center shadow-sm transition-all hover:border-primary/55 hover:shadow-[0_20px_50px_rgba(26,28,28,0.08)]'}">
+          ${item.feePoints ? isListLayout ? `
+            <span class="inline-flex w-max rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-primary">%8 Hizmet Bedeli</span>
+          ` : `
+            <div class="service-ribbon service-ribbon--burst" aria-label="%8 hizmet bedeli">
+              <span class="service-ribbon__text">
+                <span class="service-ribbon__percent">%8</span>
+                <span class="service-ribbon__label">Hizmet</span>
+                <span class="service-ribbon__label">Bedeli</span>
+              </span>
+            </div>
+          ` : ''}
+          ${item.tag ? `<span class="absolute left-4 top-4 rounded-full ${item.tagClass} px-3 py-1 text-[10px] font-bold text-white">${item.tag}</span>` : ''}
+          <div class="flex flex-1 ${isListLayout ? 'flex-col items-stretch gap-4 sm:flex-row sm:items-center' : 'flex-col items-center px-3 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5'}">
+            <div class="${isListLayout ? 'flex h-28 w-full shrink-0 items-center justify-center rounded-xl bg-zinc-50 sm:w-40' : 'mb-1 flex h-[135px] w-[96%] items-center justify-center sm:h-[200px]'}">
+              <img class="${isListLayout ? 'max-h-[82%] max-w-[88%] object-contain' : 'max-h-[96%] max-w-[96%] object-contain'}" alt="${item.name}" src="${item.image}" />
+            </div>
+            <div class="${isListLayout ? 'flex min-w-0 flex-1 flex-col items-start' : 'mt-auto flex w-full flex-col items-center pt-2'}">
+              <span class="${isListLayout ? 'font-headline text-2xl font-black text-primary' : 'text-[1.38rem] font-black leading-tight text-primary sm:text-[2.15rem]'}">${item.price}</span>
+              <span class="${isListLayout ? 'mt-0.5 text-base font-medium text-zinc-600' : 'mt-1 text-[0.9rem] font-medium text-zinc-600 sm:text-[1.2rem]'}">${item.description || 'Hediye Çeki'}</span>
+            </div>
+            <a href="${item.name === 'Genç Altın' ? './urun-altin.html' : './urun-hediye.html'}" class="${isListLayout ? 'inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 font-headline text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors group-hover:bg-primary sm:w-auto' : 'mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-3 py-3 font-headline text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors group-hover:bg-primary sm:w-[90%] sm:px-5 sm:py-3.5 sm:text-sm sm:tracking-[0.18em]'}">
+              <span>İNCELE</span>
+              <span class="material-symbols-outlined text-[18px] text-white/80">east</span>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    productLayoutButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        productLayoutMode = button.dataset.productLayout || 'grid3';
+        renderProducts(currentRenderedProducts);
+      });
+    });
+
+    const brandSearch = document.getElementById('brandSearch');
+    const brandOptions = document.querySelectorAll('[data-brand-option]');
+    const categorySearch = document.getElementById('categorySearch');
+    const categoryOptions = document.querySelectorAll('[data-category-option]');
+    const brandCheckboxes = document.querySelectorAll('[data-brand-checkbox]');
+    const usageCheckboxes = document.querySelectorAll('[data-usage-checkbox]');
+    const sectorCheckboxes = document.querySelectorAll('[data-sector-checkbox]');
+    const balanceFilterCheckbox = document.getElementById('balanceFilterCheckbox');
+    const applyFiltersButton = document.getElementById('applyFiltersButton');
+    const resetFiltersButton = document.getElementById('resetFiltersButton');
+    const filterStatus = document.getElementById('filterStatus');
+    const mobileFiltersToggle = document.getElementById('mobileFiltersToggle');
+    const mobileFiltersToggleIcon = document.getElementById('mobileFiltersToggleIcon');
+    const mobileFiltersToggleLabel = document.getElementById('mobileFiltersToggleLabel');
+    const filtersPanel = document.getElementById('filtersPanel');
+    const filtersPanelBackdrop = document.getElementById('filtersPanelBackdrop');
+    const filtersPanelSheet = document.getElementById('filtersPanelSheet');
+    const mobileFiltersClose = document.getElementById('mobileFiltersClose');
+    const accountMenuButton = document.getElementById('accountMenuButton');
+    const accountMenuPanel = document.getElementById('accountMenuPanel');
+    const cartButton = document.getElementById('cartButton');
+
+    const getCheckedValues = (nodeList) => [...nodeList]
+      .filter((input) => input.checked)
+      .map((input) => input.dataset.filterValue);
+
+    const getActiveFilters = () => ({
+      brands: getCheckedValues(brandCheckboxes),
+      usageModes: getCheckedValues(usageCheckboxes),
+      categories: getCheckedValues(sectorCheckboxes),
+      balanceOnly: Boolean(balanceFilterCheckbox?.checked),
+    });
+
+    const hasActiveFilters = (filters) =>
+      filters.brands.length > 0 || filters.usageModes.length > 0 || filters.categories.length > 0 || filters.balanceOnly;
+
+    const matchesAny = (source = [], selected = []) =>
+      !selected.length || selected.some((value) => source.includes(value));
+
+    const filterProducts = (filters) => productCatalog.filter((item) => {
+      const brandMatch = matchesAny([item.name], filters.brands);
+      const usageMatch = matchesAny(item.usageModes, filters.usageModes);
+      const categoryMatch = matchesAny(item.categories, filters.categories);
+      const balanceMatch = !filters.balanceOnly || item.balanceEligible;
+
+      return brandMatch && usageMatch && categoryMatch && balanceMatch;
+    });
+
+    const updateFilterStatus = (active) => {
+      if (!filterStatus) return;
+      filterStatus.classList.toggle('hidden', !active);
+    };
+
+    const updateResetFiltersButtonVisibility = () => {
+      if (!resetFiltersButton) return;
+      const active = hasActiveFilters(getActiveFilters());
+      resetFiltersButton.classList.toggle('hidden', !active);
+      resetFiltersButton.classList.toggle('inline-flex', active);
+    };
+
+    const applyFilters = () => {
+      const filters = getActiveFilters();
+      renderProducts(filterProducts(filters));
+      updateFilterStatus(hasActiveFilters(filters));
+      updateResetFiltersButtonVisibility();
+    };
+
+    const setMobileFiltersState = (isOpen) => {
+      if (mobileFiltersToggle) {
+        mobileFiltersToggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      if (mobileFiltersToggleIcon) {
+        mobileFiltersToggleIcon.classList.toggle('rotate-180', isOpen);
+      }
+
+      if (mobileFiltersToggleLabel) {
+        mobileFiltersToggleLabel.textContent = isOpen ? 'Gizle' : 'Göster';
+      }
+    };
+
+    const openMobileFilters = () => {
+      if (window.innerWidth >= 768 || !filtersPanel || !filtersPanelBackdrop || !filtersPanelSheet) return;
+      filtersPanel.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+
+      requestAnimationFrame(() => {
+        filtersPanelBackdrop.classList.remove('opacity-0');
+        filtersPanelBackdrop.classList.add('opacity-100');
+        filtersPanelSheet.classList.remove('translate-y-full');
+        filtersPanelSheet.classList.add('translate-y-0');
+      });
+
+      setMobileFiltersState(true);
+    };
+
+    const closeMobileFilters = () => {
+      if (window.innerWidth >= 768 || !filtersPanel || !filtersPanelBackdrop || !filtersPanelSheet) return;
+
+      filtersPanelBackdrop.classList.remove('opacity-100');
+      filtersPanelBackdrop.classList.add('opacity-0');
+      filtersPanelSheet.classList.remove('translate-y-0');
+      filtersPanelSheet.classList.add('translate-y-full');
+      document.body.classList.remove('overflow-hidden');
+      setMobileFiltersState(false);
+
+      window.setTimeout(() => {
+        if (window.innerWidth < 768) {
+          filtersPanel.classList.add('hidden');
+        }
+      }, 300);
+    };
+
+    const resetFilters = () => {
+      brandCheckboxes.forEach((input) => {
+        input.checked = false;
+      });
+
+      usageCheckboxes.forEach((input) => {
+        input.checked = false;
+      });
+
+      sectorCheckboxes.forEach((input) => {
+        input.checked = false;
+      });
+
+      if (balanceFilterCheckbox) {
+        balanceFilterCheckbox.checked = false;
+      }
+
+      if (brandSearch) {
+        brandSearch.value = '';
+      }
+
+      if (categorySearch) {
+        categorySearch.value = '';
+      }
+
+      brandOptions.forEach((option) => {
+        option.classList.remove('hidden');
+      });
+
+      categoryOptions.forEach((option) => {
+        option.classList.remove('hidden');
+      });
+
+      renderProducts(productCatalog);
+      updateFilterStatus(false);
+      updateResetFiltersButtonVisibility();
+    };
+
+    renderProducts(productCatalog);
+    updateResetFiltersButtonVisibility();
+
+    if (applyFiltersButton) {
+      applyFiltersButton.addEventListener('click', () => {
+        applyFilters();
+        if (window.innerWidth < 768) {
+          closeMobileFilters();
+        }
+      });
+    }
+
+    if (resetFiltersButton) {
+      resetFiltersButton.addEventListener('click', resetFilters);
+    }
+
+    [...brandCheckboxes, ...usageCheckboxes, ...sectorCheckboxes].forEach((input) => {
+      input.addEventListener('change', updateResetFiltersButtonVisibility);
+    });
+
+    if (balanceFilterCheckbox) {
+      balanceFilterCheckbox.addEventListener('change', updateResetFiltersButtonVisibility);
+    }
+
+    if (mobileFiltersToggle) {
+      mobileFiltersToggle.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+          return;
+        }
+
+        const isOpen = mobileFiltersToggle.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          closeMobileFilters();
+        } else {
+          openMobileFilters();
+        }
+      });
+    }
+
+    if (filtersPanelBackdrop) {
+      filtersPanelBackdrop.addEventListener('click', closeMobileFilters);
+    }
+
+    if (mobileFiltersClose) {
+      mobileFiltersClose.addEventListener('click', closeMobileFilters);
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        document.body.classList.remove('overflow-hidden');
+        setMobileFiltersState(false);
+      }
+    });
+
+    if (brandSearch) {
+      brandSearch.addEventListener('input', () => {
+        const query = brandSearch.value.trim().toLocaleLowerCase('tr-TR');
+
+        brandOptions.forEach((option) => {
+          const name = (option.dataset.brandName || '').toLocaleLowerCase('tr-TR');
+          option.classList.toggle('hidden', !name.includes(query));
+        });
+      });
+    }
+
+    if (categorySearch) {
+      categorySearch.addEventListener('input', () => {
+        const query = categorySearch.value.trim().toLocaleLowerCase('tr-TR');
+
+        categoryOptions.forEach((option) => {
+          const name = (option.dataset.categoryName || '').toLocaleLowerCase('tr-TR');
+          option.classList.toggle('hidden', !name.includes(query));
+        });
+      });
+    }
+
+    let accountMenuHoverTimer = null;
+
+    const clearAccountMenuHoverTimer = () => {
+      if (accountMenuHoverTimer) {
+        window.clearTimeout(accountMenuHoverTimer);
+        accountMenuHoverTimer = null;
+      }
+    };
+
+    const openAccountMenu = () => {
+      if (!accountMenuButton || !accountMenuPanel) return;
+      clearAccountMenuHoverTimer();
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        const rect = accountMenuButton.getBoundingClientRect();
+        accountMenuPanel.style.position = 'fixed';
+        accountMenuPanel.style.left = '1rem';
+        accountMenuPanel.style.right = '1rem';
+        accountMenuPanel.style.top = `${rect.bottom + 10}px`;
+        accountMenuPanel.style.width = 'auto';
+        accountMenuPanel.style.maxWidth = 'none';
+      } else {
+        accountMenuPanel.style.position = '';
+        accountMenuPanel.style.left = '';
+        accountMenuPanel.style.right = '';
+        accountMenuPanel.style.top = '';
+        accountMenuPanel.style.width = '';
+        accountMenuPanel.style.maxWidth = '';
+      }
+
+      accountMenuButton.setAttribute('aria-expanded', 'true');
+      accountMenuButton.classList.add('border-primary', 'bg-white');
+      accountMenuPanel.classList.remove('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
+      accountMenuPanel.classList.add('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
+    };
+
+    const closeAccountMenu = () => {
+      if (!accountMenuButton || !accountMenuPanel) return;
+      clearAccountMenuHoverTimer();
+      accountMenuButton.setAttribute('aria-expanded', 'false');
+      accountMenuButton.classList.remove('border-primary', 'bg-white');
+      accountMenuPanel.classList.add('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
+      accountMenuPanel.classList.remove('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
+    };
+
+    const scheduleCloseAccountMenu = () => {
+      clearAccountMenuHoverTimer();
+      accountMenuHoverTimer = window.setTimeout(() => {
+        if (window.innerWidth >= 768) {
+          closeAccountMenu();
+        }
+      }, 140);
+    };
+
+    if (accountMenuButton && accountMenuPanel) {
+      accountMenuButton.addEventListener('click', () => {
+        const expanded = accountMenuButton.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeAccountMenu();
+        } else {
+          openAccountMenu();
+        }
+      });
+
+      accountMenuButton.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          openAccountMenu();
+        }
+      });
+
+      accountMenuButton.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          scheduleCloseAccountMenu();
+        }
+      });
+
+      accountMenuPanel.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          clearAccountMenuHoverTimer();
+        }
+      });
+
+      accountMenuPanel.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          scheduleCloseAccountMenu();
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!accountMenuButton.contains(event.target) && !accountMenuPanel.contains(event.target)) {
+          closeAccountMenu();
+        }
+      });
+    }
+
+    const policyModal = document.getElementById('policyModal');
+    const policyModalPanel = document.getElementById('policyModalPanel');
+    const policyModalTitle = document.getElementById('policyModalTitle');
+    const policyModalContent = document.getElementById('policyModalContent');
+    const policyTriggers = document.querySelectorAll('[data-policy-trigger]');
+    const policyCloseButtons = document.querySelectorAll('[data-policy-close]');
+    const policyContentMap = {
+      clarification: {
+        title: 'Aydınlatma Metni',
+        body: `
+          <p>Bu aydınlatma metni, hediyemo platformu üzerinden sunulan hizmetler kapsamında kişisel verilerin hangi amaçlarla işlendiğine, hangi yöntemlerle toplandığına ve hangi çerçevede korunduğuna ilişkin genel bilgilendirme amacıyla hazırlanmıştır.</p>
+          <p>Kimlik bilgileri, iletişim verileri, sipariş geçmişi, puan kullanım detayları, üyelik hareketleri, çağrı merkezi kayıtları ve destek talepleri; hizmetin sürdürülebilmesi, işlem güvenliğinin sağlanması, kullanıcı deneyiminin iyileştirilmesi ve mevzuata uyum yükümlülüklerinin yerine getirilebilmesi amacıyla işlenebilir.</p>
+          <p>Kişisel veriler, internet sitesi üzerindeki formlar, üyelik ekranları, çağrı merkezi görüşmeleri, canlı destek kayıtları, e-posta yazışmaları ve benzeri dijital temas noktaları üzerinden toplanabilir. Toplanan veriler, hukuka ve dürüstlük kurallarına uygun olarak, belirli, açık ve meşru amaçlarla, işlenme amacı ile bağlantılı, sınırlı ve ölçülü şekilde ele alınır.</p>
+          <p>İlgili veriler; sipariş süreçlerinin yürütülmesi, puan kampanyalarının yönetimi, talep ve şikayetlerin değerlendirilmesi, olası uyuşmazlıkların çözümlenmesi, güvenlik incelemelerinin yapılması, kullanıcı memnuniyetinin artırılması ve operasyonel raporlamaların hazırlanması için kullanılabilir.</p>
+          <p>Kişisel veriler, yalnızca gerekli olduğu ölçüde; altyapı hizmet sağlayıcıları, çağrı merkezi operasyon ortakları, ödeme/işlem doğrulama sistemleri, hukuk danışmanları ve yetkili kamu kurumları ile paylaşılabilir. Bu paylaşımlar, ilgili mevzuat hükümleri ve sözleşmesel gizlilik yükümlülükleri çerçevesinde gerçekleştirilir.</p>
+          <p>Veri güvenliğinin sağlanması amacıyla erişim kontrolü, yetkilendirme yönetimi, loglama, şifreleme, ağ güvenliği ve sistemsel koruma tedbirleri uygulanır. Tüm organizasyonel ve teknik önlemler, verilerin yetkisiz erişim, kayıp, ifşa veya kötüye kullanım risklerine karşı korunmasını hedefler.</p>
+          <p>Kişisel veriler, ilgili işleme amacının gerektirdiği süre boyunca veya yürürlükteki yasal saklama süreleri sona erene kadar muhafaza edilir. Süre sonunda veriler, mevzuata uygun şekilde silinir, yok edilir veya anonim hale getirilir.</p>
+          <p>İlgili kişi olarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işleme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, verilerin aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme ve gerekli şartlar dahilinde silinmesini talep etme haklarına sahipsiniz.</p>
+          <p>Bu haklarınıza ilişkin başvurularınızı destek kanallarımız üzerinden iletebilir, kimliğinizi doğrulamanıza yardımcı olacak ek bilgi paylaşımı sonrası talebinizin mevzuata uygun şekilde değerlendirilmesini sağlayabilirsiniz.</p>
+          <p>Hizmet süreçlerinde veya mevzuat düzenlemelerinde değişiklik olması halinde, bu bilgilendirme metni güncellenebilir. Güncel sürüm her zaman platform üzerindeki ilgili bağlantı alanında kullanıcıların erişimine sunulur.</p>
+        `
+      },
+      cookies: {
+        title: 'Çerez Politikası',
+        body: `
+          <p>Bu çerez politikası, hediyemo internet sitesi ve bağlantılı dijital deneyimlerde kullanılan çerez türleri hakkında kullanıcıları bilgilendirmek amacıyla hazırlanmıştır. Çerezler, cihazınıza yerleştirilen küçük veri dosyaları olup kullanıcı deneyimini geliştirmek ve belirli işlevleri yerine getirmek için kullanılır.</p>
+          <p>Zorunlu çerezler; oturum yönetimi, güvenlik doğrulaması, form işlemleri ve temel sayfa işlevlerinin sürdürülebilmesi için gereklidir. Bu çerezler olmadan site üzerinde bazı alanların doğru çalışması mümkün olmayabilir.</p>
+          <p>İşlevsellik çerezleri; dil seçimi, oturum tercihleri, bazı arayüz kişiselleştirmeleri ve kullanıcı deneyimini kolaylaştıran ayarların hatırlanmasına yardımcı olur. Bu sayede tekrar eden ziyaretlerde daha tutarlı bir kullanım akışı sağlanabilir.</p>
+          <p>Analitik ve performans çerezleri; ziyaretçi hareketlerinin anonim şekilde analiz edilmesi, sayfa performansının ölçümlenmesi, hangi içeriklerin daha fazla ilgi gördüğünün anlaşılması ve geliştirme çalışmalarına veri sağlanması amacıyla kullanılabilir.</p>
+          <p>Hedefleme veya pazarlama amaçlı çerezler, kullanıcıya daha ilgili içeriklerin sunulması veya kampanya etkisinin analiz edilmesi gibi süreçlerde tercih edilebilir. Bu tür çerezler, ancak ilgili mevzuatın gerektirdiği durumlarda kullanıcının tercihine uygun biçimde devreye alınır.</p>
+          <p>Kullanıcılar, tarayıcı ayarları üzerinden çerez tercihlerini değiştirebilir, mevcut çerezleri silebilir ya da bazı çerez türlerini tamamen devre dışı bırakabilir. Ancak bunun sonucunda, sitenin bazı bölümlerinin beklenen şekilde çalışmaması veya kişiselleştirilmiş bazı deneyimlerin kaybolması söz konusu olabilir.</p>
+          <p>Farklı tarayıcılarda çerez yönetim ekranları ve adımları değişiklik gösterebilir. Bu nedenle kullanılan tarayıcının yardım veya ayarlar bölümü üzerinden çerezlerin nasıl yönetileceğine ilişkin ek bilgi alınması tavsiye edilir.</p>
+          <p>Çerez politikası kapsamındaki uygulamalar; mevzuat değişiklikleri, teknik ihtiyaçlar veya kullanıcı deneyimini geliştirmeye yönelik güncellemeler doğrultusunda zaman zaman revize edilebilir. Yapılan güncellemeler, ilgili bağlantı alanlarında güncel tarih ve içerik ile yayınlanır.</p>
+          <p>Çerez kullanımına ilişkin ek sorularınız olması halinde, iletişim ve destek kanallarımız aracılığıyla tarafımıza ulaşabilir, tercihlerinize ilişkin bilgi talep edebilirsiniz.</p>
+          <p>Bu panelde yayınlanan içerik, kullanıcıların çerez kullanımını daha şeffaf biçimde anlayabilmesi için uzun formda düzenlenmiştir ve gerektiğinde güncel sürümle değiştirilebilir.</p>
+        `
+      }
+    };
+
+    const openPolicyModal = (type) => {
+      const content = policyContentMap[type];
+      if (!content) return;
+
+      policyModalTitle.textContent = content.title;
+      policyModalContent.innerHTML = content.body;
+      policyModal.classList.remove('hidden');
+      policyModal.classList.add('flex');
+
+      requestAnimationFrame(() => {
+        policyModal.classList.remove('pointer-events-none', 'opacity-0');
+        policyModal.classList.add('opacity-100');
+        policyModalPanel.classList.remove('translate-x-full');
+        policyModalPanel.classList.add('translate-x-0');
+      });
+
+      document.body.classList.add('overflow-hidden');
+      policyModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closePolicyModal = () => {
+      policyModal.classList.add('pointer-events-none', 'opacity-0');
+      policyModal.classList.remove('opacity-100');
+      policyModalPanel.classList.remove('translate-x-0');
+      policyModalPanel.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+      policyModal.setAttribute('aria-hidden', 'true');
+
+      window.setTimeout(() => {
+        policyModal.classList.add('hidden');
+        policyModal.classList.remove('flex');
+      }, 200);
+    };
+
+    policyTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        openPolicyModal(trigger.dataset.policyType);
+      });
+    });
+
+    policyCloseButtons.forEach((button) => {
+      button.addEventListener('click', closePolicyModal);
+    });
+
+    policyModal.addEventListener('click', (event) => {
+      if (event.target === policyModal) {
+        closePolicyModal();
+      }
+    });
+
+    const cartModal = document.getElementById('cartModal');
+    const cartModalPanel = document.getElementById('cartModalPanel');
+    const cartCloseButtons = document.querySelectorAll('[data-cart-close]');
+
+    const openCartModal = () => {
+      if (!cartButton || !cartModal || !cartModalPanel) return;
+      cartButton.setAttribute('aria-expanded', 'true');
+      cartButton.classList.add('border-primary', 'bg-white');
+      cartModal.classList.remove('hidden');
+      cartModal.classList.add('flex');
+
+      requestAnimationFrame(() => {
+        cartModal.classList.remove('pointer-events-none', 'opacity-0');
+        cartModal.classList.add('opacity-100');
+        cartModalPanel.classList.remove('translate-x-full');
+        cartModalPanel.classList.add('translate-x-0');
+      });
+
+      document.body.classList.add('overflow-hidden');
+      cartModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeCartModal = () => {
+      if (!cartButton || !cartModal || !cartModalPanel) return;
+      cartButton.setAttribute('aria-expanded', 'false');
+      cartButton.classList.remove('border-primary', 'bg-white');
+      cartModal.classList.add('pointer-events-none', 'opacity-0');
+      cartModal.classList.remove('opacity-100');
+      cartModalPanel.classList.remove('translate-x-0');
+      cartModalPanel.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+      cartModal.setAttribute('aria-hidden', 'true');
+
+      window.setTimeout(() => {
+        cartModal.classList.add('hidden');
+        cartModal.classList.remove('flex');
+      }, 200);
+    };
+
+    if (cartButton) {
+      cartButton.addEventListener('click', openCartModal);
+    }
+
+    cartCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeCartModal);
+    });
+
+    if (cartModal) {
+      cartModal.addEventListener('click', (event) => {
+        if (event.target === cartModal) {
+          closeCartModal();
+        }
+      });
+    }
+
+    const chatLauncher = document.getElementById('chatLauncher');
+    const chatModal = document.getElementById('chatModal');
+    const chatModalPanel = document.getElementById('chatModalPanel');
+    const chatCloseButtons = document.querySelectorAll('[data-chat-close]');
+
+    const openChatModal = () => {
+      chatModal.classList.remove('hidden');
+      chatModal.classList.add('flex');
+      requestAnimationFrame(() => {
+        chatModal.classList.remove('pointer-events-none', 'opacity-0');
+        chatModal.classList.add('opacity-100');
+        chatModalPanel.classList.remove('translate-x-full');
+        chatModalPanel.classList.add('translate-x-0');
+      });
+      document.body.classList.add('overflow-hidden');
+      chatModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeChatModal = () => {
+      chatModal.classList.add('pointer-events-none', 'opacity-0');
+      chatModal.classList.remove('opacity-100');
+      chatModalPanel.classList.remove('translate-x-0');
+      chatModalPanel.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+      chatModal.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => {
+        chatModal.classList.add('hidden');
+        chatModal.classList.remove('flex');
+      }, 200);
+    };
+
+    chatLauncher.addEventListener('click', openChatModal);
+
+    chatCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeChatModal);
+    });
+
+    chatModal.addEventListener('click', (event) => {
+      if (event.target === chatModal) {
+        closeChatModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAccountMenu();
+        closeMobileFilters();
+      }
+
+      if (event.key === 'Escape' && policyModal.getAttribute('aria-hidden') === 'false') {
+        closePolicyModal();
+      }
+
+      if (cartModal.getAttribute('aria-hidden') === 'false' && event.key === 'Escape') {
+        closeCartModal();
+      }
+
+      if (event.key === 'Escape' && chatModal.getAttribute('aria-hidden') === 'false') {
+        closeChatModal();
+      }
+    });
+  </script>
+</body>
+</html>

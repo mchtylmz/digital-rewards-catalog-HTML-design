@@ -1,0 +1,70 @@
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "inverse-primary": "#ffb4aa",
+        "on-tertiary-fixed-variant": "#004788",
+        "primary-fixed-dim": "#ffb4aa",
+        primary: "#b5000b",
+        "on-primary-fixed-variant": "#930007",
+        "surface-tint": "#c0000c",
+        "on-background": "#1a1c1d",
+        "tertiary-container": "#0071d4",
+        "surface-bright": "#f9f9fa",
+        "on-secondary": "#ffffff",
+        "tertiary-fixed": "#d5e3ff",
+        "on-primary-fixed": "#410001",
+        "surface-container-high": "#e8e8e9",
+        "secondary-fixed": "#ffdad5",
+        "secondary-fixed-dim": "#ffb4aa",
+        "surface-container-low": "#f3f3f4",
+        "tertiary-fixed-dim": "#a7c8ff",
+        "surface-container-highest": "#e2e2e3",
+        "on-tertiary-container": "#f5f7ff",
+        "on-secondary-fixed-variant": "#8e1210",
+        "primary-fixed": "#ffdad5",
+        "error-container": "#ffdad6",
+        "surface-variant": "#e2e2e3",
+        secondary: "#b02d25",
+        "on-secondary-container": "#650003",
+        "surface-dim": "#d9dadb",
+        tertiary: "#0059a8",
+        "surface-container-lowest": "#ffffff",
+        "on-primary": "#ffffff",
+        "on-surface": "#1a1c1d",
+        error: "#ba1a1a",
+        "on-tertiary": "#ffffff",
+        "secondary-container": "#fc6455",
+        "surface-container": "#edeeef",
+        "outline-variant": "#e9bcb6",
+        "on-secondary-fixed": "#410001",
+        "on-primary-container": "#fff5f3",
+        "inverse-surface": "#2f3132",
+        surface: "#f9f9fa",
+        "on-error-container": "#93000a",
+        "on-error": "#ffffff",
+        "inverse-on-surface": "#f0f1f1",
+        background: "#f9f9fa",
+        "on-surface-variant": "#5e3f3b",
+        "primary-container": "#e30613",
+        outline: "#936e69",
+        "on-tertiary-fixed": "#001b3c"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        full: "9999px"
+      },
+      fontFamily: {
+        headline: ["Plus Jakarta Sans", "sans-serif"],
+        display: ["Plus Jakarta Sans", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+        label: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};
