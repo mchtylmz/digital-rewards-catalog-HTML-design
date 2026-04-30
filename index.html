@@ -257,27 +257,134 @@
     }
 
   </style>
+  <style>
+    /* form-field-focus-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: none !important;
+      --tw-ring-shadow: 0 0 #0000 !important;
+      --tw-ring-offset-shadow: 0 0 #0000 !important;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+    select:focus,
+    select:focus-visible,
+    textarea:focus,
+    textarea:focus-visible {
+      border-color: #71717a !important;
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+    input[type="checkbox"]:focus,
+    input[type="checkbox"]:focus-visible,
+    input[type="radio"]:focus,
+    input[type="radio"]:focus-visible {
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+
+    /* clickable-cursor-reset */
+    a,
+    button,
+    [role="button"],
+    summary,
+    select,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="checkbox"],
+    input[type="radio"],
+    label[for],
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+
+    /* filter-control-refinement */
+    [data-usage-checkbox],
+    [data-brand-checkbox],
+    [data-sector-checkbox],
+    #balanceFilterCheckbox {
+      width: 1.05rem !important;
+      height: 1.05rem !important;
+      border-radius: 0.35rem !important;
+      border-color: #d4d4d8 !important;
+      color: #b5000b !important;
+      accent-color: #b5000b !important;
+      box-shadow: none !important;
+    }
+
+    [data-usage-checkbox]:checked,
+    [data-brand-checkbox]:checked,
+    [data-sector-checkbox]:checked,
+    #balanceFilterCheckbox:checked {
+      background-color: #b5000b !important;
+      border-color: #b5000b !important;
+      color: #ffffff !important;
+    }
+
+    [data-usage-checkbox]:focus,
+    [data-brand-checkbox]:focus,
+    [data-sector-checkbox]:focus,
+    #balanceFilterCheckbox:focus {
+      box-shadow: 0 0 0 3px rgba(181, 0, 11, 0.08) !important;
+    }
+
+    /* form-field-color-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea,
+    option {
+      color: #18181b !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #71717a !important;
+    }
+
+    label {
+      color: #18181b !important;
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-surface text-on-surface flex flex-col">
   <header class="z-50 w-full bg-white/80 shadow-shell backdrop-blur-xl md:sticky md:top-0">
     <div class="border-b border-zinc-200/70 bg-white/70">
-      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-2 text-[11px] text-secondary sm:h-8 sm:px-6 sm:py-0 lg:px-8">
-        <div class="flex min-w-0 items-center gap-3 sm:gap-6">
-          <a class="inline-flex items-center gap-1.5 truncate transition-colors hover:text-primary" href="mailto:destek@hediyemo.com">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 text-[12px] font-medium text-zinc-500 sm:px-6 md:h-8 md:flex md:justify-between md:gap-3 md:py-0 lg:px-8">
+        <div class="flex min-w-0 flex-col items-start gap-1 md:flex-row md:items-center md:gap-6">
+          <a class="inline-flex min-w-0 items-center justify-start gap-1.5 truncate text-zinc-500 transition-colors hover:text-zinc-700" href="mailto:destek@hediyemo.com">
             <span class="material-symbols-outlined text-[14px]">mail</span>
             <span class="truncate">destek@hediyemo.com</span>
           </a>
-          <a class="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="tel:+908505329090">
+          <a class="inline-flex min-w-0 items-center justify-start gap-1.5 whitespace-nowrap text-zinc-500 transition-colors hover:text-zinc-700" href="tel:+908505329090">
             <span class="material-symbols-outlined text-[14px]">call</span>
             <span>0 (850) 532 9090</span>
           </a>
         </div>
-        <div class="flex shrink-0 items-center gap-6">
-          <a class="inline-flex items-center gap-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500 transition-colors hover:text-zinc-900" href="./yardım.html">
-            <span class="material-symbols-outlined text-[15px]">headset_mic</span>
-            <span>Yardım</span>
-          </a>
-        </div>
+        <a class="inline-flex min-w-0 items-center justify-end gap-1.5 font-headline text-[12px] font-semibold uppercase tracking-[0.08em] text-zinc-500 transition-colors hover:text-zinc-700" href="./yardım.html">
+          <span class="material-symbols-outlined text-[15px]">headset_mic</span>
+          <span>Yardım</span>
+        </a>
       </div>
     </div>
 
@@ -477,23 +584,23 @@
               </button>
             </div>
             <div>
-              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
-                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Kullanım Alanı</h3>
+              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kullanım Alanı</h3>
                 <div class="mt-6 space-y-4">
-                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                    <input data-usage-checkbox data-filter-value="digital" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                  <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="digital" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Dijital Kodlar</span>
                   </label>
-                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                    <input data-usage-checkbox data-filter-value="store" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                  <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="store" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Mağaza Çekleri</span>
                   </label>
-                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                    <input data-usage-checkbox data-filter-value="physical" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                  <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="physical" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Fiziksel Ürünler</span>
                   </label>
-                  <label class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                    <input data-usage-checkbox data-filter-value="online" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                  <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                    <input data-usage-checkbox data-filter-value="online" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Online Kullanım</span>
                   </label>
                 </div>
@@ -501,8 +608,8 @@
             </div>
 
             <div>
-              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
-                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Markalar</h3>
+              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Markalar</h3>
                 <div class="mt-6">
                   <input
                     id="brandSearch"
@@ -513,73 +620,73 @@
                 </div>
 
                 <div id="brandList" class="filter-scroll mt-7 max-h-[360px] space-y-4 overflow-y-auto pr-3">
-              <label data-brand-option data-brand-name="Amazon.com.tr" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Amazon.com.tr" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Amazon.com.tr" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Amazon.com.tr" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Amazon.com.tr</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/amazon-logo.png" alt="Amazon.com.tr logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="Mavi" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Mavi" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Mavi" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Mavi" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Mavi</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi logo" /></span>
               </label>
-	              <label data-brand-option data-brand-name="Boyner" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-	                <input data-brand-checkbox data-filter-value="Boyner" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	              <label data-brand-option data-brand-name="Boyner" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Boyner" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Boyner</span>
 	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner logo" /></span>
 	              </label>
-	              <label data-brand-option data-brand-name="Altınyıldız Classics" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-	                <input data-brand-checkbox data-filter-value="Altınyıldız Classics" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	              <label data-brand-option data-brand-name="Altınyıldız Classics" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Altınyıldız Classics" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Altınyıldız Classics</span>
 	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/altinyildizclassics-logo.png" alt="Altınyıldız Classics logo" /></span>
 	              </label>
-	              <label data-brand-option data-brand-name="Ayakkabı Dünyası" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-	                <input data-brand-checkbox data-filter-value="Ayakkabı Dünyası" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	              <label data-brand-option data-brand-name="Ayakkabı Dünyası" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="Ayakkabı Dünyası" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Ayakkabı Dünyası</span>
 	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/ayakkabidunyasi-logo.png" alt="Ayakkabı Dünyası logo" /></span>
 	              </label>
-	              <label data-brand-option data-brand-name="HepsiBurada" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-	                <input data-brand-checkbox data-filter-value="HepsiBurada" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+	              <label data-brand-option data-brand-name="HepsiBurada" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+	                <input data-brand-checkbox data-filter-value="HepsiBurada" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>HepsiBurada</span>
 	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/hepsiburada-logo.png" alt="HepsiBurada logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="IKEA" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="IKEA" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="IKEA" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="IKEA" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>IKEA</span>
                 <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-[#0058a3] px-1 text-[9px] font-extrabold uppercase text-[#ffdb00]">IKEA</span>
               </label>
-              <label data-brand-option data-brand-name="Arzum" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Arzum" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Arzum" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Arzum" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Arzum</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/arzum-logo.png" alt="Arzum logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="CarrefourSA" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="CarrefourSA" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="CarrefourSA" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="CarrefourSA" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>CarrefourSA</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/CarrefourSA-logo.png" alt="CarrefourSA logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="Teknosa" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Teknosa" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Teknosa" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Teknosa" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Teknosa</span>
                 <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-zinc-950 px-1 text-[9px] font-extrabold uppercase text-white">Teknosa</span>
               </label>
-              <label data-brand-option data-brand-name="Defacto" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Defacto" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Defacto" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Defacto" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Defacto</span>
                 <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-zinc-50 px-1 text-[9px] font-semibold text-zinc-500">DeFacto</span>
               </label>
-              <label data-brand-option data-brand-name="Opet" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Opet" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Opet" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Opet" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Opet</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/opet-logo.png" alt="Opet logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="Genç Altın" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Genç Altın" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Genç Altın" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Genç Altın" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Genç Altın</span>
                 <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-md bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/genc-altin-logo.png" alt="Genç Altın logo" /></span>
               </label>
-              <label data-brand-option data-brand-name="Koçtaş" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-brand-checkbox data-filter-value="Koçtaş" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-brand-option data-brand-name="Koçtaş" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-brand-checkbox data-filter-value="Koçtaş" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Koçtaş</span>
                 <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-md bg-orange-50 px-1 text-[9px] font-extrabold text-orange-600">Koçtaş</span>
               </label>
@@ -588,8 +695,8 @@
             </div>
 
             <div>
-              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
-                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Kategoriler</h3>
+              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kategoriler</h3>
                 <div class="mt-6">
                   <input
                     id="categorySearch"
@@ -600,52 +707,52 @@
                 </div>
 
                 <div id="categoryList" class="filter-scroll mt-7 max-h-[360px] space-y-4 overflow-y-auto pr-3">
-              <label data-category-option data-category-name="Giyim" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="giyim" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Giyim" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="giyim" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Giyim</span>
               </label>
-              <label data-category-option data-category-name="Market" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="market" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Market" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="market" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Market</span>
               </label>
-              <label data-category-option data-category-name="Yakıt" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="yakit" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Yakıt" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="yakit" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Yakıt</span>
               </label>
-              <label data-category-option data-category-name="Turizm" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="turizm" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Turizm" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="turizm" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Turizm</span>
               </label>
-              <label data-category-option data-category-name="Elektronik" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="elektronik" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Elektronik" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="elektronik" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Elektronik</span>
               </label>
-              <label data-category-option data-category-name="Küçük Ev Aletleri" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="kucuk-ev-aletleri" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Küçük Ev Aletleri" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kucuk-ev-aletleri" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Küçük Ev Aletleri</span>
               </label>
-              <label data-category-option data-category-name="Spor" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="spor" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Spor" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="spor" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Spor</span>
               </label>
-              <label data-category-option data-category-name="Kozmetik" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="kozmetik" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Kozmetik" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kozmetik" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Kozmetik</span>
               </label>
-              <label data-category-option data-category-name="Kitap" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="kitap" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Kitap" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="kitap" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Kitap</span>
               </label>
-              <label data-category-option data-category-name="Oyun" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="oyun" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Oyun" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="oyun" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Oyun</span>
               </label>
-              <label data-category-option data-category-name="Teknoloji" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="teknoloji" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Teknoloji" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="teknoloji" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Teknoloji</span>
               </label>
-              <label data-category-option data-category-name="Ev ve Yaşam" class="flex cursor-pointer items-center gap-3 text-[17px] font-medium text-zinc-700">
-                <input data-sector-checkbox data-filter-value="ev-yasam" class="h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+              <label data-category-option data-category-name="Ev ve Yaşam" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
+                <input data-sector-checkbox data-filter-value="ev-yasam" class="h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Ev ve Yaşam</span>
               </label>
                 </div>
@@ -653,11 +760,11 @@
             </div>
 
             <div>
-              <div class="rounded-[1.5rem] border border-zinc-300 bg-white px-5 py-6">
-                <h3 class="font-headline text-[19px] font-bold tracking-tight text-zinc-700">Fiyat Aralığı</h3>
+              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
+                <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Fiyat Aralığı</h3>
                 <div class="mt-6">
-                  <label class="flex cursor-pointer items-start gap-3 text-[17px] font-medium leading-7 text-zinc-700">
-                    <input id="balanceFilterCheckbox" class="mt-0.5 h-6 w-6 rounded-md border-zinc-300 text-primary focus:ring-primary/20" type="checkbox" />
+                  <label class="flex cursor-pointer items-start gap-3 text-[14px] font-medium leading-6 text-zinc-700">
+                    <input id="balanceFilterCheckbox" class="mt-0.5 h-[1.05rem] w-[1.05rem] rounded-[0.35rem] border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Bakiyeme uygun olan hediye çeklerini göster</span>
                   </label>
                 </div>
@@ -701,15 +808,15 @@
     </section>
   </main>
 
-  <section id="footerContactCta" class="w-full bg-zinc-950 px-6 py-8 lg:px-8">
+  <section id="footerContactCta" class="w-full border-t border-zinc-200 bg-zinc-100 px-6 py-8 lg:px-8">
     <div class="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
       <div class="flex items-start gap-4">
         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
           <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;">mode_comment</span>
         </span>
         <div>
-          <p class="font-headline text-2xl font-extrabold tracking-tight text-white">Yardıma mı ihtiyacınız var?</p>
-          <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
+          <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
         </div>
       </div>
       <button
@@ -1077,7 +1184,7 @@
         name: 'Migros',
         type: 'Market Çeki',
         price: '850 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+        image: './assets/brands/migros-logo.png'
       },
       {
         name: 'LC Waikiki',
@@ -1141,6 +1248,7 @@
       'Genç Altın': './assets/brands/genc-altin-logo.png',
       'HepsiBurada': './assets/brands/hepsiburada-logo.png',
       'Mavi': './assets/brands/mavi-logo.png',
+      'Migros': './assets/brands/migros-logo.png',
       'Opet': './assets/brands/opet-logo.png',
     };
 

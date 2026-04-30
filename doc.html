@@ -100,6 +100,84 @@
     .stats-overview-grid { display:grid; gap:1.25rem; grid-template-columns:repeat(1,minmax(0,1fr)); }
     @media (min-width: 768px) { .stats-overview-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
   </style>
+  <style>
+    /* form-field-focus-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: none !important;
+      --tw-ring-shadow: 0 0 #0000 !important;
+      --tw-ring-offset-shadow: 0 0 #0000 !important;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+    select:focus,
+    select:focus-visible,
+    textarea:focus,
+    textarea:focus-visible {
+      border-color: #71717a !important;
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+    input[type="checkbox"]:focus,
+    input[type="checkbox"]:focus-visible,
+    input[type="radio"]:focus,
+    input[type="radio"]:focus-visible {
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+
+    /* clickable-cursor-reset */
+    a,
+    button,
+    [role="button"],
+    summary,
+    select,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="checkbox"],
+    input[type="radio"],
+    label[for],
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+    /* form-field-color-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea,
+    option {
+      color: #18181b !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #71717a !important;
+    }
+
+    label {
+      color: #18181b !important;
+    }
+  </style>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary/10">
   <div class="mx-auto max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8">

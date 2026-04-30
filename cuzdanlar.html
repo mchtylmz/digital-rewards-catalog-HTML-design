@@ -73,7 +73,31 @@
       --font-inter: "Inter", sans-serif;
       --font-manrope: "Manrope", sans-serif;
     }
-  </style>
+      /* clickable-cursor-reset */
+    a,
+    button,
+    [role="button"],
+    summary,
+    select,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="checkbox"],
+    input[type="radio"],
+    label[for],
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+</style>
   <link rel="stylesheet" href="./cuzdan.css" />
 </head>
 <body class="bg-background text-on-surface">

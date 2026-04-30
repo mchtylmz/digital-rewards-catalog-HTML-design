@@ -136,27 +136,103 @@
       }
     }
   </style>
+  <style>
+    /* form-field-focus-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: none !important;
+      --tw-ring-shadow: 0 0 #0000 !important;
+      --tw-ring-offset-shadow: 0 0 #0000 !important;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+    select:focus,
+    select:focus-visible,
+    textarea:focus,
+    textarea:focus-visible {
+      border-color: #71717a !important;
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+    input[type="checkbox"]:focus,
+    input[type="checkbox"]:focus-visible,
+    input[type="radio"]:focus,
+    input[type="radio"]:focus-visible {
+      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+    }
+
+
+    /* clickable-cursor-reset */
+    a,
+    button,
+    [role="button"],
+    summary,
+    select,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="checkbox"],
+    input[type="radio"],
+    label[for],
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+    /* form-field-color-reset */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea,
+    option {
+      color: #18181b !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #71717a !important;
+    }
+
+    label {
+      color: #18181b !important;
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-surface text-on-surface flex flex-col">
   <header class="z-50 w-full bg-white/80 shadow-shell backdrop-blur-xl md:sticky md:top-0">
     <div class="border-b border-zinc-200/70 bg-white/70">
-      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-2 text-[11px] text-secondary sm:h-8 sm:px-6 sm:py-0 lg:px-8">
-        <div class="flex min-w-0 items-center gap-3 sm:gap-6">
-          <a class="inline-flex items-center gap-1.5 truncate transition-colors hover:text-primary" href="mailto:destek@hediyemo.com">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 text-[12px] font-medium text-zinc-500 sm:px-6 md:h-8 md:flex md:justify-between md:gap-3 md:py-0 lg:px-8">
+        <div class="flex min-w-0 flex-col items-start gap-1 md:flex-row md:items-center md:gap-6">
+          <a class="inline-flex min-w-0 items-center justify-start gap-1.5 truncate text-zinc-500 transition-colors hover:text-zinc-700" href="mailto:destek@hediyemo.com">
             <span class="material-symbols-outlined text-[14px]">mail</span>
             <span class="truncate">destek@hediyemo.com</span>
           </a>
-          <a class="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="tel:+908505329090">
+          <a class="inline-flex min-w-0 items-center justify-start gap-1.5 whitespace-nowrap text-zinc-500 transition-colors hover:text-zinc-700" href="tel:+908505329090">
             <span class="material-symbols-outlined text-[14px]">call</span>
             <span>0 (850) 532 9090</span>
           </a>
         </div>
-        <div class="flex shrink-0 items-center gap-6">
-          <a class="inline-flex items-center gap-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.12em] text-primary transition-colors hover:text-zinc-900" href="./yardım.html">
-            <span class="material-symbols-outlined text-[15px]">headset_mic</span>
-            <span>Yardım</span>
-          </a>
-        </div>
+        <a class="inline-flex min-w-0 items-center justify-end gap-1.5 font-headline text-[12px] font-semibold uppercase tracking-[0.08em] text-zinc-500 transition-colors hover:text-zinc-700" href="./yardım.html">
+          <span class="material-symbols-outlined text-[15px]">headset_mic</span>
+          <span>Yardım</span>
+        </a>
       </div>
     </div>
 
@@ -451,15 +527,15 @@
     </section>
   </main>
 
-  <section id="footerContactCta" class="w-full bg-zinc-950 px-6 py-8 lg:px-8">
+  <section id="footerContactCta" class="w-full border-t border-zinc-200 bg-zinc-100 px-6 py-8 lg:px-8">
     <div class="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
       <div class="flex items-start gap-4">
         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
           <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;">mode_comment</span>
         </span>
         <div>
-          <p class="font-headline text-2xl font-extrabold tracking-tight text-white">Yardıma mı ihtiyacınız var?</p>
-          <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
+          <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">Sipariş, puan, teslimat veya marka kullanım koşullarıyla ilgili sorularınızı bize iletebilirsiniz.</p>
         </div>
       </div>
       <button
