@@ -149,15 +149,15 @@
     select:focus-visible,
     textarea:focus,
     textarea:focus-visible {
-      border-color: #71717a !important;
-      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+      border-color: #18181b !important;
+      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
     }
 
     input[type="checkbox"]:focus,
     input[type="checkbox"]:focus-visible,
     input[type="radio"]:focus,
     input[type="radio"]:focus-visible {
-      box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
     }
 
 
@@ -430,11 +430,11 @@
             <input type="hidden" id="phoneId" />
             <label class="block">
               <span class="mb-2 block text-sm font-medium text-zinc-500">Telefon İsmi</span>
-              <input id="phoneLabel" type="text" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Kendi cep telefonum" required />
+              <input id="phoneLabel" type="text" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-zinc-900 focus:ring-0" placeholder="Kendi cep telefonum" required />
             </label>
             <label class="block">
               <span class="mb-2 block text-sm font-medium text-zinc-500">Telefon Numarası</span>
-              <input id="phoneNumber" type="tel" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="0554 312 49 17" required />
+              <input id="phoneNumber" type="tel" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-zinc-900 focus:ring-0" placeholder="0554 312 49 17" required />
             </label>
             <div class="lg:col-span-2">
               <label class="inline-flex items-center gap-3 rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700">
@@ -453,7 +453,7 @@
           </div>
           <label class="block max-w-sm">
             <span class="mb-2 block text-sm font-medium text-zinc-500">OTP Kodu</span>
-            <input id="phoneOtpCode" type="text" inputmode="numeric" maxlength="4" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-center text-2xl font-extrabold tracking-[0.35em] text-zinc-800 focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="1234" />
+            <input id="phoneOtpCode" type="text" inputmode="numeric" maxlength="4" class="w-full rounded-[1rem] border border-zinc-300 px-4 py-3 text-center text-2xl font-extrabold tracking-[0.35em] text-zinc-800 focus:border-zinc-900 focus:ring-0" placeholder="1234" />
           </label>
           <p id="phoneOtpError" class="hidden text-sm font-medium text-red-600">Kod hatalı. Şimdilik geçerli doğrulama kodu `1234`.</p>
         </div>

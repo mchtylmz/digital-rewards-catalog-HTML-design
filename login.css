@@ -53,15 +53,15 @@ select:focus,
 select:focus-visible,
 textarea:focus,
 textarea:focus-visible {
-  border-color: #71717a !important;
-  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+  border-color: #18181b !important;
+  box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
 }
 
 input[type="checkbox"]:focus,
 input[type="checkbox"]:focus-visible,
 input[type="radio"]:focus,
 input[type="radio"]:focus-visible {
-  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.06) !important;
+  box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
 }
 
 h1,
