@@ -76,12 +76,27 @@ details > summary::-webkit-details-marker {
 
 .filter-scroll::-webkit-scrollbar-track {
   background: #ececec;
-  border-radius: 9999px;
+  border-radius: 0.75rem;
 }
 
 .filter-scroll::-webkit-scrollbar-thumb {
   background: #b8b8b8;
-  border-radius: 9999px;
+  border-radius: 0.75rem;
+}
+
+.filter-option-list > label {
+  width: 100%;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.filter-option-list > label:first-child {
+  padding-top: 0;
+}
+
+.filter-option-list > label:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .contact-pulse-border {
@@ -199,7 +214,7 @@ input[type="radio"]:focus-visible {
 #categoryFilterCard,
 #priceFilterCard,
 .filter-card {
-  border-radius: 0.75rem !important;
+  border-radius: 0.75rem;
 }
 
 #usageFilterCard h3,
@@ -224,7 +239,7 @@ input[type="radio"]:focus-visible {
 #balanceFilterCheckbox {
   width: 1rem !important;
   height: 1rem !important;
-  border-radius: 0.35rem !important;
+  border-radius: 0.75rem;
   border-color: #d4d4d8 !important;
   color: var(--hediyemo-primary) !important;
   accent-color: var(--hediyemo-primary) !important;
@@ -276,13 +291,13 @@ input[type="radio"]:focus-visible {
 }
 
 .service-ribbon--burst {
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0;
   min-height: 5.85rem;
   width: 5.85rem;
   align-items: center;
   padding: 0.68rem;
-  border-radius: 0;
+  border-radius: 0.75rem;
   background: linear-gradient(135deg, rgba(211, 59, 191, 0.94), rgba(128, 75, 236, 0.94));
   clip-path: polygon(50% 0%, 60% 17%, 79% 9%, 83% 29%, 100% 38%, 86% 52%, 95% 71%, 73% 72%, 62% 91%, 50% 77%, 38% 91%, 27% 72%, 5% 71%, 14% 52%, 0% 38%, 17% 29%, 21% 9%, 40% 17%);
 }
@@ -351,6 +366,35 @@ input[type="radio"]:focus-visible {
   letter-spacing: 0.02em;
 }
 
+@media (max-width: 639px) {
+  .service-ribbon--burst {
+    min-height: auto;
+    width: 4.2rem;
+    padding: 0.42rem 0.44rem 0.46rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0;
+    clip-path: none;
+  }
+
+  .service-ribbon--burst .service-ribbon__text {
+    gap: 0.02rem;
+    margin-top: 0;
+  }
+
+  .service-ribbon--burst .service-ribbon__percent {
+    font-size: 1rem;
+    line-height: 0.95;
+  }
+
+  .service-ribbon--burst .service-ribbon__label {
+    font-size: 0.58rem;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+  }
+}
+
 .delivery-burst {
   clip-path: polygon(50% 0%, 61% 12%, 78% 8%, 84% 24%, 100% 31%, 90% 48%, 100% 65%, 83% 73%, 78% 91%, 61% 87%, 50% 100%, 39% 87%, 22% 91%, 17% 73%, 0% 65%, 10% 48%, 0% 31%, 16% 24%, 22% 8%, 39% 12%);
 }
@@ -371,5 +415,102 @@ input[type="radio"]:focus-visible {
 
   .mobile-action-grid > * {
     min-width: 0;
+  }
+}
+
+/* Brand accordion */
+.brand-accordion {
+  display: block;
+}
+
+.brand-accordion__row {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.brand-accordion__row--primary .brand-accordion__item:nth-child(n+10) {
+  display: none;
+}
+
+.brand-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    grid-template-rows 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease;
+}
+
+.brand-accordion__panel > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.brand-accordion__panel.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 1.25rem;
+  opacity: 1;
+}
+
+.brand-accordion__item {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.125rem;
+  box-shadow: 0 1px 3px rgba(24, 24, 27, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.brand-accordion__item:hover {
+  transform: translateY(-0.25rem);
+}
+
+.brand-accordion__item img {
+  width: 99%;
+  height: 99%;
+  object-fit: contain;
+}
+
+.brand-accordion__item--featured {
+  border: 2px solid var(--hediyemo-primary);
+}
+
+.brand-accordion__text {
+  display: flex;
+  width: 99%;
+  height: 99%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: #f4f4f5;
+  padding: 0.25rem;
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(0.72rem, 1vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #18181b;
+}
+
+.brand-accordion__text--ikea {
+  background: #0058a3;
+  color: #ffdb00;
+}
+
+@media (max-width: 767px) {
+  .brand-accordion__row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .brand-accordion__row--primary {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
   }
 }

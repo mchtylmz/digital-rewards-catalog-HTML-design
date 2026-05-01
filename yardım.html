@@ -55,7 +55,7 @@
           <input
             type="text"
             placeholder="Hediye kartı veya marka ara..."
-            class="h-14 w-full rounded-full border-none bg-surface-container-low px-6 pr-16 py-0 text-[15px] leading-none text-on-surface placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+            class="h-14 w-full rounded-xl border-none bg-surface-container-low px-6 pr-16 py-0 text-[15px] leading-none text-on-surface placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
           />
           <button class="absolute inset-y-0 right-0 flex items-center pr-5 text-primary" type="button" aria-label="Ara">
             <span class="material-symbols-outlined text-[30px] leading-none">search</span>
@@ -65,7 +65,7 @@
 
       <div class="order-2 w-full md:order-none md:ml-auto md:w-auto">
         <div class="grid w-full grid-cols-3 gap-2 md:flex md:items-center md:gap-3 lg:gap-4">
-          <div class="flex min-w-0 flex-col justify-center rounded-[1.15rem] bg-zinc-100/90 px-3 py-3 md:hidden">
+          <div class="flex min-w-0 flex-col justify-center rounded-xl bg-zinc-100/90 px-3 py-3 md:hidden">
             <span class="text-[10px] font-medium uppercase tracking-[0.18em] text-secondary">Puanım</span>
             <span class="mt-1 text-[24px] font-black leading-none tracking-tight text-primary">35.500</span>
           </div>
@@ -76,7 +76,7 @@
           <div class="relative min-w-0 md:w-auto">
               <button
                 id="accountMenuButton"
-                class="grid h-full w-full min-w-0 grid-cols-[auto_auto] grid-rows-[auto_auto] place-content-center place-items-center gap-x-1 gap-y-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:grid-cols-none md:grid-rows-none md:gap-2 md:px-3 md:py-2 md:text-sm"
+                class="grid h-full w-full min-w-0 grid-cols-[auto_auto] grid-rows-[auto_auto] place-content-center place-items-center gap-x-1 gap-y-0.5 rounded-xl border border-transparent bg-zinc-100/90 px-2 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:grid-cols-none md:grid-rows-none md:gap-2 md:px-3 md:py-2 md:text-sm"
                 type="button"
                 aria-label="Hesabım"
                 aria-expanded="false"
@@ -87,9 +87,9 @@
               </button>
               <div
                 id="accountMenuPanel"
-                class="pointer-events-none invisible absolute right-0 top-[calc(100%+10px)] z-30 w-64 translate-y-2 rounded-2xl border border-zinc-200 bg-white p-2 opacity-0 shadow-[0_18px_40px_rgba(0,0,0,0.12)] transition-all duration-200"
+                class="pointer-events-none invisible absolute right-0 top-[calc(100%+10px)] z-30 w-64 translate-y-2 rounded-xl border border-zinc-200 bg-white p-2 opacity-0 shadow-[0_18px_40px_rgba(0,0,0,0.12)] transition-all duration-200"
               >
-                <div class="mb-2 rounded-[1.1rem] bg-zinc-50 px-3 py-3">
+                <div class="mb-2 rounded-xl bg-zinc-50 px-3 py-3">
                   <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Hoş geldin</p>
                   <p class="mt-1 font-headline text-[1rem] font-bold tracking-tight text-zinc-800">Mucahit Yılmaz</p>
                 </div>
@@ -123,14 +123,14 @@
           </div>
           <button
             id="cartButton"
-            class="relative grid h-full w-full min-w-0 place-content-center place-items-center gap-0.5 rounded-[1.15rem] border border-transparent bg-zinc-100/90 px-2 pr-3 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:gap-2 md:px-3 md:pr-5 md:py-2 md:text-sm"
+            class="relative grid h-full w-full min-w-0 place-content-center place-items-center gap-0.5 rounded-xl border border-transparent bg-zinc-100/90 px-2 pr-3 py-2.5 text-[12px] font-semibold text-zinc-700 transition-colors duration-200 hover:border-primary hover:bg-white focus-visible:border-primary focus-visible:bg-white md:inline-flex md:w-auto md:gap-2 md:px-3 md:pr-5 md:py-2 md:text-sm"
             type="button"
             aria-label="Sepetim"
             aria-expanded="false"
           >
             <span class="material-symbols-outlined text-[20px] md:text-[24px]">shopping_bag</span>
             <span class="truncate text-center leading-tight">Sepetim</span>
-            <span class="absolute -right-1 -top-1 inline-flex h-6 min-w-[24px] items-center justify-center rounded-full bg-primary px-1.5 text-[13px] font-extrabold leading-none text-white shadow-[0_8px_18px_rgba(170,0,21,0.24)] ring-2 ring-white md:-right-2 md:-top-1.5">3</span>
+            <span class="absolute -right-1 -top-1 inline-flex h-6 min-w-[24px] items-center justify-center rounded-xl bg-primary px-1.5 text-[13px] font-extrabold leading-none text-white shadow-[0_8px_18px_rgba(170,0,21,0.24)] ring-2 ring-white md:-right-2 md:-top-1.5">3</span>
           </button>
         </div>
       </div>
@@ -139,111 +139,107 @@
 
   <main class="flex-1">
     <section class="mx-auto max-w-[1440px] px-6 py-10 lg:px-8 lg:py-12">
-      <div class="rounded-[2rem] border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-7 sm:py-8 lg:px-10">
+      <div class="rounded-xl border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-7 sm:py-8 lg:px-10">
         <div class="max-w-full">
-          <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+          <span class="inline-flex items-center gap-2 rounded-xl bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
             <span class="material-symbols-outlined text-[16px]">help</span>
             Yardım Merkezi
           </span>
           <h1 class="mt-4 font-headline text-[1.75rem] font-extrabold tracking-tight text-zinc-900 sm:text-[2rem] lg:text-[2.2rem] lg:whitespace-nowrap">Sık sorulan konular ve marka kullanım koşulları</h1>
         </div>
 
-        <div class="mt-7 grid gap-3 rounded-[1.5rem] border border-zinc-200 bg-zinc-50 p-2 sm:grid-cols-3">
-          <button type="button" data-help-tab-trigger="faq" class="help-tab-trigger inline-flex items-center justify-center gap-2 rounded-[1.1rem] bg-primary px-4 py-4 text-sm font-bold text-white shadow-sm transition-colors hover:text-white" aria-pressed="true">
+        <div class="mt-7 grid gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-2 sm:grid-cols-2">
+          <button type="button" data-help-tab-trigger="faq" class="help-tab-trigger inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-4 text-sm font-bold text-white shadow-sm transition-colors hover:text-white" aria-pressed="true">
             <span class="material-symbols-outlined text-[20px]">quiz</span>
             <span>Nasıl Çalışır</span>
           </button>
-          <button type="button" data-help-tab-trigger="terms" class="help-tab-trigger inline-flex items-center justify-center gap-2 rounded-[1.1rem] px-4 py-4 text-sm font-bold text-zinc-500 transition-colors hover:text-primary" aria-pressed="false">
+          <button type="button" data-help-tab-trigger="terms" class="help-tab-trigger inline-flex items-center justify-center gap-2 rounded-xl px-4 py-4 text-sm font-bold text-zinc-500 transition-colors hover:text-primary" aria-pressed="false">
             <span class="material-symbols-outlined text-[20px]">fact_check</span>
             <span>Marka Kullanım Koşulları</span>
-          </button>
-          <button type="button" data-help-tab-trigger="contact" class="help-tab-trigger inline-flex items-center justify-center gap-2 rounded-[1.1rem] px-4 py-4 text-sm font-bold text-zinc-500 transition-colors hover:text-primary" aria-pressed="false">
-            <span class="material-symbols-outlined text-[20px]">support_agent</span>
-            <span>Bize Ulaşın</span>
           </button>
         </div>
 
         <div class="mt-8">
           <div data-help-tab-panel="faq" class="help-tab-panel space-y-4">
-            <div class="rounded-[1.5rem] border border-zinc-200 bg-zinc-50 px-5 py-4 text-sm text-zinc-600">
+            <div class="rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-sm text-zinc-600">
               Hediye çeklerinin kullanımı, teslimatı ve hizmet bedeli gibi temel sorular için aşağıdaki cevapları inceleyebilirsiniz.
             </div>
             <div class="space-y-3">
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm" open>
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm" open>
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Hediye çekimi satın aldıktan sonra nasıl teslim alırım?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Satın alma işlemi tamamlandıktan sonra hediye çeki detayları hesabınızda ve ilgili sipariş ekranında görüntülenir. Dijital çekler anında, fiziksel çekler ise operasyon akışına göre teslim edilir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Puan bakiyem yetersizse işlem yapabilir miyim?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Bakiyeniz yetersizse yalnızca bakiyenize uygun ürünleri filtreleyerek devam etmeniz gerekir. Uygun olmayan çekler satın alma aşamasında tamamlanamaz.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Hizmet bedeli olan kartları nasıl ayırt ederim?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
-                <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Kart köşesinde yer alan kırmızı ribbon alanı, ilgili çek için ekstra puan hizmet bedeli olduğunu gösterir. Örneğin `+160 Puan Hizmet Bedeli` gibi bilgiler doğrudan kart üzerinde görünür.</p>
+                <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Kart köşesinde yer alan kırmızı ribbon alanı, ilgili çek için ekstra puan hizmet bedeli olduğunu gösterir. Örneğin `+100 Puan Hizmet Bedeli` gibi bilgiler doğrudan kart üzerinde görünür.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Aynı markadan birden fazla çek alabilir miyim?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Evet, stok ve marka kuralı uygunsa aynı markadan farklı tutarlarda birden fazla hediye çeki alabilirsiniz. Bazı markalarda kullanım başına tek çek kuralı olabilir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Hediye çekleri iade edilebilir mi?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Dijital içerik niteliği taşıyan hediye çeklerinde çoğu zaman iptal ve iade yapılamaz. Marka koşullarına göre farklı istisnalar uygulanabilir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Çekleri sadece mağazada mı kullanabilirim?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Bu tamamen markaya göre değişir. Bazı markalar yalnızca fiziki mağazalarda geçerliyken, bazıları online kullanım veya hibrit kullanım destekler.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Hediye çekimin son kullanma tarihini nerede görürüm?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Sipariş detay ekranında, çek kodu veya kullanım bilgisi altında son kullanma tarihi ayrıca belirtilir. Marka kullanım koşulları sekmesinde de bu bilgi yer alabilir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Sepetime eklediğim ürünler daha sonra değişir mi?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Sepetinizde ürün adedi ve toplam puan karşılığı güncellenebilir; ancak ürün temel tutarı değişirse ödeme öncesinde güncel hali gösterilir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Marka filtresi ile sektör filtresi birlikte çalışır mı?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
                 <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Evet. Seçtiğiniz marka, sektör, kullanım alanı ve bakiye uygunluğu kriterleri aynı anda değerlendirilir ve sadece eşleşen ürünler listelenir.</p>
               </details>
-              <details class="group rounded-[1.4rem] border border-zinc-200 bg-white px-5 py-4 shadow-sm">
+              <details class="group rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm">
                 <summary class="flex cursor-pointer items-center justify-between gap-4">
                   <span class="font-headline text-lg font-bold text-zinc-900">Bir sorun yaşarsam nasıl destek alırım?</span>
                   <span class="material-symbols-outlined text-zinc-400 transition-transform group-open:rotate-180">expand_more</span>
                 </summary>
-                <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Sayfanın sağ altındaki `BİZE ULAŞIN` butonu veya bu yardım ekranındaki ilgili sekme üzerinden mesaj alanını açarak ekibimize yazabilirsiniz.</p>
+                <p class="mt-3 pr-8 text-sm leading-7 text-zinc-600">Sayfanın sağ altındaki `BİZE ULAŞIN` butonu üzerinden mesaj alanını açarak ekibimize yazabilirsiniz.</p>
               </details>
             </div>
           </div>
 
           <div data-help-tab-panel="terms" class="help-tab-panel hidden space-y-6">
-            <div class="rounded-[1.5rem] border border-sky-100 bg-sky-50 px-5 py-4 text-sky-900">
+            <div class="rounded-xl border border-sky-100 bg-sky-50 px-5 py-4 text-sky-900">
               <div class="flex items-start gap-3">
                 <span class="material-symbols-outlined mt-0.5 text-[22px] text-sky-600">info</span>
                 <div>
@@ -254,9 +250,9 @@
             </div>
 
             <div class="grid gap-6 xl:grid-cols-[0.78fr_2.22fr]">
-              <div class="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-sm">
+              <div class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
                 <label for="brandTermsSelect" class="mb-3 block text-sm font-semibold uppercase tracking-[0.14em] text-zinc-500">Marka Seçimi</label>
-                <select id="brandTermsSelect" class="w-full rounded-[1rem] border border-zinc-300 bg-white px-4 py-3 text-base font-medium text-zinc-700 focus:border-zinc-900 focus:ring-0">
+                <select id="brandTermsSelect" class="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-base font-medium text-zinc-700 focus:border-zinc-900 focus:ring-0">
                   <option value="mavi">Mavi</option>
                   <option value="boyner">Boyner</option>
                   <option value="amazon">Amazon.com.tr</option>
@@ -265,37 +261,22 @@
                   <option value="carrefoursa">CarrefourSA</option>
                 </select>
 
-                <div class="mt-6 overflow-hidden rounded-[1.35rem] bg-zinc-50">
+                <div class="mt-6 overflow-hidden rounded-xl bg-zinc-50">
                   <div class="flex min-h-[260px] items-center justify-center bg-gradient-to-br from-zinc-100 via-white to-zinc-100 p-6">
                     <img id="brandTermsImage" class="max-h-28 max-w-full object-contain" alt="Marka görseli" src="./assets/brands/mavi-logo.png" />
                   </div>
                 </div>
               </div>
 
-              <div class="rounded-[1.75rem] border border-zinc-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
                 <h2 id="brandTermsTitle" class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Mavi Hediye Çeki Kullanım Koşulları</h2>
                 <ul id="brandTermsList" class="mt-5 space-y-3 text-[1.02rem] leading-8 text-zinc-700">
-                  <li class="flex gap-4 rounded-[1.15rem] border border-zinc-200 bg-zinc-50 px-4 py-3"><span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-[18px]">done</span></span><span>Sadece MAVİ mağazalarında geçerlidir, online mağazada kullanılamaz.</span></li>
+                  <li class="flex gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3"><span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-[18px]">done</span></span><span>Sadece MAVİ mağazalarında geçerlidir, online mağazada kullanılamaz.</span></li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div data-help-tab-panel="contact" class="help-tab-panel hidden">
-            <div class="w-full">
-              <div class="rounded-[1.75rem] border border-zinc-200 bg-zinc-50 p-6 lg:p-7">
-                <span class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <span class="material-symbols-outlined text-[28px]">mail</span>
-                </span>
-                <h2 class="mt-5 font-headline text-3xl font-extrabold tracking-tight text-zinc-900">Bize mesaj bırakın</h2>
-                <p class="mt-4 max-w-4xl text-base leading-7 text-zinc-600">Sipariş, puan, marka kullanımı veya bakiye ile ilgili sorularınızı tek mesajla bize iletebilirsiniz.</p>
-                <button id="contactTabOpenChat" type="button" class="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-transform duration-200 hover:-translate-y-0.5">
-                  <span class="material-symbols-outlined text-[20px]">forum</span>
-                  <span>Bize Ulaşın</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -304,7 +285,7 @@
   <section id="footerContactCta" class="w-full border-t border-zinc-200 bg-zinc-100 px-6 py-8 lg:px-8">
     <div class="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
       <div class="flex items-start gap-4">
-        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
+        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
           <span class="material-symbols-outlined text-[24px] ms-filled-600">mode_comment</span>
         </span>
         <div>
@@ -315,7 +296,7 @@
       <button
         id="chatLauncher"
         type="button"
-        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-[0_14px_34px_rgba(181,0,11,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
+        class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-[0_14px_34px_rgba(181,0,11,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
       >
         <span class="material-symbols-outlined text-[20px]">chat</span>
         <span>Bize Ulaşın</span>
@@ -365,7 +346,7 @@
           type="button"
           data-policy-close
           aria-label="Kapat"
-          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
         >
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
@@ -397,7 +378,7 @@
           type="button"
           data-chat-close
           aria-label="Kapat"
-          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
         >
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
@@ -405,16 +386,16 @@
 
       <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-5 py-6">
         <div class="mx-auto max-w-2xl space-y-5">
-          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+          <div class="max-w-[78%] rounded-xl rounded-xl bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
             Merhaba, hediyemo destek hattına hoş geldiniz. Sipariş, puan ve kullanım sorularınız için bize yazabilirsiniz.
           </div>
-          <div class="ml-auto max-w-[78%] rounded-[1.5rem] rounded-tr-md bg-black px-4 py-3 text-sm leading-6 text-white shadow-sm">
+          <div class="ml-auto max-w-[78%] rounded-xl rounded-xl bg-black px-4 py-3 text-sm leading-6 text-white shadow-sm">
             Merhaba, puanlarımı kullanırken ödeme adımında sorun yaşıyorum.
           </div>
-          <div class="max-w-[78%] rounded-[1.5rem] rounded-tl-md bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
+          <div class="max-w-[78%] rounded-xl rounded-xl bg-white px-4 py-3 text-sm leading-6 text-zinc-700 shadow-sm">
             Hemen kontrol edelim. İsterseniz sipariş numarası veya ekran görüntüsü paylaşabilirsiniz.
           </div>
-          <div class="rounded-[1.5rem] border border-dashed border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-500">
+          <div class="rounded-xl border border-dashed border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-500">
             Destek görüşmeleri bu panel içinde akış halinde gösterilir. Uzun konuşmalarda alan kendi içinde scroll eder.
           </div>
         </div>
@@ -427,7 +408,7 @@
             <textarea
               rows="6"
               placeholder="Size nasıl yardımcı olabiliriz?"
-              class="w-full rounded-[1.25rem] border-none bg-surface-container-low px-4 py-4 text-sm text-zinc-900 placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
+              class="w-full rounded-xl border-none bg-surface-container-low px-4 py-4 text-sm text-zinc-900 placeholder:text-secondary focus:ring-2 focus:ring-primary/20"
             ></textarea>
           </label>
 
@@ -435,13 +416,13 @@
             <button
               type="button"
               data-chat-close
-              class="rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50"
+              class="rounded-xl border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50"
             >
               Vazgeç
             </button>
             <button
               type="button"
-              class="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
+              class="rounded-xl bg-black px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
             >
               Gönder
             </button>
@@ -463,58 +444,55 @@
       <div class="flex items-center justify-between border-b border-zinc-100 px-6 py-5">
         <div>
           <p class="font-headline text-lg font-extrabold text-zinc-900">Sepetim</p>
-          <p class="mt-1 text-xs text-secondary">Sepetinizdeki ürünleri buradan yönetebilirsiniz.</p>
         </div>
         <button
           type="button"
           data-cart-close
           aria-label="Kapat"
-          class="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
         >
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
       </div>
 
-      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-6 py-6">
-        <div class="space-y-4">
-          <div class="rounded-2xl bg-white p-4 shadow-sm">
+      <div class="flex-1 overflow-y-auto bg-zinc-50/70 px-5 py-4">
+        <div class="space-y-3">
+          <div class="rounded-xl bg-white p-3 shadow-sm">
             <div class="flex items-start justify-between gap-3">
               <div>
                 <p class="font-headline text-base font-bold text-zinc-900">Amazon.com.tr</p>
-                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki 1.000 TL</p>
               </div>
-              <span class="text-sm font-semibold text-primary">1.000 TL</span>
+              <div class="text-right"><span class="text-base font-extrabold text-primary">1.000 Puan</span></div>
             </div>
-            <div class="mt-4 flex items-center justify-between gap-3">
-              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
-                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+            <div class="mt-3 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-1.5 rounded-xl border border-zinc-200 bg-white px-2 py-1 text-xs font-medium text-zinc-600">
                 <span>Adet: 1</span>
               </div>
-              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
-                <span class="material-symbols-outlined text-[18px]">delete</span>
+              <button class="inline-flex items-center gap-1.5 rounded-xl border border-primary px-2.5 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
                 <span>Kaldır</span>
               </button>
             </div>
           </div>
 
-          <div class="rounded-2xl bg-white p-4 shadow-sm">
+          <div class="rounded-xl bg-white p-3 shadow-sm">
             <div class="flex items-start justify-between gap-3">
               <div>
                 <p class="font-headline text-base font-bold text-zinc-900">Opet</p>
-                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki</p>
+                <p class="mt-1 text-sm text-zinc-500">Hediye Çeki 1.000 TL</p>
               </div>
-              <span class="text-sm font-semibold text-primary">1.000 TL</span>
+              <div class="text-right"><span class="text-base font-extrabold text-primary">1.000 Puan</span></div>
             </div>
-            <div class="mt-2 inline-flex rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-[12px] font-semibold text-primary">
-              +160 hizmet bedeli uygulanır
+            <div class="mt-2 text-[12px] font-semibold text-red-600">
+              +100 Puan Hizmet Bedeli
             </div>
-            <div class="mt-4 flex items-center justify-between gap-3">
-              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-600">
-                <span class="material-symbols-outlined text-[18px] text-zinc-500">inventory_2</span>
+            <div class="mt-3 flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-1.5 rounded-xl border border-zinc-200 bg-white px-2 py-1 text-xs font-medium text-zinc-600">
                 <span>Adet: 1</span>
               </div>
-              <button class="inline-flex items-center gap-2 rounded-full border border-primary px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
-                <span class="material-symbols-outlined text-[18px]">delete</span>
+              <button class="inline-flex items-center gap-1.5 rounded-xl border border-primary px-2.5 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/5" type="button">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
                 <span>Kaldır</span>
               </button>
             </div>
@@ -530,13 +508,17 @@
           </div>
           <div class="flex items-center justify-between text-sm text-zinc-500">
             <span>Hizmet Bedeli</span>
-            <span>+160</span>
+            <span>160 Puan</span>
+          </div>
+          <div class="flex items-center justify-between text-sm text-zinc-500">
+            <span>Sigortalı Kargo Ücreti</span>
+            <span>255 Puan</span>
           </div>
           <div class="flex items-center justify-between border-t border-zinc-100 pt-3">
             <span class="font-headline text-base font-extrabold text-zinc-900">Genel Toplam</span>
             <span class="font-headline text-lg font-extrabold text-primary">2.000 TL</span>
           </div>
-          <a href="./sepet.html" class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5">
+          <a href="./sepet.html" class="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-black px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5">
             Alışverişi Tamamla
           </a>
         </div>

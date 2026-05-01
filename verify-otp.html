@@ -18,10 +18,10 @@
 <body class="guest-page guest-auth-page bg-background text-on-background flex min-h-screen flex-col selection:bg-primary-container/20 selection:text-primary">
   <main class="guest-auth-shell flex min-h-screen flex-grow flex-col md:flex-row">
     <section class="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-surface-container-lowest px-8 py-12 md:min-h-0 md:w-[45%] md:px-16 lg:px-24">
-      <div class="pointer-events-none absolute -left-24 top-16 h-60 w-60 rounded-full bg-emerald-100/80"></div>
-      <div class="pointer-events-none absolute bottom-[-4.75rem] left-1/3 h-44 w-44 rounded-full bg-indigo-100/90"></div>
-      <div class="pointer-events-none absolute right-10 top-20 h-12 w-12 rounded-full border border-zinc-300/80"></div>
-      <div class="pointer-events-none absolute right-4 top-36 h-24 w-24 rounded-full border-[4px] border-zinc-100"></div>
+      <div class="pointer-events-none absolute -left-24 top-16 h-60 w-60 rounded-xl bg-emerald-100/80"></div>
+      <div class="pointer-events-none absolute bottom-[-4.75rem] left-1/3 h-44 w-44 rounded-xl bg-indigo-100/90"></div>
+      <div class="pointer-events-none absolute right-10 top-20 h-12 w-12 rounded-xl border border-zinc-300/80"></div>
+      <div class="pointer-events-none absolute right-4 top-36 h-24 w-24 rounded-xl border-[4px] border-zinc-100"></div>
 
       <div class="relative z-10 mx-auto w-full max-w-md">
         <div class="mb-10">
@@ -32,9 +32,9 @@
           />
         </div>
 
-        <div class="mb-8 rounded-3xl border border-primary/20 bg-primary/5 px-5 py-5">
+        <div class="mb-8 rounded-xl border border-primary/20 bg-primary/5 px-5 py-5">
           <div class="flex items-center gap-4">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-white/40 text-primary">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-white/40 text-primary">
               <span class="material-symbols-outlined text-[1.65rem]">lock</span>
             </span>
             <div>
@@ -49,7 +49,7 @@
           <div>
             <div class="mb-3 flex items-center justify-between gap-3">
               <label class="block text-sm font-semibold text-on-surface-variant" for="otpCode">Doğrulama Kodu</label>
-              <span class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-3 py-1.5 text-sm font-bold text-primary">
+              <span class="inline-flex items-center gap-2 rounded-xl bg-surface-container-low px-3 py-1.5 text-sm font-bold text-primary">
                 <span class="material-symbols-outlined text-[18px]">timer</span>
                 <span id="countdownText">05:00</span>
               </span>
@@ -58,7 +58,7 @@
             <div aria-label="OTP kodu">
               <input
                 id="otpCode"
-                class="otp-code-input h-16 w-full rounded-2xl border border-transparent bg-surface-container-low text-center font-headline text-3xl font-extrabold text-on-surface outline-none transition-all focus:bg-white"
+                class="otp-code-input h-16 w-full rounded-xl border border-transparent bg-surface-container-low text-center font-headline text-3xl font-extrabold text-on-surface outline-none transition-all focus:bg-white"
                 inputmode="numeric"
                 maxlength="4"
                 autocomplete="one-time-code"
@@ -74,9 +74,9 @@
             <span class="material-symbols-outlined text-[1.15rem]">verified_user</span>
           </button>
 
-          <div class="flex flex-col gap-3 rounded-2xl bg-surface-container-low px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex flex-col gap-3 rounded-xl bg-surface-container-low px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
             <span class="text-sm font-medium text-on-surface-variant">Kod gelmedi mi?</span>
-            <button id="resendButton" type="button" disabled class="inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-zinc-400 transition-colors disabled:cursor-not-allowed enabled:bg-white enabled:text-primary enabled:hover:bg-primary enabled:hover:text-white">
+            <button id="resendButton" type="button" disabled class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-zinc-400 transition-colors disabled:cursor-not-allowed enabled:bg-white enabled:text-primary enabled:hover:bg-primary enabled:hover:text-white">
               <span class="material-symbols-outlined text-[18px]">refresh</span>
               <span>Kodu Yeniden Gönder</span>
             </button>
@@ -102,7 +102,7 @@
 
       <div class="relative flex h-full flex-col justify-end p-8 sm:p-10 md:p-16 lg:p-24">
         <div class="max-w-xl">
-          <div class="mb-6 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md">
+          <div class="mb-6 inline-flex rounded-xl border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md">
             <span class="text-xs font-bold uppercase tracking-widest text-white">Güvenli Doğrulama</span>
           </div>
           <h2 class="mb-6 text-[2.65rem] font-black leading-tight tracking-tighter text-white sm:text-[3.2rem] md:text-5xl lg:text-7xl">
@@ -112,11 +112,11 @@
             Tek kullanımlık doğrulama kodu ile hesabınıza güvenli şekilde erişin ve hediye dünyasına kaldığınız yerden devam edin.
           </p>
           <div class="flex flex-wrap gap-3">
-            <div class="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
+            <div class="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
               <span class="material-symbols-outlined text-base">lock</span>
               <span>Tek Kullanımlık Kod</span>
             </div>
-            <div class="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
+            <div class="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
               <span class="material-symbols-outlined text-base">timer</span>
               <span>300 Saniye Geçerli</span>
             </div>
@@ -124,8 +124,8 @@
         </div>
       </div>
 
-      <div class="absolute right-24 top-24 h-64 w-64 rounded-full bg-secondary-container/20 blur-[100px]"></div>
-      <div class="absolute bottom-24 left-24 h-96 w-96 rounded-full bg-tertiary-container/10 blur-[120px]"></div>
+      <div class="absolute right-24 top-24 h-64 w-64 rounded-xl bg-secondary-container/20 blur-[100px]"></div>
+      <div class="absolute bottom-24 left-24 h-96 w-96 rounded-xl bg-tertiary-container/10 blur-[120px]"></div>
     </section>
   </main>
 

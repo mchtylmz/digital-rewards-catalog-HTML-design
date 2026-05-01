@@ -8,6 +8,7 @@ window.HediyemoInlineCommonReady = true;
         price: '50 TL',
         image: './assets/brands/opet-logo.png',
         feePoints: 160,
+        serviceRate: '%8',
         ribbonStyle: 'header'
       },
       {
@@ -16,19 +17,24 @@ window.HediyemoInlineCommonReady = true;
         price: '1.000 TL',
         image: './assets/brands/opet-logo.png',
         feePoints: 160,
+        serviceRate: '%8',
         ribbonStyle: 'header'
       },
       {
         name: 'HepsiBurada',
         type: 'Dijital Hediye Çeki',
         price: '1.500 TL',
-        image: './assets/brands/hepsiburada-logo.png'
+        image: './assets/brands/hepsiburada-logo.png',
+        feePoints: 45,
+        serviceRate: '%3'
       },
       {
         name: 'HepsiBurada',
         type: 'Dijital Hediye Çeki',
         price: '150.000 TL',
-        image: './assets/brands/hepsiburada-logo.png'
+        image: './assets/brands/hepsiburada-logo.png',
+        feePoints: 4500,
+        serviceRate: '%3'
       },
       {
         name: 'Migros',
@@ -49,14 +55,18 @@ window.HediyemoInlineCommonReady = true;
         type: '1 gr Altın',
         price: '7.268 TL',
         description: '1 GR (24 Ayar) Altın',
-        image: './assets/brands/genc-altin-logo.png'
+        image: './assets/brands/genc-altin-logo.png',
+        feePoints: 872,
+        serviceRate: '12%'
       },
       {
         name: 'Genç Altın',
         type: '2.5 gr Altın',
         price: '18.170 TL',
         description: '2.5 GR (24 Ayar) Altın',
-        image: './assets/brands/genc-altin-logo.png'
+        image: './assets/brands/genc-altin-logo.png',
+        feePoints: 2180,
+        serviceRate: '12%'
       },
       {
         name: 'Boyner',
@@ -76,6 +86,7 @@ window.HediyemoInlineCommonReady = true;
         price: '1.250 TL',
         image: './assets/brands/CarrefourSA-logo.png',
         feePoints: 1000,
+        serviceRate: '%8',
         ribbonStyle: 'side'
       },
       {
@@ -84,6 +95,7 @@ window.HediyemoInlineCommonReady = true;
         price: '3.000 TL',
         image: './assets/brands/CarrefourSA-logo.png',
         feePoints: 1000,
+        serviceRate: '%8',
         ribbonStyle: 'side'
       },
     ];
@@ -174,18 +186,18 @@ window.HediyemoInlineCommonReady = true;
       productGrid.innerHTML = items.map((item) => `
         <div class="group relative flex h-full ${isListLayout ? 'flex-col items-stretch gap-4 rounded-xl border-2 border-primary/30 bg-white p-4 text-left shadow-sm transition-all hover:border-primary/55 hover:shadow-[0_16px_42px_rgba(26,28,28,0.07)] sm:flex-row sm:items-center' : 'flex-col overflow-hidden rounded-xl border-2 border-primary/25 bg-surface-container-lowest text-center shadow-sm transition-all hover:border-primary/55 hover:shadow-[0_20px_50px_rgba(26,28,28,0.08)]'}">
           ${item.feePoints ? isListLayout ? `
-            <span class="inline-flex w-max rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-primary">%8 Hizmet Bedeli</span>
+            <span class="inline-flex w-max rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-primary">${item.serviceRate || '%8'} Hizmet Bedeli</span>
           ` : `
-            <div class="service-ribbon service-ribbon--burst" aria-label="%8 hizmet bedeli">
+            <div class="service-ribbon service-ribbon--burst" aria-label="${item.serviceRate || '%8'} hizmet bedeli">
               <span class="service-ribbon__text">
-                <span class="service-ribbon__percent">%8</span>
+                <span class="service-ribbon__percent">${item.serviceRate || '%8'}</span>
                 <span class="service-ribbon__label">Hizmet</span>
                 <span class="service-ribbon__label">Bedeli</span>
               </span>
             </div>
           ` : ''}
           ${item.tag ? `<span class="absolute left-4 top-4 rounded-full ${item.tagClass} px-3 py-1 text-[10px] font-bold text-white">${item.tag}</span>` : ''}
-          <div class="flex flex-1 ${isListLayout ? 'flex-col items-stretch gap-4 sm:flex-row sm:items-center' : 'flex-col items-center px-3 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5'}">
+          <div class="flex flex-1 ${isListLayout ? 'flex-col items-stretch gap-4 sm:flex-row sm:items-center' : 'flex-col items-center p-2 sm:p-3'}">
             <div class="${isListLayout ? 'flex h-28 w-full shrink-0 items-center justify-center rounded-xl bg-zinc-50 sm:w-40' : 'mb-1 flex h-[135px] w-[96%] items-center justify-center sm:h-[200px]'}">
               <img class="${isListLayout ? 'max-h-[82%] max-w-[88%] object-contain' : 'max-h-[96%] max-w-[96%] object-contain'}" alt="${item.name}" src="${item.image}" />
             </div>
@@ -220,6 +232,8 @@ window.HediyemoInlineCommonReady = true;
     const applyFiltersButton = document.getElementById('applyFiltersButton');
     const resetFiltersButton = document.getElementById('resetFiltersButton');
     const filterStatus = document.getElementById('filterStatus');
+    const sortStatus = document.getElementById('sortStatus');
+    const mobileSortSelect = document.getElementById('mobileSortSelect');
     const mobileFiltersToggle = document.getElementById('mobileFiltersToggle');
     const mobileFiltersToggleIcon = document.getElementById('mobileFiltersToggleIcon');
     const mobileFiltersToggleLabel = document.getElementById('mobileFiltersToggleLabel');
@@ -230,6 +244,22 @@ window.HediyemoInlineCommonReady = true;
     const accountMenuButton = document.getElementById('accountMenuButton');
     const accountMenuPanel = document.getElementById('accountMenuPanel');
     const cartButton = document.getElementById('cartButton');
+    const brandAccordionToggle = document.querySelector('[data-brand-accordion-toggle]');
+    const brandAccordionPanel = document.querySelector('[data-brand-accordion-panel]');
+    const brandAccordionLabel = document.querySelector('[data-brand-accordion-label]');
+    const brandAccordionIcon = document.querySelector('[data-brand-accordion-icon]');
+
+    brandAccordionToggle?.addEventListener('click', () => {
+      const isExpanded = brandAccordionToggle.getAttribute('aria-expanded') === 'true';
+      brandAccordionToggle.setAttribute('aria-expanded', String(!isExpanded));
+      brandAccordionPanel?.classList.toggle('is-open', !isExpanded);
+
+      if (brandAccordionLabel) {
+        brandAccordionLabel.textContent = isExpanded ? 'Tümünü Göster' : 'Daha Az Göster';
+      }
+
+      brandAccordionIcon?.classList.toggle('rotate-180', !isExpanded);
+    });
 
     const getCheckedValues = (nodeList) => [...nodeList]
       .filter((input) => input.checked)
@@ -382,6 +412,13 @@ window.HediyemoInlineCommonReady = true;
 
     if (balanceFilterCheckbox) {
       balanceFilterCheckbox.addEventListener('change', updateResetFiltersButtonVisibility);
+    }
+
+    if (mobileSortSelect && sortStatus) {
+      mobileSortSelect.addEventListener('change', () => {
+        sortStatus.textContent = `Sıralama: ${mobileSortSelect.value}`;
+        sortStatus.classList.remove('hidden');
+      });
     }
 
     if (mobileFiltersToggle) {

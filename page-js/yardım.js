@@ -5,7 +5,6 @@ window.HediyemoInlineCommonReady = true;
     const brandTermsTitle = document.getElementById('brandTermsTitle');
     const brandTermsList = document.getElementById('brandTermsList');
     const brandTermsImage = document.getElementById('brandTermsImage');
-    const contactTabOpenChat = document.getElementById('contactTabOpenChat');
 
     const accountMenuButton = document.getElementById('accountMenuButton');
     const accountMenuPanel = document.getElementById('accountMenuPanel');
@@ -144,8 +143,8 @@ window.HediyemoInlineCommonReady = true;
       brandTermsImage.src = data.image;
       brandTermsImage.alt = data.title;
       brandTermsList.innerHTML = data.rules.map((rule) => `
-        <li class="flex gap-4 rounded-[1.15rem] border border-zinc-200 bg-zinc-50 px-4 py-3">
-          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <li class="flex gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3">
+          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
             <span class="material-symbols-outlined text-[18px]">done</span>
           </span>
           <span>${rule}</span>
@@ -374,10 +373,6 @@ window.HediyemoInlineCommonReady = true;
     };
 
     chatLauncher.addEventListener('click', openChatModal);
-    if (contactTabOpenChat) {
-      contactTabOpenChat.addEventListener('click', openChatModal);
-    }
-
     chatCloseButtons.forEach((button) => {
       button.addEventListener('click', closeChatModal);
     });

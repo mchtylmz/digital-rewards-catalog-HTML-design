@@ -250,14 +250,14 @@ window.HediyemoInlineCommonReady = true;
 
       addressEmptyState.classList.add('hidden');
       addressGrid.innerHTML = addresses.map((address) => `
-        <article class="rounded-[1.45rem] border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
+        <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
           <div class="flex items-start justify-between gap-3">
             <div>
               <h3 class="font-headline text-[1.45rem] font-extrabold tracking-tight text-zinc-900">${address.label}</h3>
               <p class="mt-3 text-[1.02rem] font-semibold leading-8 text-zinc-600">${buildAddressLine(address)}</p>
               <p class="text-[1.02rem] font-semibold leading-8 text-zinc-600">${buildAddressRegion(address)}</p>
             </div>
-            ${address.isDefault ? '<span class="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
+            ${address.isDefault ? '<span class="shrink-0 rounded-xl bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
           </div>
           <div class="mt-6 flex items-center justify-between gap-3">
             <button type="button" data-address-action="edit" data-address-id="${address.id}" class="inline-flex items-center gap-2 text-base font-medium text-green-600 transition-colors hover:text-green-700">
@@ -348,8 +348,8 @@ window.HediyemoInlineCommonReady = true;
       brandTermsImage.src = data.image;
       brandTermsImage.alt = data.title;
       brandTermsList.innerHTML = data.rules.map((rule) => `
-        <li class="flex gap-4 rounded-[1.15rem] border border-zinc-200 bg-zinc-50 px-4 py-3">
-          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <li class="flex gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3">
+          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
             <span class="material-symbols-outlined text-[18px]">done</span>
           </span>
           <span>${rule}</span>

@@ -89,13 +89,13 @@ window.HediyemoInlineCommonReady = true;
 
       phoneEmptyState.classList.add('hidden');
       phoneGrid.innerHTML = phones.map((phone) => `
-        <article class="rounded-[1.45rem] border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
+        <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
           <div class="flex items-start justify-between gap-3">
             <div class="min-w-0">
               <p class="text-sm font-medium text-zinc-500">${phone.label}</p>
               <p class="mt-3 font-headline text-[1.7rem] font-extrabold tracking-tight text-zinc-900">${phone.number}</p>
             </div>
-            ${phone.isDefault ? '<span class="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
+            ${phone.isDefault ? '<span class="shrink-0 rounded-xl bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
           </div>
           <div class="mt-6 flex items-center justify-between gap-3">
             <button type="button" data-phone-action="edit" data-phone-id="${phone.id}" class="inline-flex items-center gap-2 text-base font-medium text-green-600 transition-colors hover:text-green-700">
