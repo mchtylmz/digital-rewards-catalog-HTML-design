@@ -775,9 +775,15 @@ window.HediyemoInlineCommonReady = true;
         button.setAttribute('aria-expanded', String(!isExpanded));
         content.classList.toggle('hidden', isExpanded);
         content.classList.toggle('grid', !isExpanded);
+        button.classList.toggle('bg-primary-container', isExpanded);
+        button.classList.toggle('text-white', isExpanded);
+        button.classList.toggle('border', !isExpanded);
+        button.classList.toggle('border-primary', !isExpanded);
+        button.classList.toggle('bg-white', !isExpanded);
+        button.classList.toggle('text-primary', !isExpanded);
 
         if (label) {
-          label.textContent = isExpanded ? 'Sipariş detaylarını görüntüle' : 'Sipariş detaylarını gizle';
+          label.textContent = isExpanded ? 'Detaylarını Göster' : 'Detaylarını Gizle';
         }
 
         if (icon) {
@@ -787,7 +793,7 @@ window.HediyemoInlineCommonReady = true;
     });
 
     const renderOrderDetailSections = (sections) => sections.map((section) => `
-      <section class="rounded-[1.1rem] border border-zinc-200 bg-white p-5">
+      <section class="rounded-xl border border-zinc-200 bg-white p-5">
         <h3 class="font-headline text-[1.08rem] font-extrabold text-zinc-800">${section.title}</h3>
         <dl class="mt-3 space-y-3 text-sm">
           ${section.rows.map(([label, value]) => `
@@ -825,7 +831,7 @@ window.HediyemoInlineCommonReady = true;
       orderDetailDrawerSubtitle.textContent = detail.subtitle;
       orderDetailDrawerContent.innerHTML = `
         <div class="space-y-5">
-          <div class="grid gap-4 rounded-[1.35rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[180px_minmax(0,1fr)]">
+          <div class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[180px_minmax(0,1fr)]">
             <div class="flex min-h-[150px] flex-col items-center justify-center rounded-xl bg-white p-4 text-center">
               ${detail.visual}
             </div>
