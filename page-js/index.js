@@ -3,72 +3,46 @@ window.HediyemoInlineCommonReady = true;
     const productsPagination = document.getElementById('productsPagination');
     const productItems = [
       {
-        name: 'Amazon.com.tr',
-        type: 'Hediye Çeki',
+        name: 'Opet',
+        type: 'Akaryakıt Çeki',
+        price: '50 TL',
+        image: './assets/brands/opet-logo.png',
+        feePoints: 160,
+        ribbonStyle: 'header'
+      },
+      {
+        name: 'Opet',
+        type: 'Akaryakıt Çeki',
         price: '1.000 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDfCT-ZsygOZSznZxPc4IJl-KKqWwhkkLDsmuNXWj7nza9YqMO85V0cUCqwquJWy6KZE0piA0g2YwbqJrqftzw4oAOQPZtPWhKMX_Vr9JLCjU6Fo5KQfBA6meGEhM6JFpSK9v2Km2aaQrdAr5UEz_3T0uQ0OiLTRC63kkvmNWvTezQGh1CJpirlQRE1-9wUucrIgU8R24qWMYEu9ffnGzg6jSwbJhUdrwamhnp3ZAy7YWyjJ3xuWMC24I4el76HnAmjBLvZ_vkpqhw',
-        tag: 'POPÜLER',
-        tagClass: 'bg-primary'
-      },
-      {
-        name: 'Mavi',
-        type: 'Mağaza Çeki',
-        price: '500 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
-      },
-      {
-        name: 'Boyner',
-        type: 'Alışveriş Kartı',
-        price: '2.500 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
+        image: './assets/brands/opet-logo.png',
+        feePoints: 160,
+        ribbonStyle: 'header'
       },
       {
         name: 'HepsiBurada',
         type: 'Dijital Hediye Çeki',
         price: '1.500 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+        image: './assets/brands/hepsiburada-logo.png'
       },
       {
         name: 'HepsiBurada',
         type: 'Dijital Hediye Çeki',
         price: '150.000 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw'
+        image: './assets/brands/hepsiburada-logo.png'
       },
       {
-        name: 'IKEA',
-        type: 'Ev Yaşam Çeki',
-        price: '5.000 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
+        name: 'Migros',
+        type: 'Market Çeki',
+        price: '850 TL',
+        image: './assets/brands/migros-logo.png'
       },
       {
-        name: 'Arzum',
-        type: 'Hediye Kodu',
-        price: '750 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2qM3jq-OrDq1iuRN3pp01DjZOw5aK3cXU_kc7n0_KIYJQU92RNx0ZlXvsYWgi7lb_nRWsdZG0TgaTrKJqFZ0arTKx9RPFfhvx2uoYSD6maGA8RA0f84eziicoGNIJDWTCn3YmMrNA4HLmuklyty0xft8Wk7jU4pmb_1y711iE7xCyzmYyx-4upAcToHsbtx0OBJTy1kl-jFy0L7RhLTRY9RGWdO3xjvaOvfjthJbLKL4GBFIYZZQsy24I_X-oV7DHrmyxvhVNhRk'
-      },
-      {
-        name: 'CarrefourSA',
-        type: 'Market Kartı',
-        price: '1.250 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMuQWxodygICujMjSFuFq6a_IWPDeyQdrmKbF03_GGG1QdSEnaE39XVsyVP0VCm-UHRyf-W9dG-Rh0jOA_pUl4sFNYrt2YcZIEX7mKm1lUh12jmtmQ8HbLMO2bNEaryhRredLtHa16qvDIbY894wB9cbdOhjkFISja030ojRw904eja5d-iEHoVXbuOP9n3bEaF386Y2MJ3nTUH7SnMW_Iseh3fZi8qN_Ndn4PYmKAd1KogXGDdl0i_0ZTLdYnlAoTOxhJMwl-xvw',
-        feePoints: 1000,
-        ribbonStyle: 'side'
-      },
-      {
-        name: 'Teknosa',
-        type: 'Teknoloji Kartı',
-        price: '2.000 TL',
-        image: './assets/brands/boyner-logo.png',
-        feePoints: 1500,
-        ribbonStyle: 'header'
-      },
-      {
-        name: 'Defacto',
-        type: 'Moda Çeki',
-        price: '900 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A',
-        feePoints: 750,
-        ribbonStyle: 'side'
+        name: 'Migros',
+        type: 'Market Çeki',
+        price: '2.500 TL',
+        image: './assets/brands/migros-logo.png',
+        tag: 'POPÜLER',
+        tagClass: 'bg-primary'
       },
       {
         name: 'Genç Altın',
@@ -85,101 +59,51 @@ window.HediyemoInlineCommonReady = true;
         image: './assets/brands/genc-altin-logo.png'
       },
       {
-        name: 'Opet',
-        type: 'Akaryakıt Çeki',
+        name: 'Boyner',
+        type: 'Alışveriş Kartı',
         price: '1.000 TL',
-        image: './assets/brands/opet-logo.png',
-        feePoints: 160,
-        ribbonStyle: 'header'
+        image: './assets/brands/boyner-logo.png'
       },
       {
-        name: 'Opet',
-        type: 'Akaryakıt Çeki',
-        price: '50 TL',
-        image: './assets/brands/opet-logo.png',
-        feePoints: 160,
-        ribbonStyle: 'header'
+        name: 'Boyner',
+        type: 'Alışveriş Kartı',
+        price: '2.500 TL',
+        image: './assets/brands/boyner-logo.png'
       },
       {
-        name: 'Opet',
-        type: 'Akaryakıt Çeki',
-        price: '10.000 TL',
-        image: './assets/brands/opet-logo.png',
-        feePoints: 160,
-        ribbonStyle: 'header'
+        name: 'CarrefourSA',
+        type: 'Market Kartı',
+        price: '1.250 TL',
+        image: './assets/brands/CarrefourSA-logo.png',
+        feePoints: 1000,
+        ribbonStyle: 'side'
       },
       {
-        name: 'Koçtaş',
-        type: 'Ev Yaşam Çeki',
-        price: '1.750 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
-      },
-      {
-        name: 'Pazarama',
-        type: 'Alışveriş Çeki',
-        price: '1.100 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDfCT-ZsygOZSznZxPc4IJl-KKqWwhkkLDsmuNXWj7nza9YqMO85V0cUCqwquJWy6KZE0piA0g2YwbqJrqftzw4oAOQPZtPWhKMX_Vr9JLCjU6Fo5KQfBA6meGEhM6JFpSK9v2Km2aaQrdAr5UEz_3T0uQ0OiLTRC63kkvmNWvTezQGh1CJpirlQRE1-9wUucrIgU8R24qWMYEu9ffnGzg6jSwbJhUdrwamhnp3ZAy7YWyjJ3xuWMC24I4el76HnAmjBLvZ_vkpqhw'
-      },
-      {
-        name: 'Altınyıldız',
-        type: 'Giyim Çeki',
-        price: '1.300 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
-      },
-      {
-        name: 'Migros',
-        type: 'Market Çeki',
-        price: '850 TL',
-        image: './assets/brands/migros-logo.png'
-      },
-      {
-        name: 'LC Waikiki',
-        type: 'Moda Çeki',
-        price: '700 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
-      },
-      {
-        name: 'MediaMarkt',
-        type: 'Teknoloji Kartı',
-        price: '2.250 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD96QEh4UW_OsnUExrIwSDszWkSHpZhxq0OAXjkz13gRnjbKTbzMhF0bguDSEHLf-k9Yd-Eko4Nrx0zWQebARiOkrqu6nbA9gPm6Eun-0AtbBABsoVimyvFvu6lN4KovChVX8oQf9Xg2XtCRlya_CvciWZ3snGOFHLBVKiNMiHKFjI3jAHs2w4y5-aGFhJIRpw_kYJFZafISf2r-3-M5XkeTtaWpwfhjvuMBu3A5l69ftPxmfls_9SNmg2GJD-R4OfQYIXjWVKTiks'
-      },
-      {
-        name: 'Watsons',
-        type: 'Kozmetik Çeki',
-        price: '650 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2qM3jq-OrDq1iuRN3pp01DjZOw5aK3cXU_kc7n0_KIYJQU92RNx0ZlXvsYWgi7lb_nRWsdZG0TgaTrKJqFZ0arTKx9RPFfhvx2uoYSD6maGA8RA0f84eziicoGNIJDWTCn3YmMrNA4HLmuklyty0xft8Wk7jU4pmb_1y711iE7xCyzmYyx-4upAcToHsbtx0OBJTy1kl-jFy0L7RhLTRY9RGWdO3xjvaOvfjthJbLKL4GBFIYZZQsy24I_X-oV7DHrmyxvhVNhRk'
-      },
-      {
-        name: 'Penti',
-        type: 'Giyim Kartı',
-        price: '950 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ-_YTrgNVNFzEGqoBBXhrqxVj8Xxfj92Ufq2U79Zfy30i7zPw08dg5qVv5h0h9bTdCi0OSMcXY2VJDLbikTmnNeb2KvKwfW_HggMuStSz0b5hUcLIB4qDZUJ1MG42uvh4syQBY5B_i7wmPKItdH7yrT4o_zCaT5Aata6iZqwhEZ5CcbAzlUdhWRGUPhC0eikpltATp9TvSYdgedVpAgvJVKCRgbpo7IkmQi-Xv-nr9v_vIi99fdnrWVD8SqX5ILA98L2DE7-I3A'
-      },
-      {
-        name: 'Toyzz Shop',
-        type: 'Oyuncak Çeki',
-        price: '1.050 TL',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB33cRsGb9s4LN45IgDCIHAG41A9pxQbru86ZH0K2ylyp9oJ9pDRudmcGnTgAqM_Jt5iSFMNZcEO9Ezpw9qo5ho7N-hLQFLyuocc3cBBwfpghZxoYZmvM6lzRZZyeep_Sq4KpRKuJd8zsB961_K9Z67FpQCM2CltOMnQzI1BsH1j8ZCn9d-CIdVONoui6jntUukyBqHH2FQ9-bLShfWQOwnzPXvKpET65WvDEanHk5qZpTKymrmH30-WpLb9wKZBHJl3VEiOMUBJE'
+        name: 'CarrefourSA',
+        type: 'Market Kartı',
+        price: '3.000 TL',
+        image: './assets/brands/CarrefourSA-logo.png',
+        feePoints: 1000,
+        ribbonStyle: 'side'
       },
     ];
 
     const productMeta = {
       'Amazon.com.tr': { usageModes: ['digital', 'online'], categories: ['teknoloji', 'oyun'], balanceEligible: true },
       'Mavi': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
-      'Boyner': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: false },
+      'Boyner': { usageModes: ['store', 'delivery'], categories: ['giyim'], balanceEligible: false },
       'HepsiBurada': { usageModes: ['digital', 'online'], categories: ['elektronik', 'ev-yasam'], balanceEligible: false },
       'IKEA': { usageModes: ['store', 'physical'], categories: ['ev-yasam'], balanceEligible: false },
       'Arzum': { usageModes: ['digital', 'online'], categories: ['kucuk-ev-aletleri', 'ev-yasam'], balanceEligible: true },
-      'CarrefourSA': { usageModes: ['store', 'physical'], categories: ['market'], balanceEligible: true },
+      'CarrefourSA': { usageModes: ['store', 'delivery'], categories: ['market'], balanceEligible: true },
       'Teknosa': { usageModes: ['store', 'online'], categories: ['teknoloji', 'elektronik'], balanceEligible: false },
       'Defacto': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
-      'Genç Altın': { usageModes: ['store', 'physical'], categories: ['market'], balanceEligible: false },
+      'Genç Altın': { usageModes: ['store', 'delivery'], categories: ['market'], balanceEligible: false },
       'Opet': { usageModes: ['store', 'physical'], categories: ['yakit'], balanceEligible: true },
       'Koçtaş': { usageModes: ['store', 'physical'], categories: ['ev-yasam'], balanceEligible: false },
       'Pazarama': { usageModes: ['digital', 'online'], categories: ['yakit', 'turizm'], balanceEligible: true },
       'Altınyıldız': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: false },
-      'Migros': { usageModes: ['store', 'physical'], categories: ['market', 'yakit'], balanceEligible: true },
+      'Migros': { usageModes: ['store', 'delivery'], categories: ['market', 'yakit'], balanceEligible: true },
       'LC Waikiki': { usageModes: ['store', 'physical'], categories: ['giyim'], balanceEligible: true },
       'MediaMarkt': { usageModes: ['store', 'online'], categories: ['teknoloji', 'elektronik'], balanceEligible: false },
       'Watsons': { usageModes: ['store', 'online'], categories: ['kozmetik'], balanceEligible: true },
@@ -269,7 +193,7 @@ window.HediyemoInlineCommonReady = true;
               <span class="${isListLayout ? 'font-headline text-2xl font-black text-primary' : 'text-[1.38rem] font-black leading-tight text-primary sm:text-[2.15rem]'}">${item.price}</span>
               <span class="${isListLayout ? 'mt-0.5 text-base font-medium text-zinc-600' : 'mt-1 text-[0.9rem] font-medium text-zinc-600 sm:text-[1.2rem]'}">${item.description || 'Hediye Çeki'}</span>
             </div>
-            <a href="${item.name === 'Genç Altın' ? './urun-altin.html' : './urun-hediye.html'}" class="${isListLayout ? 'inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 font-headline text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors group-hover:bg-primary sm:w-auto' : 'mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-3 py-3 font-headline text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors group-hover:bg-primary sm:w-[90%] sm:px-5 sm:py-3.5 sm:text-sm sm:tracking-[0.18em]'}">
+            <a href="${item.name === 'Genç Altın' ? './urun-altin.html' : './urun-hediye.html'}" class="${isListLayout ? 'inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 font-headline text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors group-hover:bg-primary' : 'mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-3 py-3 font-headline text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors group-hover:bg-primary sm:px-5 sm:py-3.5 sm:text-sm sm:tracking-[0.18em]'}">
               <span>İNCELE</span>
               <span class="material-symbols-outlined text-[18px] text-white/80">east</span>
             </a>

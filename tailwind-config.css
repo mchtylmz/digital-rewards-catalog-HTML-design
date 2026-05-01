@@ -1,8 +1,33 @@
+/*
+===============================================================================
+  PROJE RENGI DEGISTIRME MERKEZI
+===============================================================================
+  Ana marka rengini degistirmek isterseniz ilk olarak bu alani guncelleyin.
+
+  En onemli renk alanlari :root icinde hemen altta toplu halde durur.
+  Marka rengini degistirirken once o kucuk blogu guncelleyin.
+
+  Not:
+  shared.css ve shared-guest.css bu tokenlara baglidir. Marka rengini tek merkezden
+  degistirmek icin bu dosyadaki --hdm-color-* degerlerini guncellemeniz yeterlidir.
+===============================================================================
+*/
 :root {
-  --hdm-color-inverse-primary: #ffb4aa;
-  --hdm-color-on-tertiary-fixed-variant: #004788;
-  --hdm-color-primary-fixed-dim: #ffb4aa;
+  /*
+  ============================================================================
+    EN ONEMLI RENK ALANLARI
+  ============================================================================
+    Bu 5 satir proje marka renginin ana merkezidir.
+    Renk degisimi yaparken once bu alani guncelleyin.
+  ============================================================================
+  */
   --hdm-color-primary: #b5000b;
+  --hdm-color-primary-container: #e30613;
+  --hdm-color-primary-fixed: #ffdad5;
+  --hdm-color-primary-fixed-dim: #ffb4aa;
+  --hdm-color-inverse-primary: #ffb4aa;
+
+  --hdm-color-on-tertiary-fixed-variant: #004788;
   --hdm-color-on-primary-fixed-variant: #930007;
   --hdm-color-surface-tint: #c0000c;
   --hdm-color-on-background: #1a1c1d;
@@ -19,7 +44,6 @@
   --hdm-color-surface-container-highest: #e2e2e3;
   --hdm-color-on-tertiary-container: #f5f7ff;
   --hdm-color-on-secondary-fixed-variant: #8e1210;
-  --hdm-color-primary-fixed: #ffdad5;
   --hdm-color-error-container: #ffdad6;
   --hdm-color-surface-variant: #e2e2e3;
   --hdm-color-secondary: #b02d25;
@@ -43,7 +67,6 @@
   --hdm-color-inverse-on-surface: #f0f1f1;
   --hdm-color-background: #f9f9fa;
   --hdm-color-on-surface-variant: #5e3f3b;
-  --hdm-color-primary-container: #e30613;
   --hdm-color-outline: #936e69;
   --hdm-color-on-tertiary-fixed: #001b3c;
 

@@ -3,16 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hediyemo Siparislerim</title>
-  <script src="./tailwind-theme.js"></script>
+  <title>Hediyemo Siparişlerim Alternatif</title>
+  <link rel="stylesheet" href="./tailwind-config.css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<link rel="stylesheet" href="./tailwind-config.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./shared.css" />
-  <link rel="stylesheet" href="./page-css/siparislerim.css" />
 
   
   
@@ -143,242 +141,241 @@
     <section class="mx-auto max-w-[1440px] px-6 py-10 lg:px-8 lg:py-12">
       <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
         <span class="material-symbols-outlined text-[16px]">receipt_long</span>
-        Siparis Arsivi
+        Sipariş Arşivi
       </span>
 
       <div class="mt-5 overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white">
         <div class="border-b border-zinc-200 px-4 py-5 sm:px-5 sm:py-6">
-          <h1 class="font-headline text-[1.7rem] font-extrabold tracking-tight text-zinc-900">Siparislerim</h1>
-          <p class="mt-2 max-w-3xl text-sm leading-7 text-zinc-600">Gecmis siparislerinizi, siparis tarihlerini, toplam tutarlarini ve siparis ozetlerini bu alandan kolayca takip edebilirsiniz.</p>
+          <h1 class="font-headline text-[1.7rem] font-extrabold tracking-tight text-zinc-900">Siparişlerim 2</h1>
+          <p class="mt-2 max-w-3xl text-sm leading-7 text-zinc-600">Sipariş detayları, mesaj teslim durumları ve fiziksel ürün teslimat bilgileri aynı kart içinde listelenir.</p>
         </div>
 
         <div class="border-b border-zinc-200 px-4 py-5 sm:px-5 sm:py-6">
           <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto]">
             <label class="block">
-              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Siparis Yili</span>
-              <select
-                id="ordersYearFilter"
-                class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white"
-              >
-                <option value="all">Tum Yillar</option>
+              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Sipariş Yılı</span>
+              <select id="ordersYearFilter" class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white">
+                <option value="all">Tüm Yıllar</option>
                 <option value="2026">2026</option>
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
               </select>
             </label>
-
             <label class="block">
-              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Siparis Markasi</span>
-              <select
-                id="ordersBrandFilter"
-                class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white"
-              >
-                <option value="all">Tum Markalar</option>
+              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Sipariş Markası</span>
+              <select id="ordersBrandFilter" class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white">
+                <option value="all">Tüm Markalar</option>
+                <option value="koton">Koton</option>
                 <option value="mavi">Mavi</option>
                 <option value="opet">Opet</option>
-                <option value="genc-altin">Genc Altin</option>
-                <option value="amazon">Amazon.com.tr</option>
+                <option value="genc-altin">Genç Altın</option>
               </select>
             </label>
-
             <label class="block">
-              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Siparis Durumu</span>
-              <select
-                id="ordersStatusFilter"
-                class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white"
-              >
-                <option value="all">Tum Durumlar</option>
+              <span class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">Sipariş Durumu</span>
+              <select id="ordersStatusFilter" class="w-full rounded-[1rem] border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-medium text-zinc-700 outline-none transition-colors focus:border-zinc-900 focus:bg-white">
+                <option value="all">Tüm Durumlar</option>
                 <option value="teslim-edildi">Teslim Edildi</option>
-                <option value="hazirlaniyor">Hazirlaniyor</option>
-                <option value="iptal-edildi">Iptal Edildi</option>
+                <option value="hazirlaniyor">Hazırlanıyor</option>
+                <option value="iptal-edildi">İptal Edildi</option>
               </select>
             </label>
-
-            <button
-              id="ordersFiltersReset"
-              type="button"
-              class="hidden items-center justify-center gap-2 self-end rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/10"
-            >
+            <button id="ordersFiltersReset" type="button" class="hidden items-center justify-center gap-2 self-end rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/10">
               <span class="material-symbols-outlined text-[18px]">restart_alt</span>
               <span>Filtreyi Temizle</span>
             </button>
           </div>
         </div>
 
-        <div id="ordersList" class="divide-y divide-zinc-200/80 px-4 py-5 sm:px-5 sm:py-6">
-          <article data-order-card data-year="2026" data-brand="mavi,opet" data-status="teslim-edildi" class="bg-transparent py-7 first:pt-0 last:pb-0">
-            <div class="grid gap-5 xl:grid-cols-[minmax(260px,0.4fr)_minmax(0,0.6fr)]">
-              <aside class="rounded-[1.35rem] border border-zinc-200 bg-zinc-50/85 p-5 pb-10">
-                <h2 class="font-headline text-[1.35rem] font-extrabold tracking-tight text-zinc-900">HDM-2026-10482</h2>
-                <p class="mt-2 text-sm font-medium text-zinc-500">Sipariş Tarihi: 28 Nisan 2026</p>
-
-                <dl class="mt-5 space-y-3 text-sm text-zinc-600">
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Sipariş Özeti</dt>
-                    <dd class="font-semibold text-zinc-900">8 ürün</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Toplam Tutar</dt>
-                    <dd class="font-semibold text-primary">3.300 TL</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Harcanan Puan</dt>
-                    <dd class="font-semibold text-primary">3.324 Puan</dd>
-                  </div>
-                </dl>
-
-                <a href="./detay.html" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5">
-                  <span class="material-symbols-outlined text-[18px]">visibility</span>
-                  <span>Sipariş Detayını Göster</span>
-                </a>
-
-              </aside>
-
-              <div class="grid h-full auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="flex min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Hediye Çeki 1.000 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 1.000</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-emerald-600">Mesaj Durumu: İletildi</span>
-                </div>
-
-                <div class="flex min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Hediye Çeki 1.000 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 1.000</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-emerald-600">Mesaj Durumu: İletildi</span>
-                </div>
-
-                <div class="hidden min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center sm:flex">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Hediye Çeki 1.000 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 1.000</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-emerald-600">Mesaj Durumu: İletildi</span>
-                </div>
-
-                <div class="hidden min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center sm:flex">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Yakıt Puan 100 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 108</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-emerald-600">Mesaj Durumu: İletildi</span>
-                </div>
-
-                <div class="hidden min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center sm:flex">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Yakıt Puan 100 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 108</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-emerald-600">Mesaj Durumu: İletildi</span>
-                </div>
-
-                <a href="./detay.html" class="flex min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-primary/25 bg-primary/5 px-4 py-4 text-center text-primary transition-colors hover:bg-primary/10">
-                  <span class="material-symbols-outlined text-[2rem]">visibility</span>
-                  <strong class="mt-3 font-headline text-[0.95rem] font-extrabold leading-tight">Detayları Göster</strong>
-                  <span class="mt-2 text-[11px] font-semibold text-primary/70">
-                    <span class="sm:hidden">+6 ürünü görüntüle</span>
-                    <span class="hidden sm:inline">+3 ürünü görüntüle</span>
-                  </span>
-                  <span class="material-symbols-outlined mt-3 text-[1.2rem]">arrow_forward</span>
-                </a>
+        <div id="ordersList" class="space-y-7 px-4 py-5 sm:px-5 sm:py-6">
+          <article data-order-card data-year="2026" data-brand="koton,mavi,opet,genc-altin" data-status="teslim-edildi" class="overflow-hidden rounded-[1.45rem] border border-zinc-200 bg-white p-0 shadow-sm">
+            <div class="border-b border-zinc-200 bg-zinc-50 px-4 py-4 sm:px-5 sm:py-5">
+              <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
+              <div>
+                <span class="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-emerald-700">Teslim Edildi</span>
+                <h2 class="mt-3 font-headline text-[1.55rem] font-extrabold tracking-tight text-zinc-900">HDM-2026-10482</h2>
+                <p class="mt-1 text-sm font-semibold text-zinc-500">Sipariş Tarihi: 28 Nisan 2026</p>
               </div>
+
+              <div class="grid gap-3 sm:grid-cols-3">
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Sipariş Özeti</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">4 ürün</p>
+                </div>
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-primary">10.368 TL</p>
+                </div>
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Harcanan Puan</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-primary">9.576 Puan</p>
+                </div>
+              </div>
+              </div>
+              <button type="button" data-mobile-order-toggle aria-expanded="false" class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5 lg:hidden">
+                <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                <span data-mobile-order-toggle-text>Sipariş detaylarını görüntüle</span>
+              </button>
+            </div>
+
+            <div data-order-mobile-content class="hidden gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5 lg:grid lg:grid-cols-2">
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <div class="font-headline text-[2.05rem] font-black tracking-tighter text-black">KOTON</div>
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.200 Puan</span>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254158</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">01.06.2024</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0555 555 55 55</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">24.10.24 - 08:56:05</dd></div>
+                  </dl>
+                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">send</span>
+                    Mesajı Yeniden Gönder
+                  </button>
+                </div>
+              </article>
+
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-16 max-w-[86%] object-contain" />
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.000 Puan</span>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254159</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">İletildi</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2026-04-28 14:41:37</dd></div>
+                  </dl>
+                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">send</span>
+                    Mesajı Yeniden Gönder
+                  </button>
+                </div>
+              </article>
+
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-16 max-w-[86%] object-contain" />
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">100 TL</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">108 Puan</span>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254170</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:12:54</dd></div>
+                  </dl>
+                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">send</span>
+                    Mesajı Yeniden Gönder
+                  </button>
+                </div>
+              </article>
+
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <img src="./assets/brands/genc-altin-logo.png" alt="Genç Altın" class="max-h-20 max-w-[92%] object-contain" />
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold leading-tight text-zinc-900">1 Gr (24 Ayar)</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">7.268 Puan</span>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254180</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Alıcı İsim Soyisim</dt><dd class="font-bold text-slate-700">Ramazan GÜLER</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Kargo Bilgisi</dt><dd class="font-bold text-slate-700">Hepsi Jet / 44646464655568</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Durum</dt><dd class="font-bold text-emerald-700">Teslim Edildi</dd></div>
+                  </dl>
+                  <button type="button" data-order-detail-trigger="genc-altin" class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary bg-white px-4 py-2.5 text-sm font-bold text-primary transition-colors hover:bg-primary/5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                    Detayını Göster
+                  </button>
+                </div>
+              </article>
             </div>
           </article>
 
-          <article data-order-card data-year="2026" data-brand="genc-altin" data-status="hazirlaniyor" class="bg-transparent py-7 first:pt-0 last:pb-0">
-            <div class="grid gap-5 xl:grid-cols-[minmax(260px,0.4fr)_minmax(0,0.6fr)]">
-              <aside class="rounded-[1.35rem] border border-zinc-200 bg-zinc-50/85 p-5 pb-10">
-                <h2 class="font-headline text-[1.35rem] font-extrabold tracking-tight text-zinc-900">HDM-2026-10214</h2>
-                <p class="mt-2 text-sm font-medium text-zinc-500">Sipariş Tarihi: 24 Nisan 2026</p>
+          <article data-order-card data-year="2025" data-brand="mavi,opet" data-status="teslim-edildi" class="overflow-hidden rounded-[1.45rem] border border-zinc-200 bg-white p-0 shadow-sm">
+            <div class="border-b border-zinc-200 bg-zinc-50 px-4 py-4 sm:px-5 sm:py-5">
+              <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
+              <div>
+                <span class="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-emerald-700">Teslim Edildi</span>
+                <h2 class="mt-3 font-headline text-[1.55rem] font-extrabold tracking-tight text-zinc-900">HDM-2025-09218</h2>
+                <p class="mt-1 text-sm font-semibold text-zinc-500">Sipariş Tarihi: 19 Kasım 2025</p>
+              </div>
 
-                <dl class="mt-5 space-y-3 text-sm text-zinc-600">
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Sipariş Özeti</dt>
-                    <dd class="font-semibold text-zinc-900">1 ürün</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Toplam Tutar</dt>
-                    <dd class="font-semibold text-primary">7.268 TL</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Harcanan Puan</dt>
-                    <dd class="font-semibold text-primary">7.268 Puan</dd>
-                  </div>
-                </dl>
-
-                <a href="./detay.html" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5">
-                  <span class="material-symbols-outlined text-[18px]">visibility</span>
-                  <span>Sipariş Detayını Göster</span>
-                </a>
-
-              </aside>
-
-              <div class="grid h-full auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="flex min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/genc-altin-logo.png" alt="Genç Altın" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">1 GR Altın 7.268 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 7.268</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: Süresiz</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-amber-600">Teslimat Durumu: Hazırlanıyor</span>
+              <div class="grid gap-3 sm:grid-cols-3">
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Sipariş Özeti</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">2 ürün</p>
+                </div>
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-primary">1.100 TL</p>
+                </div>
+                <div class="rounded-[1rem] bg-white px-4 py-3">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Harcanan Puan</p>
+                  <p class="mt-1 font-headline text-lg font-extrabold text-primary">1.108 Puan</p>
                 </div>
               </div>
+              </div>
+              <button type="button" data-mobile-order-toggle aria-expanded="false" class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5 lg:hidden">
+                <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                <span data-mobile-order-toggle-text>Sipariş detaylarını görüntüle</span>
+              </button>
             </div>
-          </article>
 
-          <article data-order-card data-year="2026" data-brand="amazon" data-status="iptal-edildi" class="bg-transparent py-7 first:pt-0 last:pb-0">
-            <div class="grid gap-5 xl:grid-cols-[minmax(260px,0.4fr)_minmax(0,0.6fr)]">
-              <aside class="rounded-[1.35rem] border border-zinc-200 bg-zinc-50/85 p-5 pb-10">
-                <h2 class="font-headline text-[1.35rem] font-extrabold tracking-tight text-zinc-900">HDM-2026-09941</h2>
-                <p class="mt-2 text-sm font-medium text-zinc-500">Sipariş Tarihi: 11 Nisan 2026</p>
-
-                <dl class="mt-5 space-y-3 text-sm text-zinc-600">
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Sipariş Özeti</dt>
-                    <dd class="font-semibold text-zinc-900">1 ürün</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Toplam Tutar</dt>
-                    <dd class="font-semibold text-primary">150.000 TL</dd>
-                  </div>
-                  <div class="flex items-center justify-between gap-3">
-                    <dt>Harcanan Puan</dt>
-                    <dd class="font-semibold text-primary">150.000 Puan</dd>
-                  </div>
-                </dl>
-
-                <a href="./detay.html" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5">
-                  <span class="material-symbols-outlined text-[18px]">visibility</span>
-                  <span>Sipariş Detayını Göster</span>
-                </a>
-
-              </aside>
-
-              <div class="grid h-full auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="flex min-h-[168px] flex-col items-center justify-center rounded-[0.75rem] border border-zinc-300 bg-white px-4 py-4 text-center">
-                  <div class="flex h-12 w-full items-center justify-center">
-                    <img src="./assets/brands/amazon-logo.png" alt="Amazon" class="max-h-12 max-w-[90%] object-contain" />
-                  </div>
-                  <strong class="mt-4 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Hediye Çeki 150.000 TL</strong>
-                  <span class="mt-2 inline-flex rounded-full bg-zinc-100 px-3 py-1 font-headline text-[0.95rem] font-extrabold leading-tight text-zinc-900">Sipariş Puanı: 150.000</span>
-                  <span class="mt-3 text-[11px] font-semibold text-zinc-500">Son Geçerlilik: 31.12.2026</span>
-                  <span class="mt-0.5 text-[11px] font-semibold text-zinc-500">Mesaj Durumu: Gönderilmedi</span>
+            <div data-order-mobile-content class="hidden gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5 lg:grid lg:grid-cols-2">
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-16 max-w-[86%] object-contain" />
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.000 Puan</span>
                 </div>
-              </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254171</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">İletildi</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:10:24</dd></div>
+                  </dl>
+                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">send</span>
+                    Mesajı Yeniden Gönder
+                  </button>
+                </div>
+              </article>
+
+              <article class="grid gap-4 rounded-[1.15rem] border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-0 text-center">
+                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-16 max-w-[86%] object-contain" />
+                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">100 TL</strong>
+                  <span class="text-[1.15rem] font-semibold text-zinc-500">108 Puan</span>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between gap-4">
+                  <dl class="divide-y divide-zinc-100 text-sm">
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254172</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
+                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:12:54</dd></div>
+                  </dl>
+                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
+                    <span class="material-symbols-outlined text-[18px]">send</span>
+                    Mesajı Yeniden Gönder
+                  </button>
+                </div>
+              </article>
             </div>
           </article>
         </div>
@@ -386,19 +383,48 @@
         <div id="ordersEmptyState" class="hidden px-4 pb-6 sm:px-5 sm:pb-7">
           <div class="rounded-[1.45rem] border border-dashed border-zinc-300 bg-zinc-50/70 px-6 py-10 text-center">
             <span class="material-symbols-outlined text-[34px] text-zinc-400">receipt_long</span>
-            <h2 class="mt-3 font-headline text-[1.3rem] font-extrabold tracking-tight text-zinc-900">Filtreye uygun siparis bulunamadi</h2>
-            <p class="mt-2 text-sm leading-7 text-zinc-500">Yil, marka veya durum secimlerinizi degistirerek farkli siparisleri tekrar listeleyebilirsiniz.</p>
+            <h2 class="mt-3 font-headline text-[1.3rem] font-extrabold tracking-tight text-zinc-900">Filtreye uygun sipariş bulunamadı</h2>
+            <p class="mt-2 text-sm leading-7 text-zinc-500">Yıl, marka veya durum seçimlerinizi değiştirerek farklı siparişleri tekrar listeleyebilirsiniz.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <div
+    id="orderDetailDrawer"
+    class="pointer-events-none fixed inset-0 z-[82] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div
+      id="orderDetailDrawerPanel"
+      class="flex h-full w-full sm:w-[48%] lg:w-[42%] translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300"
+    >
+      <div class="flex items-start justify-between gap-4 border-b border-zinc-100 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Sipariş Detayı</p>
+          <h2 id="orderDetailDrawerTitle" class="mt-1 font-headline text-[1.4rem] font-extrabold tracking-tight text-zinc-900">Ürün Detayı</h2>
+          <p id="orderDetailDrawerSubtitle" class="mt-1 text-[1rem] font-bold text-zinc-700">Sipariş bilgileri</p>
+        </div>
+        <button
+          type="button"
+          data-order-detail-close
+          aria-label="Kapat"
+          class="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200"
+        >
+          <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+      </div>
+
+      <div id="orderDetailDrawerContent" class="flex-1 overflow-y-auto bg-zinc-50/70 px-6 py-6"></div>
+    </div>
+  </div>
+
   <section id="footerContactCta" class="w-full border-t border-zinc-200 bg-zinc-100 px-6 py-8 lg:px-8">
     <div class="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
       <div class="flex items-start gap-4">
         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
-          <span class="material-symbols-outlined text-[24px]" class="ms-filled-600">mode_comment</span>
+          <span class="material-symbols-outlined text-[24px] ms-filled-600">mode_comment</span>
         </span>
         <div>
           <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
@@ -794,7 +820,7 @@
   </div>
 
   
-  <script src="./page-js/siparislerim.js"></script>
+  <script src="./page-js/siparislerim2.js"></script>
   <script src="./shared.js"></script>
 </body>
 </html>

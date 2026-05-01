@@ -2,8 +2,20 @@
    Ortak header/footer, form, filtre ve kart davranislarini tek noktadan yonetmek icin kullanilir. */
 
 :root {
-  --hediyemo-primary: #b5000b;
-  --hediyemo-primary-container: #e30613;
+  /*
+  ============================================================================
+    RENKLERI BURADAN DEGISTIRMEYIN
+  ============================================================================
+    Bu alan eski ortak CSS kurallari icin alias katmanidir.
+    Proje rengini degistirmek icin tek merkez:
+
+      tailwind-config.css -> :root -> --hdm-color-primary ailesi
+
+    Bu degiskenler bilerek tailwind-config.css tokenlarina baglidir.
+  ============================================================================
+  */
+  --hediyemo-primary: var(--hdm-color-primary);
+  --hediyemo-primary-container: var(--hdm-color-primary-container);
   --hediyemo-focus: #18181b;
   --hediyemo-text: #18181b;
   --hediyemo-muted: #71717a;

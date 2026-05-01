@@ -2,8 +2,20 @@
    Auth pages (login, verify OTP) and guest wallet pages are intentionally separated here. */
 
 :root {
-  --hediyemo-primary: #b5000b;
-  --hediyemo-primary-container: #e30613;
+  /*
+  ============================================================================
+    GUEST SAYFALARDA RENKLERI BURADAN DEGISTIRMEYIN
+  ============================================================================
+    login.html, verify-otp.html ve cuzdanlar.html bu dosyayi kullanir.
+    Marka rengini degistirmek icin tek merkez:
+
+      tailwind-config.css -> :root -> --hdm-color-primary ailesi
+
+    Bu degiskenler bilerek tailwind-config.css tokenlarina baglidir.
+  ============================================================================
+  */
+  --hediyemo-primary: var(--hdm-color-primary);
+  --hediyemo-primary-container: var(--hdm-color-primary-container);
   --hediyemo-focus: #18181b;
   --hediyemo-text: #18181b;
   --hediyemo-muted: #71717a;
