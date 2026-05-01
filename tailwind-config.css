@@ -151,6 +151,10 @@
   background-color: var(--hdm-color-primary-container);
 }
 
+.bg-primary-fixed {
+  background-color: var(--hdm-color-primary-fixed);
+}
+
 .bg-primary\/5 {
   background-color: rgb(181 0 11 / 0.05);
 }
