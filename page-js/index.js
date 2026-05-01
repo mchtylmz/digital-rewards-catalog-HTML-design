@@ -98,6 +98,24 @@ window.HediyemoInlineCommonReady = true;
         serviceRate: '%8',
         ribbonStyle: 'side'
       },
+      {
+        name: 'Mavi',
+        type: 'Alışveriş Kartı',
+        price: '750 TL',
+        image: './assets/brands/mavi-logo.png'
+      },
+      {
+        name: 'Amazon.com.tr',
+        type: 'Dijital Hediye Çeki',
+        price: '2.000 TL',
+        image: './assets/brands/amazon-logo.png'
+      },
+      {
+        name: 'Arzum',
+        type: 'Küçük Ev Aletleri Çeki',
+        price: '1.000 TL',
+        image: './assets/brands/arzum-logo.png'
+      },
     ];
 
     const productMeta = {
@@ -132,6 +150,7 @@ window.HediyemoInlineCommonReady = true;
       'Mavi': './assets/brands/mavi-logo.png',
       'Migros': './assets/brands/migros-logo.png',
       'Opet': './assets/brands/opet-logo.png',
+      'Arzum': './assets/brands/arzum-logo.png',
     };
 
     const productCatalog = productItems.map((item) => ({
@@ -154,7 +173,7 @@ window.HediyemoInlineCommonReady = true;
       productGrid.className = productGridLayoutClasses[productLayoutMode] || productGridLayoutClasses.grid3;
       productLayoutButtons.forEach((button) => {
         const isActive = button.dataset.productLayout === productLayoutMode;
-        button.classList.toggle('bg-primary', isActive);
+        button.classList.toggle('bg-primary-container', isActive);
         button.classList.toggle('text-white', isActive);
         button.classList.toggle('text-zinc-600', !isActive);
       });
@@ -205,7 +224,7 @@ window.HediyemoInlineCommonReady = true;
               <span class="${isListLayout ? 'font-headline text-2xl font-black text-primary' : 'text-[1.38rem] font-black leading-tight text-primary sm:text-[2.15rem]'}">${item.price}</span>
               <span class="${isListLayout ? 'mt-0.5 text-base font-medium text-zinc-600' : 'mt-1 text-[0.9rem] font-medium text-zinc-600 sm:text-[1.2rem]'}">${item.description || 'Hediye Çeki'}</span>
             </div>
-            <a href="${item.name === 'Genç Altın' ? './urun-altin.html' : './urun-hediye.html'}" class="${isListLayout ? 'inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 font-headline text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors group-hover:bg-primary' : 'mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-3 py-3 font-headline text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors group-hover:bg-primary sm:px-5 sm:py-3.5 sm:text-sm sm:tracking-[0.18em]'}">
+            <a href="${item.name === 'Genç Altın' ? './urun-altin.html' : './urun-hediye.html'}" class="${isListLayout ? 'inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 font-headline text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-container' : 'mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 px-3 py-3 font-headline text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-primary-container sm:px-5 sm:py-3.5 sm:text-sm sm:tracking-[0.18em]'}">
               <span>İNCELE</span>
               <span class="material-symbols-outlined text-[18px] text-white/80">east</span>
             </a>
@@ -248,6 +267,10 @@ window.HediyemoInlineCommonReady = true;
     const brandAccordionPanel = document.querySelector('[data-brand-accordion-panel]');
     const brandAccordionLabel = document.querySelector('[data-brand-accordion-label]');
     const brandAccordionIcon = document.querySelector('[data-brand-accordion-icon]');
+    const brandFilterList = document.querySelector('[data-brand-filter-list]');
+    const brandFilterToggle = document.querySelector('[data-brand-filter-toggle]');
+    const brandFilterToggleLabel = document.querySelector('[data-brand-filter-toggle-label]');
+    const brandFilterToggleIcon = document.querySelector('[data-brand-filter-toggle-icon]');
 
     brandAccordionToggle?.addEventListener('click', () => {
       const isExpanded = brandAccordionToggle.getAttribute('aria-expanded') === 'true';
@@ -259,6 +282,18 @@ window.HediyemoInlineCommonReady = true;
       }
 
       brandAccordionIcon?.classList.toggle('rotate-180', !isExpanded);
+    });
+
+    brandFilterToggle?.addEventListener('click', () => {
+      const isExpanded = brandFilterToggle.getAttribute('aria-expanded') === 'true';
+      brandFilterToggle.setAttribute('aria-expanded', String(!isExpanded));
+      brandFilterList?.classList.toggle('is-expanded', !isExpanded);
+
+      if (brandFilterToggleLabel) {
+        brandFilterToggleLabel.textContent = isExpanded ? 'Tümünü Göster' : 'Daha Az Göster';
+      }
+
+      brandFilterToggleIcon?.classList.toggle('rotate-180', !isExpanded);
     });
 
     const getCheckedValues = (nodeList) => [...nodeList]
@@ -381,6 +416,15 @@ window.HediyemoInlineCommonReady = true;
         option.classList.remove('hidden');
       });
 
+      brandFilterList?.classList.remove('is-expanded');
+      brandFilterToggle?.setAttribute('aria-expanded', 'false');
+
+      if (brandFilterToggleLabel) {
+        brandFilterToggleLabel.textContent = 'Tümünü Göster';
+      }
+
+      brandFilterToggleIcon?.classList.remove('rotate-180');
+
       categoryOptions.forEach((option) => {
         option.classList.remove('hidden');
       });
@@ -454,6 +498,18 @@ window.HediyemoInlineCommonReady = true;
     if (brandSearch) {
       brandSearch.addEventListener('input', () => {
         const query = brandSearch.value.trim().toLocaleLowerCase('tr-TR');
+
+        brandFilterList?.classList.toggle('is-expanded', Boolean(query));
+        brandFilterToggle?.classList.toggle('hidden', Boolean(query));
+        brandFilterToggle?.setAttribute('aria-expanded', 'false');
+
+        if (!query && brandFilterToggleLabel) {
+          brandFilterToggleLabel.textContent = 'Tümünü Göster';
+        }
+
+        if (!query) {
+          brandFilterToggleIcon?.classList.remove('rotate-180');
+        }
 
         brandOptions.forEach((option) => {
           const name = (option.dataset.brandName || '').toLocaleLowerCase('tr-TR');

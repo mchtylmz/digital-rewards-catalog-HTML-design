@@ -21,11 +21,12 @@
     Renk degisimi yaparken once bu alani guncelleyin.
   ============================================================================
   */
-  --hdm-color-primary: #b5000b;
-  --hdm-color-primary-container: #e30613;
-  --hdm-color-primary-fixed: #ffdad5;
-  --hdm-color-primary-fixed-dim: #ffb4aa;
-  --hdm-color-inverse-primary: #ffb4aa;
+  --hdm-color-primary: #a2bc39;
+  --hdm-color-primary-container: #a2bc39;
+  --hdm-color-primary-fixed: #a2bc39;
+  --hdm-color-primary-fixed-dim: #a2bc39;
+  --hdm-color-inverse-primary: #a2bc39;
+  --hdm-color-search-button-icon: #ffffff;
 
   --hdm-color-on-tertiary-fixed-variant: #004788;
   --hdm-color-on-primary-fixed-variant: #930007;
@@ -179,27 +180,27 @@
 }
 
 .bg-primary\/5 {
-  background-color: rgb(181 0 11 / 0.05);
+  background-color: color-mix(in srgb, var(--hdm-color-primary) 5%, transparent);
 }
 
 .bg-primary\/8 {
-  background-color: rgb(181 0 11 / 0.08);
+  background-color: color-mix(in srgb, var(--hdm-color-primary) 8%, transparent);
 }
 
 .bg-primary\/10 {
-  background-color: rgb(181 0 11 / 0.1);
+  background-color: color-mix(in srgb, var(--hdm-color-primary) 10%, transparent);
 }
 
 .bg-primary-container\/5 {
-  background-color: rgb(227 6 19 / 0.05);
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 5%, transparent);
 }
 
 .bg-primary-container\/10 {
-  background-color: rgb(227 6 19 / 0.1);
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 10%, transparent);
 }
 
 .bg-primary-container\/20 {
-  background-color: rgb(227 6 19 / 0.2);
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 20%, transparent);
 }
 
 .bg-secondary-container\/20 {
@@ -219,14 +220,14 @@
 }
 
 .from-primary\/90 {
-  --tw-gradient-from: rgb(181 0 11 / 0.9) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(181 0 11 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-from: color-mix(in srgb, var(--hdm-color-primary) 90%, transparent) var(--tw-gradient-from-position);
+  --tw-gradient-to: color-mix(in srgb, var(--hdm-color-primary) 0%, transparent) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .via-primary-container\/40 {
-  --tw-gradient-to: rgb(227 6 19 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(227 6 19 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: color-mix(in srgb, var(--hdm-color-primary-container) 0%, transparent) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), color-mix(in srgb, var(--hdm-color-primary-container) 40%, transparent) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .text-on-background {
@@ -249,6 +250,10 @@
   color: var(--hdm-color-primary);
 }
 
+.text-search-button-icon {
+  color: var(--hdm-color-search-button-icon);
+}
+
 .text-secondary {
   color: var(--hdm-color-secondary);
 }
@@ -258,19 +263,19 @@
 }
 
 .border-primary\/20 {
-  border-color: rgb(181 0 11 / 0.2);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 20%, transparent);
 }
 
 .border-primary\/25 {
-  border-color: rgb(181 0 11 / 0.25);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 25%, transparent);
 }
 
 .border-primary\/30 {
-  border-color: rgb(181 0 11 / 0.3);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 30%, transparent);
 }
 
 .border-primary\/55 {
-  border-color: rgb(181 0 11 / 0.55);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 55%, transparent);
 }
 
 .border-surface-container-highest {
@@ -289,8 +294,32 @@
   box-shadow: 0 12px 40px rgba(26, 28, 29, 0.06);
 }
 
+.shadow-primary-badge {
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--hdm-color-primary) 24%, transparent);
+}
+
+.shadow-primary-soft {
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--hdm-color-primary) 28%, transparent);
+}
+
+.shadow-primary-action {
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--hdm-color-primary) 28%, transparent);
+}
+
+.shadow-primary-button {
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--hdm-color-primary) 20%, transparent);
+}
+
+.shadow-primary-auth {
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--hdm-color-primary-container) 20%, transparent);
+}
+
+.hover\:shadow-primary-auth-strong:hover {
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--hdm-color-primary-container) 30%, transparent);
+}
+
 .shadow-primary-container\/20 {
-  --tw-shadow-color: rgb(227 6 19 / 0.2);
+  --tw-shadow-color: color-mix(in srgb, var(--hdm-color-primary-container) 20%, transparent);
 }
 
 .placeholder\:text-secondary::placeholder {
@@ -302,7 +331,7 @@
 }
 
 .selection\:bg-primary-container\/20::selection {
-  background-color: rgb(227 6 19 / 0.2);
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 20%, transparent);
 }
 
 .selection\:text-primary::selection {
@@ -313,8 +342,12 @@
   background-color: var(--hdm-color-primary);
 }
 
+.hover\:bg-primary-container:hover {
+  background-color: var(--hdm-color-primary-container);
+}
+
 .hover\:bg-primary\/5:hover {
-  background-color: rgb(181 0 11 / 0.05);
+  background-color: color-mix(in srgb, var(--hdm-color-primary) 5%, transparent);
 }
 
 .hover\:bg-surface-container-low:hover {
@@ -326,7 +359,7 @@
 }
 
 .hover\:border-primary\/55:hover {
-  border-color: rgb(181 0 11 / 0.55);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 55%, transparent);
 }
 
 .hover\:text-primary:hover {
@@ -342,7 +375,7 @@
 }
 
 .group:hover .group-hover\:bg-primary-container\/10 {
-  background-color: rgb(227 6 19 / 0.1);
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 10%, transparent);
 }
 
 .group:hover .group-hover\:bg-tertiary\/10 {
@@ -358,11 +391,11 @@
 }
 
 .focus\:ring-primary\/10:focus {
-  --tw-ring-color: rgb(181 0 11 / 0.1);
+  --tw-ring-color: color-mix(in srgb, var(--hdm-color-primary) 10%, transparent);
 }
 
 .focus\:ring-primary\/20:focus {
-  --tw-ring-color: rgb(181 0 11 / 0.2);
+  --tw-ring-color: color-mix(in srgb, var(--hdm-color-primary) 20%, transparent);
 }
 
 .focus\:ring-primary:focus {

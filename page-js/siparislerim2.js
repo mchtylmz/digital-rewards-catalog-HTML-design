@@ -514,7 +514,7 @@ window.HediyemoInlineCommonReady = true;
               <p class="mt-3 text-[1.15rem] font-semibold leading-8 text-zinc-600">${buildAddressLine(address)}</p>
               <p class="text-[1.15rem] font-semibold leading-8 text-zinc-600">${buildAddressRegion(address)}</p>
             </div>
-            ${address.isDefault ? '<span class="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
+            ${address.isDefault ? '<span class="shrink-0 rounded-full bg-primary-container/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
           </div>
           <div class="mt-6 flex items-center justify-between gap-3">
             <button type="button" data-address-action="edit" data-address-id="${address.id}" class="inline-flex items-center gap-2 text-base font-medium text-green-600 transition-colors hover:text-green-700">
@@ -606,7 +606,7 @@ window.HediyemoInlineCommonReady = true;
       brandTermsImage.alt = data.title;
       brandTermsList.innerHTML = data.rules.map((rule) => `
         <li class="flex gap-4 rounded-[1.15rem] border border-zinc-200 bg-zinc-50 px-4 py-3">
-          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <span class="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-container/10 text-primary">
             <span class="material-symbols-outlined text-[18px]">done</span>
           </span>
           <span>${rule}</span>
@@ -841,7 +841,7 @@ window.HediyemoInlineCommonReady = true;
           </div>
 
           ${detail.action ? `
-            <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+            <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-container px-5 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
               <span class="material-symbols-outlined text-[18px]">send</span>
               ${detail.action}
             </button>

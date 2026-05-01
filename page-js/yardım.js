@@ -117,7 +117,7 @@ window.HediyemoInlineCommonReady = true;
       helpTabTriggers.forEach((button) => {
         const isActive = button.dataset.helpTabTrigger === target;
         button.setAttribute('aria-pressed', String(isActive));
-        button.classList.toggle('bg-primary', isActive);
+        button.classList.toggle('bg-primary-container', isActive);
         button.classList.toggle('text-white', isActive);
         button.classList.toggle('hover:text-white', isActive);
         button.classList.toggle('text-zinc-500', !isActive);

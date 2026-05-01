@@ -98,7 +98,7 @@ window.HediyemoInlineCommonReady = true;
             ${phone.isDefault ? '<span class="shrink-0 rounded-xl bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Varsayılan</span>' : ''}
           </div>
           <div class="mt-6 flex items-center justify-between gap-3">
-            <button type="button" data-phone-action="edit" data-phone-id="${phone.id}" class="inline-flex items-center gap-2 text-base font-medium text-green-600 transition-colors hover:text-green-700">
+            <button type="button" data-phone-action="edit" data-phone-id="${phone.id}" class="inline-flex items-center gap-2 text-base font-medium text-amber-600 transition-colors hover:text-amber-700">
               <span class="material-symbols-outlined text-[22px]">edit_square</span>
               <span>Düzenle</span>
             </button>

@@ -173,7 +173,7 @@ input[type="checkbox"] {
 
 .doc-btn-soft {
   color: var(--hdm-color-primary);
-  border-color: rgba(181, 0, 11, 0.18);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 18%, transparent);
   background: var(--hdm-color-primary-fixed);
 }
 

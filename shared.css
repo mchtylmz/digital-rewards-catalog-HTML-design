@@ -86,8 +86,18 @@ details > summary::-webkit-details-marker {
 
 .filter-option-list > label {
   width: 100%;
+  align-items: center !important;
+  cursor: pointer;
   padding-block: 0.8rem;
   border-bottom: 1px solid #e4e4e7;
+}
+
+.filter-option-list > label * {
+  cursor: pointer;
+}
+
+.filter-option-list > label input[type="checkbox"] {
+  margin-top: 0 !important;
 }
 
 .filter-option-list > label:first-child {
@@ -99,9 +109,45 @@ details > summary::-webkit-details-marker {
   border-bottom: 0;
 }
 
+.brand-filter-list:not(.is-expanded) > label:nth-of-type(n+8) {
+  display: none;
+}
+
+.brand-filter-list [data-brand-checkbox] {
+  position: absolute;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.brand-filter-list > label::before {
+  content: "";
+  display: inline-flex;
+  width: 0.9rem;
+  min-width: 0.9rem;
+  height: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--hediyemo-primary);
+  font-family: "Material Symbols Outlined";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: -0.35rem;
+  opacity: 0;
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 20;
+}
+
+.brand-filter-list > label:has([data-brand-checkbox]:checked)::before {
+  content: "check";
+  opacity: 1;
+}
+
 .contact-pulse-border {
   border-width: 1.5px;
-  border-color: rgba(170, 0, 21, 0.88);
+  border-color: color-mix(in srgb, var(--hdm-color-primary) 88%, transparent);
   animation: contactBorderPulse 1.8s ease-in-out infinite;
 }
 
@@ -110,16 +156,16 @@ details > summary::-webkit-details-marker {
   100% {
     opacity: 0.82;
     box-shadow:
-      0 0 0 1px rgba(170, 0, 21, 0.4),
-      0 0 10px rgba(170, 0, 21, 0.18);
+      0 0 0 1px color-mix(in srgb, var(--hdm-color-primary) 40%, transparent),
+      0 0 10px color-mix(in srgb, var(--hdm-color-primary) 18%, transparent);
   }
 
   50% {
     opacity: 1;
     box-shadow:
-      0 0 0 2px rgba(170, 0, 21, 0.9),
-      0 0 18px rgba(170, 0, 21, 0.36),
-      0 0 30px rgba(170, 0, 21, 0.16);
+      0 0 0 2px color-mix(in srgb, var(--hdm-color-primary) 90%, transparent),
+      0 0 18px color-mix(in srgb, var(--hdm-color-primary) 36%, transparent),
+      0 0 30px color-mix(in srgb, var(--hdm-color-primary) 16%, transparent);
   }
 }
 
