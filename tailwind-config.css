@@ -60,3 +60,288 @@
   --hdm-font-inter: "Inter", sans-serif;
   --hdm-font-manrope: "Manrope", sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-inverse-primary: var(--hdm-color-inverse-primary);
+  --color-on-tertiary-fixed-variant: var(--hdm-color-on-tertiary-fixed-variant);
+  --color-primary-fixed-dim: var(--hdm-color-primary-fixed-dim);
+  --color-primary: var(--hdm-color-primary);
+  --color-on-primary-fixed-variant: var(--hdm-color-on-primary-fixed-variant);
+  --color-surface-tint: var(--hdm-color-surface-tint);
+  --color-on-background: var(--hdm-color-on-background);
+  --color-tertiary-container: var(--hdm-color-tertiary-container);
+  --color-surface-bright: var(--hdm-color-surface-bright);
+  --color-on-secondary: var(--hdm-color-on-secondary);
+  --color-tertiary-fixed: var(--hdm-color-tertiary-fixed);
+  --color-on-primary-fixed: var(--hdm-color-on-primary-fixed);
+  --color-surface-container-high: var(--hdm-color-surface-container-high);
+  --color-secondary-fixed: var(--hdm-color-secondary-fixed);
+  --color-secondary-fixed-dim: var(--hdm-color-secondary-fixed-dim);
+  --color-surface-container-low: var(--hdm-color-surface-container-low);
+  --color-tertiary-fixed-dim: var(--hdm-color-tertiary-fixed-dim);
+  --color-surface-container-highest: var(--hdm-color-surface-container-highest);
+  --color-on-tertiary-container: var(--hdm-color-on-tertiary-container);
+  --color-on-secondary-fixed-variant: var(--hdm-color-on-secondary-fixed-variant);
+  --color-primary-fixed: var(--hdm-color-primary-fixed);
+  --color-error-container: var(--hdm-color-error-container);
+  --color-surface-variant: var(--hdm-color-surface-variant);
+  --color-secondary: var(--hdm-color-secondary);
+  --color-on-secondary-container: var(--hdm-color-on-secondary-container);
+  --color-surface-dim: var(--hdm-color-surface-dim);
+  --color-tertiary: var(--hdm-color-tertiary);
+  --color-surface-container-lowest: var(--hdm-color-surface-container-lowest);
+  --color-on-primary: var(--hdm-color-on-primary);
+  --color-on-surface: var(--hdm-color-on-surface);
+  --color-error: var(--hdm-color-error);
+  --color-on-tertiary: var(--hdm-color-on-tertiary);
+  --color-secondary-container: var(--hdm-color-secondary-container);
+  --color-surface-container: var(--hdm-color-surface-container);
+  --color-outline-variant: var(--hdm-color-outline-variant);
+  --color-on-secondary-fixed: var(--hdm-color-on-secondary-fixed);
+  --color-on-primary-container: var(--hdm-color-on-primary-container);
+  --color-inverse-surface: var(--hdm-color-inverse-surface);
+  --color-surface: var(--hdm-color-surface);
+  --color-on-error-container: var(--hdm-color-on-error-container);
+  --color-on-error: var(--hdm-color-on-error);
+  --color-inverse-on-surface: var(--hdm-color-inverse-on-surface);
+  --color-background: var(--hdm-color-background);
+  --color-on-surface-variant: var(--hdm-color-on-surface-variant);
+  --color-primary-container: var(--hdm-color-primary-container);
+  --color-outline: var(--hdm-color-outline);
+  --color-on-tertiary-fixed: var(--hdm-color-on-tertiary-fixed);
+
+  --radius-lg: var(--hdm-radius-lg);
+  --radius-xl: var(--hdm-radius-xl);
+  --radius-2xl: var(--hdm-radius-2xl);
+  --radius-3xl: var(--hdm-radius-3xl);
+  --radius-full: var(--hdm-radius-full);
+
+  --font-headline: var(--hdm-font-headline);
+  --font-display: var(--hdm-font-display);
+  --font-body: var(--hdm-font-body);
+  --font-label: var(--hdm-font-label);
+  --font-inter: var(--hdm-font-inter);
+  --font-manrope: var(--hdm-font-manrope);
+}
+
+/* Browser-CDN fallback utilities for custom Tailwind theme tokens. */
+.bg-surface {
+  background-color: var(--hdm-color-surface);
+}
+
+.bg-background {
+  background-color: var(--hdm-color-background);
+}
+
+.bg-surface-container-low {
+  background-color: var(--hdm-color-surface-container-low);
+}
+
+.bg-surface-container-lowest {
+  background-color: var(--hdm-color-surface-container-lowest);
+}
+
+.bg-primary {
+  background-color: var(--hdm-color-primary);
+}
+
+.bg-primary-container {
+  background-color: var(--hdm-color-primary-container);
+}
+
+.bg-primary\/5 {
+  background-color: rgb(181 0 11 / 0.05);
+}
+
+.bg-primary\/8 {
+  background-color: rgb(181 0 11 / 0.08);
+}
+
+.bg-primary\/10 {
+  background-color: rgb(181 0 11 / 0.1);
+}
+
+.bg-primary-container\/5 {
+  background-color: rgb(227 6 19 / 0.05);
+}
+
+.bg-primary-container\/10 {
+  background-color: rgb(227 6 19 / 0.1);
+}
+
+.bg-primary-container\/20 {
+  background-color: rgb(227 6 19 / 0.2);
+}
+
+.bg-secondary-container\/20 {
+  background-color: rgb(252 100 85 / 0.2);
+}
+
+.bg-tertiary\/5 {
+  background-color: rgb(0 89 168 / 0.05);
+}
+
+.bg-tertiary\/10 {
+  background-color: rgb(0 89 168 / 0.1);
+}
+
+.bg-tertiary-container\/10 {
+  background-color: rgb(0 113 212 / 0.1);
+}
+
+.from-primary\/90 {
+  --tw-gradient-from: rgb(181 0 11 / 0.9) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(181 0 11 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-primary-container\/40 {
+  --tw-gradient-to: rgb(227 6 19 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(227 6 19 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.text-on-background {
+  color: var(--hdm-color-on-background);
+}
+
+.text-on-surface {
+  color: var(--hdm-color-on-surface);
+}
+
+.text-on-surface-variant {
+  color: var(--hdm-color-on-surface-variant);
+}
+
+.text-on-primary {
+  color: var(--hdm-color-on-primary);
+}
+
+.text-primary {
+  color: var(--hdm-color-primary);
+}
+
+.text-secondary {
+  color: var(--hdm-color-secondary);
+}
+
+.border-primary {
+  border-color: var(--hdm-color-primary);
+}
+
+.border-primary\/20 {
+  border-color: rgb(181 0 11 / 0.2);
+}
+
+.border-primary\/25 {
+  border-color: rgb(181 0 11 / 0.25);
+}
+
+.border-primary\/30 {
+  border-color: rgb(181 0 11 / 0.3);
+}
+
+.border-primary\/55 {
+  border-color: rgb(181 0 11 / 0.55);
+}
+
+.border-surface-container-highest {
+  border-color: var(--hdm-color-surface-container-highest);
+}
+
+.accent-primary {
+  accent-color: var(--hdm-color-primary);
+}
+
+.font-headline {
+  font-family: var(--hdm-font-headline);
+}
+
+.shadow-shell {
+  box-shadow: 0 12px 40px rgba(26, 28, 29, 0.06);
+}
+
+.shadow-primary-container\/20 {
+  --tw-shadow-color: rgb(227 6 19 / 0.2);
+}
+
+.placeholder\:text-secondary::placeholder {
+  color: var(--hdm-color-secondary);
+}
+
+.placeholder\:text-on-surface-variant\/50::placeholder {
+  color: rgb(94 63 59 / 0.5);
+}
+
+.selection\:bg-primary-container\/20::selection {
+  background-color: rgb(227 6 19 / 0.2);
+}
+
+.selection\:text-primary::selection {
+  color: var(--hdm-color-primary);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--hdm-color-primary);
+}
+
+.hover\:bg-primary\/5:hover {
+  background-color: rgb(181 0 11 / 0.05);
+}
+
+.hover\:bg-surface-container-low:hover {
+  background-color: var(--hdm-color-surface-container-low);
+}
+
+.hover\:border-primary:hover {
+  border-color: var(--hdm-color-primary);
+}
+
+.hover\:border-primary\/55:hover {
+  border-color: rgb(181 0 11 / 0.55);
+}
+
+.hover\:text-primary:hover {
+  color: var(--hdm-color-primary);
+}
+
+.hover\:text-secondary:hover {
+  color: var(--hdm-color-secondary);
+}
+
+.group:hover .group-hover\:bg-primary {
+  background-color: var(--hdm-color-primary);
+}
+
+.group:hover .group-hover\:bg-primary-container\/10 {
+  background-color: rgb(227 6 19 / 0.1);
+}
+
+.group:hover .group-hover\:bg-tertiary\/10 {
+  background-color: rgb(0 89 168 / 0.1);
+}
+
+.enabled\:text-primary:enabled {
+  color: var(--hdm-color-primary);
+}
+
+.enabled\:hover\:bg-primary:enabled:hover {
+  background-color: var(--hdm-color-primary);
+}
+
+.focus\:ring-primary\/10:focus {
+  --tw-ring-color: rgb(181 0 11 / 0.1);
+}
+
+.focus\:ring-primary\/20:focus {
+  --tw-ring-color: rgb(181 0 11 / 0.2);
+}
+
+.focus\:ring-primary:focus {
+  --tw-ring-color: var(--hdm-color-primary);
+}
+
+.focus-visible\:border-primary:focus-visible {
+  border-color: var(--hdm-color-primary);
+}

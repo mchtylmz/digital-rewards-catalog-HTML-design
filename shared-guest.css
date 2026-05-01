@@ -1,0 +1,273 @@
+/* Guest-only UI layer
+   Auth pages (login, verify OTP) and guest wallet pages are intentionally separated here. */
+
+:root {
+  --hediyemo-primary: #b5000b;
+  --hediyemo-primary-container: #e30613;
+  --hediyemo-focus: #18181b;
+  --hediyemo-text: #18181b;
+  --hediyemo-muted: #71717a;
+  --hediyemo-border: #e4e4e7;
+}
+
+/* Guest base */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.ms-filled-600 {
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.ms-filled-700 {
+  font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+}
+
+body.guest-page {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.guest-page h1,
+.guest-page h2,
+.guest-page h3,
+.guest-page .font-headline,
+.guest-page .brand-logo {
+  font-family: 'Manrope', 'Plus Jakarta Sans', sans-serif;
+}
+
+.guest-page a,
+.guest-page button,
+.guest-page [role="button"],
+.guest-page summary,
+.guest-page select,
+.guest-page input[type="button"],
+.guest-page input[type="submit"],
+.guest-page input[type="reset"],
+.guest-page input[type="checkbox"],
+.guest-page input[type="radio"],
+.guest-page label[for],
+.guest-page .cursor-pointer {
+  cursor: pointer;
+}
+
+.guest-page button:disabled,
+.guest-page input:disabled,
+.guest-page select:disabled,
+.guest-page textarea:disabled,
+.guest-page [aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.guest-page input,
+.guest-page button,
+.guest-page select,
+.guest-page textarea {
+  outline: 0 !important;
+}
+
+.guest-page input:focus,
+.guest-page input:focus-visible,
+.guest-page button:focus,
+.guest-page button:focus-visible,
+.guest-page select:focus,
+.guest-page select:focus-visible,
+.guest-page textarea:focus,
+.guest-page textarea:focus-visible {
+  outline: 0 !important;
+  box-shadow: none !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+.guest-page input:not([type="checkbox"]):not([type="radio"]),
+.guest-page select,
+.guest-page textarea {
+  color: var(--hediyemo-text) !important;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.guest-page option {
+  color: var(--hediyemo-text) !important;
+}
+
+.guest-page input::placeholder,
+.guest-page textarea::placeholder {
+  color: var(--hediyemo-muted) !important;
+}
+
+.guest-page label {
+  color: var(--hediyemo-text) !important;
+}
+
+.guest-page input:focus,
+.guest-page select:focus,
+.guest-page textarea:focus,
+.guest-page input:focus-visible,
+.guest-page select:focus-visible,
+.guest-page textarea:focus-visible {
+  outline: 0 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+.guest-page input:not([type="checkbox"]):not([type="radio"]):focus,
+.guest-page input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+.guest-page select:focus,
+.guest-page select:focus-visible,
+.guest-page textarea:focus,
+.guest-page textarea:focus-visible {
+  border-color: rgba(24, 24, 27, 0.82) !important;
+  box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.82) !important;
+}
+
+.guest-page input[type="checkbox"]:focus,
+.guest-page input[type="checkbox"]:focus-visible,
+.guest-page input[type="radio"]:focus,
+.guest-page input[type="radio"]:focus-visible {
+  box-shadow: none !important;
+}
+
+/* Shared guest token fallbacks */
+.guest-page.bg-background,
+.guest-page .bg-background {
+  background-color: var(--hdm-color-background);
+}
+
+.guest-page .bg-primary-container {
+  background-color: var(--hdm-color-primary-container);
+}
+
+.guest-page .bg-primary-container\/5 {
+  background-color: rgb(227 6 19 / 0.05);
+}
+
+.guest-page .bg-primary-container\/10 {
+  background-color: rgb(227 6 19 / 0.1);
+}
+
+.guest-page .bg-primary-container\/20 {
+  background-color: rgb(227 6 19 / 0.2);
+}
+
+.guest-page .bg-secondary-container\/20 {
+  background-color: rgb(252 100 85 / 0.2);
+}
+
+.guest-page .bg-tertiary\/5 {
+  background-color: rgb(0 89 168 / 0.05);
+}
+
+.guest-page .bg-tertiary\/10 {
+  background-color: rgb(0 89 168 / 0.1);
+}
+
+.guest-page .bg-tertiary-container\/10 {
+  background-color: rgb(0 113 212 / 0.1);
+}
+
+.guest-page .from-primary\/90 {
+  --tw-gradient-from: rgb(181 0 11 / 0.9) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(181 0 11 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.guest-page .via-primary-container\/40 {
+  --tw-gradient-to: rgb(227 6 19 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(227 6 19 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.guest-page.text-on-background,
+.guest-page .text-on-background {
+  color: var(--hdm-color-on-background);
+}
+
+.guest-page .text-on-surface-variant {
+  color: var(--hdm-color-on-surface-variant);
+}
+
+.guest-page .text-on-primary {
+  color: var(--hdm-color-on-primary);
+}
+
+.guest-page .shadow-primary-container\/20 {
+  --tw-shadow-color: rgb(227 6 19 / 0.2);
+}
+
+.guest-page .placeholder\:text-on-surface-variant\/50::placeholder {
+  color: rgb(94 63 59 / 0.5);
+}
+
+.guest-page.selection\:bg-primary-container\/20::selection,
+.guest-page .selection\:bg-primary-container\/20::selection {
+  background-color: rgb(227 6 19 / 0.2);
+}
+
+.guest-page.selection\:text-primary::selection,
+.guest-page .selection\:text-primary::selection {
+  color: var(--hdm-color-primary);
+}
+
+.guest-page .hover\:text-secondary:hover {
+  color: var(--hdm-color-secondary);
+}
+
+.guest-page .group:hover .group-hover\:bg-primary-container\/10 {
+  background-color: rgb(227 6 19 / 0.1);
+}
+
+.guest-page .group:hover .group-hover\:bg-tertiary\/10 {
+  background-color: rgb(0 89 168 / 0.1);
+}
+
+.guest-page .enabled\:text-primary:enabled {
+  color: var(--hdm-color-primary);
+}
+
+.guest-page .enabled\:hover\:bg-primary:enabled:hover {
+  background-color: var(--hdm-color-primary);
+}
+
+.guest-page .focus\:ring-primary:focus {
+  --tw-ring-color: var(--hdm-color-primary);
+}
+
+/* Auth pages: login.html and verify-otp.html share the same split-screen shell. */
+.guest-auth-page .guest-auth-shell {
+  isolation: isolate;
+}
+
+.guest-auth-page .otp-code-input::-webkit-outer-spin-button,
+.guest-auth-page .otp-code-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.guest-auth-page .otp-code-input {
+  -moz-appearance: textfield;
+  caret-color: var(--hdm-color-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.36em;
+  padding-left: 0.36em;
+}
+
+.guest-auth-page .guest-input-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.guest-auth-page .guest-user-icon {
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Guest wallet pages: kept separate from the auth shell because the header is different. */
+.guest-wallet-page .guest-wallet-header {
+  background-color: rgb(255 255 255 / 0.8);
+  box-shadow: 0 12px 40px rgba(26, 28, 29, 0.06);
+}
