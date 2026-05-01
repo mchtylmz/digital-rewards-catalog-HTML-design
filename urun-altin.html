@@ -4,209 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genç Altın Detay | Hediyemo</title>
+  <script src="./tailwind-theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="./tailwind-config.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <style type="text/tailwindcss">
-    @custom-variant dark (&:where(.dark, .dark *));
+  <link rel="stylesheet" href="./shared.css" />
+  <link rel="stylesheet" href="./page-css/urun-altin.css" />
 
-    @theme {
-      --color-inverse-primary: #ffb4aa;
-      --color-on-tertiary-fixed-variant: #004788;
-      --color-primary-fixed-dim: #ffb4aa;
-      --color-primary: #b5000b;
-      --color-on-primary-fixed-variant: #930007;
-      --color-surface-tint: #c0000c;
-      --color-on-background: #1a1c1d;
-      --color-tertiary-container: #0071d4;
-      --color-surface-bright: #f9f9fa;
-      --color-on-secondary: #ffffff;
-      --color-tertiary-fixed: #d5e3ff;
-      --color-on-primary-fixed: #410001;
-      --color-surface-container-high: #e8e8e9;
-      --color-secondary-fixed: #ffdad5;
-      --color-secondary-fixed-dim: #ffb4aa;
-      --color-surface-container-low: #f3f3f4;
-      --color-tertiary-fixed-dim: #a7c8ff;
-      --color-surface-container-highest: #e2e2e3;
-      --color-on-tertiary-container: #f5f7ff;
-      --color-on-secondary-fixed-variant: #8e1210;
-      --color-primary-fixed: #ffdad5;
-      --color-error-container: #ffdad6;
-      --color-surface-variant: #e2e2e3;
-      --color-secondary: #b02d25;
-      --color-on-secondary-container: #650003;
-      --color-surface-dim: #d9dadb;
-      --color-tertiary: #0059a8;
-      --color-surface-container-lowest: #ffffff;
-      --color-on-primary: #ffffff;
-      --color-on-surface: #1a1c1d;
-      --color-error: #ba1a1a;
-      --color-on-tertiary: #ffffff;
-      --color-secondary-container: #fc6455;
-      --color-surface-container: #edeeef;
-      --color-outline-variant: #e9bcb6;
-      --color-on-secondary-fixed: #410001;
-      --color-on-primary-container: #fff5f3;
-      --color-inverse-surface: #2f3132;
-      --color-surface: #f9f9fa;
-      --color-on-error-container: #93000a;
-      --color-on-error: #ffffff;
-      --color-inverse-on-surface: #f0f1f1;
-      --color-background: #f9f9fa;
-      --color-on-surface-variant: #5e3f3b;
-      --color-primary-container: #e30613;
-      --color-outline: #936e69;
-      --color-on-tertiary-fixed: #001b3c;
+  
+  
 
-      --radius-lg: 0.5rem;
-      --radius-xl: 0.75rem;
-      --radius-2xl: 1rem;
-      --radius-3xl: 1.5rem;
-      --radius-full: 9999px;
-
-      --font-headline: "Plus Jakarta Sans", sans-serif;
-      --font-display: "Plus Jakarta Sans", sans-serif;
-      --font-body: "Inter", sans-serif;
-      --font-label: "Inter", sans-serif;
-      --font-inter: "Inter", sans-serif;
-      --font-manrope: "Manrope", sans-serif;
-    }
-  </style>
-  <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    h1,
-    h2,
-    h3,
-    .font-headline {
-      font-family: 'Manrope', sans-serif;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .contact-pulse-border {
-      border-width: 1.5px;
-      border-color: rgba(170, 0, 21, 0.88);
-      animation: contactBorderPulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes contactBorderPulse {
-      0%, 100% {
-        opacity: 0.82;
-        box-shadow:
-          0 0 0 1px rgba(170, 0, 21, 0.4),
-          0 0 10px rgba(170, 0, 21, 0.18);
-      }
-
-      50% {
-        opacity: 1;
-        box-shadow:
-          0 0 0 2px rgba(170, 0, 21, 0.9),
-          0 0 18px rgba(170, 0, 21, 0.36),
-          0 0 30px rgba(170, 0, 21, 0.16);
-      }
-    }
-
-    .delivery-burst {
-      clip-path: polygon(50% 0%, 61% 12%, 78% 8%, 84% 24%, 100% 31%, 90% 48%, 100% 65%, 83% 73%, 78% 91%, 61% 87%, 50% 100%, 39% 87%, 22% 91%, 17% 73%, 0% 65%, 10% 48%, 0% 31%, 16% 24%, 22% 8%, 39% 12%);
-    }
-  </style>
-  <style>
-    /* form-field-focus-reset */
-    input:not([type="checkbox"]):not([type="radio"]),
-    select,
-    textarea {
-      transition: border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: none !important;
-      --tw-ring-shadow: 0 0 #0000 !important;
-      --tw-ring-offset-shadow: 0 0 #0000 !important;
-    }
-
-    input:not([type="checkbox"]):not([type="radio"]):focus,
-    input:not([type="checkbox"]):not([type="radio"]):focus-visible,
-    select:focus,
-    select:focus-visible,
-    textarea:focus,
-    textarea:focus-visible {
-      border-color: #18181b !important;
-      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
-    }
-
-    input[type="checkbox"]:focus,
-    input[type="checkbox"]:focus-visible,
-    input[type="radio"]:focus,
-    input[type="radio"]:focus-visible {
-      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
-    }
-
-
-    /* clickable-cursor-reset */
-    a,
-    button,
-    [role="button"],
-    summary,
-    select,
-    input[type="button"],
-    input[type="submit"],
-    input[type="reset"],
-    input[type="checkbox"],
-    input[type="radio"],
-    label[for],
-    .cursor-pointer {
-      cursor: pointer;
-    }
-
-    button:disabled,
-    input:disabled,
-    select:disabled,
-    textarea:disabled,
-    [aria-disabled="true"] {
-      cursor: not-allowed;
-    }
-
-    /* form-field-color-reset */
-    input:not([type="checkbox"]):not([type="radio"]),
-    select,
-    textarea,
-    option {
-      color: #18181b !important;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #71717a !important;
-    }
-
-    label {
-      color: #18181b !important;
-    }
-  </style>
+  
+  
 </head>
 <body class="flex min-h-screen flex-col bg-white text-on-surface">
   <header class="z-50 w-full bg-white/80 shadow-shell backdrop-blur-xl md:sticky md:top-0">
@@ -486,7 +298,7 @@
     <div class="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-center md:justify-between">
       <div class="flex items-start gap-4">
         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_12px_30px_rgba(181,0,11,0.28)]">
-          <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;">mode_comment</span>
+          <span class="material-symbols-outlined text-[24px]" class="ms-filled-600">mode_comment</span>
         </span>
         <div>
           <p class="font-headline text-2xl font-extrabold tracking-tight text-zinc-900">Yardıma mı ihtiyacınız var?</p>
@@ -530,7 +342,6 @@
       </div>
     </div>
   </div>
-
 
   <div id="chatModal" class="pointer-events-none fixed inset-0 z-[80] hidden items-stretch justify-end bg-black/35 opacity-0 transition-opacity duration-300" aria-hidden="true">
     <div id="chatModalPanel" class="flex h-full w-full translate-x-full flex-col bg-white shadow-[0_28px_70px_rgba(0,0,0,0.2)] transition-transform duration-300 sm:w-[40%]">
@@ -591,221 +402,8 @@
     </div>
   </div>
 
-  <script>
-    const accountMenuButton = document.getElementById('accountMenuButton');
-    const accountMenuPanel = document.getElementById('accountMenuPanel');
-    const cartButton = document.getElementById('cartButton');
-    let accountMenuHoverTimer = null;
-
-    const clearAccountMenuHoverTimer = () => {
-      if (accountMenuHoverTimer) {
-        window.clearTimeout(accountMenuHoverTimer);
-        accountMenuHoverTimer = null;
-      }
-    };
-
-    const openAccountMenu = () => {
-      if (!accountMenuButton || !accountMenuPanel) return;
-      clearAccountMenuHoverTimer();
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        const rect = accountMenuButton.getBoundingClientRect();
-        accountMenuPanel.style.position = 'fixed';
-        accountMenuPanel.style.left = '1rem';
-        accountMenuPanel.style.right = '1rem';
-        accountMenuPanel.style.top = `${rect.bottom + 10}px`;
-        accountMenuPanel.style.width = 'auto';
-        accountMenuPanel.style.maxWidth = 'none';
-      } else {
-        accountMenuPanel.style.position = '';
-        accountMenuPanel.style.left = '';
-        accountMenuPanel.style.right = '';
-        accountMenuPanel.style.top = '';
-        accountMenuPanel.style.width = '';
-        accountMenuPanel.style.maxWidth = '';
-      }
-      accountMenuButton.setAttribute('aria-expanded', 'true');
-      accountMenuButton.classList.add('border-primary', 'bg-white');
-      accountMenuPanel.classList.remove('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
-      accountMenuPanel.classList.add('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
-    };
-
-    const closeAccountMenu = () => {
-      if (!accountMenuButton || !accountMenuPanel) return;
-      clearAccountMenuHoverTimer();
-      accountMenuButton.setAttribute('aria-expanded', 'false');
-      accountMenuButton.classList.remove('border-primary', 'bg-white');
-      accountMenuPanel.classList.add('pointer-events-none', 'invisible', 'translate-y-2', 'opacity-0');
-      accountMenuPanel.classList.remove('pointer-events-auto', 'visible', 'translate-y-0', 'opacity-100');
-    };
-
-    const scheduleCloseAccountMenu = () => {
-      clearAccountMenuHoverTimer();
-      accountMenuHoverTimer = window.setTimeout(() => {
-        if (window.innerWidth >= 768) closeAccountMenu();
-      }, 140);
-    };
-
-    if (accountMenuButton && accountMenuPanel) {
-      accountMenuButton.addEventListener('click', () => {
-        accountMenuButton.getAttribute('aria-expanded') === 'true' ? closeAccountMenu() : openAccountMenu();
-      });
-      accountMenuButton.addEventListener('mouseenter', () => window.innerWidth >= 768 && openAccountMenu());
-      accountMenuButton.addEventListener('mouseleave', () => window.innerWidth >= 768 && scheduleCloseAccountMenu());
-      accountMenuPanel.addEventListener('mouseenter', () => window.innerWidth >= 768 && clearAccountMenuHoverTimer());
-      accountMenuPanel.addEventListener('mouseleave', () => window.innerWidth >= 768 && scheduleCloseAccountMenu());
-      document.addEventListener('click', (event) => {
-        if (!accountMenuButton.contains(event.target) && !accountMenuPanel.contains(event.target)) closeAccountMenu();
-      });
-    }
-
-    const bindOffcanvas = ({ modalId, panelId, openSelector, closeSelector, activeButton }) => {
-      const modal = document.getElementById(modalId);
-      const panel = document.getElementById(panelId);
-      const openers = document.querySelectorAll(openSelector);
-      const closers = document.querySelectorAll(closeSelector);
-      if (!modal || !panel) return { close: () => {} };
-
-      const open = () => {
-        if (activeButton) activeButton.classList.add('border-primary', 'bg-white');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        requestAnimationFrame(() => {
-          modal.classList.remove('pointer-events-none', 'opacity-0');
-          modal.classList.add('opacity-100');
-          panel.classList.remove('translate-x-full');
-          panel.classList.add('translate-x-0');
-        });
-        document.body.classList.add('overflow-hidden');
-        modal.setAttribute('aria-hidden', 'false');
-      };
-
-      const close = () => {
-        if (activeButton) activeButton.classList.remove('border-primary', 'bg-white');
-        modal.classList.add('pointer-events-none', 'opacity-0');
-        modal.classList.remove('opacity-100');
-        panel.classList.remove('translate-x-0');
-        panel.classList.add('translate-x-full');
-        document.body.classList.remove('overflow-hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        window.setTimeout(() => {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
-        }, 200);
-      };
-
-      openers.forEach((opener) => opener.addEventListener('click', open));
-      closers.forEach((closer) => closer.addEventListener('click', close));
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) close();
-      });
-      return { close };
-    };
-
-    const policyModalTitle = document.getElementById('policyModalTitle');
-    const policyModalContent = document.getElementById('policyModalContent');
-    const policyContentMap = {
-      clarification: {
-        title: 'Aydınlatma Metni',
-        body: '<p>Bu alanda aydınlatma metni içeriği yer alacaktır. Kullanıcı verilerinin işlenme amaçları, saklama süreleri ve başvuru hakları bu panelde uzun metin olarak sunulabilir.</p><p>Metin uzun olduğunda panel kendi içinde kaydırılır ve sayfa akışı bozulmaz.</p>'
-      },
-      cookies: {
-        title: 'Çerez Politikası',
-        body: '<p>Bu alanda çerez politikası içeriği yer alacaktır. Zorunlu, performans ve tercih çerezlerine ilişkin bilgiler kullanıcıya bu panel üzerinden aktarılabilir.</p><p>Çerez tercihleri ve tarayıcı ayarları hakkındaki açıklamalar burada devam eder.</p>'
-      }
-    };
-
-    const policyController = bindOffcanvas({
-      modalId: 'policyModal',
-      panelId: 'policyModalPanel',
-      openSelector: '[data-policy-trigger]',
-      closeSelector: '[data-policy-close]'
-    });
-
-    document.querySelectorAll('[data-policy-trigger]').forEach((trigger) => {
-      trigger.addEventListener('click', () => {
-        const content = policyContentMap[trigger.dataset.policyType];
-        if (!content) return;
-        policyModalTitle.textContent = content.title;
-        policyModalContent.innerHTML = content.body;
-      });
-    });
-
-    const cartController = bindOffcanvas({
-      modalId: 'cartModal',
-      panelId: 'cartModalPanel',
-      openSelector: '#cartButton',
-      closeSelector: '[data-cart-close]',
-      activeButton: cartButton
-    });
-
-    const chatController = bindOffcanvas({
-      modalId: 'chatModal',
-      panelId: 'chatModalPanel',
-      openSelector: '#chatLauncher',
-      closeSelector: '[data-chat-close]'
-    });
-
-    const selectedVariantTitle = document.getElementById('selectedVariantTitle');
-    const selectedVariantPrice = document.getElementById('selectedVariantPrice');
-    const variantButtons = document.querySelectorAll('[data-variant-button]');
-    variantButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-	        variantButtons.forEach((item) => {
-	          item.classList.remove('bg-zinc-950', 'text-white');
-	          item.classList.add('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-	        });
-	        button.classList.add('bg-zinc-950', 'text-white');
-	        button.classList.remove('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-        selectedVariantTitle.textContent = button.dataset.title;
-        selectedVariantPrice.textContent = button.dataset.price;
-      });
-    });
-
-	    const quantityInput = document.getElementById('quantityInput');
-	    const customQuantityInput = document.getElementById('customQuantityInput');
-	    const quantityButtons = document.querySelectorAll('[data-quantity-button]');
-	    const activateQuantityButton = (activeButton) => {
-		      quantityButtons.forEach((button) => {
-		        button.classList.remove('bg-zinc-950', 'text-white');
-		        button.classList.add('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-		      });
-		      if (!activeButton) return;
-		      activeButton.classList.add('bg-zinc-950', 'text-white');
-		      activeButton.classList.remove('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-	    };
-	    quantityButtons.forEach((button) => {
-	      button.addEventListener('click', () => {
-	        quantityInput.value = button.dataset.quantity;
-	        if (customQuantityInput) customQuantityInput.value = '';
-	        activateQuantityButton(button);
-	      });
-	    });
-	    customQuantityInput?.addEventListener('focus', () => {
-	      activateQuantityButton(null);
-	      quantityInput.value = customQuantityInput.value;
-	    });
-	    customQuantityInput?.addEventListener('input', () => {
-	      const customValue = customQuantityInput.value === '' ? '' : Math.min(25, Math.max(1, Number(customQuantityInput.value)));
-	      quantityInput.value = customValue;
-	    });
-	    customQuantityInput?.addEventListener('blur', () => {
-	      if (customQuantityInput.value === '') {
-	        quantityInput.value = '';
-	        return;
-	      }
-	      customQuantityInput.value = String(Math.min(25, Math.max(1, Number(customQuantityInput.value))));
-	      quantityInput.value = customQuantityInput.value;
-	    });
-
-	    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeAccountMenu();
-        policyController.close();
-        cartController.close();
-        chatController.close();
-      }
-    });
-  </script>
+  
+  <script src="./page-js/urun-altin.js"></script>
+  <script src="./shared.js"></script>
 </body>
 </html>

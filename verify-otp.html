@@ -4,154 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OTP Doğrulama | Hediyemo</title>
+  <script src="./tailwind-theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style type="text/tailwindcss">
-    @custom-variant dark (&:where(.dark, .dark *));
+<link rel="stylesheet" href="./tailwind-config.css" />
+  
+  
 
-    @theme {
-      --color-inverse-primary: #ffb4aa;
-      --color-on-tertiary-fixed-variant: #004788;
-      --color-primary-fixed-dim: #ffb4aa;
-      --color-primary: #b5000b;
-      --color-on-primary-fixed-variant: #930007;
-      --color-surface-tint: #c0000c;
-      --color-on-background: #1a1c1d;
-      --color-tertiary-container: #0071d4;
-      --color-surface-bright: #f9f9fa;
-      --color-on-secondary: #ffffff;
-      --color-tertiary-fixed: #d5e3ff;
-      --color-on-primary-fixed: #410001;
-      --color-surface-container-high: #e8e8e9;
-      --color-secondary-fixed: #ffdad5;
-      --color-secondary-fixed-dim: #ffb4aa;
-      --color-surface-container-low: #f3f3f4;
-      --color-tertiary-fixed-dim: #a7c8ff;
-      --color-surface-container-highest: #e2e2e3;
-      --color-on-tertiary-container: #f5f7ff;
-      --color-on-secondary-fixed-variant: #8e1210;
-      --color-primary-fixed: #ffdad5;
-      --color-error-container: #ffdad6;
-      --color-surface-variant: #e2e2e3;
-      --color-secondary: #b02d25;
-      --color-on-secondary-container: #650003;
-      --color-surface-dim: #d9dadb;
-      --color-tertiary: #0059a8;
-      --color-surface-container-lowest: #ffffff;
-      --color-on-primary: #ffffff;
-      --color-on-surface: #1a1c1d;
-      --color-error: #ba1a1a;
-      --color-on-tertiary: #ffffff;
-      --color-secondary-container: #fc6455;
-      --color-surface-container: #edeeef;
-      --color-outline-variant: #e9bcb6;
-      --color-on-secondary-fixed: #410001;
-      --color-on-primary-container: #fff5f3;
-      --color-inverse-surface: #2f3132;
-      --color-surface: #f9f9fa;
-      --color-on-error-container: #93000a;
-      --color-on-error: #ffffff;
-      --color-inverse-on-surface: #f0f1f1;
-      --color-background: #f9f9fa;
-      --color-on-surface-variant: #5e3f3b;
-      --color-primary-container: #e30613;
-      --color-outline: #936e69;
-      --color-on-tertiary-fixed: #001b3c;
-
-      --radius-lg: 0.5rem;
-      --radius-xl: 0.75rem;
-      --radius-2xl: 1rem;
-      --radius-3xl: 1.5rem;
-      --radius-full: 9999px;
-
-      --font-headline: "Plus Jakarta Sans", sans-serif;
-      --font-display: "Plus Jakarta Sans", sans-serif;
-      --font-body: "Inter", sans-serif;
-      --font-label: "Inter", sans-serif;
-      --font-inter: "Inter", sans-serif;
-      --font-manrope: "Manrope", sans-serif;
-    }
-  </style>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./login.css" />
-  <style>
-    /* form-field-focus-reset */
-    input:not([type="checkbox"]):not([type="radio"]),
-    select,
-    textarea {
-      transition: border-color 160ms ease, box-shadow 160ms ease;
-    }
+  <link rel="stylesheet" href="./shared.css" />
+  <link rel="stylesheet" href="./page-css/verify-otp.css" />
 
-    input:focus,
-    select:focus,
-    textarea:focus,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: none !important;
-      --tw-ring-shadow: 0 0 #0000 !important;
-      --tw-ring-offset-shadow: 0 0 #0000 !important;
-    }
-
-    input:not([type="checkbox"]):not([type="radio"]):focus,
-    input:not([type="checkbox"]):not([type="radio"]):focus-visible,
-    select:focus,
-    select:focus-visible,
-    textarea:focus,
-    textarea:focus-visible {
-      border-color: #18181b !important;
-      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
-    }
-
-    input[type="checkbox"]:focus,
-    input[type="checkbox"]:focus-visible,
-    input[type="radio"]:focus,
-    input[type="radio"]:focus-visible {
-      box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.22) !important;
-    }
-
-
-    /* clickable-cursor-reset */
-    a,
-    button,
-    [role="button"],
-    summary,
-    select,
-    input[type="button"],
-    input[type="submit"],
-    input[type="reset"],
-    input[type="checkbox"],
-    input[type="radio"],
-    label[for],
-    .cursor-pointer {
-      cursor: pointer;
-    }
-
-    button:disabled,
-    input:disabled,
-    select:disabled,
-    textarea:disabled,
-    [aria-disabled="true"] {
-      cursor: not-allowed;
-    }
-
-    /* form-field-color-reset */
-    input:not([type="checkbox"]):not([type="radio"]),
-    select,
-    textarea,
-    option {
-      color: #18181b !important;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #71717a !important;
-    }
-
-    label {
-      color: #18181b !important;
-    }
-  </style>
+  
 </head>
 <body class="bg-background text-on-background flex min-h-screen flex-col selection:bg-primary-container/20 selection:text-primary">
   <main class="flex min-h-screen flex-grow flex-col md:flex-row">
@@ -267,87 +131,8 @@
     </section>
   </main>
 
-  <script>
-    const otpCodeInput = document.getElementById('otpCode');
-    const otpForm = document.getElementById('otpForm');
-    const otpStatus = document.getElementById('otpStatus');
-    const countdownText = document.getElementById('countdownText');
-    const resendButton = document.getElementById('resendButton');
-    const initialSeconds = 300;
-    let remainingSeconds = initialSeconds;
-    let timerId;
-
-    const formatTime = (seconds) => {
-      const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
-      const secs = (seconds % 60).toString().padStart(2, '0');
-      return `${minutes}:${secs}`;
-    };
-
-    const updateTimer = () => {
-      countdownText.textContent = formatTime(remainingSeconds);
-
-      if (remainingSeconds <= 0) {
-        clearInterval(timerId);
-        resendButton.disabled = false;
-        otpStatus.textContent = 'Kod süresi doldu. Yeni kod isteyebilirsiniz.';
-        otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-primary';
-        return;
-      }
-
-      remainingSeconds -= 1;
-    };
-
-    const startTimer = () => {
-      clearInterval(timerId);
-      remainingSeconds = initialSeconds;
-      resendButton.disabled = true;
-      updateTimer();
-      timerId = setInterval(updateTimer, 1000);
-    };
-
-    otpCodeInput.addEventListener('input', (event) => {
-      event.target.value = event.target.value.replace(/\D/g, '').slice(0, 4);
-    });
-
-    otpCodeInput.addEventListener('paste', (event) => {
-      event.preventDefault();
-      otpCodeInput.value = event.clipboardData.getData('text').replace(/\D/g, '').slice(0, 4);
-    });
-
-    otpForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const code = otpCodeInput.value;
-
-      if (code.length < 4) {
-        otpStatus.textContent = 'Lütfen 4 haneli doğrulama kodunu girin.';
-        otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-primary';
-        return;
-      }
-
-      if (remainingSeconds <= 0) {
-        otpStatus.textContent = 'Kod süresi doldu. Yeni kod isteyin.';
-        otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-primary';
-        return;
-      }
-
-      if (code === '1234') {
-        otpStatus.textContent = 'Doğrulama başarılı. Yönlendiriliyorsunuz...';
-        otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-emerald-600';
-      } else {
-        otpStatus.textContent = 'Kod hatalı. Lütfen tekrar deneyin.';
-        otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-primary';
-      }
-    });
-
-    resendButton.addEventListener('click', () => {
-      otpCodeInput.value = '';
-      otpCodeInput.focus();
-      otpStatus.textContent = 'Yeni doğrulama kodu gönderildi. Örnek kod: 1234';
-      otpStatus.className = 'mt-3 min-h-[1.5rem] text-sm font-semibold text-zinc-500';
-      startTimer();
-    });
-
-    startTimer();
-  </script>
+  
+  <script src="./page-js/verify-otp.js"></script>
+  <script src="./shared.js"></script>
 </body>
 </html>
