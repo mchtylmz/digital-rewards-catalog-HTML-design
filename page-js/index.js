@@ -1,4 +1,35 @@
 window.HediyemoInlineCommonReady = true;
+    const heroSlides = Array.from(document.querySelectorAll('[data-hero-slide]'));
+    const heroDots = Array.from(document.querySelectorAll('[data-hero-dot]'));
+    let heroSlideIndex = 0;
+
+    const setHeroSlide = (nextIndex) => {
+      if (!heroSlides.length) return;
+      heroSlideIndex = nextIndex % heroSlides.length;
+      heroSlides.forEach((slide, index) => {
+        const isActive = index === heroSlideIndex;
+        slide.classList.toggle('opacity-100', isActive);
+        slide.classList.toggle('opacity-0', !isActive);
+      });
+      heroDots.forEach((dot, index) => {
+        const isActive = index === heroSlideIndex;
+        dot.classList.toggle('w-5', isActive);
+        dot.classList.toggle('sm:w-6', isActive);
+        dot.classList.toggle('w-2', !isActive);
+        dot.classList.toggle('sm:w-2.5', !isActive);
+        dot.classList.toggle('bg-red-600', isActive);
+        dot.classList.toggle('bg-zinc-300', !isActive);
+      });
+    };
+
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => setHeroSlide(index));
+    });
+
+    if (heroSlides.length > 1) {
+      window.setInterval(() => setHeroSlide(heroSlideIndex + 1), 5000);
+    }
+
     const productGrid = document.getElementById('productGrid');
     const productsPagination = document.getElementById('productsPagination');
     const productItems = [

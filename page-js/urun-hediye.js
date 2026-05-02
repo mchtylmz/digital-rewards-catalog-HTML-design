@@ -153,7 +153,6 @@ window.HediyemoInlineCommonReady = true;
       closeSelector: '[data-chat-close]'
     });
 
-    const selectedVariantTitle = document.getElementById('selectedVariantTitle');
     const selectedVariantPrice = document.getElementById('selectedVariantPrice');
     const giftAmountSelect = document.getElementById('giftAmountSelect');
     const variantButtons = document.querySelectorAll('[data-variant-button]');
@@ -166,7 +165,6 @@ window.HediyemoInlineCommonReady = true;
 		        });
 	        button.classList.add('bg-zinc-950', 'text-white');
 	        button.classList.remove('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-        selectedVariantTitle.textContent = button.dataset.title;
         selectedVariantPrice.textContent = button.dataset.price;
       });
     });
@@ -176,7 +174,6 @@ window.HediyemoInlineCommonReady = true;
         item.classList.remove('bg-zinc-950', 'text-white');
         item.classList.add('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
       });
-      selectedVariantTitle.textContent = 'A101 Hediye Çeki';
       selectedVariantPrice.textContent = giftAmountSelect.value;
     });
 

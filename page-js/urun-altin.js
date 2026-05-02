@@ -153,7 +153,6 @@ window.HediyemoInlineCommonReady = true;
       closeSelector: '[data-chat-close]'
     });
 
-    const selectedVariantTitle = document.getElementById('selectedVariantTitle');
     const selectedVariantPrice = document.getElementById('selectedVariantPrice');
     const variantButtons = document.querySelectorAll('[data-variant-button]');
     variantButtons.forEach((button) => {
@@ -164,7 +163,6 @@ window.HediyemoInlineCommonReady = true;
 	        });
 	        button.classList.add('bg-zinc-950', 'text-white');
 	        button.classList.remove('bg-zinc-100', 'text-zinc-700', 'hover:bg-zinc-200');
-        selectedVariantTitle.textContent = button.dataset.title;
         selectedVariantPrice.textContent = button.dataset.price;
       });
     });

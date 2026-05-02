@@ -148,13 +148,24 @@
 
   <main class="flex-1 bg-white">
     <section class="bg-white">
-      <div class="mx-auto max-w-[1440px] px-6 py-10 lg:px-8 lg:py-12">
-      <div class="group relative w-full overflow-hidden rounded-xl shadow-xl aspect-[1920/500]">
+      <div class="mx-auto max-w-[1440px] px-6 pb-8 pt-6 lg:px-8 lg:pb-10 lg:pt-8">
+      <div class="group relative w-full overflow-hidden rounded-xl shadow-xl aspect-[16/5] sm:aspect-[1920/500]" data-hero-slider>
         <img
-          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          alt="Hediyemo kampanya bannerı"
-          src="./assets/banners/home-hero-banner-2000x800.svg"
+          class="absolute inset-0 h-full w-full object-cover opacity-100 transition-all duration-700 group-hover:scale-105"
+          alt="Altın kampanya bannerı"
+          src="./assets/banners/banner-altin.png"
+          data-hero-slide
         />
+        <img
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 group-hover:scale-105"
+          alt="Amazon kampanya bannerı"
+          src="./assets/banners/banner-amazon.png"
+          data-hero-slide
+        />
+        <div class="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5 sm:bottom-3 sm:gap-2">
+          <button class="h-2 w-5 rounded-xl bg-red-600 shadow-sm transition-all sm:h-2.5 sm:w-6" type="button" aria-label="Altın bannerını göster" data-hero-dot></button>
+          <button class="h-2 w-2 rounded-xl bg-zinc-300 shadow-sm transition-all sm:h-2.5 sm:w-2.5" type="button" aria-label="Amazon bannerını göster" data-hero-dot></button>
+        </div>
       </div>
       </div>
     </section>
@@ -196,8 +207,7 @@
         </div>
       </div>
     </section>
-    <div class="mx-auto max-w-[1440px] px-6 lg:hidden">
-      <div class="my-6 h-px w-full bg-zinc-200"></div>
+    <div class="mx-auto max-w-[1440px] px-6 pt-5 lg:hidden">
     </div>
     <section class="bg-white">
       <div class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 pb-24 md:pt-6 lg:gap-10 lg:px-8">
@@ -284,32 +294,32 @@
               <label data-brand-option data-brand-name="Amazon.com.tr" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Amazon.com.tr" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Amazon.com.tr</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/amazon-logo.png" alt="Amazon.com.tr logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/amazon-logo.png" alt="Amazon.com.tr logo" /></span>
               </label>
               <label data-brand-option data-brand-name="Mavi" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Mavi" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Mavi</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi logo" /></span>
               </label>
 	              <label data-brand-option data-brand-name="Boyner" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
 	                <input data-brand-checkbox data-filter-value="Boyner" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Boyner</span>
-	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner logo" /></span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner logo" /></span>
 	              </label>
 	              <label data-brand-option data-brand-name="Altınyıldız Classics" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
 	                <input data-brand-checkbox data-filter-value="Altınyıldız Classics" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Altınyıldız Classics</span>
-	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/altinyildizclassics-logo.png" alt="Altınyıldız Classics logo" /></span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/altinyildizclassics-logo.png" alt="Altınyıldız Classics logo" /></span>
 	              </label>
 	              <label data-brand-option data-brand-name="Ayakkabı Dünyası" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
 	                <input data-brand-checkbox data-filter-value="Ayakkabı Dünyası" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>Ayakkabı Dünyası</span>
-	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/ayakkabidunyasi-logo.png" alt="Ayakkabı Dünyası logo" /></span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/ayakkabidunyasi-logo.png" alt="Ayakkabı Dünyası logo" /></span>
 	              </label>
 	              <label data-brand-option data-brand-name="HepsiBurada" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
 	                <input data-brand-checkbox data-filter-value="HepsiBurada" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
 	                <span>HepsiBurada</span>
-	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/hepsiburada-logo.png" alt="HepsiBurada logo" /></span>
+	                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/hepsiburada-logo.png" alt="HepsiBurada logo" /></span>
               </label>
               <label data-brand-option data-brand-name="IKEA" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="IKEA" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
@@ -319,12 +329,12 @@
               <label data-brand-option data-brand-name="Arzum" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Arzum" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Arzum</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/arzum-logo.png" alt="Arzum logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/arzum-logo.png" alt="Arzum logo" /></span>
               </label>
               <label data-brand-option data-brand-name="CarrefourSA" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="CarrefourSA" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>CarrefourSA</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/CarrefourSA-logo.png" alt="CarrefourSA logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/CarrefourSA-logo.png" alt="CarrefourSA logo" /></span>
               </label>
               <label data-brand-option data-brand-name="Teknosa" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Teknosa" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
@@ -339,12 +349,12 @@
               <label data-brand-option data-brand-name="Opet" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Opet" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Opet</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/opet-logo.png" alt="Opet logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/opet-logo.png" alt="Opet logo" /></span>
               </label>
               <label data-brand-option data-brand-name="Genç Altın" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Genç Altın" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                 <span>Genç Altın</span>
-                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-4 max-w-full object-contain" src="./assets/brands/genc-altin-logo.png" alt="Genç Altın logo" /></span>
+                <span class="ml-auto flex h-6 w-14 items-center justify-end rounded-xl bg-white px-1"><img class="max-h-[1.5rem] max-w-full object-contain" src="./assets/brands/genc-altin-logo.png" alt="Genç Altın logo" /></span>
               </label>
               <label data-brand-option data-brand-name="Koçtaş" class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                 <input data-brand-checkbox data-filter-value="Koçtaş" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
@@ -476,6 +486,12 @@
             <span class="material-symbols-outlined text-sm">east</span>
           </button>
         </div>
+        <div class="mt-10 flex justify-end">
+          <a href="#" class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-6 py-3 font-headline text-sm font-extrabold text-white transition-transform duration-200 hover:-translate-y-0.5">
+            <span>Tüm Hediye Çeklerini Göster</span>
+            <span class="material-symbols-outlined text-[20px]">east</span>
+          </a>
+        </div>
       </div>
       </div>
     </section>
@@ -606,7 +622,7 @@
             </label>
             <div class="flex items-center justify-between gap-3">
               <button type="button" data-chat-close class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50"><span class="material-symbols-outlined text-[20px]">close</span><span>Vazgeç</span></button>
-              <button type="button" class="inline-flex items-center justify-center gap-2 rounded-xl bg-black px-10 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"><span class="material-symbols-outlined text-[18px]">send</span><span>Mesajını Gönder</span></button>
+              <button type="button" class="inline-flex items-center justify-center gap-2 rounded-xl bg-black px-5 py-2.5 text-sm font-semibold text-white sm:px-10 transition-transform duration-200 hover:-translate-y-0.5"><span class="material-symbols-outlined text-[18px]">send</span><span>Mesajını Gönder</span></button>
             </div>
           </form>
         </div>
