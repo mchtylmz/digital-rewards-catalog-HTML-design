@@ -908,13 +908,10 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
             <tr><td><code>--hdm-radius-xl</code></td><td>Input, button, card, modal close, checkbox.</td><td>Standart radius: <code>0.75rem</code>.</td></tr>
           </tbody>
         </table>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>/* Marka rengini degistirmek icin once bu alan */
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>/* Marka rengini degistirmek icin tek merkez */
 :root {
   --hdm-color-primary: #fe0000;
   --hdm-color-primary-container: #fe0000;
-  --hdm-color-primary-fixed: #fe0000;
-  --hdm-color-primary-fixed-dim: #fe0000;
-  --hdm-color-inverse-primary: #fe0000;
   --hdm-color-search-button-icon: #ffffff;
 }</code></pre></div>
       </section>
@@ -950,11 +947,9 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
         <h2>Layout Sistemi</h2>
         <p>Ana sayfa ve marka sayfalarinda 12 kolon mantigi kullanilir. Index standartinda sol filtre <code>md:col-span-3</code>, sag liste <code>md:col-span-9</code>. Markalar sayfasinda istenirse kosullar <code>md:col-span-4</code>, hediye cekleri <code>md:col-span-8</code>.</p>
         <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;section class="bg-white"&gt;
-  &lt;div class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 lg:gap-10 lg:px-8"&gt;
-    &lt;aside class="col-span-12 md:col-span-3"&gt;Filtre veya kosullar&lt;/aside&gt;
-    &lt;div class="col-span-12 md:col-span-9"&gt;
-      &lt;div class="grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-6"&gt;...&lt;/div&gt;
-    &lt;/div&gt;
+  &lt;div class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 lg:px-8"&gt;
+    &lt;aside class="col-span-12 md:col-span-3"&gt;Filtre&lt;/aside&gt;
+    &lt;div class="col-span-12 md:col-span-9"&gt;Kart grid&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre></div>
       </section>
@@ -962,19 +957,13 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
       <section class="doc-section" id="header-footer">
         <h2>Header ve Footer</h2>
         <p>Header tum normal HTML sayfalarinda ayni davranisi kullanir. Search input saginda proje rengi arka planli arama butonu vardir. Hesabim ve Sepetim alanlari <code>rounded-xl</code> standardindadir. Footer CTA arka plani <code>bg-primary-container</code> olmalidir.</p>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button
-  id="cartButton"
-  class="rounded-xl bg-zinc-100/90 px-3 py-2 text-sm font-semibold"
-  type="button"
-  aria-expanded="false"&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button id="cartButton" class="rounded-xl bg-zinc-100 px-3 py-2 font-semibold"&gt;
   &lt;span class="material-symbols-outlined"&gt;shopping_bag&lt;/span&gt;
   Sepetim
 &lt;/button&gt;
 
 &lt;section id="footerContactCta" class="bg-primary-container px-6 py-8 text-white"&gt;
-  &lt;button id="chatLauncher" class="rounded-xl bg-white px-7 py-3 text-primary"&gt;
-    Bize Ulasin
-  &lt;/button&gt;
+  &lt;button id="chatLauncher" class="rounded-xl bg-white px-7 py-3 text-primary"&gt;Bize Ulasin&lt;/button&gt;
 &lt;/section&gt;</code></pre></div>
       </section>
 
@@ -1019,22 +1008,14 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
             </div>
           </article>
         </div>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-container px-5 py-3 text-sm font-extrabold text-white transition-transform hover:-translate-y-0.5"&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-5 py-3 font-extrabold text-white"&gt;
   &lt;span class="material-symbols-outlined text-[18px]"&gt;check&lt;/span&gt;
   Kaydet
 &lt;/button&gt;
 
-&lt;a class="rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;
-  INCELE
-&lt;/a&gt;
+&lt;a class="rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;INCELE&lt;/a&gt;
 
-&lt;button class="grid h-11 w-11 place-items-center rounded-xl bg-zinc-950 text-white hover:bg-primary-container" aria-label="Ara"&gt;
-  &lt;span class="material-symbols-outlined"&gt;search&lt;/span&gt;
-&lt;/button&gt;
-
-&lt;button class="w-full rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white"&gt;
-  Alisverisi Tamamla
-&lt;/button&gt;</code></pre></div>
+&lt;button class="w-full rounded-xl bg-primary-container px-5 py-3 font-black text-white"&gt;Alisverisi Tamamla&lt;/button&gt;</code></pre></div>
       </section>
 
       <section class="doc-section" id="forms">
@@ -1046,13 +1027,9 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
           <label>Marka <select class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0"><option>Boyner</option><option>Mavi</option></select></label>
           <label class="flex cursor-pointer grid-cols-none flex-row items-center gap-3"><input class="h-5 w-5 rounded-xl accent-primary" type="checkbox" /> Bakiyeme uygun olanlari goster</label>
         </form>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;label class="block"&gt;
-  &lt;span class="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-zinc-950"&gt;E-posta&lt;/span&gt;
-  &lt;input
-    type="email"
-    class="w-full rounded-xl border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-zinc-900 focus:ring-0"
-    placeholder="ornek@domain.com"
-  /&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;label class="grid gap-2 font-bold text-zinc-950"&gt;
+  E-posta
+  &lt;input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="ornek@domain.com" /&gt;
 &lt;/label&gt;</code></pre></div>
       </section>
 
@@ -1162,12 +1139,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
             <a href="./urun-hediye.html" class="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white hover:bg-primary-container">Incele <span class="material-symbols-outlined text-[18px]">east</span></a>
           </article>
         </div>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="group relative flex h-full flex-col overflow-hidden rounded-xl border-2 border-primary/25 bg-surface-container-lowest p-3 text-center shadow-sm"&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative flex flex-col rounded-xl border-2 border-primary/25 bg-white p-3 text-center"&gt;
   &lt;div class="flex h-[200px] items-center justify-center"&gt;
-    &lt;img class="max-h-[96%] max-w-[96%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" /&gt;
+    &lt;img class="max-h-[96%] max-w-[96%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner"&gt;
   &lt;/div&gt;
-  &lt;span class="text-[2.15rem] font-black text-primary"&gt;1.000 TL&lt;/span&gt;
-  &lt;span class="text-[1.2rem] font-medium text-zinc-600"&gt;Hediye Ceki&lt;/span&gt;
+  &lt;strong class="text-3xl font-black text-primary"&gt;1.000 TL&lt;/strong&gt;
   &lt;a href="./urun-hediye.html" class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;INCELE&lt;/a&gt;
 &lt;/article&gt;</code></pre></div>
       </section>
@@ -1183,9 +1159,9 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
             <tr><td>Policy</td><td><code>[data-policy-trigger]</code></td><td><code>#policyModal</code>, <code>#policyModalPanel</code></td><td><code>[data-policy-close]</code></td></tr>
           </tbody>
         </table>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button id="chatLauncher" type="button"&gt;Bize Ulasin&lt;/button&gt;
-&lt;div id="chatModal" class="pointer-events-none fixed inset-0 hidden opacity-0"&gt;
-  &lt;div id="chatModalPanel" class="translate-x-full transition-transform"&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button id="chatLauncher"&gt;Bize Ulasin&lt;/button&gt;
+&lt;div id="chatModal" class="fixed inset-0 hidden"&gt;
+  &lt;div id="chatModalPanel" class="translate-x-full"&gt;
     &lt;button data-chat-close type="button"&gt;Kapat&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1196,15 +1172,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
         <h2>Filtreler</h2>
         <p>Index sol filtre alani checkbox listeleri ve arama inputlari ile calisir. Liste label'lari <code>filter-option-list</code> ile satir alt border alir. Markalar listesinde checkbox gizlenip sol check ikonu gosterilir.</p>
         <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="rounded-xl border border-zinc-300 bg-white px-5 py-6"&gt;
-  &lt;div class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3"&gt;
-    &lt;h3 class="font-headline text-[16px] font-bold text-zinc-700"&gt;Kategoriler&lt;/h3&gt;
-  &lt;/div&gt;
-  &lt;div class="filter-option-list mt-6"&gt;
-    &lt;label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700"&gt;
-      &lt;input data-sector-checkbox data-filter-value="giyim" class="h-[1.05rem] w-[1.05rem] rounded-xl accent-primary" type="checkbox" /&gt;
-      &lt;span&gt;Giyim&lt;/span&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
+  &lt;h3 class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3 font-bold"&gt;Kategoriler&lt;/h3&gt;
+  &lt;label class="filter-option-list mt-6 flex cursor-pointer items-center gap-3"&gt;
+    &lt;input class="h-4 w-4 rounded-xl accent-primary" type="checkbox"&gt;
+    &lt;span&gt;Giyim&lt;/span&gt;
+  &lt;/label&gt;
 &lt;/div&gt;</code></pre></div>
       </section>
 
@@ -1213,17 +1185,12 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
         <p>Urun detay sayfalarinda secenek butonlari <code>[data-variant-button]</code> ve adet butonlari <code>[data-quantity-button]</code> ile otomatik calisir. <code>shared.js</code> secili fiyat ve adet inputunu yonetir.</p>
         <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex items-center justify-between gap-4"&gt;
   &lt;div&gt;
-    &lt;h1 class="font-headline text-2xl font-extrabold"&gt;Boyner&lt;/h1&gt;
+    &lt;h1 class="text-2xl font-extrabold"&gt;Boyner&lt;/h1&gt;
     &lt;p class="text-lg font-bold text-zinc-500"&gt;Hediye Ceki&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class="rounded-xl bg-primary-container px-5 py-3 text-2xl font-black text-white"&gt;
-    &lt;span id="selectedVariantPrice"&gt;500 TL&lt;/span&gt;
-  &lt;/div&gt;
+  &lt;strong id="selectedVariantPrice" class="rounded-xl bg-primary-container px-5 py-3 text-2xl text-white"&gt;500 TL&lt;/strong&gt;
 &lt;/div&gt;
-
-&lt;button data-variant-button data-price="500 TL" class="rounded-xl bg-zinc-950 px-5 py-3 text-white"&gt;500&lt;/button&gt;
-&lt;button data-quantity-button data-quantity="1" class="rounded-xl bg-zinc-950 px-5 py-3 text-white"&gt;1&lt;/button&gt;
-&lt;input id="quantityInput" type="hidden" value="1" /&gt;</code></pre></div>
+&lt;button data-variant-button data-price="500 TL" class="rounded-xl bg-zinc-950 px-5 py-3 text-white"&gt;500&lt;/button&gt;</code></pre></div>
       </section>
 
       <section class="doc-section" id="orders">
@@ -1316,16 +1283,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
               </div>
             </div>
             <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="relative overflow-hidden rounded-xl"&gt;
-  &lt;div class="flex transition-transform" data-slider-track&gt;
-    &lt;article class="min-w-full"&gt;
-      &lt;img src="./assets/banners/banner-altin.png" class="h-[500px] w-full object-cover" alt="Altin" /&gt;
-    &lt;/article&gt;
-    &lt;article class="min-w-full"&gt;
-      &lt;img src="./assets/banners/banner-amazon.png" class="h-[500px] w-full object-cover" alt="Amazon" /&gt;
-    &lt;/article&gt;
+  &lt;img src="./assets/banners/banner-altin.png" class="h-[500px] w-full object-cover" alt="Altin"&gt;
+  &lt;div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2"&gt;
+    &lt;button class="h-2 w-2 rounded-full bg-primary"&gt;&lt;/button&gt;
+    &lt;button class="h-2 w-2 rounded-full bg-zinc-300"&gt;&lt;/button&gt;
   &lt;/div&gt;
-  &lt;button class="h-2 w-2 rounded-full bg-primary"&gt;&lt;/button&gt;
-  &lt;button class="h-2 w-2 rounded-full bg-zinc-300"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre></div>
           </article>
 
@@ -1367,10 +1329,10 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
                 </article>
               </div>
             </div>
-            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative flex flex-col rounded-xl border-2 border-primary/30 bg-white p-3 text-center shadow-sm"&gt;
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative flex flex-col rounded-xl border-2 border-primary/30 bg-white p-3 text-center"&gt;
   &lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-3 py-2 text-xs font-black text-white"&gt;%8&lt;br /&gt;Hizmet&lt;/span&gt;
   &lt;div class="flex h-36 items-center justify-center pt-3"&gt;
-    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/opet-logo.png" alt="Opet" /&gt;
+    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/opet-logo.png" alt="Opet"&gt;
   &lt;/div&gt;
   &lt;strong class="text-2xl font-black text-zinc-950"&gt;50 TL&lt;/strong&gt;
   &lt;button class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;Incele&lt;/button&gt;
@@ -1430,9 +1392,7 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
               </div>
             </div>
             <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"&gt;
-  &lt;span class="grid h-11 w-11 place-items-center rounded-xl bg-primary-container text-white"&gt;
-    &lt;span class="material-symbols-outlined"&gt;payments&lt;/span&gt;
-  &lt;/span&gt;
+  &lt;span class="material-symbols-outlined rounded-xl bg-primary-container p-3 text-white"&gt;payments&lt;/span&gt;
   &lt;p class="mt-4 text-xs font-black uppercase tracking-[0.18em] text-zinc-400"&gt;Toplam Puan&lt;/p&gt;
   &lt;strong class="mt-1 block text-3xl font-black text-zinc-950"&gt;35.500&lt;/strong&gt;
 &lt;/article&gt;</code></pre></div>
@@ -1540,23 +1500,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
                 </article>
               </div>
             </div>
-            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;span class="rounded-xl bg-primary-container px-4 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet Bedeli&lt;/span&gt;
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;span class="rounded-xl bg-primary-container px-4 py-2 text-xs font-black text-white"&gt;%8 Hizmet&lt;/span&gt;
 &lt;span class="rounded-full bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-700"&gt;Iletildi&lt;/span&gt;
-&lt;span class="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-xs font-black text-red-600"&gt;+100 Hizmet Bedeli&lt;/span&gt;
-
-&lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-4 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet&lt;/span&gt;
-
-&lt;span class="absolute -right-12 top-6 rotate-45 bg-zinc-950 px-12 py-2 text-xs font-black uppercase text-white"&gt;Yeni&lt;/span&gt;
-
-&lt;span class="absolute left-0 top-0 flex h-full w-10 items-center justify-center bg-primary-container text-white"&gt;
-  &lt;span class="-rotate-90 whitespace-nowrap text-xs font-black uppercase tracking-[0.16em]"&gt;Avantaj&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;span class="absolute right-5 top-0 flex h-16 w-11 items-center justify-center bg-primary-container text-white"&gt;
-  &lt;span class="material-symbols-outlined"&gt;star&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;span class="inline-grid grid-cols-[auto_auto] overflow-hidden rounded-xl text-xs font-black uppercase"&gt;
+&lt;span class="absolute right-0 top-0 rounded-bl-xl bg-primary-container px-3 py-2 text-xs font-black text-white"&gt;%8&lt;/span&gt;
+&lt;span class="absolute -right-12 top-6 rotate-45 bg-zinc-950 px-12 py-2 text-xs font-black text-white"&gt;Yeni&lt;/span&gt;
+&lt;span class="inline-grid grid-cols-[auto_auto] overflow-hidden rounded-xl text-xs font-black"&gt;
   &lt;span class="bg-primary-container px-3 py-2 text-white"&gt;%3&lt;/span&gt;
   &lt;span class="bg-zinc-950 px-3 py-2 text-white"&gt;Hizmet&lt;/span&gt;
 &lt;/span&gt;</code></pre></div>
@@ -1593,14 +1541,10 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
               </div>
             </div>
             <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white p-4"&gt;
-  &lt;div class="flex justify-between gap-4"&gt;
-    &lt;div&gt;
-      &lt;h4 class="font-headline text-lg font-black text-zinc-950"&gt;Teknosa&lt;/h4&gt;
-      &lt;p class="text-sm text-zinc-500"&gt;Hediye Ceki 2.000 TL&lt;/p&gt;
-      &lt;p class="text-sm font-black text-red-600"&gt;+100 Puan Hizmet Bedeli&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;strong class="text-xl font-black text-zinc-950"&gt;2.000 Puan&lt;/strong&gt;
-  &lt;/div&gt;
+  &lt;h4 class="text-lg font-black text-zinc-950"&gt;Teknosa&lt;/h4&gt;
+  &lt;p class="text-sm text-zinc-500"&gt;Hediye Ceki 2.000 TL&lt;/p&gt;
+  &lt;p class="text-sm font-black text-red-600"&gt;+100 Puan Hizmet Bedeli&lt;/p&gt;
+  &lt;strong class="text-xl font-black text-zinc-950"&gt;2.000 Puan&lt;/strong&gt;
 &lt;/article&gt;</code></pre></div>
           </article>
 
@@ -1997,17 +1941,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
               </div>
             </div>
             <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="relative inline-flex"&gt;
-  &lt;button class="rounded-xl bg-zinc-100 px-5 py-3 font-black"&gt;
-    Hesabim
-    &lt;span class="material-symbols-outlined"&gt;keyboard_arrow_down&lt;/span&gt;
-  &lt;/button&gt;
-  &lt;div class="absolute right-0 top-full mt-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;
+  &lt;button class="rounded-xl bg-zinc-100 px-5 py-3 font-black"&gt;Hesabim&lt;/button&gt;
+  &lt;div class="absolute right-0 top-full mt-2 grid min-w-56 rounded-xl border bg-white p-2 shadow-xl"&gt;
     &lt;a class="rounded-xl px-3 py-2 font-bold hover:bg-zinc-50"&gt;Bilgilerim&lt;/a&gt;
     &lt;a class="rounded-xl px-3 py-2 font-bold hover:bg-zinc-50"&gt;Siparislerim&lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="absolute left-full top-0 ml-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Sag panel&lt;/div&gt;
-  &lt;div class="absolute right-full top-0 mr-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Sol panel&lt;/div&gt;
-  &lt;div class="absolute bottom-full left-0 mb-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Ust panel&lt;/div&gt;
 &lt;/div&gt;</code></pre></div>
           </article>
 
@@ -2093,17 +2031,12 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
                 </div>
               </div>
             </div>
-            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4"&gt;
-  &lt;div class="w-full max-w-md rounded-xl bg-white shadow-xl"&gt;
-    &lt;header class="flex items-center justify-between border-b border-zinc-200 px-5 py-4"&gt;
-      &lt;h3 class="font-headline text-xl font-black"&gt;Kaydi silmek istiyor musunuz?&lt;/h3&gt;
-      &lt;button class="rounded-xl bg-zinc-100 p-2"&gt;&lt;span class="material-symbols-outlined"&gt;close&lt;/span&gt;&lt;/button&gt;
-    &lt;/header&gt;
-    &lt;div class="p-5"&gt;
-      &lt;p class="text-sm text-zinc-600"&gt;Bu islem geri alinamaz.&lt;/p&gt;
-      &lt;button class="rounded-xl bg-red-600 px-5 py-3 text-white"&gt;Evet, Sil&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="fixed inset-0 z-50 grid place-items-center bg-black/45 p-4"&gt;
+  &lt;article class="w-full max-w-md rounded-xl bg-white p-5 shadow-xl"&gt;
+    &lt;h3 class="text-xl font-black"&gt;Kaydi silmek istiyor musunuz?&lt;/h3&gt;
+    &lt;p class="mt-2 text-sm text-zinc-600"&gt;Bu islem geri alinamaz.&lt;/p&gt;
+    &lt;button class="mt-5 rounded-xl bg-red-600 px-5 py-3 text-white"&gt;Evet, Sil&lt;/button&gt;
+  &lt;/article&gt;
 &lt;/div&gt;</code></pre></div>
           </article>
 
@@ -2210,13 +2143,11 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
               </div>
             </div>
             <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white"&gt;
-  &lt;button class="flex w-full items-center justify-between px-5 py-4 text-left" type="button"&gt;
-    &lt;span class="font-headline text-lg font-black"&gt;Hediye ceki nasil teslim edilir?&lt;/span&gt;
+  &lt;button class="flex w-full items-center justify-between px-5 py-4 text-left"&gt;
+    &lt;span class="text-lg font-black"&gt;Hediye ceki nasil teslim edilir?&lt;/span&gt;
     &lt;span class="material-symbols-outlined text-primary"&gt;keyboard_arrow_down&lt;/span&gt;
   &lt;/button&gt;
-  &lt;div class="border-t border-zinc-200 px-5 py-4 text-sm text-zinc-600"&gt;
-    Hediye cekleri kayitli telefona SMS ile iletilir.
-  &lt;/div&gt;
+  &lt;div class="border-t border-zinc-200 px-5 py-4 text-sm text-zinc-600"&gt;SMS ile iletilir.&lt;/div&gt;
 &lt;/article&gt;</code></pre></div>
           </article>
 
@@ -2509,14 +2440,12 @@ Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
           </article>
         </div>
 
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative overflow-hidden rounded-xl border-2 border-primary/30 bg-white p-3 shadow-sm"&gt;
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative overflow-hidden rounded-xl border-2 border-primary/30 bg-white p-3"&gt;
   &lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-3 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet&lt;/span&gt;
   &lt;div class="flex h-[200px] items-center justify-center"&gt;
-    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" /&gt;
+    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner"&gt;
   &lt;/div&gt;
-  &lt;button class="mt-4 w-full rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-container"&gt;
-    Incele
-  &lt;/button&gt;
+  &lt;button class="mt-4 w-full rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;Incele&lt;/button&gt;
 &lt;/article&gt;</code></pre></div>
       </section>
 
@@ -2784,26 +2713,13 @@ const openCartModal = () =&gt; { ... };
         <h3 class="mt-6 font-headline text-xl font-extrabold">SweetAlert2 kurulumu</h3>
         <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"&gt;&lt;/script&gt;</code></pre></div>
         <h3 class="mt-6 font-headline text-xl font-extrabold">Silme onayi ornegi</h3>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>async function confirmDeleteAddress(label) {
-  const result = await Swal.fire({
-    title: 'Adresi silmek istiyor musunuz?',
-    text: `${label} kaydi silinecek.`,
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Evet, Sil',
-    cancelButtonText: 'Vazgec',
-    confirmButtonColor: getComputedStyle(document.documentElement)
-      .getPropertyValue('--hdm-color-error').trim() || '#ba1a1a',
-    cancelButtonColor: '#18181b',
-    customClass: {
-      popup: 'rounded-xl',
-      confirmButton: 'rounded-xl',
-      cancelButton: 'rounded-xl'
-    }
-  });
-
-  return result.isConfirmed;
-}</code></pre></div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>const result = await Swal.fire({
+  title: 'Adresi silmek istiyor musunuz?',
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Evet, Sil',
+  customClass: { popup: 'rounded-xl' }
+});</code></pre></div>
         <h3 class="mt-6 font-headline text-xl font-extrabold">Basarili form mesaji</h3>
         <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>Swal.fire({
   title: 'Kaydedildi',
@@ -2818,17 +2734,11 @@ const openCartModal = () =&gt; { ... };
       <section class="doc-section" id="validation">
         <h2>Form Validasyon</h2>
         <p>Basit validasyonlar HTML required ve sayfa JS ile yapilabilir. Hata metinleri input altinda gosterilmeli; sadece alert'e guvenilmemeli. Telefon/OTP gibi akislarda formatlama JS tarafinda kalabilir.</p>
-        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>const form = document.getElementById('contactForm');
-const emailInput = document.getElementById('email');
-const errorText = document.getElementById('emailError');
-
-form.addEventListener('submit', (event) =&gt; {
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>form.addEventListener('submit', (event) =&gt; {
   event.preventDefault();
-
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
   errorText.classList.toggle('hidden', isEmailValid);
   emailInput.classList.toggle('border-red-500', !isEmailValid);
-
   if (!isEmailValid) return;
   form.submit();
 });</code></pre></div>
@@ -2836,11 +2746,9 @@ form.addEventListener('submit', (event) =&gt; {
   const digits = raw.replace(/\D/g, '').slice(0, 11);
   if (!digits) return '';
   const normalized = digits.startsWith('0') ? digits : `0${digits}`;
-  return normalized
-    .slice(0, 11)
-    .replace(/(\d{4})(\d{3})(\d{2})(\d{0,2})/, (_, a, b, c, d) =&gt;
-      [a, b, c, d].filter(Boolean).join(' ')
-    );
+  return normalized.slice(0, 11).replace(/(\d{4})(\d{3})(\d{2})(\d{0,2})/, (_, a, b, c, d) =&gt;
+    [a, b, c, d].filter(Boolean).join(' ')
+  );
 }</code></pre></div>
       </section>
 
