@@ -1,0 +1,3163 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hediyemo Proje Dokumantasyonu</title>
+  <link rel="stylesheet" href="./tailwind-config.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    :root {
+      --doc-sidebar-width: 292px;
+      --doc-code-bg: #101114;
+      --doc-code-border: #27272a;
+      --doc-muted: #6b7280;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #ffffff;
+      color: #18181b;
+    }
+
+    .doc-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--doc-sidebar-width) minmax(0, 1fr);
+    }
+
+    .doc-sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid #e4e4e7;
+      background: #fafafa;
+      padding: 1.25rem;
+    }
+
+    .doc-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.25rem 1rem;
+      border-bottom: 1px solid #e4e4e7;
+      margin-bottom: 1rem;
+    }
+
+    .doc-logo-mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: var(--hdm-color-primary-container);
+      color: #fff;
+      box-shadow: 0 14px 36px color-mix(in srgb, var(--hdm-color-primary) 22%, transparent);
+    }
+
+    .doc-nav {
+      display: grid;
+      gap: 0.15rem;
+    }
+
+    .doc-nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 2.35rem;
+      border-radius: 0.75rem;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 750;
+      color: #52525b;
+      text-decoration: none;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+
+    .doc-nav a:hover,
+    .doc-nav a.is-active {
+      background: #ffffff;
+      color: var(--hdm-color-primary);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .doc-main {
+      min-width: 0;
+      padding: 2rem clamp(1.25rem, 4vw, 4rem) 5rem;
+    }
+
+    .doc-hero {
+      display: grid;
+      gap: 1rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #fff, #f7f7f8);
+      border: 1px solid #e4e4e7;
+    }
+
+    .doc-section {
+      scroll-margin-top: 1.5rem;
+      padding-top: 2.75rem;
+    }
+
+    .doc-section > h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      font-weight: 850;
+      letter-spacing: -0.02em;
+      color: #18181b;
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-section > p {
+      max-width: 72rem;
+      color: #52525b;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .doc-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .doc-card {
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      padding: 1.1rem;
+    }
+
+    .doc-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 850;
+      font-size: 1.1rem;
+      color: #18181b;
+      margin-bottom: 0.45rem;
+    }
+
+    .doc-card p,
+    .doc-card li {
+      color: #52525b;
+      line-height: 1.7;
+    }
+
+    .doc-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--hdm-color-primary);
+      margin-bottom: 0.65rem;
+    }
+
+    .doc-token-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .doc-swatch {
+      min-height: 8.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.35rem;
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      padding: 0.85rem;
+      background: #fff;
+    }
+
+    .doc-swatch-color {
+      height: 3.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .doc-code {
+      position: relative;
+      margin: 1rem 0;
+      border: 1px solid var(--doc-code-border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: var(--doc-code-bg);
+    }
+
+    .doc-code pre {
+      margin: 0;
+      overflow-x: auto;
+      padding: 1.1rem;
+      color: #f4f4f5;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      tab-size: 2;
+    }
+
+    .doc-code code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .doc-copy {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      z-index: 2;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 0.75rem;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .doc-table th,
+    .doc-table td {
+      border-bottom: 1px solid #e4e4e7;
+      padding: 0.85rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .doc-table th {
+      background: #fafafa;
+      color: #18181b;
+      font-weight: 850;
+    }
+
+    .doc-table td {
+      color: #52525b;
+    }
+
+    .doc-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .doc-example-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .doc-form {
+      display: grid;
+      gap: 1rem;
+      max-width: 34rem;
+    }
+
+    .doc-form label {
+      display: grid;
+      gap: 0.45rem;
+      font-weight: 800;
+      color: #18181b;
+    }
+
+    .doc-component-stack {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .doc-component {
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .doc-component-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid #e4e4e7;
+      background: #fafafa;
+      padding: 1rem 1.1rem;
+    }
+
+    .doc-component-header h3 {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 850;
+      color: #18181b;
+    }
+
+    .doc-component-header p {
+      margin-top: 0.25rem;
+      color: #71717a;
+      line-height: 1.6;
+    }
+
+    .doc-preview {
+      padding: 1.25rem;
+      background: #fff;
+    }
+
+    .doc-preview-soft {
+      background: #f6f6f7;
+    }
+
+    .doc-slider-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      border: 1px solid #e4e4e7;
+      background: #f4f4f5;
+    }
+
+    .doc-slider-track {
+      display: flex;
+      transition: transform 260ms ease;
+    }
+
+    .doc-slide {
+      min-width: 100%;
+      min-height: 13rem;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      padding: clamp(1.25rem, 4vw, 2rem);
+      background: linear-gradient(135deg, #fff, #f0f7ff);
+    }
+
+    .doc-slide:nth-child(2) {
+      background: linear-gradient(135deg, #fff7ed, #fff);
+    }
+
+    .doc-slider-indicators {
+      position: absolute;
+      left: 50%;
+      bottom: 0.85rem;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .doc-slider-indicators button {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 9999px;
+      background: #d4d4d8;
+    }
+
+    .doc-slider-indicators button.is-active {
+      background: var(--hdm-color-primary);
+    }
+
+    .doc-demo-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      justify-content: flex-end;
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+    .doc-demo-panel.is-open {
+      display: flex;
+    }
+
+    .doc-demo-panel-card {
+      width: min(100%, 420px);
+      height: 100%;
+      background: #fff;
+      transform: translateX(100%);
+      transition: transform 220ms ease;
+    }
+
+    .doc-demo-panel.is-open .doc-demo-panel-card {
+      transform: translateX(0);
+    }
+
+    .doc-mini-tabs [data-doc-tab-panel] {
+      display: none;
+    }
+
+    .doc-mini-tabs [data-doc-tab-panel].is-active {
+      display: block;
+    }
+
+    .doc-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .doc-icon-tile {
+      display: grid;
+      gap: 0.55rem;
+      place-items: center;
+      min-height: 6.5rem;
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      background: #fff;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .doc-icon-tile .material-symbols-outlined {
+      font-size: 2rem;
+      color: var(--hdm-color-primary);
+    }
+
+    .doc-icon-tile code {
+      max-width: 100%;
+      color: #52525b;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .doc-bottom-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 85;
+      display: none;
+      align-items: flex-end;
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+    .doc-bottom-sheet.is-open {
+      display: flex;
+    }
+
+    .doc-bottom-sheet-card {
+      width: 100%;
+      border-radius: 1rem 1rem 0 0;
+      background: #fff;
+      padding: 1.25rem;
+      transform: translateY(100%);
+      transition: transform 220ms ease;
+    }
+
+    .doc-bottom-sheet.is-open .doc-bottom-sheet-card {
+      transform: translateY(0);
+    }
+
+    .doc-toast {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 0.75rem;
+      background: #18181b;
+      color: #fff;
+      padding: 0.85rem 1rem;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+    }
+
+    .doc-toast.is-open {
+      display: flex;
+    }
+
+    .doc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 88;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 1rem;
+    }
+
+    .doc-modal.is-open {
+      display: flex;
+    }
+
+    .doc-modal-card {
+      width: min(100%, 440px);
+      border-radius: 0.75rem;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .doc-dropdown-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.5rem);
+      z-index: 20;
+      display: none;
+      min-width: 14rem;
+      border: 1px solid #e4e4e7;
+      border-radius: 0.75rem;
+      background: #fff;
+      padding: 0.5rem;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12);
+    }
+
+    .doc-dropdown-panel.is-open {
+      display: grid;
+    }
+
+    .doc-dropdown-panel[data-placement="right"] {
+      left: calc(100% + 0.5rem);
+      right: auto;
+      top: 0;
+    }
+
+    .doc-dropdown-panel[data-placement="left"] {
+      right: calc(100% + 0.5rem);
+      top: 0;
+    }
+
+    .doc-dropdown-panel[data-placement="top"] {
+      left: 0;
+      right: auto;
+      top: auto;
+      bottom: calc(100% + 0.5rem);
+    }
+
+    .doc-dropdown-panel[data-placement="bottom"] {
+      left: 0;
+      right: auto;
+      top: calc(100% + 0.5rem);
+    }
+
+    .doc-skeleton {
+      position: relative;
+      overflow: hidden;
+      background: #e4e4e7;
+    }
+
+    .doc-skeleton::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+      animation: doc-shimmer 1.4s infinite;
+    }
+
+    @keyframes doc-shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .doc-tooltip-wrap {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .doc-tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 0.55rem);
+      transform: translateX(-50%) translateY(0.25rem);
+      width: max-content;
+      max-width: 14rem;
+      border-radius: 0.75rem;
+      background: #18181b;
+      color: #fff;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease, transform 160ms ease;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+    }
+
+    .doc-tooltip-wrap:hover .doc-tooltip,
+    .doc-tooltip-wrap:focus-within .doc-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .doc-mobile-toggle {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid #e4e4e7;
+      background: #fff;
+      padding: 0.75rem 1rem;
+    }
+
+    @media (max-width: 1080px) {
+      .doc-shell {
+        display: block;
+      }
+
+      .doc-mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .doc-sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 50;
+        width: min(86vw, 320px);
+        transform: translateX(-105%);
+        transition: transform 220ms ease;
+        box-shadow: 18px 0 60px rgba(0, 0, 0, 0.18);
+      }
+
+      .doc-sidebar.is-open {
+        transform: translateX(0);
+      }
+
+      .doc-main {
+        padding: 1rem 1rem 4rem;
+      }
+
+      .doc-grid,
+      .doc-grid-3,
+      .doc-token-grid,
+      .doc-icon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-slide {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="doc-mobile-toggle" type="button" data-doc-menu>
+    <span class="inline-flex items-center gap-2 font-headline text-base font-extrabold">
+      <span class="material-symbols-outlined text-[20px]">menu</span>
+      Dokumantasyon
+    </span>
+    <span class="material-symbols-outlined">chevron_right</span>
+  </button>
+
+  <div class="doc-shell">
+    <aside class="doc-sidebar" data-doc-sidebar>
+      <div class="doc-logo">
+        <span class="doc-logo-mark">
+          <span class="material-symbols-outlined ms-filled-600">redeem</span>
+        </span>
+        <div>
+          <p class="font-headline text-lg font-extrabold leading-tight">Hediyemo Docs</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500">UI + JS rehberi</p>
+        </div>
+      </div>
+      <nav class="doc-nav" aria-label="Dokumantasyon menusu">
+        <a href="#overview">Baslangic</a>
+        <a href="#prompts">Hazir Promptlar</a>
+        <a href="#file-map">Dosya Yapisi</a>
+        <a href="#asset-guide">Asset Rehberi</a>
+        <a href="#tokens">Renkler ve Tokenlar</a>
+        <a href="#rules">Kritik Kurallar</a>
+        <a href="#layout">Layout Sistemi</a>
+        <a href="#header-footer">Header ve Footer</a>
+        <a href="#buttons">Butonlar</a>
+        <a href="#forms">Formlar</a>
+        <a href="#form-catalog">Form Katalogu</a>
+        <a href="#tables-lists">Table ve Liste</a>
+        <a href="#cards">Kartlar</a>
+        <a href="#offcanvas">Offcanvas</a>
+        <a href="#filters">Filtreler</a>
+        <a href="#product-detail">Urun Detayi</a>
+        <a href="#orders">Siparisler</a>
+        <a href="#component-gallery">Component Galerisi</a>
+        <a href="#icon-gallery">Ikon Galerisi</a>
+        <a href="#utility-classes">Class Sozlugu</a>
+        <a href="#skeleton-tooltip">Skeleton ve Tooltip</a>
+        <a href="#do-dont">Do / Don't</a>
+        <a href="#troubleshooting">Sik Hata Rehberi</a>
+        <a href="#state-catalog">State Katalogu</a>
+        <a href="#page-references">Sayfa Referanslari</a>
+        <a href="#shared-js">Shared JS</a>
+        <a href="#page-js">Sayfa JS Kurallari</a>
+        <a href="#plugins">JS Eklentileri</a>
+        <a href="#validation">Validasyon</a>
+        <a href="#checklist">Kontrol Listesi</a>
+        <a href="#review-checklist">Kod Inceleme</a>
+      </nav>
+    </aside>
+
+    <main class="doc-main">
+      <section class="doc-hero" id="overview">
+        <span class="doc-kicker"><span class="material-symbols-outlined text-[17px]">auto_stories</span> Proje Rehberi</span>
+        <h1 class="font-headline text-[clamp(2rem,5vw,4rem)] font-black tracking-tight text-zinc-950">Hediyemo UI, CSS ve JS Dokumantasyonu</h1>
+        <p class="max-w-5xl text-lg leading-8 text-zinc-600">Bu sayfa projede yeni ekran, component veya davranis eklerken standartlari tek yerde toplar. Renk degisimi, header/footer kullanimi, kartlar, formlar, offcanvas yapilari, ortak JS davranislari, SweetAlert ve form validasyon ornekleri burada referans olarak tutulur.</p>
+        <div class="doc-example-row">
+          <a href="./index.html" class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-5 py-3 text-sm font-extrabold text-white transition-transform hover:-translate-y-0.5">
+            <span class="material-symbols-outlined text-[18px]">home</span>
+            Index Sayfasi
+          </a>
+          <a href="./markalar.html" class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-extrabold text-zinc-800 transition-colors hover:bg-zinc-50">
+            <span class="material-symbols-outlined text-[18px]">storefront</span>
+            Markalar
+          </a>
+        </div>
+      </section>
+
+      <section class="doc-section" id="prompts">
+        <h2>Hazir Promptlar</h2>
+        <p>Projede yeni is yaparken asagidaki promptlar kullanilabilir. Bunlar mevcut standartlari korumaya yoneliktir.</p>
+        <h3 class="mt-6 font-headline text-xl font-extrabold text-zinc-950">Temel Promptlar</h3>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Yeni sayfa</h3>
+            <div class="doc-code"><pre><code>Bu projede yeni [sayfa-adi].html sayfasi olustur.
+Header/footer/shared offcanvas yapisini mevcut normal sayfalardan al.
+Sayfaya ozel CSS yazma; gerekirse shared.css standardini kullan.
+Sayfaya ozel JS gerekiyorsa page-js/[sayfa-adi].js icinde sadece sayfaya ozel davranis olsun.
+Rounded-xl, Tailwind 4 ve proje renk tokenlarina uy.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Component ekleme</h3>
+            <div class="doc-code"><pre><code>[sayfa] icine [component] ekle.
+Index/markalar/urun detay sayfalarindaki gorsel standartlari koru.
+Butonlarda bg-primary-container veya siyah + hover primary-container kullan.
+Form elemanlarinda focus border siyah ve radius rounded-xl olsun.
+Islev kaybi olmasin.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>JS refactor</h3>
+            <div class="doc-code"><pre><code>Bu sayfanin JS dosyasini analiz et.
+Header, sepet, bize ulasin, policy, marka accordion gibi ortak davranislari shared.js disinda tekrar etme.
+Sayfa JS dosyasinda sadece o sayfaya ozel veri ve eventler kalsin.
+Login, verify-otp, cuzdanlar dosyalarina dokunma.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Renk degisimi</h3>
+            <div class="doc-code"><pre><code>Projede ana rengi [renk] olarak degistir.
+Sadece tailwind-config.css icindeki --hdm-color-primary ailesini guncelle.
+shared.css icindeki alias alanina direkt renk yazma.
+Buton, footer CTA, header search icon ve kart border uyumunu kontrol et.</code></pre></div>
+          </article>
+        </div>
+        <h3 class="mt-8 font-headline text-xl font-extrabold text-zinc-950">Ileri Promptlar</h3>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Responsive QA</h3>
+            <div class="doc-code"><pre><code>[sayfa].html dosyasini mobil ve desktop acisindan kontrol et.
+Text tasmasi, ust uste binme, kart grid bozulmasi ve button hover/focus sorunlarini listele.
+Kod degisikligi yapmadan once sorunlari madde madde raporla.
+Sonra onay verildiginde sadece gerekli class duzeltmelerini uygula.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Offcanvas standardi</h3>
+            <div class="doc-code"><pre><code>[sayfa] icindeki offcanvas yapisini projedeki standartla ayni hale getir.
+Header border olmasin, header hafif gri olsun.
+Body beyaz olsun, form inputlari rounded-xl ve focus border siyah olsun.
+Kapatma butonlari data attribute standardini korusun ve shared.js ile calissin.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Component dokumantasyonu</h3>
+            <div class="doc-code"><pre><code>doc.html icine [component] icin yeni dokumantasyon bolumu ekle.
+Calisan preview, kopyalanabilir HTML kodu, kullanildigi sayfalar ve kritik classlari yaz.
+Doc'a ozel CSS/JS gerekiyorsa sadece doc.html icinde inline olarak ekle.
+Ayrica doc.css veya doc.js olusturma.</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Kullanilmayan dosya analizi</h3>
+            <div class="doc-code"><pre><code>Projeyi analiz et, kullanilmayan CSS/JS/HTML dosyalarini listele.
+Hicbir dosya silme ve kod degisikligi yapma.
+Her dosya icin nerede referans arandigini ve neden kullanilmiyor dedigini belirt.
+Silinecek adaylari ayri, emin olunmayanlari ayri listele.</code></pre></div>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="doc-section" id="file-map">
+        <h2>Dosya Yapisi</h2>
+        <p>Proje statik HTML sayfalari, ortak CSS tokenlari ve sayfa bazli JS dosyalari ile ilerler. Guest sayfalari ayridir; normal uye sayfalari ise ortak header/footer/offcanvas davranisini <code>shared.js</code> uzerinden alir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Ana dosyalar</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li><code>tailwind-config.css</code>: Renk, radius, font tokenlarinin merkezi.</li>
+              <li><code>shared.css</code>: Ortak UI katmani; header, filtre, kart, ribbon, form ve marka stilleri.</li>
+              <li><code>shared.js</code>: Ortak header, sepet, bize ulasin, policy, urun detay ve marka accordion davranislari.</li>
+              <li><code>page-js/*.js</code>: Sadece sayfaya ozel davranislar.</li>
+              <li><code>assets/brands</code> ve <code>assets/banners</code>: Marka logolari ve banner gorselleri.</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>Sayfa gruplari</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li><strong>Public/ana:</strong> <code>index.html</code>, <code>markalar.html</code>, <code>yardim.html</code>.</li>
+              <li><strong>Urun:</strong> <code>urun-hediye.html</code>, <code>urun-altin.html</code>.</li>
+              <li><strong>Sepet:</strong> <code>sepet.html</code>, <code>sepet-teslimat.html</code>, <code>sepet-onay.html</code>.</li>
+              <li><strong>Hesap:</strong> <code>bilgilerim.html</code>, <code>puan-hareketlerim.html</code>, <code>siparislerim.html</code>, <code>kayitli-adreslerim.html</code>, <code>kayitli-telefonlarim.html</code>.</li>
+              <li><strong>Guest:</strong> <code>login.html</code>, <code>verify-otp.html</code>, <code>cuzdanlar.html</code>.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>normal-page.html
+  &lt;link rel="stylesheet" href="./tailwind-config.css" /&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="./shared.css" /&gt;
+  ...
+  &lt;script src="./page-js/sayfa-adi.js"&gt;&lt;/script&gt;
+  &lt;script src="./shared.js"&gt;&lt;/script&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="asset-guide">
+        <h2>Asset Kullanim Rehberi</h2>
+        <p>Logo, banner ve urun gorselleri kullanicinin urunu hizli tanimasini saglar. Asset eklerken dosya yolu, boyut, <code>object-fit</code> ve <code>alt</code> metni standardi korunmalidir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Logo Assetleri</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Marka logolari <code>assets/brands/</code> altinda durur.</li>
+              <li>PNG veya SVG kullanilabilir; logo saydam arka planli olmali.</li>
+              <li>Kart icinde <code>object-contain</code>, <code>max-h-[90%]</code>, <code>max-w-[90%]</code> kullan.</li>
+              <li>Filtre listesinde logo yuksekligi yaklasik <code>1.5rem</code> civarinda tutulur.</li>
+              <li>Her gorselde anlamli <code>alt</code> yazisi olmali.</li>
+            </ul>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex h-[200px] items-center justify-center"&gt;
+  &lt;img
+    src="./assets/brands/boyner-logo.png"
+    alt="Boyner"
+    class="max-h-[90%] max-w-[90%] object-contain"
+  /&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Banner Assetleri</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Banner gorselleri <code>assets/banners/</code> altinda durur.</li>
+              <li>Index slider icin ideal oran genis yataydir; yaklasik <code>1920x500</code> veya <code>2000x800</code>.</li>
+              <li>Desktop'ta <code>object-cover</code>, mobilde kontrollu yukseklik kullan.</li>
+              <li>Indicatorlar aktifken proje rengi, pasifken gri olmalidir.</li>
+              <li>Banner metin okuyabilirligi icin gorselin ana urunu kapatilmamali.</li>
+            </ul>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;picture&gt;
+  &lt;img
+    src="./assets/banners/banner-altin.png"
+    alt="Altin urunleri banner"
+    class="h-[500px] w-full rounded-xl object-cover"
+  /&gt;
+&lt;/picture&gt;</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Urun Gorselleri</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Hediye ceki kartlarinda logo alanina sabit yukseklik ver.</li>
+              <li>Urun detay kartinda ana urun gorseli genelde <code>max-width: 480px</code> mantiginda kalir.</li>
+              <li>Mobilde yukseklik tasmasi varsa once gorsel wrapper yuksekligini dusur.</li>
+              <li>Ribbon varsa gorsel alaninda logoyu kapatmadigindan emin ol.</li>
+              <li>Altin ve hediye ceki gorsellerinde marka/urun ayrimi net gorunmeli.</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>Asset Ekleme Checklist</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Dosya adi kucuk harf ve tireli olsun: <code>marka-adi-logo.png</code>.</li>
+              <li>HTML'de yol <code>./assets/...</code> ile baslasin.</li>
+              <li><code>alt</code> bos birakilmasin.</li>
+              <li>Logo icin <code>object-contain</code>, banner icin <code>object-cover</code> kullan.</li>
+              <li>Mobil ve desktop gorsel kirpmasi kontrol edilsin.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="tokens">
+        <h2>Renkler ve Tokenlar</h2>
+        <p>Proje rengini degistirmek icin tek merkez <code>tailwind-config.css</code> icindeki <code>:root</code> alanidir. Ozellikle en ustteki ana renk ailesi degismelidir. <code>shared.css</code> bu tokenlara bagli alias katmanidir; direkt oradan renk degistirilmez.</p>
+        <div class="doc-token-grid">
+          <div class="doc-swatch"><div class="doc-swatch-color" style="background: var(--hdm-color-primary);"></div><strong>--hdm-color-primary</strong><code>#fe0000</code></div>
+          <div class="doc-swatch"><div class="doc-swatch-color" style="background: var(--hdm-color-primary-container);"></div><strong>--hdm-color-primary-container</strong><code>#fe0000</code></div>
+          <div class="doc-swatch"><div class="doc-swatch-color" style="background: var(--hdm-color-search-button-icon);"></div><strong>--hdm-color-search-button-icon</strong><code>#ffffff</code></div>
+          <div class="doc-swatch"><div class="doc-swatch-color" style="background: var(--hdm-color-surface-container-low);"></div><strong>--hdm-color-surface-container-low</strong><code>#f3f3f4</code></div>
+        </div>
+        <table class="doc-table mt-5">
+          <thead><tr><th>Token</th><th>Kullanim</th><th>Not</th></tr></thead>
+          <tbody>
+            <tr><td><code>--hdm-color-primary</code></td><td>Metin, border, badge, vurgu.</td><td>Projede ana marka rengi.</td></tr>
+            <tr><td><code>--hdm-color-primary-container</code></td><td>CTA, ana buton, footer call-to-action, hover.</td><td>Buton arka planlarinda tercih edilir.</td></tr>
+            <tr><td><code>--hdm-color-search-button-icon</code></td><td>Header arama butonu ikon rengi.</td><td>Kontrast icin genelde beyaz.</td></tr>
+            <tr><td><code>--hdm-radius-xl</code></td><td>Input, button, card, modal close, checkbox.</td><td>Standart radius: <code>0.75rem</code>.</td></tr>
+          </tbody>
+        </table>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>/* Marka rengini degistirmek icin once bu alan */
+:root {
+  --hdm-color-primary: #fe0000;
+  --hdm-color-primary-container: #fe0000;
+  --hdm-color-primary-fixed: #fe0000;
+  --hdm-color-primary-fixed-dim: #fe0000;
+  --hdm-color-inverse-primary: #fe0000;
+  --hdm-color-search-button-icon: #ffffff;
+}</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="rules">
+        <h2>Kritik Kurallar</h2>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <span class="doc-kicker">UI</span>
+            <h3>Gorsel standart</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Border radius standardi <code>rounded-xl</code> yani <code>0.75rem</code>.</li>
+              <li>Header arama, hesap, sepet, buton, input ve kart radiuslari ayni ailede olmali.</li>
+              <li>Inline CSS yazilmaz; bu doc sayfasi istisna olarak inline tutulur.</li>
+              <li>Kart icinde kart yapma. Tekrarlayan item, modal ve tool card olabilir.</li>
+              <li>Hero veya banner gercek asset kullanmali; soyut SVG/gradient hero tercih edilmez.</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <span class="doc-kicker">JS</span>
+            <h3>Davranis standardi</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Header, hesap menu, sepet, bize ulasin, policy ve marka accordion <code>shared.js</code> tarafindan yonetilir.</li>
+              <li>Sayfa JS dosyasi sadece o sayfaya ozel veri ve etkilesim icermeli.</li>
+              <li>Guest dosyalari <code>login</code>, <code>verify-otp</code>, <code>cuzdanlar</code> ayridir.</li>
+              <li>Yeni ortak davranis once <code>shared.js</code> adayi olarak dusunulmelidir.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="layout">
+        <h2>Layout Sistemi</h2>
+        <p>Ana sayfa ve marka sayfalarinda 12 kolon mantigi kullanilir. Index standartinda sol filtre <code>md:col-span-3</code>, sag liste <code>md:col-span-9</code>. Markalar sayfasinda istenirse kosullar <code>md:col-span-4</code>, hediye cekleri <code>md:col-span-8</code>.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;section class="bg-white"&gt;
+  &lt;div class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 lg:gap-10 lg:px-8"&gt;
+    &lt;aside class="col-span-12 md:col-span-3"&gt;Filtre veya kosullar&lt;/aside&gt;
+    &lt;div class="col-span-12 md:col-span-9"&gt;
+      &lt;div class="grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-6"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="header-footer">
+        <h2>Header ve Footer</h2>
+        <p>Header tum normal HTML sayfalarinda ayni davranisi kullanir. Search input saginda proje rengi arka planli arama butonu vardir. Hesabim ve Sepetim alanlari <code>rounded-xl</code> standardindadir. Footer CTA arka plani <code>bg-primary-container</code> olmalidir.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button
+  id="cartButton"
+  class="rounded-xl bg-zinc-100/90 px-3 py-2 text-sm font-semibold"
+  type="button"
+  aria-expanded="false"&gt;
+  &lt;span class="material-symbols-outlined"&gt;shopping_bag&lt;/span&gt;
+  Sepetim
+&lt;/button&gt;
+
+&lt;section id="footerContactCta" class="bg-primary-container px-6 py-8 text-white"&gt;
+  &lt;button id="chatLauncher" class="rounded-xl bg-white px-7 py-3 text-primary"&gt;
+    Bize Ulasin
+  &lt;/button&gt;
+&lt;/section&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="buttons">
+        <h2>Butonlar</h2>
+        <p>Ana butonlarda <code>bg-primary-container</code>, incele butonlarinda siyah zemin ve hover'da proje rengi kullanilir. Tehlikeli aksiyonlarda kirmizi proje renginden bagimsiz kullanilabilir.</p>
+        <div class="doc-example-row doc-card">
+          <button class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-5 py-3 text-sm font-extrabold text-white" type="button"><span class="material-symbols-outlined text-[18px]">check</span>Kaydet</button>
+          <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-extrabold text-white hover:bg-primary-container" type="button">Incele <span class="material-symbols-outlined text-[18px]">east</span></button>
+          <button class="inline-flex items-center gap-2 rounded-xl border border-red-200 px-5 py-3 text-sm font-extrabold text-red-600 hover:bg-red-50" type="button"><span class="material-symbols-outlined text-[18px]">delete</span>Kaldir</button>
+        </div>
+        <div class="doc-grid mt-5">
+          <article class="doc-card">
+            <h3>Primary / Secondary / Ghost</h3>
+            <div class="doc-example-row">
+              <button class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white" type="button"><span class="material-symbols-outlined text-[18px]">save</span>Primary</button>
+              <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black text-white hover:bg-primary-container" type="button"><span class="material-symbols-outlined text-[18px]">east</span>Secondary</button>
+              <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-3 text-sm font-black text-zinc-800 hover:bg-zinc-200" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span>Ghost</button>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Outline / Danger / Icon</h3>
+            <div class="doc-example-row">
+              <button class="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-black text-zinc-800 hover:bg-zinc-50" type="button"><span class="material-symbols-outlined text-[18px]">edit</span>Duzenle</button>
+              <button class="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-white px-5 py-3 text-sm font-black text-red-600 hover:bg-red-50" type="button"><span class="material-symbols-outlined text-[18px]">delete</span>Sil</button>
+              <button class="grid h-11 w-11 place-items-center rounded-xl bg-zinc-950 text-white hover:bg-primary-container" aria-label="Ara" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Sizes</h3>
+            <div class="doc-example-row">
+              <button class="rounded-xl bg-zinc-950 px-3 py-2 text-xs font-black text-white" type="button">Small</button>
+              <button class="rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black text-white" type="button">Default</button>
+              <button class="rounded-xl bg-zinc-950 px-7 py-4 text-base font-black text-white" type="button">Large</button>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Full Width / Disabled</h3>
+            <div class="grid gap-3">
+              <button class="w-full rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white" type="button">Alisverisi Tamamla</button>
+              <button class="w-full cursor-not-allowed rounded-xl bg-zinc-200 px-5 py-3 text-sm font-black text-zinc-500" disabled type="button">Pasif Buton</button>
+            </div>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-container px-5 py-3 text-sm font-extrabold text-white transition-transform hover:-translate-y-0.5"&gt;
+  &lt;span class="material-symbols-outlined text-[18px]"&gt;check&lt;/span&gt;
+  Kaydet
+&lt;/button&gt;
+
+&lt;a class="rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;
+  INCELE
+&lt;/a&gt;
+
+&lt;button class="grid h-11 w-11 place-items-center rounded-xl bg-zinc-950 text-white hover:bg-primary-container" aria-label="Ara"&gt;
+  &lt;span class="material-symbols-outlined"&gt;search&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class="w-full rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white"&gt;
+  Alisverisi Tamamla
+&lt;/button&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="forms">
+        <h2>Formlar</h2>
+        <p>Input, select ve textarea focus durumunda siyah ince border alir. Outline sifirdir ama focus hissi korunur. Label metinleri siyah, placeholderlar gri olmalidir.</p>
+        <form class="doc-form doc-card">
+          <label>Isim Soyisim <input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="Ramazan Guler" type="text" /></label>
+          <label>E-posta <input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="ornek@domain.com" type="email" /></label>
+          <label>Marka <select class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0"><option>Boyner</option><option>Mavi</option></select></label>
+          <label class="flex cursor-pointer grid-cols-none flex-row items-center gap-3"><input class="h-5 w-5 rounded-xl accent-primary" type="checkbox" /> Bakiyeme uygun olanlari goster</label>
+        </form>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;label class="block"&gt;
+  &lt;span class="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-zinc-950"&gt;E-posta&lt;/span&gt;
+  &lt;input
+    type="email"
+    class="w-full rounded-xl border border-zinc-300 px-4 py-3 text-base text-zinc-800 focus:border-zinc-900 focus:ring-0"
+    placeholder="ornek@domain.com"
+  /&gt;
+&lt;/label&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="form-catalog">
+        <h2>Form Component Katalogu</h2>
+        <p>Yeni form eklerken input, select, textarea, checkbox, radio, switch ve OTP alanlari ayni focus ve radius standardini kullanir. Hata ve basari state'leri input border'i ve alt metin ile verilir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Input State'leri</h3>
+            <div class="grid gap-4">
+              <label class="grid gap-2 font-bold text-zinc-950">Default<input class="rounded-xl border border-zinc-300 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0" placeholder="Ad Soyad" /></label>
+              <label class="grid gap-2 font-bold text-zinc-950">Success<input class="rounded-xl border border-emerald-400 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0" value="ramazan@domain.com" /><span class="text-sm font-semibold text-emerald-600">E-posta formati dogru.</span></label>
+              <label class="grid gap-2 font-bold text-zinc-950">Error<input class="rounded-xl border border-red-400 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0" value="ramazan@" /><span class="text-sm font-semibold text-red-600">Gecerli bir e-posta giriniz.</span></label>
+              <label class="grid gap-2 font-bold text-zinc-500">Disabled<input class="cursor-not-allowed rounded-xl border border-zinc-200 bg-zinc-100 px-4 py-3 text-base text-zinc-500" disabled value="Pasif alan" /></label>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Select / Textarea / Dosya</h3>
+            <div class="grid gap-4">
+              <label class="grid gap-2 font-bold text-zinc-950">Marka<select class="rounded-xl border border-zinc-300 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0"><option>Boyner</option><option>Mavi</option><option>Opet</option></select></label>
+              <label class="grid gap-2 font-bold text-zinc-950">Mesaj<textarea class="min-h-32 rounded-xl border border-zinc-300 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0" placeholder="Mesajiniz"></textarea></label>
+              <label class="grid gap-2 font-bold text-zinc-950">Belge<input class="rounded-xl border border-dashed border-zinc-300 px-4 py-3 text-sm file:mr-4 file:rounded-xl file:border-0 file:bg-zinc-950 file:px-4 file:py-2 file:text-sm file:font-bold file:text-white" type="file" /></label>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Checkbox / Radio / Switch</h3>
+            <div class="grid gap-4">
+              <label class="flex cursor-pointer items-center gap-3 font-bold text-zinc-800"><input class="h-5 w-5 rounded-xl accent-primary" type="checkbox" checked /> Bakiyeme uygun olanlari goster</label>
+              <label class="flex cursor-pointer items-center gap-3 font-bold text-zinc-800"><input class="h-5 w-5 accent-primary" name="delivery" type="radio" checked /> SMS teslimat</label>
+              <label class="flex cursor-pointer items-center gap-3 font-bold text-zinc-800"><input class="h-5 w-5 accent-primary" name="delivery" type="radio" /> Adrese teslim</label>
+              <label class="inline-flex cursor-pointer items-center gap-3 font-bold text-zinc-800">
+                <span class="relative inline-flex h-7 w-12 items-center rounded-full bg-primary-container p-1">
+                  <span class="h-5 w-5 translate-x-5 rounded-full bg-white shadow-sm"></span>
+                </span>
+                Bildirimleri ac
+              </label>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>OTP / Kod Girisi</h3>
+            <div class="flex gap-2">
+              <input class="h-12 w-12 rounded-xl border border-zinc-300 text-center text-lg font-black focus:border-zinc-900 focus:ring-0" maxlength="1" value="1" />
+              <input class="h-12 w-12 rounded-xl border border-zinc-300 text-center text-lg font-black focus:border-zinc-900 focus:ring-0" maxlength="1" value="2" />
+              <input class="h-12 w-12 rounded-xl border border-zinc-300 text-center text-lg font-black focus:border-zinc-900 focus:ring-0" maxlength="1" value="3" />
+              <input class="h-12 w-12 rounded-xl border border-zinc-300 text-center text-lg font-black focus:border-zinc-900 focus:ring-0" maxlength="1" />
+            </div>
+            <p class="mt-4 text-sm leading-6 text-zinc-500">OTP alanlari tek karakterli inputlardan olusur; focus border siyah kalir.</p>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;label class="grid gap-2 font-bold text-zinc-950"&gt;
+  E-posta
+  &lt;input class="rounded-xl border border-zinc-300 px-4 py-3 text-base focus:border-zinc-900 focus:ring-0" placeholder="ornek@domain.com" /&gt;
+  &lt;span class="text-sm font-semibold text-red-600"&gt;Gecerli bir e-posta giriniz.&lt;/span&gt;
+&lt;/label&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="tables-lists">
+        <h2>Table ve Liste Componentleri</h2>
+        <p>Puan hareketleri, siparis listesi ve kayitli adres/telefon gibi ekranlarda tablo desktop'ta; mobilde kart listesi daha okunur olur.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Desktop Table</h3>
+            <div class="overflow-x-auto rounded-xl border border-zinc-200">
+              <table class="w-full min-w-[620px] border-collapse text-left text-sm">
+                <thead class="bg-zinc-50 text-xs font-black uppercase tracking-[0.16em] text-zinc-400">
+                  <tr><th class="px-4 py-3">Tarih</th><th class="px-4 py-3">Aciklama</th><th class="px-4 py-3">Tutar</th><th class="px-4 py-3">Durum</th></tr>
+                </thead>
+                <tbody class="divide-y divide-zinc-200">
+                  <tr><td class="px-4 py-4 font-bold">02.05.2026</td><td class="px-4 py-4">Boyner Hediye Ceki</td><td class="px-4 py-4 font-black">-500 Puan</td><td class="px-4 py-4"><span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">Tamamlandi</span></td></tr>
+                  <tr><td class="px-4 py-4 font-bold">01.05.2026</td><td class="px-4 py-4">Puan yukleme</td><td class="px-4 py-4 font-black">+1.000 Puan</td><td class="px-4 py-4"><span class="rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-sky-700">Islendi</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Mobil Kart Liste</h3>
+            <div class="grid gap-3">
+              <article class="rounded-xl border border-zinc-200 bg-white p-4">
+                <div class="flex items-start justify-between gap-4"><div><strong class="text-zinc-950">Boyner Hediye Ceki</strong><p class="mt-1 text-sm text-zinc-500">02.05.2026</p></div><span class="font-black text-zinc-950">-500 Puan</span></div>
+                <span class="mt-3 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">Tamamlandi</span>
+              </article>
+              <article class="rounded-xl border border-zinc-200 bg-white p-4">
+                <div class="flex items-start justify-between gap-4"><div><strong class="text-zinc-950">Puan yukleme</strong><p class="mt-1 text-sm text-zinc-500">01.05.2026</p></div><span class="font-black text-zinc-950">+1.000 Puan</span></div>
+                <span class="mt-3 inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-sky-700">Islendi</span>
+              </article>
+            </div>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="overflow-x-auto rounded-xl border border-zinc-200"&gt;
+  &lt;table class="w-full min-w-[620px] border-collapse text-left text-sm"&gt;
+    &lt;thead class="bg-zinc-50 text-xs font-black uppercase tracking-[0.16em] text-zinc-400"&gt;...&lt;/thead&gt;
+    &lt;tbody class="divide-y divide-zinc-200"&gt;...&lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="cards">
+        <h2>Kartlar</h2>
+        <p>Urun kartlari <code>rounded-xl</code>, beyaz/surface zemin, proje rengi hafif border ve siyah incele butonu kullanir. Hizmet bedeli varsa ribbon kartin icinde konumlanir.</p>
+        <div class="doc-grid-3">
+          <article class="group relative flex h-full flex-col overflow-hidden rounded-xl border-2 border-primary/25 bg-surface-container-lowest p-3 text-center shadow-sm">
+            <div class="mb-1 flex h-[150px] w-full items-center justify-center">
+              <img class="max-h-[90%] max-w-[90%] object-contain" alt="Boyner" src="./assets/brands/boyner-logo.png" />
+            </div>
+            <span class="text-[2rem] font-black text-primary">1.000 TL</span>
+            <span class="mt-1 text-[1rem] font-medium text-zinc-600">Hediye Ceki</span>
+            <a href="./urun-hediye.html" class="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white hover:bg-primary-container">Incele <span class="material-symbols-outlined text-[18px]">east</span></a>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="group relative flex h-full flex-col overflow-hidden rounded-xl border-2 border-primary/25 bg-surface-container-lowest p-3 text-center shadow-sm"&gt;
+  &lt;div class="flex h-[200px] items-center justify-center"&gt;
+    &lt;img class="max-h-[96%] max-w-[96%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" /&gt;
+  &lt;/div&gt;
+  &lt;span class="text-[2.15rem] font-black text-primary"&gt;1.000 TL&lt;/span&gt;
+  &lt;span class="text-[1.2rem] font-medium text-zinc-600"&gt;Hediye Ceki&lt;/span&gt;
+  &lt;a href="./urun-hediye.html" class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;INCELE&lt;/a&gt;
+&lt;/article&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="offcanvas">
+        <h2>Offcanvas</h2>
+        <p>Sepet, Bize Ulasin ve policy panelleri <code>shared.js</code> tarafindan acilip kapanir. Dogru id ve data attribute verilirse ekstra JS yazmaya gerek yoktur.</p>
+        <table class="doc-table">
+          <thead><tr><th>Panel</th><th>Trigger</th><th>Modal</th><th>Close</th></tr></thead>
+          <tbody>
+            <tr><td>Sepet</td><td><code>#cartButton</code></td><td><code>#cartModal</code>, <code>#cartModalPanel</code></td><td><code>[data-cart-close]</code></td></tr>
+            <tr><td>Bize Ulasin</td><td><code>#chatLauncher</code></td><td><code>#chatModal</code>, <code>#chatModalPanel</code></td><td><code>[data-chat-close]</code></td></tr>
+            <tr><td>Policy</td><td><code>[data-policy-trigger]</code></td><td><code>#policyModal</code>, <code>#policyModalPanel</code></td><td><code>[data-policy-close]</code></td></tr>
+          </tbody>
+        </table>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button id="chatLauncher" type="button"&gt;Bize Ulasin&lt;/button&gt;
+&lt;div id="chatModal" class="pointer-events-none fixed inset-0 hidden opacity-0"&gt;
+  &lt;div id="chatModalPanel" class="translate-x-full transition-transform"&gt;
+    &lt;button data-chat-close type="button"&gt;Kapat&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="./shared.js"&gt;&lt;/script&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="filters">
+        <h2>Filtreler</h2>
+        <p>Index sol filtre alani checkbox listeleri ve arama inputlari ile calisir. Liste label'lari <code>filter-option-list</code> ile satir alt border alir. Markalar listesinde checkbox gizlenip sol check ikonu gosterilir.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="rounded-xl border border-zinc-300 bg-white px-5 py-6"&gt;
+  &lt;div class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3"&gt;
+    &lt;h3 class="font-headline text-[16px] font-bold text-zinc-700"&gt;Kategoriler&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="filter-option-list mt-6"&gt;
+    &lt;label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700"&gt;
+      &lt;input data-sector-checkbox data-filter-value="giyim" class="h-[1.05rem] w-[1.05rem] rounded-xl accent-primary" type="checkbox" /&gt;
+      &lt;span&gt;Giyim&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="product-detail">
+        <h2>Urun Detayi</h2>
+        <p>Urun detay sayfalarinda secenek butonlari <code>[data-variant-button]</code> ve adet butonlari <code>[data-quantity-button]</code> ile otomatik calisir. <code>shared.js</code> secili fiyat ve adet inputunu yonetir.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex items-center justify-between gap-4"&gt;
+  &lt;div&gt;
+    &lt;h1 class="font-headline text-2xl font-extrabold"&gt;Boyner&lt;/h1&gt;
+    &lt;p class="text-lg font-bold text-zinc-500"&gt;Hediye Ceki&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="rounded-xl bg-primary-container px-5 py-3 text-2xl font-black text-white"&gt;
+    &lt;span id="selectedVariantPrice"&gt;500 TL&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;button data-variant-button data-price="500 TL" class="rounded-xl bg-zinc-950 px-5 py-3 text-white"&gt;500&lt;/button&gt;
+&lt;button data-quantity-button data-quantity="1" class="rounded-xl bg-zinc-950 px-5 py-3 text-white"&gt;1&lt;/button&gt;
+&lt;input id="quantityInput" type="hidden" value="1" /&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="orders">
+        <h2>Siparisler</h2>
+        <p><code>siparislerim.js</code> sadece siparis filtreleri, mobil detay ac/kapat ve siparis detay drawer davranisini yonetir. Detay icin <code>data-order-detail-trigger</code> kullanilir.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button
+  type="button"
+  data-order-detail-trigger="genc-altin"
+  class="rounded-xl bg-primary-container px-7 py-3 text-sm font-bold text-white"&gt;
+  Detaylarini Goster
+&lt;/button&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="component-gallery">
+        <h2>Component Galerisi</h2>
+        <p>Bu bolum projede sik kullanilan elementleri calisan preview ve kopyalanabilir kodlarla toplar. Ornekler dokuman icinde izole calisir; gercek sayfalarda ortak davranis gerekiyorsa <code>shared.js</code> id ve data attribute standardi korunmalidir.</p>
+
+        <div class="doc-component-stack">
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Header Arama + Aksiyonlar</h3>
+                <p>Normal sayfalarda arama, puan, hesap ve sepet alanlari ayni hizayi ve <code>rounded-xl</code> standardini korur.</p>
+              </div>
+              <span class="doc-kicker">Header</span>
+            </div>
+            <div class="doc-preview doc-preview-soft">
+              <div class="flex flex-wrap items-center gap-4 rounded-xl bg-white p-4 shadow-sm">
+                <div class="flex h-11 w-32 items-center justify-center rounded-xl bg-zinc-50 text-sm font-black text-primary">hediyemo</div>
+                <label class="flex min-w-[260px] flex-1 items-center rounded-xl bg-zinc-100 p-1">
+                  <input class="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm outline-0" placeholder="Hediye karti veya marka ara..." />
+                  <button class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary-container text-[var(--hdm-color-search-button-icon)]" type="button">
+                    <span class="material-symbols-outlined text-[20px]">search</span>
+                  </button>
+                </label>
+                <div class="text-center">
+                  <p class="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-950">Puanim</p>
+                  <p class="text-2xl font-black text-zinc-950">35.500</p>
+                </div>
+                <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-4 py-3 text-sm font-bold text-zinc-800" type="button">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  Hesabim
+                </button>
+                <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-4 py-3 text-sm font-bold text-zinc-800" type="button">
+                  <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                  Sepetim
+                </button>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;label class="flex flex-1 items-center rounded-xl bg-zinc-100 p-1"&gt;
+  &lt;input class="flex-1 bg-transparent px-4 py-2 outline-0" placeholder="Hediye karti veya marka ara..." /&gt;
+  &lt;button class="h-10 w-10 rounded-xl bg-primary-container text-[var(--hdm-color-search-button-icon)]"&gt;
+    &lt;span class="material-symbols-outlined"&gt;search&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/label&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Slider / Banner</h3>
+                <p>Index slider mantigi: gorsel alani genis, indicator aktifken proje rengi, pasifken gri. Mobilde indicatorlar kucuk tutulur.</p>
+              </div>
+              <span class="doc-kicker">Slider</span>
+            </div>
+            <div class="doc-preview">
+              <div class="doc-slider-frame" data-doc-slider>
+                <div class="doc-slider-track" data-doc-slider-track>
+                  <div class="doc-slide">
+                    <div>
+                      <p class="doc-kicker">Altin firsati</p>
+                      <h4 class="font-headline text-3xl font-black text-zinc-950">Altin urunlerinde avantajli puan kullanimi</h4>
+                      <p class="mt-3 max-w-xl text-zinc-600">Banner gorselleri <code>assets/banners</code> altindan gelir ve alani dolduracak sekilde kullanilir.</p>
+                    </div>
+                    <img class="ml-auto max-h-44 rounded-xl object-cover" alt="Altin banner" src="./assets/banners/banner-altin.png" />
+                  </div>
+                  <div class="doc-slide">
+                    <div>
+                      <p class="doc-kicker">Hediye ceki</p>
+                      <h4 class="font-headline text-3xl font-black text-zinc-950">Amazon hediye cekleri tek tikla</h4>
+                      <p class="mt-3 max-w-xl text-zinc-600">Ikinci slider icin farkli banner asseti ve ayni component yapisi kullanilir.</p>
+                    </div>
+                    <img class="ml-auto max-h-44 rounded-xl object-cover" alt="Amazon banner" src="./assets/banners/banner-amazon.png" />
+                  </div>
+                </div>
+                <div class="doc-slider-indicators">
+                  <button class="is-active" type="button" data-doc-slide-to="0" aria-label="1. slider"></button>
+                  <button type="button" data-doc-slide-to="1" aria-label="2. slider"></button>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="relative overflow-hidden rounded-xl"&gt;
+  &lt;div class="flex transition-transform" data-slider-track&gt;
+    &lt;article class="min-w-full"&gt;
+      &lt;img src="./assets/banners/banner-altin.png" class="h-[500px] w-full object-cover" alt="Altin" /&gt;
+    &lt;/article&gt;
+    &lt;article class="min-w-full"&gt;
+      &lt;img src="./assets/banners/banner-amazon.png" class="h-[500px] w-full object-cover" alt="Amazon" /&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+  &lt;button class="h-2 w-2 rounded-full bg-primary"&gt;&lt;/button&gt;
+  &lt;button class="h-2 w-2 rounded-full bg-zinc-300"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Urun Karti Alternatifleri</h3>
+                <p>Hediye ceki, altin ve kampanyali kartlarda ayni temel iskelet kullanilir; ribbon ve fiyat metni degisir.</p>
+              </div>
+              <span class="doc-kicker">Cards</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="relative flex flex-col rounded-xl border-2 border-primary/30 bg-white p-3 text-center shadow-sm">
+                  <span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-3 py-2 text-xs font-black uppercase leading-tight text-white">%8<br />Hizmet</span>
+                  <div class="flex h-36 items-center justify-center pt-3">
+                    <img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/opet-logo.png" alt="Opet" />
+                  </div>
+                  <strong class="mt-2 text-2xl font-black text-zinc-950">50 TL</strong>
+                  <span class="text-sm font-bold text-zinc-500">Hediye Ceki</span>
+                  <button class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white hover:bg-primary-container" type="button">Incele</button>
+                </article>
+                <article class="relative flex flex-col rounded-xl border border-zinc-200 bg-white p-3 text-center shadow-sm">
+                  <div class="flex h-36 items-center justify-center">
+                    <img class="max-h-[86%] max-w-[86%] object-contain" src="./assets/brands/genc-altin-logo.png" alt="Genc Altin" />
+                  </div>
+                  <strong class="mt-2 text-2xl font-black text-zinc-950">1 Gr</strong>
+                  <span class="text-sm font-bold text-zinc-500">7.268 Puan</span>
+                  <button class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white hover:bg-primary-container" type="button">Incele</button>
+                </article>
+                <article class="relative flex flex-col rounded-xl border-2 border-primary/30 bg-white p-3 text-center shadow-sm">
+                  <span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-zinc-950 px-3 py-2 text-xs font-black uppercase leading-tight text-white">%3<br />Hizmet</span>
+                  <div class="flex h-36 items-center justify-center pt-3">
+                    <img class="max-h-[92%] max-w-[92%] object-contain" src="./assets/brands/hepsiburada-logo.png" alt="Hepsiburada" />
+                  </div>
+                  <strong class="mt-2 text-2xl font-black text-zinc-950">2.500 TL</strong>
+                  <span class="text-sm font-bold text-zinc-500">Hediye Ceki</span>
+                  <button class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white hover:bg-primary-container" type="button">Incele</button>
+                </article>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative flex flex-col rounded-xl border-2 border-primary/30 bg-white p-3 text-center shadow-sm"&gt;
+  &lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-3 py-2 text-xs font-black text-white"&gt;%8&lt;br /&gt;Hizmet&lt;/span&gt;
+  &lt;div class="flex h-36 items-center justify-center pt-3"&gt;
+    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/opet-logo.png" alt="Opet" /&gt;
+  &lt;/div&gt;
+  &lt;strong class="text-2xl font-black text-zinc-950"&gt;50 TL&lt;/strong&gt;
+  &lt;button class="mt-4 rounded-xl bg-zinc-950 px-5 py-3 text-white hover:bg-primary-container"&gt;Incele&lt;/button&gt;
+&lt;/article&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Card Galerisi</h3>
+                <p>Dashboard ozetleri, adres/telefon kayitlari, teslimat secimleri ve bilgi kartlari icin farkli kart iskeletleri.</p>
+              </div>
+              <span class="doc-kicker">Cards</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-5 lg:grid-cols-3">
+                <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                  <span class="grid h-11 w-11 place-items-center rounded-xl bg-primary-container text-white"><span class="material-symbols-outlined">payments</span></span>
+                  <p class="mt-4 text-xs font-black uppercase tracking-[0.18em] text-zinc-400">Toplam Puan</p>
+                  <strong class="mt-1 block text-3xl font-black text-zinc-950">35.500</strong>
+                  <p class="mt-2 text-sm font-medium text-zinc-500">Kullanilabilir puan bakiyeniz.</p>
+                </article>
+                <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-headline text-xl font-black text-zinc-950">Ev Adresim</h4>
+                      <p class="mt-2 text-sm leading-6 text-zinc-500">Noramin Is Merkezi Kat:1 Ofis:101, Istanbul / Sariyer</p>
+                    </div>
+                    <button class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-100 text-zinc-700" type="button"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+                  </div>
+                  <button class="mt-5 rounded-xl border border-red-200 px-4 py-2 text-sm font-black text-red-600" type="button">Kaldir</button>
+                </article>
+                <article class="rounded-xl border border-sky-200 bg-sky-50 p-5 text-sky-950">
+                  <span class="material-symbols-outlined text-[28px]">sms</span>
+                  <h4 class="mt-3 font-headline text-xl font-black">Telefon Teslimati</h4>
+                  <p class="mt-2 text-sm leading-6">Hediye ceki kodlari secili telefona SMS olarak gonderilir.</p>
+                </article>
+                <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm lg:col-span-2">
+                  <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <p class="text-xs font-black uppercase tracking-[0.18em] text-primary">Siparis Ozeti</p>
+                      <h4 class="mt-1 font-headline text-2xl font-black text-zinc-950">HDM-2026-10482</h4>
+                    </div>
+                    <button class="rounded-xl bg-primary-container px-7 py-3 text-sm font-black text-white" type="button">Detaylarini Goster</button>
+                  </div>
+                  <div class="mt-5 grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-xs font-black uppercase tracking-[0.14em] text-zinc-400">Urun</span><p class="mt-1 font-black">4 urun</p></div>
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-xs font-black uppercase tracking-[0.14em] text-zinc-400">Tutar</span><p class="mt-1 font-black">10.368 TL</p></div>
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-xs font-black uppercase tracking-[0.14em] text-zinc-400">Puan</span><p class="mt-1 font-black">9.576 Puan</p></div>
+                  </div>
+                </article>
+                <article class="grid place-items-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-8 text-center">
+                  <span class="grid h-14 w-14 place-items-center rounded-xl bg-white text-primary shadow-sm"><span class="material-symbols-outlined">add</span></span>
+                  <h4 class="mt-4 font-headline text-xl font-black text-zinc-950">Yeni kart ekle</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Bos state veya ekleme cagrisi.</p>
+                </article>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"&gt;
+  &lt;span class="grid h-11 w-11 place-items-center rounded-xl bg-primary-container text-white"&gt;
+    &lt;span class="material-symbols-outlined"&gt;payments&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;p class="mt-4 text-xs font-black uppercase tracking-[0.18em] text-zinc-400"&gt;Toplam Puan&lt;/p&gt;
+  &lt;strong class="mt-1 block text-3xl font-black text-zinc-950"&gt;35.500&lt;/strong&gt;
+&lt;/article&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Ribbon / Badge Cesitleri</h3>
+                <p>Mobil kartlarda koseli ribbon, urun detay kartinda yildiz badge, durumlarda soft pill kullanilir.</p>
+              </div>
+              <span class="doc-kicker">Ribbon</span>
+            </div>
+            <div class="doc-preview">
+              <div class="flex flex-wrap items-center gap-4">
+                <span class="inline-flex rounded-xl bg-primary-container px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white">%8 Hizmet Bedeli</span>
+                <span class="inline-flex rounded-full bg-emerald-50 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-emerald-700">Iletildi</span>
+                <span class="inline-flex rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-xs font-black text-red-600">+100 Hizmet Bedeli</span>
+                <span class="grid h-20 w-20 place-items-center bg-fuchsia-500 text-center text-xs font-black leading-tight text-white" style="clip-path: polygon(50% 0%, 61% 22%, 85% 15%, 78% 39%, 100% 50%, 78% 61%, 85% 85%, 61% 78%, 50% 100%, 39% 78%, 15% 85%, 22% 61%, 0% 50%, 22% 39%, 15% 15%, 39% 22%);">Sadece<br />magazada</span>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white">%8 Hizmet</span>
+                  <h4 class="mt-8 font-headline text-xl font-black text-zinc-950">Kose Ribbon</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Kartin sag ust kosesine yapisir.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute -right-12 top-6 rotate-45 bg-zinc-950 px-12 py-2 text-xs font-black uppercase tracking-[0.14em] text-white">Yeni</span>
+                  <h4 class="font-headline text-xl font-black text-zinc-950">Diagonal Ribbon</h4>
+                  <p class="mt-2 max-w-[10rem] text-sm text-zinc-500">Kampanya ve yeni urun vurgusu.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute -top-3 left-5 rounded-full bg-emerald-50 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-emerald-700 ring-4 ring-white">Teslim Edildi</span>
+                  <h4 class="mt-8 font-headline text-xl font-black text-zinc-950">Status Pill</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Siparis durumlari icin soft pill.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute left-0 top-0 flex h-full w-10 items-center justify-center bg-primary-container text-white">
+                    <span class="-rotate-90 whitespace-nowrap text-xs font-black uppercase tracking-[0.16em]">Avantaj</span>
+                  </span>
+                  <div class="pl-10">
+                    <h4 class="font-headline text-xl font-black text-zinc-950">Vertical Ribbon</h4>
+                    <p class="mt-2 text-sm text-zinc-500">Sol kenardan dikey vurgu.</p>
+                  </div>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute right-4 top-4 grid h-20 w-20 place-items-center bg-fuchsia-500 text-center text-xs font-black leading-tight text-white" style="clip-path: polygon(50% 0%, 61% 22%, 85% 15%, 78% 39%, 100% 50%, 78% 61%, 85% 85%, 61% 78%, 50% 100%, 39% 78%, 15% 85%, 22% 61%, 0% 50%, 22% 39%, 15% 15%, 39% 22%);">Sadece<br />magazada</span>
+                  <h4 class="font-headline text-xl font-black text-zinc-950">Starburst</h4>
+                  <p class="mt-2 max-w-[9rem] text-sm text-zinc-500">Urun detay kartlarinda magaza bilgisi.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute -right-3 -top-3 grid h-14 w-14 place-items-center rounded-full bg-red-600 text-center text-xs font-black text-white ring-4 ring-white">%3</span>
+                  <h4 class="font-headline text-xl font-black text-zinc-950">Circle Badge</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Indirim veya hizmet orani.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="inline-flex items-center gap-1 rounded-xl border border-primary/20 bg-primary-container/10 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-primary">
+                    <span class="material-symbols-outlined text-[16px]">bolt</span>
+                    Hizli Teslimat
+                  </span>
+                  <h4 class="mt-5 font-headline text-xl font-black text-zinc-950">Icon Badge</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Ikonla desteklenen bilgi rozeti.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <div class="absolute inset-x-0 bottom-0 bg-zinc-950 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.16em] text-white">Sinirli Stok</div>
+                  <h4 class="font-headline text-xl font-black text-zinc-950">Bottom Ribbon</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Kart altindan bilgi verir.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute right-5 top-0 flex h-16 w-11 items-center justify-center bg-primary-container text-white after:absolute after:bottom-0 after:h-0 after:w-0 after:translate-y-full after:border-x-[22px] after:border-t-[14px] after:border-x-transparent after:border-t-primary-container">
+                    <span class="material-symbols-outlined text-[20px]">star</span>
+                  </span>
+                  <h4 class="font-headline text-xl font-black text-zinc-950">Bookmark Ribbon</h4>
+                  <p class="mt-2 max-w-[9rem] text-sm text-zinc-500">Favori veya onerilen rozetleri.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-zinc-950 px-5 py-2 text-xs font-black uppercase tracking-[0.14em] text-white ring-4 ring-white">En Cok Satan</span>
+                  <h4 class="mt-8 font-headline text-xl font-black text-zinc-950">Floating Label</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Kart ustune oturan merkez etiket.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="absolute left-0 top-0 rounded-br-xl bg-primary-container px-3 py-2 text-xs font-black uppercase text-white">%8</span>
+                  <span class="absolute right-0 top-0 rounded-bl-xl bg-zinc-950 px-3 py-2 text-xs font-black uppercase text-white">Yeni</span>
+                  <h4 class="mt-8 font-headline text-xl font-black text-zinc-950">Double Corner</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Iki farkli kose bilgisi.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="inline-flex rounded-xl border border-dashed border-primary px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-primary">Online Kullanım</span>
+                  <h4 class="mt-5 font-headline text-xl font-black text-zinc-950">Outline Badge</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Daha hafif bilgi etiketi.</p>
+                </article>
+                <article class="relative min-h-40 rounded-xl border border-zinc-200 bg-white p-5">
+                  <span class="inline-grid grid-cols-[auto_auto] overflow-hidden rounded-xl text-xs font-black uppercase tracking-[0.12em]">
+                    <span class="bg-primary-container px-3 py-2 text-white">%3</span>
+                    <span class="bg-zinc-950 px-3 py-2 text-white">Hizmet</span>
+                  </span>
+                  <h4 class="mt-5 font-headline text-xl font-black text-zinc-950">Split Badge</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Oran ve aciklama ayrilir.</p>
+                </article>
+                <article class="relative min-h-40 overflow-hidden rounded-xl border border-zinc-200 bg-white p-5">
+                  <div class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-primary-container via-fuchsia-500 to-zinc-950"></div>
+                  <span class="mt-4 inline-flex rounded-full bg-zinc-100 px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-zinc-700">Premium</span>
+                  <h4 class="mt-5 font-headline text-xl font-black text-zinc-950">Gradient Strip</h4>
+                  <p class="mt-2 text-sm text-zinc-500">Kart ustunde ince renk bandi.</p>
+                </article>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;span class="rounded-xl bg-primary-container px-4 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet Bedeli&lt;/span&gt;
+&lt;span class="rounded-full bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-700"&gt;Iletildi&lt;/span&gt;
+&lt;span class="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-xs font-black text-red-600"&gt;+100 Hizmet Bedeli&lt;/span&gt;
+
+&lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-4 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet&lt;/span&gt;
+
+&lt;span class="absolute -right-12 top-6 rotate-45 bg-zinc-950 px-12 py-2 text-xs font-black uppercase text-white"&gt;Yeni&lt;/span&gt;
+
+&lt;span class="absolute left-0 top-0 flex h-full w-10 items-center justify-center bg-primary-container text-white"&gt;
+  &lt;span class="-rotate-90 whitespace-nowrap text-xs font-black uppercase tracking-[0.16em]"&gt;Avantaj&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;span class="absolute right-5 top-0 flex h-16 w-11 items-center justify-center bg-primary-container text-white"&gt;
+  &lt;span class="material-symbols-outlined"&gt;star&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;span class="inline-grid grid-cols-[auto_auto] overflow-hidden rounded-xl text-xs font-black uppercase"&gt;
+  &lt;span class="bg-primary-container px-3 py-2 text-white"&gt;%3&lt;/span&gt;
+  &lt;span class="bg-zinc-950 px-3 py-2 text-white"&gt;Hizmet&lt;/span&gt;
+&lt;/span&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Sepet Kartlari</h3>
+                <p>Sepet kartinda sag fiyat siyah, hizmet bedeli kirmizi, kaldir aksiyonu kirmizi outline kalir.</p>
+              </div>
+              <span class="doc-kicker">Cart</span>
+            </div>
+            <div class="doc-preview doc-preview-soft">
+              <div class="mx-auto max-w-3xl rounded-xl bg-white p-4 shadow-sm">
+                <div class="rounded-xl border border-zinc-200 bg-white p-4">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-headline text-lg font-black text-zinc-950">Teknosa</h4>
+                      <p class="mt-1 text-sm font-medium text-zinc-500">Hediye Ceki 2.000 TL</p>
+                      <p class="mt-2 text-sm font-black text-red-600">+100 Puan Hizmet Bedeli</p>
+                    </div>
+                    <strong class="text-xl font-black text-zinc-950">2.000 Puan</strong>
+                  </div>
+                  <div class="mt-4 flex items-center justify-between">
+                    <span class="rounded-full border border-zinc-200 px-3 py-1 text-xs font-bold text-zinc-700">Adet: 2</span>
+                    <button class="inline-flex items-center gap-2 rounded-xl border border-red-200 px-4 py-2 text-sm font-bold text-red-600" type="button">
+                      <span class="material-symbols-outlined text-[18px]">delete</span>
+                      Kaldir
+                    </button>
+                  </div>
+                </div>
+                <button class="mt-5 w-full rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white" type="button">Alisverisi Tamamla</button>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white p-4"&gt;
+  &lt;div class="flex justify-between gap-4"&gt;
+    &lt;div&gt;
+      &lt;h4 class="font-headline text-lg font-black text-zinc-950"&gt;Teknosa&lt;/h4&gt;
+      &lt;p class="text-sm text-zinc-500"&gt;Hediye Ceki 2.000 TL&lt;/p&gt;
+      &lt;p class="text-sm font-black text-red-600"&gt;+100 Puan Hizmet Bedeli&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;strong class="text-xl font-black text-zinc-950"&gt;2.000 Puan&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Offcanvas Preview</h3>
+                <p>Bize Ulasin ve Sepet panelleri sagdan gelir. Baslik alani border kullanmaz, header hafif gri olabilir.</p>
+              </div>
+              <span class="doc-kicker">Panel</span>
+            </div>
+            <div class="doc-preview">
+              <button class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-6 py-3 text-sm font-black text-white" type="button" data-doc-open-panel>
+                <span class="material-symbols-outlined text-[18px]">forum</span>
+                Demo Offcanvas Ac
+              </button>
+              <div class="doc-demo-panel" data-doc-panel>
+                <div class="doc-demo-panel-card">
+                  <div class="flex items-center justify-between bg-zinc-50 px-5 py-4">
+                    <h4 class="font-headline text-xl font-black">Bize Ulasin</h4>
+                    <button class="grid h-10 w-10 place-items-center rounded-xl bg-white text-zinc-700" type="button" data-doc-close-panel>
+                      <span class="material-symbols-outlined">close</span>
+                    </button>
+                  </div>
+                  <div class="p-5">
+                    <div class="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold leading-7 text-amber-900">
+                      <span class="material-symbols-outlined mr-2 align-middle text-[20px]">info</span>
+                      Merhaba, hediyemo destek hattina hos geldiniz.<br />
+                      Siparis, puan ve kullanim sorulariniz icin bize yazabilirsiniz.
+                    </div>
+                    <form class="mt-5 grid gap-4">
+                      <input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="Isim Soyisim" />
+                      <input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="E-posta Adresi" />
+                      <textarea class="min-h-32 rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="Mesajiniz"></textarea>
+                      <div class="flex justify-between gap-3">
+                        <button class="rounded-xl border border-zinc-200 px-4 py-3 font-bold text-zinc-700" type="button" data-doc-close-panel>Vazgec</button>
+                        <button class="rounded-xl bg-zinc-950 px-7 py-3 font-bold text-white" type="button">Mesajini Gonder</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button id="chatLauncher" class="rounded-xl bg-primary-container px-6 py-3 text-white"&gt;Bize Ulasin&lt;/button&gt;
+&lt;div id="chatModal" class="fixed inset-0 hidden justify-end bg-black/40"&gt;
+  &lt;aside id="chatModalPanel" class="h-full w-full max-w-[420px] translate-x-full bg-white transition-transform"&gt;
+    &lt;header class="bg-zinc-50 px-5 py-4"&gt;Bize Ulasin&lt;/header&gt;
+    &lt;button data-chat-close&gt;Vazgec&lt;/button&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Filtre + Marka Listesi</h3>
+                <p>Marka listesinde checkbox yoktur; secili markada sol tarafta proje renginde check ikonu gorunur. Yedi marka sonrasi tumunu goster aksiyonu kullanilabilir.</p>
+              </div>
+              <span class="doc-kicker">Filter</span>
+            </div>
+            <div class="doc-preview">
+              <div class="max-w-sm rounded-xl border border-zinc-300 bg-white">
+                <div class="rounded-t-xl bg-zinc-50 px-5 py-4">
+                  <h4 class="font-headline font-black text-zinc-800">Markalar</h4>
+                </div>
+                <div class="p-5">
+                  <input class="mb-4 w-full rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="Marka adini yazin" />
+                  <button class="flex w-full cursor-pointer items-center justify-between border-b border-zinc-200 py-3 text-left" type="button">
+                    <span class="inline-flex items-center gap-2 font-semibold text-zinc-950"><span class="material-symbols-outlined text-[18px] text-primary">check</span> Boyner</span>
+                    <img class="max-h-6 object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" />
+                  </button>
+                  <button class="flex w-full cursor-pointer items-center justify-between border-b border-zinc-200 py-3 text-left" type="button">
+                    <span class="font-semibold text-zinc-950">Mavi</span>
+                    <img class="max-h-6 object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi" />
+                  </button>
+                  <button class="mt-4 flex w-full items-center justify-center gap-1 text-xs font-black uppercase tracking-[0.16em] text-primary" type="button">
+                    Tumunu Goster <span class="material-symbols-outlined text-[18px]">keyboard_double_arrow_down</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button class="flex w-full cursor-pointer items-center justify-between border-b border-zinc-200 py-3"&gt;
+  &lt;span class="inline-flex items-center gap-2 font-semibold text-zinc-950"&gt;
+    &lt;span class="material-symbols-outlined text-[18px] text-primary"&gt;check&lt;/span&gt;
+    Boyner
+  &lt;/span&gt;
+  &lt;img class="max-h-6 object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" /&gt;
+&lt;/button&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Urun Detay Secenekleri</h3>
+                <p>Tutar ve adet seceneklerinde varsayilan secim siyah, digerleri hafif gri zeminlidir. Fiyat pill'i proje rengidir.</p>
+              </div>
+              <span class="doc-kicker">Detail</span>
+            </div>
+            <div class="doc-preview">
+              <div class="max-w-xl rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <h4 class="font-headline text-2xl font-black">Boyner</h4>
+                    <p class="text-lg font-bold text-zinc-500">Hediye Ceki</p>
+                  </div>
+                  <div class="rounded-xl bg-primary-container px-5 py-3 text-2xl font-black text-white">500 TL</div>
+                </div>
+                <p class="mt-5 font-bold text-zinc-950">Hediye ceki tutarini seciniz (TL)</p>
+                <div class="mt-3 grid grid-cols-3 gap-3">
+                  <button class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-black text-white" type="button">500</button>
+                  <button class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-black text-zinc-700" type="button">1.000</button>
+                  <button class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-black text-zinc-700" type="button">2.000</button>
+                </div>
+                <p class="mt-5 font-bold text-zinc-950">Adet seciniz</p>
+                <div class="mt-3 grid grid-cols-4 gap-3">
+                  <button class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-black text-white" type="button">1</button>
+                  <button class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-black text-zinc-700" type="button">3</button>
+                  <button class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-black text-zinc-700" type="button">5</button>
+                  <input class="rounded-xl border border-zinc-200 px-4 py-3 text-base font-bold focus:border-zinc-900 focus:ring-0" placeholder="Adet Yaziniz" />
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;button data-variant-button data-price="500 TL" class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-black text-white"&gt;500&lt;/button&gt;
+&lt;button data-variant-button data-price="1.000 TL" class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-black text-zinc-700"&gt;1.000&lt;/button&gt;
+&lt;button data-quantity-button data-quantity="1" class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-black text-white"&gt;1&lt;/button&gt;
+&lt;input id="customQuantityInput" class="rounded-xl border px-4 py-3 text-base" placeholder="Adet Yaziniz" /&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Siparis Kartlari + Detay Butonu</h3>
+                <p>Siparis kartlarinda sag ozet kutulari siyah metin, detay butonu proje rengi; gizle durumunda outline kullanilir.</p>
+              </div>
+              <span class="doc-kicker">Order</span>
+            </div>
+            <div class="doc-preview doc-preview-soft">
+              <article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <div class="flex flex-wrap items-start justify-between gap-5">
+                  <div>
+                    <h4 class="font-headline text-2xl font-black text-zinc-950">HDM-2026-10482</h4>
+                    <p class="mt-2 text-sm font-bold text-zinc-500">Siparis Tarihi: 28 Nisan 2026</p>
+                  </div>
+                  <div class="grid grid-cols-3 gap-3">
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-[11px] font-black uppercase tracking-[0.18em] text-zinc-400">Siparis Ozeti</span><p class="mt-2 font-black text-zinc-950">4 urun</p></div>
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-[11px] font-black uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</span><p class="mt-2 font-black text-zinc-950">10.368 TL</p></div>
+                    <div class="rounded-xl bg-zinc-50 p-4"><span class="text-[11px] font-black uppercase tracking-[0.18em] text-zinc-400">Harcanan Puan</span><p class="mt-2 font-black text-zinc-950">9.576 Puan</p></div>
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-end">
+                  <button class="rounded-xl bg-primary-container px-8 py-3 text-sm font-black text-white" type="button">Detaylarini Goster</button>
+                </div>
+              </article>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"&gt;
+  &lt;h4 class="font-headline text-2xl font-black"&gt;HDM-2026-10482&lt;/h4&gt;
+  &lt;div class="mt-5 flex justify-end"&gt;
+    &lt;button class="rounded-xl bg-primary-container px-8 py-3 text-sm font-black text-white"&gt;Detaylarini Goster&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Tabs / Yardim Sekmeleri</h3>
+                <p>Yardim sayfasinda iki tab kullanilir. Aktif tab proje rengi, pasif tab beyaz/soft kalir.</p>
+              </div>
+              <span class="doc-kicker">Tabs</span>
+            </div>
+            <div class="doc-preview">
+              <div class="doc-mini-tabs max-w-3xl" data-doc-tabs>
+                <div class="flex gap-2 rounded-xl bg-zinc-100 p-1">
+                  <button class="flex-1 rounded-xl bg-primary-container px-4 py-3 text-sm font-black text-white" type="button" data-doc-tab="faq">Sik Sorulan Sorular</button>
+                  <button class="flex-1 rounded-xl px-4 py-3 text-sm font-black text-zinc-700" type="button" data-doc-tab="conditions">Kullanim Kosullari</button>
+                </div>
+                <div class="mt-4 rounded-xl border border-zinc-200 p-5 is-active" data-doc-tab-panel="faq">
+                  <h4 class="font-headline text-xl font-black">Puanlarimi nasil kullanirim?</h4>
+                  <p class="mt-2 text-zinc-600">Hediye ceki veya altin urununu secip sepet adimlarini tamamlayabilirsiniz.</p>
+                </div>
+                <div class="mt-4 rounded-xl border border-zinc-200 p-5" data-doc-tab-panel="conditions">
+                  <h4 class="font-headline text-xl font-black">Marka kosullari</h4>
+                  <p class="mt-2 text-zinc-600">Her marka icin kosullar madde madde listelenir.</p>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex gap-2 rounded-xl bg-zinc-100 p-1"&gt;
+  &lt;button class="flex-1 rounded-xl bg-primary-container px-4 py-3 text-white"&gt;Sik Sorulan Sorular&lt;/button&gt;
+  &lt;button class="flex-1 rounded-xl px-4 py-3 text-zinc-700"&gt;Kullanim Kosullari&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Pagination + Liste Devami</h3>
+                <p>Sayfalama pasif butonlar gri/siyah, aktif buton proje kontrastinda olabilir. Liste devami butonu sagda proje rengidir.</p>
+              </div>
+              <span class="doc-kicker">Pagination</span>
+            </div>
+            <div class="doc-preview">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <nav class="flex items-center gap-2" aria-label="Sayfalama">
+                  <button class="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 text-zinc-600" type="button"><span class="material-symbols-outlined">west</span></button>
+                  <button class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-950 text-sm font-black text-white" type="button">1</button>
+                  <button class="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 text-sm font-black text-zinc-600" type="button">2</button>
+                  <button class="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 text-sm font-black text-zinc-600" type="button">3</button>
+                  <button class="grid h-10 w-10 place-items-center rounded-xl border border-zinc-200 text-zinc-600" type="button"><span class="material-symbols-outlined">east</span></button>
+                </nav>
+                <a class="inline-flex items-center gap-2 rounded-xl bg-primary-container px-6 py-3 text-sm font-black text-white" href="./markalar.html">
+                  Tum Hediye Ceklerini Goster
+                  <span class="material-symbols-outlined text-[18px]">east</span>
+                </a>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;nav class="flex items-center gap-2" aria-label="Sayfalama"&gt;
+  &lt;button class="h-10 w-10 rounded-xl bg-zinc-950 text-white"&gt;1&lt;/button&gt;
+  &lt;button class="h-10 w-10 rounded-xl border border-zinc-200 text-zinc-600"&gt;2&lt;/button&gt;
+&lt;/nav&gt;
+&lt;a class="rounded-xl bg-primary-container px-6 py-3 text-white"&gt;Tum Hediye Ceklerini Goster&lt;/a&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Alert / Bilgi Kutusu Alternatifleri</h3>
+                <p>Sepet teslimat uyarisi proje renginden bagimsiz kirmizi kalabilir. Bize Ulasin icinde warning soft kutu kullanilir.</p>
+              </div>
+              <span class="doc-kicker">Alert</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-3">
+                <div class="flex gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+                  <span class="material-symbols-outlined">warning</span>
+                  <div><strong>Teslimat secimlerinizi kontrol edin</strong><p class="mt-1 text-sm">Altin icin adres, hediye ceki icin telefon secmeniz gerekir.</p></div>
+                </div>
+                <div class="flex gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
+                  <span class="material-symbols-outlined">info</span>
+                  <div><strong>Merhaba, hediyemo destek hattina hos geldiniz.</strong><p class="mt-1 text-sm">Siparis ve puan sorulariniz icin bize yazabilirsiniz.</p></div>
+                </div>
+                <div class="flex gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 text-sky-900">
+                  <span class="material-symbols-outlined">sms</span>
+                  <div><strong>Telefon secimi</strong><p class="mt-1 text-sm">Hediye cekleri secili telefona SMS olarak iletilir.</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700"&gt;
+  &lt;span class="material-symbols-outlined"&gt;warning&lt;/span&gt;
+  &lt;div&gt;
+    &lt;strong&gt;Teslimat secimlerinizi kontrol edin&lt;/strong&gt;
+    &lt;p class="text-sm"&gt;Altin icin adres, hediye ceki icin telefon secmeniz gerekir.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Alert Galerisi</h3>
+                <p>Inline, filled, outline ve action'li alert cesitleri. Kritik teslimat uyarilari kirmizi kalabilir; bilgi ve basari durumlari soft ton kullanir.</p>
+              </div>
+              <span class="doc-kicker">Alert</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-4">
+                <div class="flex items-start gap-3 rounded-xl bg-emerald-50 p-4 text-emerald-800">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <div><strong>Islem basarili</strong><p class="mt-1 text-sm">Bilgileriniz guvenle kaydedildi.</p></div>
+                </div>
+                <div class="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 text-sky-900">
+                  <span class="material-symbols-outlined">info</span>
+                  <div><strong>Bilgilendirme</strong><p class="mt-1 text-sm">Hediye cekleri secili telefona SMS olarak gonderilir.</p></div>
+                </div>
+                <div class="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-950">
+                  <span class="material-symbols-outlined">warning</span>
+                  <div><strong>Eksik secim</strong><p class="mt-1 text-sm">Siparisi tamamlamak icin teslimat bilgisini seciniz.</p></div>
+                </div>
+                <div class="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+                  <span class="material-symbols-outlined">error</span>
+                  <div><strong>Islem tamamlanamadi</strong><p class="mt-1 text-sm">Lutfen alanlari kontrol edip tekrar deneyin.</p></div>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-zinc-200 bg-white p-4">
+                  <div class="flex items-center gap-3">
+                    <span class="grid h-10 w-10 place-items-center rounded-xl bg-primary-container text-white"><span class="material-symbols-outlined text-[20px]">forum</span></span>
+                    <div><strong class="text-zinc-950">Yardima mi ihtiyaciniz var?</strong><p class="text-sm text-zinc-500">Siparis ve puan sorulariniz icin bize yazabilirsiniz.</p></div>
+                  </div>
+                  <button class="rounded-xl bg-primary-container px-5 py-3 text-sm font-black text-white" type="button">Bize Ulasin</button>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-950"&gt;
+  &lt;span class="material-symbols-outlined"&gt;warning&lt;/span&gt;
+  &lt;div&gt;
+    &lt;strong&gt;Eksik secim&lt;/strong&gt;
+    &lt;p class="mt-1 text-sm"&gt;Siparisi tamamlamak icin teslimat bilgisini seciniz.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Bottom Sheet Offcanvas</h3>
+                <p>Mobil aksiyonlar, filtre ve hizli secimler icin alttan acilan alternatif offcanvas kullanilabilir.</p>
+              </div>
+              <span class="doc-kicker">Offcanvas</span>
+            </div>
+            <div class="doc-preview">
+              <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-950 px-6 py-3 text-sm font-black text-white hover:bg-primary-container" type="button" data-doc-open-sheet>
+                <span class="material-symbols-outlined text-[18px]">keyboard_double_arrow_up</span>
+                Bottom Sheet Ac
+              </button>
+              <div class="doc-bottom-sheet" data-doc-sheet>
+                <div class="doc-bottom-sheet-card">
+                  <div class="mx-auto mb-4 h-1.5 w-12 rounded-full bg-zinc-300"></div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-headline text-2xl font-black text-zinc-950">Siralama</h4>
+                      <p class="mt-1 text-sm font-medium text-zinc-500">Hediye ceklerini puan veya populerlige gore siralayin.</p>
+                    </div>
+                    <button class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-100" type="button" data-doc-close-sheet>
+                      <span class="material-symbols-outlined">close</span>
+                    </button>
+                  </div>
+                  <div class="mt-5 grid gap-2">
+                    <button class="flex items-center justify-between rounded-xl bg-primary-container px-4 py-3 font-black text-white" type="button">Populer <span class="material-symbols-outlined">check</span></button>
+                    <button class="rounded-xl bg-zinc-100 px-4 py-3 text-left font-bold text-zinc-800" type="button">En Dusuk Puan</button>
+                    <button class="rounded-xl bg-zinc-100 px-4 py-3 text-left font-bold text-zinc-800" type="button">En Yuksek Puan</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="fixed inset-0 hidden items-end bg-black/40" id="sortSheet"&gt;
+  &lt;div class="w-full rounded-t-2xl bg-white p-5"&gt;
+    &lt;div class="mx-auto mb-4 h-1.5 w-12 rounded-full bg-zinc-300"&gt;&lt;/div&gt;
+    &lt;h3 class="font-headline text-2xl font-black"&gt;Siralama&lt;/h3&gt;
+    &lt;button class="mt-5 rounded-xl bg-primary-container px-4 py-3 text-white"&gt;Populer&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Dropdown Menu</h3>
+                <p>Hesap, siralama veya satir aksiyonlari icin kullanilir. Panel <code>rounded-xl</code>, satirlar ikonlu ve hover'da soft gri olur.</p>
+              </div>
+              <span class="doc-kicker">Dropdown</span>
+            </div>
+            <div class="doc-preview">
+              <div class="flex flex-wrap items-center gap-5">
+                <div class="relative inline-flex" data-doc-dropdown>
+                  <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-3 text-sm font-black text-zinc-900" type="button" data-doc-dropdown-trigger>
+                    Alt
+                    <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+                  </button>
+                  <div class="doc-dropdown-panel" data-placement="bottom" data-doc-dropdown-panel>
+                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold text-zinc-700 hover:bg-zinc-50" href="./bilgilerim.html"><span class="material-symbols-outlined text-[18px] text-primary">person</span> Bilgilerim</a>
+                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold text-zinc-700 hover:bg-zinc-50" href="./siparislerim.html"><span class="material-symbols-outlined text-[18px] text-primary">receipt_long</span> Siparislerim</a>
+                    <button class="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm font-bold text-red-600 hover:bg-red-50" type="button"><span class="material-symbols-outlined text-[18px]">logout</span> Cikis Yap</button>
+                  </div>
+                </div>
+                <div class="relative inline-flex" data-doc-dropdown>
+                  <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-3 text-sm font-black text-zinc-900" type="button" data-doc-dropdown-trigger>
+                    Sag
+                    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                  </button>
+                  <div class="doc-dropdown-panel" data-placement="right" data-doc-dropdown-panel>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">Duzenle</button>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">Kopyala</button>
+                  </div>
+                </div>
+                <div class="relative inline-flex" data-doc-dropdown>
+                  <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-3 text-sm font-black text-zinc-900" type="button" data-doc-dropdown-trigger>
+                    Sol
+                    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                  </button>
+                  <div class="doc-dropdown-panel" data-placement="left" data-doc-dropdown-panel>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">Onizle</button>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-red-600 hover:bg-red-50" type="button">Sil</button>
+                  </div>
+                </div>
+                <div class="relative inline-flex" data-doc-dropdown>
+                  <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-3 text-sm font-black text-zinc-900" type="button" data-doc-dropdown-trigger>
+                    Ust
+                    <span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+                  </button>
+                  <div class="doc-dropdown-panel" data-placement="top" data-doc-dropdown-panel>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">Populer</button>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">En Dusuk Puan</button>
+                    <button class="rounded-xl px-3 py-2 text-left text-sm font-bold text-zinc-700 hover:bg-zinc-50" type="button">En Yuksek Puan</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="relative inline-flex"&gt;
+  &lt;button class="rounded-xl bg-zinc-100 px-5 py-3 font-black"&gt;
+    Hesabim
+    &lt;span class="material-symbols-outlined"&gt;keyboard_arrow_down&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="absolute right-0 top-full mt-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;
+    &lt;a class="rounded-xl px-3 py-2 font-bold hover:bg-zinc-50"&gt;Bilgilerim&lt;/a&gt;
+    &lt;a class="rounded-xl px-3 py-2 font-bold hover:bg-zinc-50"&gt;Siparislerim&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="absolute left-full top-0 ml-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Sag panel&lt;/div&gt;
+  &lt;div class="absolute right-full top-0 mr-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Sol panel&lt;/div&gt;
+  &lt;div class="absolute bottom-full left-0 mb-2 grid min-w-56 rounded-xl border border-zinc-200 bg-white p-2 shadow-xl"&gt;Ust panel&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Toast Notification Varyasyonlari</h3>
+                <p>Basari, uyari ve hata durumlari icin ayni iskelet kullanilir. Canli butonlar kisa bildirim davranisini gosterir.</p>
+              </div>
+              <span class="doc-kicker">Toast</span>
+            </div>
+            <div class="doc-preview">
+              <div class="mb-5 flex flex-wrap gap-3">
+                <button class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-black text-white" type="button" data-doc-show-toast data-toast-type="success">
+                  <span class="material-symbols-outlined text-[18px]">notifications</span>
+                  Success Toast
+                </button>
+                <button class="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3 text-sm font-black text-white" type="button" data-doc-show-toast data-toast-type="warning">
+                  <span class="material-symbols-outlined text-[18px]">info</span>
+                  Warning Toast
+                </button>
+                <button class="inline-flex items-center gap-2 rounded-xl bg-red-600 px-6 py-3 text-sm font-black text-white" type="button" data-doc-show-toast data-toast-type="danger">
+                  <span class="material-symbols-outlined text-[18px]">error</span>
+                  Danger Toast
+                </button>
+              </div>
+              <div class="doc-toast" data-doc-toast>
+                <span class="material-symbols-outlined text-[20px] text-primary">check_circle</span>
+                <span class="text-sm font-bold">Hediye ceki sepete eklendi.</span>
+              </div>
+              <div class="grid gap-3">
+                <div class="flex items-center gap-3 rounded-xl bg-zinc-950 px-4 py-3 text-white shadow-sm">
+                  <span class="material-symbols-outlined text-primary">check_circle</span>
+                  <div><strong class="text-sm">Sepete eklendi</strong><p class="text-xs text-zinc-300">Boyner 500 TL hediye ceki eklendi.</p></div>
+                </div>
+                <div class="flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-950">
+                  <span class="material-symbols-outlined">info</span>
+                  <div><strong class="text-sm">Telefon secimi gerekli</strong><p class="text-xs">Teslimat adiminda kayitli telefon seciniz.</p></div>
+                </div>
+                <div class="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">
+                  <span class="material-symbols-outlined">error</span>
+                  <div><strong class="text-sm">Islem tamamlanamadi</strong><p class="text-xs">Lutfen bilgileri kontrol edip tekrar deneyin.</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="flex items-center gap-3 rounded-xl bg-zinc-950 px-4 py-3 text-white shadow-xl"&gt;
+  &lt;span class="material-symbols-outlined text-primary"&gt;check_circle&lt;/span&gt;
+  &lt;div&gt;
+    &lt;strong class="text-sm"&gt;Sepete eklendi&lt;/strong&gt;
+    &lt;p class="text-xs text-zinc-300"&gt;Boyner 500 TL hediye ceki eklendi.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Modal Dialog</h3>
+                <p>Silme onayi, hizli bilgilendirme veya kucuk formlar icin merkezi modal. Tehlikeli aksiyonda kirmizi buton kullanilir.</p>
+              </div>
+              <span class="doc-kicker">Modal</span>
+            </div>
+            <div class="doc-preview">
+              <button class="inline-flex items-center gap-2 rounded-xl bg-zinc-950 px-6 py-3 text-sm font-black text-white hover:bg-primary-container" type="button" data-doc-open-modal>
+                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                Modal Ac
+              </button>
+              <div class="doc-modal" data-doc-modal>
+                <div class="doc-modal-card">
+                  <div class="flex items-center justify-between border-b border-zinc-200 px-5 py-4">
+                    <h4 class="font-headline text-xl font-black text-zinc-950">Kaydi silmek istiyor musunuz?</h4>
+                    <button class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-100" type="button" data-doc-close-modal>
+                      <span class="material-symbols-outlined">close</span>
+                    </button>
+                  </div>
+                  <div class="p-5">
+                    <p class="text-sm leading-7 text-zinc-600">Bu islem geri alinamaz. Silme aksiyonlari icin kirmizi metin veya kirmizi buton kullanilir.</p>
+                    <div class="mt-5 flex justify-end gap-3">
+                      <button class="rounded-xl border border-zinc-200 px-5 py-3 text-sm font-black text-zinc-700" type="button" data-doc-close-modal>Vazgec</button>
+                      <button class="rounded-xl bg-red-600 px-5 py-3 text-sm font-black text-white" type="button">Evet, Sil</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4"&gt;
+  &lt;div class="w-full max-w-md rounded-xl bg-white shadow-xl"&gt;
+    &lt;header class="flex items-center justify-between border-b border-zinc-200 px-5 py-4"&gt;
+      &lt;h3 class="font-headline text-xl font-black"&gt;Kaydi silmek istiyor musunuz?&lt;/h3&gt;
+      &lt;button class="rounded-xl bg-zinc-100 p-2"&gt;&lt;span class="material-symbols-outlined"&gt;close&lt;/span&gt;&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;div class="p-5"&gt;
+      &lt;p class="text-sm text-zinc-600"&gt;Bu islem geri alinamaz.&lt;/p&gt;
+      &lt;button class="rounded-xl bg-red-600 px-5 py-3 text-white"&gt;Evet, Sil&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Stepper / Sepet Adimlari</h3>
+                <p>Sepet, teslimat ve onay sureclerinde aktif, tamamlandi, bekleyen ve hata durumlarini gostermek icin kullanilir.</p>
+              </div>
+              <span class="doc-kicker">Stepper</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-5">
+                <div class="rounded-xl bg-zinc-50 p-5">
+                  <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="rounded-xl bg-primary-container px-3 py-4 text-white">
+                      <span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-black text-primary"><span class="material-symbols-outlined text-[18px]">check</span></span>
+                      <p class="mt-2 text-sm font-black">Sepetiniz</p>
+                      <p class="text-xs font-semibold opacity-80">Tamamlandi</p>
+                    </div>
+                    <div class="rounded-xl bg-zinc-950 px-3 py-4 text-white">
+                      <span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-black text-zinc-950">2</span>
+                      <p class="mt-2 text-sm font-black">Bilgileriniz</p>
+                      <p class="text-xs font-semibold opacity-80">Aktif</p>
+                    </div>
+                    <div class="rounded-xl bg-white px-3 py-4 text-zinc-950">
+                      <span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-zinc-100 text-sm font-black">3</span>
+                      <p class="mt-2 text-sm font-black">Onay</p>
+                      <p class="text-xs font-semibold text-zinc-500">Bekliyor</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="rounded-xl border border-red-200 bg-red-50 p-5 text-red-700">
+                  <div class="flex items-center gap-3">
+                    <span class="grid h-10 w-10 place-items-center rounded-full bg-white"><span class="material-symbols-outlined">warning</span></span>
+                    <div><strong>Teslimat bilgilerinde eksik var</strong><p class="mt-1 text-sm">Hata state'i stepper altinda uyari olarak verilebilir.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="grid grid-cols-3 gap-3 text-center"&gt;
+  &lt;div class="rounded-xl bg-primary-container px-3 py-4 text-white"&gt;
+    &lt;span class="rounded-full bg-white px-3 py-2 text-primary"&gt;1&lt;/span&gt;
+    &lt;p&gt;Sepetiniz&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Empty State / Bos Liste</h3>
+                <p>Kayitli adres, telefon, siparis veya filtre sonucu bos geldiginde kullanilacak sade durum karti.</p>
+              </div>
+              <span class="doc-kicker">State</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid min-h-64 place-items-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-8 text-center">
+                <div>
+                  <span class="mx-auto grid h-16 w-16 place-items-center rounded-xl bg-white text-primary shadow-sm">
+                    <span class="material-symbols-outlined text-[34px]">inventory_2</span>
+                  </span>
+                  <h4 class="mt-5 font-headline text-2xl font-black text-zinc-950">Kayit bulunamadi</h4>
+                  <p class="mx-auto mt-2 max-w-md text-sm leading-6 text-zinc-500">Bu alanda henuz gosterilecek kayit yok. Yeni kayit ekleyerek listeyi doldurabilirsiniz.</p>
+                  <button class="mt-5 rounded-xl bg-primary-container px-6 py-3 text-sm font-black text-white" type="button">Yeni Kayit Ekle</button>
+                </div>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="grid min-h-64 place-items-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-8 text-center"&gt;
+  &lt;span class="material-symbols-outlined text-primary"&gt;inventory_2&lt;/span&gt;
+  &lt;h3 class="font-headline text-2xl font-black"&gt;Kayit bulunamadi&lt;/h3&gt;
+  &lt;button class="rounded-xl bg-primary-container px-6 py-3 text-white"&gt;Yeni Kayit Ekle&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>Accordion / Acilir Liste</h3>
+                <p>Markalar, filtreler ve yardim icerikleri icin acilir/kapanir liste yapisi. Baslik satiri butondur, icerik alani yumusak gecisle acilir.</p>
+              </div>
+              <span class="doc-kicker">Accordion</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid max-w-3xl gap-3" data-doc-accordion>
+                <article class="rounded-xl border border-zinc-200 bg-white">
+                  <button class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left" type="button" data-doc-accordion-trigger>
+                    <span class="font-headline text-lg font-black text-zinc-950">Hediye ceki nasil teslim edilir?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform" data-doc-accordion-icon>keyboard_arrow_down</span>
+                  </button>
+                  <div class="hidden border-t border-zinc-200 px-5 py-4 text-sm leading-7 text-zinc-600" data-doc-accordion-panel>
+                    Hediye cekleri sepet teslimat adiminda secilen kayitli telefon numarasina SMS ile iletilir.
+                  </div>
+                </article>
+                <article class="rounded-xl border border-zinc-200 bg-white">
+                  <button class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left" type="button" data-doc-accordion-trigger>
+                    <span class="font-headline text-lg font-black text-zinc-950">Altin teslimati nasil ilerler?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform" data-doc-accordion-icon>keyboard_arrow_down</span>
+                  </button>
+                  <div class="hidden border-t border-zinc-200 px-5 py-4 text-sm leading-7 text-zinc-600" data-doc-accordion-panel>
+                    Altin urunlerinde adres secimi zorunludur. Kargo takip bilgisi siparis detayindan goruntulenir.
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="rounded-xl border border-zinc-200 bg-white"&gt;
+  &lt;button class="flex w-full items-center justify-between px-5 py-4 text-left" type="button"&gt;
+    &lt;span class="font-headline text-lg font-black"&gt;Hediye ceki nasil teslim edilir?&lt;/span&gt;
+    &lt;span class="material-symbols-outlined text-primary"&gt;keyboard_arrow_down&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="border-t border-zinc-200 px-5 py-4 text-sm text-zinc-600"&gt;
+    Hediye cekleri kayitli telefona SMS ile iletilir.
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div>
+          </article>
+
+          <article class="doc-component">
+            <div class="doc-component-header">
+              <div>
+                <h3>LI / Satir Liste Ornekleri</h3>
+                <p>Filtre, kullanim kosullari ve bilgi listelerinde satir alt border son satir haric kullanilir. Satirlar tiklanabilir ise <code>cursor-pointer</code> eklenir.</p>
+              </div>
+              <span class="doc-kicker">List</span>
+            </div>
+            <div class="doc-preview">
+              <div class="grid gap-5 lg:grid-cols-2">
+                <ul class="rounded-xl border border-zinc-200 bg-white px-5">
+                  <li class="flex items-center gap-3 border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="grid h-7 w-7 place-items-center rounded-full bg-red-50 text-primary"><span class="material-symbols-outlined text-[18px]">check</span></span>
+                    <span class="font-semibold text-zinc-700">Tek seferde kullanilir, bolunerek kullanilamaz.</span>
+                  </li>
+                  <li class="flex items-center gap-3 border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="grid h-7 w-7 place-items-center rounded-full bg-red-50 text-primary"><span class="material-symbols-outlined text-[18px]">check</span></span>
+                    <span class="font-semibold text-zinc-700">Satin aldiktan sonra iptal edilebilir.</span>
+                  </li>
+                  <li class="flex items-center gap-3 border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="grid h-7 w-7 place-items-center rounded-full bg-red-50 text-primary"><span class="material-symbols-outlined text-[18px]">check</span></span>
+                    <span class="font-semibold text-zinc-700">SMS ile teslim edilir.</span>
+                  </li>
+                </ul>
+                <ul class="rounded-xl border border-zinc-200 bg-white px-5">
+                  <li class="flex cursor-pointer items-center justify-between border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="inline-flex items-center gap-2 font-bold text-zinc-950"><span class="material-symbols-outlined text-[18px] text-primary">check</span> Boyner</span>
+                    <img class="max-h-6 object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" />
+                  </li>
+                  <li class="flex cursor-pointer items-center justify-between border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="font-bold text-zinc-950">Mavi</span>
+                    <img class="max-h-6 object-contain" src="./assets/brands/mavi-logo.png" alt="Mavi" />
+                  </li>
+                  <li class="flex cursor-pointer items-center justify-between border-b border-zinc-200 py-4 last:border-b-0">
+                    <span class="font-bold text-zinc-950">Opet</span>
+                    <img class="max-h-6 object-contain" src="./assets/brands/opet-logo.png" alt="Opet" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;ul class="rounded-xl border border-zinc-200 bg-white px-5"&gt;
+  &lt;li class="flex items-center gap-3 border-b border-zinc-200 py-4 last:border-b-0"&gt;
+    &lt;span class="grid h-7 w-7 place-items-center rounded-full bg-red-50 text-primary"&gt;
+      &lt;span class="material-symbols-outlined text-[18px]"&gt;check&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="font-semibold text-zinc-700"&gt;Tek seferde kullanilir.&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="icon-gallery">
+        <h2>Ikon Galerisi</h2>
+        <p>Projede ikonlar icin Material Symbols kullanilir. Butonlarda ve durum alanlarinda ikonlar metni desteklemeli; tek basina kullanildiginda tooltip veya <code>aria-label</code> verilmelidir.</p>
+        <div class="doc-icon-grid">
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">search</span><code>search</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">person</span><code>person</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">shopping_bag</span><code>shopping_bag</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">forum</span><code>forum</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">delete</span><code>delete</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">east</span><code>east</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">west</span><code>west</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">keyboard_arrow_down</span><code>keyboard_arrow_down</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">keyboard_double_arrow_down</span><code>keyboard_double_arrow_down</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">swap_vert</span><code>swap_vert</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">tune</span><code>tune</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">check</span><code>check</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">check_circle</span><code>check_circle</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">done</span><code>done</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">warning</span><code>warning</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">info</span><code>info</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">sms</span><code>sms</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">local_shipping</span><code>local_shipping</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">payments</span><code>payments</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">redeem</span><code>redeem</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">storefront</span><code>storefront</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">inventory_2</span><code>inventory_2</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">visibility</span><code>visibility</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">visibility_off</span><code>visibility_off</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">close</span><code>close</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">menu</span><code>menu</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">home</span><code>home</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">arrow_back</span><code>arrow_back</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">arrow_forward</span><code>arrow_forward</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">chevron_right</span><code>chevron_right</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">keyboard_arrow_up</span><code>keyboard_arrow_up</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">keyboard_double_arrow_up</span><code>keyboard_double_arrow_up</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">add</span><code>add</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">remove</span><code>remove</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">edit</span><code>edit</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">save</span><code>save</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">download</span><code>download</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">upload</span><code>upload</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">content_copy</span><code>content_copy</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">refresh</span><code>refresh</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">autorenew</span><code>autorenew</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">send</span><code>send</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">login</span><code>login</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">logout</span><code>logout</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">lock</span><code>lock</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">mail</span><code>mail</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">call</span><code>call</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">location_on</span><code>location_on</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">calendar_month</span><code>calendar_month</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">schedule</span><code>schedule</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">receipt_long</span><code>receipt_long</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">description</span><code>description</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">credit_card</span><code>credit_card</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">account_balance_wallet</span><code>account_balance_wallet</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">sell</span><code>sell</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">shopping_cart</span><code>shopping_cart</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">support_agent</span><code>support_agent</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">help</span><code>help</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">verified</span><code>verified</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">error</span><code>error</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">notifications</span><code>notifications</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">star</span><code>star</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">bolt</span><code>bolt</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">filter_alt</span><code>filter_alt</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">sort</span><code>sort</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">more_horiz</span><code>more_horiz</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">more_vert</span><code>more_vert</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">open_in_new</span><code>open_in_new</code></div>
+          <div class="doc-icon-tile"><span class="material-symbols-outlined">image</span><code>image</code></div>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;span class="material-symbols-outlined text-[20px]" aria-hidden="true"&gt;shopping_bag&lt;/span&gt;
+
+&lt;button type="button" aria-label="Sepeti ac" class="rounded-xl bg-zinc-100 p-3"&gt;
+  &lt;span class="material-symbols-outlined"&gt;shopping_bag&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="utility-classes">
+        <h2>Class Sozlugu</h2>
+        <p>Projede Tailwind 4 utility classlari kullanilir. Bu bolum yeni sayfa veya component yazarken en sik ihtiyac duyulan classlari hizli referans olarak toplar. Proje tokenlari <code>tailwind-config.css</code> icinden geldigi icin <code>bg-primary-container</code>, <code>text-primary</code>, <code>rounded-xl</code> gibi classlar tercih edilir.</p>
+
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Font Size / Text</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>text-xs</code></td><td>Badge, ust etiket, tablo yardimci metni.</td></tr>
+                <tr><td><code>text-sm</code></td><td>Buton, kart aciklamasi, form yardimci metni.</td></tr>
+                <tr><td><code>text-base</code></td><td>Input, select, normal govde metni.</td></tr>
+                <tr><td><code>text-lg</code></td><td>Kart ic basligi veya vurgulu aciklama.</td></tr>
+                <tr><td><code>text-xl</code></td><td>Modal/offcanvas basligi.</td></tr>
+                <tr><td><code>text-2xl</code></td><td>Sayfa alt basligi, fiyat alanlari.</td></tr>
+                <tr><td><code>text-[2.15rem]</code></td><td>Hediye ceki kart fiyatlari gibi ozel buyuk degerler.</td></tr>
+                <tr><td><code>font-medium</code></td><td>Ikincil metin ve aciklamalar.</td></tr>
+                <tr><td><code>font-bold</code></td><td>Form label, buton, liste satiri.</td></tr>
+                <tr><td><code>font-black</code></td><td>Fiyat, ana baslik, CTA vurgusu.</td></tr>
+                <tr><td><code>uppercase tracking-[0.18em]</code></td><td>Kicker, buton ve durum rozetleri.</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="doc-card">
+            <h3>Width / Height</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>w-full</code></td><td>Buton, input, card veya grid elemani tam genislik.</td></tr>
+                <tr><td><code>max-w-[1440px]</code></td><td>Ana container genisligi.</td></tr>
+                <tr><td><code>max-w-sm</code>, <code>max-w-xl</code></td><td>Form, filter, bilgi kutusu limitleri.</td></tr>
+                <tr><td><code>h-10</code>, <code>w-10</code></td><td>Ikon butonlari ve pagination kutulari.</td></tr>
+                <tr><td><code>h-11</code></td><td>Header logo veya aksiyon yuksekligi.</td></tr>
+                <tr><td><code>h-36</code></td><td>Kompakt urun karti logo alani.</td></tr>
+                <tr><td><code>h-[200px]</code></td><td>Hediye ceki kart gorsel alani.</td></tr>
+                <tr><td><code>min-h-64</code></td><td>Empty state minimum yuksekligi.</td></tr>
+                <tr><td><code>max-h-[90%]</code>, <code>max-w-[90%]</code></td><td>Logo gorsellerini kart icinde tasirmadan buyutme.</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="doc-grid mt-5">
+          <article class="doc-card">
+            <h3>Spacing / Padding / Margin</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>p-3</code></td><td>Urun karti ic boslugu, kompakt kart.</td></tr>
+                <tr><td><code>p-4</code></td><td>Sepet karti, alert, ozet kutusu.</td></tr>
+                <tr><td><code>p-5</code></td><td>Form karti, offcanvas body, filter bloklari.</td></tr>
+                <tr><td><code>px-4 py-3</code></td><td>Input ve select standardi.</td></tr>
+                <tr><td><code>px-5 py-3</code></td><td>Normal buton standardi.</td></tr>
+                <tr><td><code>px-7</code>, <code>px-8</code></td><td>Daha guclu CTA veya detay butonu.</td></tr>
+                <tr><td><code>gap-3</code>, <code>gap-4</code>, <code>gap-5</code></td><td>Form, kart grid ve satir araliklari.</td></tr>
+                <tr><td><code>mt-4</code>, <code>mt-5</code>, <code>mt-10</code></td><td>Componentler arasi dikey ritim.</td></tr>
+                <tr><td><code>mx-auto</code></td><td>Container veya handle ortalama.</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="doc-card">
+            <h3>Radius / Border / Shadow</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>rounded-xl</code></td><td>Projenin ana radius standardi: input, button, card.</td></tr>
+                <tr><td><code>rounded-full</code></td><td>Pill badge, status, step number.</td></tr>
+                <tr><td><code>rounded-t-xl</code></td><td>Card header veya section basligi.</td></tr>
+                <tr><td><code>rounded-bl-xl rounded-tr-xl</code></td><td>Kart kosesine yapisan ribbon.</td></tr>
+                <tr><td><code>border border-zinc-200</code></td><td>Soft card ve liste cizgisi.</td></tr>
+                <tr><td><code>border-2 border-primary/30</code></td><td>Hediye ceki kart vurgusu.</td></tr>
+                <tr><td><code>border-b border-zinc-200 last:border-b-0</code></td><td>Liste satir ayirici standardi.</td></tr>
+                <tr><td><code>shadow-sm</code></td><td>Hafif kart derinligi.</td></tr>
+                <tr><td><code>shadow-xl</code></td><td>Toast/offcanvas gibi yukseltilecek UI.</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="doc-grid mt-5">
+          <article class="doc-card">
+            <h3>Renk Classlari</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>bg-primary-container</code></td><td>CTA, footer call-to-action, aktif secim, ana buton.</td></tr>
+                <tr><td><code>text-primary</code></td><td>Ikon, aktif link, vurgu metni.</td></tr>
+                <tr><td><code>border-primary/30</code></td><td>Urun karti hafif marka border'i.</td></tr>
+                <tr><td><code>bg-zinc-950 text-white</code></td><td>Incele butonu ve koyu CTA.</td></tr>
+                <tr><td><code>bg-zinc-50</code></td><td>Card header, soft section, ozet kutusu.</td></tr>
+                <tr><td><code>text-zinc-950</code></td><td>Ana metin ve baslik.</td></tr>
+                <tr><td><code>text-zinc-500</code></td><td>Ikincil aciklama.</td></tr>
+                <tr><td><code>text-red-600</code></td><td>Silme, hizmet bedeli, hata metni.</td></tr>
+                <tr><td><code>bg-red-50 border-red-200</code></td><td>Kirmizi alert veya soft danger alan.</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="doc-card">
+            <h3>Layout / Responsive</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>grid grid-cols-12</code></td><td>Sayfa ana bolunmesi.</td></tr>
+                <tr><td><code>col-span-12 md:col-span-3</code></td><td>Index sol filtre alani.</td></tr>
+                <tr><td><code>col-span-12 md:col-span-9</code></td><td>Index sag urun alani.</td></tr>
+                <tr><td><code>md:col-span-4</code>, <code>md:col-span-8</code></td><td>Markalar sayfasinda kosullar/urun bolunmesi.</td></tr>
+                <tr><td><code>grid-cols-2 lg:grid-cols-3</code></td><td>Hediye ceki kart grid'i.</td></tr>
+                <tr><td><code>sm:grid-cols-2 lg:grid-cols-4</code></td><td>Genis component/kart dizilimleri.</td></tr>
+                <tr><td><code>hidden md:flex</code></td><td>Desktop'ta gorunen header aksiyonlari.</td></tr>
+                <tr><td><code>md:hidden</code></td><td>Mobil filtre/siralama butonlari.</td></tr>
+                <tr><td><code>flex flex-wrap items-center gap-4</code></td><td>Responsive satir aksiyonlari.</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="doc-grid mt-5">
+          <article class="doc-card">
+            <h3>Position / Z-index / Overflow</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>relative</code></td><td>Ribbon, absolute badge ve overlay icin parent.</td></tr>
+                <tr><td><code>absolute right-0 top-0</code></td><td>Kart ribbon konumu.</td></tr>
+                <tr><td><code>fixed inset-0</code></td><td>Offcanvas overlay.</td></tr>
+                <tr><td><code>z-50</code>, <code>z-80</code></td><td>Menu/offcanvas/overlay katmanlari.</td></tr>
+                <tr><td><code>overflow-hidden</code></td><td>Kart radiusu icinde gorsel ve ribbon kesimi.</td></tr>
+                <tr><td><code>overflow-y-auto</code></td><td>Sidebar, offcanvas body, uzun listeler.</td></tr>
+                <tr><td><code>object-contain</code></td><td>Logo gorselleri icin.</td></tr>
+                <tr><td><code>object-cover</code></td><td>Banner/slider gorselleri icin.</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="doc-card">
+            <h3>State / Hover / Focus</h3>
+            <table class="doc-table">
+              <thead><tr><th>Class</th><th>Kullanim</th></tr></thead>
+              <tbody>
+                <tr><td><code>hover:bg-primary-container</code></td><td>Siyah buton hover proje rengine doner.</td></tr>
+                <tr><td><code>hover:-translate-y-0.5</code></td><td>CTA icin hafif hareket.</td></tr>
+                <tr><td><code>transition-colors</code></td><td>Renk gecisleri.</td></tr>
+                <tr><td><code>transition-transform</code></td><td>Icon rotate, panel slide, hover hareketi.</td></tr>
+                <tr><td><code>focus:border-zinc-900 focus:ring-0</code></td><td>Input/select focus standardi.</td></tr>
+                <tr><td><code>cursor-pointer</code></td><td>Tiklanabilir liste satirlari.</td></tr>
+                <tr><td><code>pointer-events-none</code></td><td>Kapali panel/overlay pasif hali.</td></tr>
+                <tr><td><code>opacity-0</code>, <code>opacity-100</code></td><td>Panel fade gecisi.</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;article class="relative overflow-hidden rounded-xl border-2 border-primary/30 bg-white p-3 shadow-sm"&gt;
+  &lt;span class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary-container px-3 py-2 text-xs font-black uppercase text-white"&gt;%8 Hizmet&lt;/span&gt;
+  &lt;div class="flex h-[200px] items-center justify-center"&gt;
+    &lt;img class="max-h-[90%] max-w-[90%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner" /&gt;
+  &lt;/div&gt;
+  &lt;button class="mt-4 w-full rounded-xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-container"&gt;
+    Incele
+  &lt;/button&gt;
+&lt;/article&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="skeleton-tooltip">
+        <h2>Loading / Skeleton ve Tooltip</h2>
+        <p>Liste veya kart verisi gec geliyorsa bos alan yerine skeleton kullanilir. Ikon butonlar tek basina duruyorsa tooltip veya <code>aria-label</code> ile anlami desteklenir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Urun Karti Skeleton</h3>
+            <div class="rounded-xl border border-zinc-200 bg-white p-4">
+              <div class="doc-skeleton h-36 rounded-xl"></div>
+              <div class="mx-auto mt-5 h-8 w-32 rounded-xl doc-skeleton"></div>
+              <div class="mx-auto mt-3 h-5 w-24 rounded-xl doc-skeleton"></div>
+              <div class="mt-5 h-12 rounded-xl doc-skeleton"></div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Table Skeleton</h3>
+            <div class="grid gap-3">
+              <div class="h-12 rounded-xl doc-skeleton"></div>
+              <div class="h-12 rounded-xl doc-skeleton"></div>
+              <div class="h-12 rounded-xl doc-skeleton"></div>
+              <div class="h-12 rounded-xl doc-skeleton"></div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Tooltip</h3>
+            <div class="flex flex-wrap items-center gap-4">
+              <span class="doc-tooltip-wrap">
+                <button class="grid h-11 w-11 place-items-center rounded-xl bg-zinc-950 text-white" aria-label="Sepeti ac" type="button"><span class="material-symbols-outlined">shopping_bag</span></button>
+                <span class="doc-tooltip">Sepeti ac</span>
+              </span>
+              <span class="doc-tooltip-wrap">
+                <button class="grid h-11 w-11 place-items-center rounded-xl bg-primary-container text-white" aria-label="Bilgi" type="button"><span class="material-symbols-outlined">info</span></button>
+                <span class="doc-tooltip">Teslimat hakkinda bilgi</span>
+              </span>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Popover</h3>
+            <div class="relative inline-flex" data-doc-dropdown>
+              <button class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 px-5 py-3 text-sm font-black text-zinc-800" type="button" data-doc-dropdown-trigger>
+                Puan bilgisi
+                <span class="material-symbols-outlined text-[18px]">info</span>
+              </button>
+              <div class="doc-dropdown-panel" data-placement="right" data-doc-dropdown-panel>
+                <p class="px-3 py-2 text-sm leading-6 text-zinc-600">Puanlariniz hediye ceki ve altin urunlerinde kullanilabilir. Hizmet bedeli sepet toplaminda ayrica gosterilir.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;div class="rounded-xl border border-zinc-200 bg-white p-4"&gt;
+  &lt;div class="h-36 rounded-xl bg-zinc-200 animate-pulse"&gt;&lt;/div&gt;
+  &lt;div class="mt-5 h-12 rounded-xl bg-zinc-200 animate-pulse"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;button aria-label="Sepeti ac" class="rounded-xl bg-zinc-950 p-3 text-white"&gt;
+  &lt;span class="material-symbols-outlined"&gt;shopping_bag&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="do-dont">
+        <h2>Do / Don't</h2>
+        <p>Yeni sayfa veya component eklerken asagidaki kararlar projeyi tutarli tutar.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Do</h3>
+            <ul class="list-disc space-y-3 pl-5">
+              <li><code>rounded-xl</code> standardini input, button ve kartlarda koru.</li>
+              <li>Renkleri <code>tailwind-config.css</code> tokenlarindan kullan.</li>
+              <li>Header, sepet, chat ve policy davranislarini <code>shared.js</code> ile calistir.</li>
+              <li>Mobil/desktop gridleri ayri dusun; metin tasmasini kontrol et.</li>
+              <li>Silmeden once kullanilmayan dosyalari raporla.</li>
+              <li>Ikon butonlarda <code>aria-label</code> veya tooltip kullan.</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>Don't</h3>
+            <ul class="list-disc space-y-3 pl-5">
+              <li>Sayfa icinde tekrar eden header/offcanvas JS'i kopyalama.</li>
+              <li>Yeni sayfalarda gereksiz inline CSS yazma; bu dokuman istisna.</li>
+              <li>Proje ana rengini <code>shared.css</code> icinde direkt degistirme.</li>
+              <li>Kart icine gereksiz kart yerlestirme.</li>
+              <li>Danger aksiyonlarini proje rengiyle karistirma; kirmizi kullan.</li>
+              <li>Guest sayfalariyla normal sayfalarin CSS/JS standardini karistirma.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="troubleshooting">
+        <h2>Sik Hata Rehberi</h2>
+        <p>Projede en cok karsilasilan UI kirilmalarinda once ortak CSS/JS baglantisini, sonra componentin local classlarini kontrol et. Asagidaki tablo hizli cozum rotasi verir.</p>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Muhtemel Neden</th>
+              <th>Cozum Yolu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Header bozulmasi</strong></td>
+              <td>Header HTML'i eski kalmistir, <code>shared.css</code> veya <code>shared.js</code> sirasi degismistir.</td>
+              <td>Header bloklarini index standardi ile karsilastir. Arama kutusu, hesabim ve sepet alanlarinda <code>rounded-xl</code>, search button icin <code>bg-primary-container</code> ve ikon icin <code>text-search-button-icon</code> kullan.</td>
+            </tr>
+            <tr>
+              <td><strong>Hover rengi degismiyor</strong></td>
+              <td>Daha spesifik bir CSS selector'u hover classini eziyordur veya butonda eski inline style kalmistir.</td>
+              <td>Butonda once <code>bg-zinc-950 hover:bg-primary-container</code> gibi standart class kullan. Gerekirse <code>rg -n "hover:|!important|style=" sayfa.html shared.css</code> ile ezilen noktayi bul.</td>
+            </tr>
+            <tr>
+              <td><strong>Ribbon tasmasi</strong></td>
+              <td>Parent kart <code>relative</code> degildir, ribbon desktop konumu mobile aynen tasinmistir veya gorsel alan fazla dardir.</td>
+              <td>Karti <code>relative overflow-hidden</code> yap. Mobile ozel ribbon icin daha dar <code>right/top</code> degeri ve kucuk font kullan. Logo kapaniyorsa ribbon varyantini <code>status pill</code> veya <code>circle badge</code> olarak degistir.</td>
+            </tr>
+            <tr>
+              <td><strong>Mobil grid kirilmasi</strong></td>
+              <td>Sabit genislik, fazla padding veya uzun metin grid kolonunu tasirir.</td>
+              <td>Mobilde <code>grid-cols-2</code> veya <code>grid-cols-3</code> kullanirken kart ic paddingini dusur. Sabit <code>width</code> yerine <code>w-full max-w-...</code> tercih et ve metin boyutunu component olcegine gore ayarla.</td>
+            </tr>
+            <tr>
+              <td><strong>Offcanvas acilmiyor</strong></td>
+              <td>Trigger ile panel id/data attribute eslesmiyor veya <code>shared.js</code> yuklenmiyordur.</td>
+              <td>Sepet ve bize ulasin offcanvas triggerlarini index ile karsilastir. <code>shared.js</code> sayfa JS'inden sonra yuklenmeli ve kapatma butonlari ayni data attribute standardini kullanmali.</td>
+            </tr>
+            <tr>
+              <td><strong>Focus gorunmuyor</strong></td>
+              <td><code>outline: 0</code> uygulanmistir ama yerine focus border/ring eklenmemistir.</td>
+              <td>Input ve selectlerde <code>focus:border-zinc-900 focus:ring-0</code> standardini kullan. Butonlarda klavye erisimi icin en azindan belirgin border veya ring kalmali.</td>
+            </tr>
+            <tr>
+              <td><strong>Renk degisimi eksik kaldi</strong></td>
+              <td>Bazi alanlarda eski direkt renk veya eski kirmizi class kalmistir.</td>
+              <td>Once <code>tailwind-config.css</code> tokenlarini guncelle. Sonra <code>rg -n "red-|#fe0000|#dc|kirmizi" *.html shared.css page-js</code> ile proje renginden bagimsiz kalmasi gerekmeyen alanlari kontrol et. Danger aksiyonlari kirmizi kalabilir.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code># Hizli kontrol komutlari
+rg -n "tailwind-theme|page-css/doc|page-js/doc" .
+rg -n "style=|!important|red-|#fe0000" *.html shared.css page-js
+node --check page-js/index.js</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="state-catalog">
+        <h2>State Katalogu</h2>
+        <p>Componentler sadece normal gorunumden ibaret degildir. Loading, empty, selected, disabled, error, success ve expanded durumlari ayni radius, renk ve spacing standardini korumalidir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Selected / Active</h3>
+            <div class="grid gap-3">
+              <button class="flex items-center justify-between rounded-xl bg-primary-container px-4 py-3 text-left font-black text-white" type="button">Populer <span class="material-symbols-outlined">check</span></button>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-primary/30 bg-primary-container/5 px-4 py-3 font-bold text-primary"><input class="h-5 w-5 accent-primary" checked type="checkbox" /> Boyner secili</label>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Disabled</h3>
+            <div class="grid gap-3">
+              <button class="cursor-not-allowed rounded-xl bg-zinc-200 px-5 py-3 font-black text-zinc-500" disabled type="button">Pasif Buton</button>
+              <input class="cursor-not-allowed rounded-xl border border-zinc-200 bg-zinc-100 px-4 py-3 text-zinc-500" disabled value="Duzenlenemez alan" />
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Error</h3>
+            <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+              <div class="flex gap-3"><span class="material-symbols-outlined">error</span><div><strong>Islem tamamlanamadi</strong><p class="mt-1 text-sm">Lutfen zorunlu alanlari kontrol edin.</p></div></div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Success</h3>
+            <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800">
+              <div class="flex gap-3"><span class="material-symbols-outlined">check_circle</span><div><strong>Kaydedildi</strong><p class="mt-1 text-sm">Bilgileriniz basariyla guncellendi.</p></div></div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Loading</h3>
+            <div class="rounded-xl border border-zinc-200 bg-white p-4">
+              <div class="h-20 rounded-xl doc-skeleton"></div>
+              <div class="mt-4 h-4 w-2/3 rounded-full doc-skeleton"></div>
+              <div class="mt-2 h-4 w-1/2 rounded-full doc-skeleton"></div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Empty</h3>
+            <div class="rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-6 text-center">
+              <span class="material-symbols-outlined text-[34px] text-primary">inventory_2</span>
+              <p class="mt-3 font-headline text-xl font-black text-zinc-950">Kayit bulunamadi</p>
+              <p class="mt-1 text-sm text-zinc-500">Liste henuz bos.</p>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Expanded / Collapsed</h3>
+            <div class="rounded-xl border border-zinc-200 bg-white">
+              <div class="flex items-center justify-between px-4 py-3"><strong>Detaylar acik</strong><span class="material-symbols-outlined rotate-180 text-primary">keyboard_arrow_down</span></div>
+              <div class="border-t border-zinc-200 px-4 py-3 text-sm text-zinc-500">Accordion veya siparis detayi acik hali.</div>
+            </div>
+          </article>
+          <article class="doc-card">
+            <h3>Hover / Focus</h3>
+            <div class="grid gap-3">
+              <button class="rounded-xl bg-zinc-950 px-5 py-3 font-black text-white transition-colors hover:bg-primary-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950" type="button">Hover / Focus</button>
+              <input class="rounded-xl border border-zinc-300 px-4 py-3 focus:border-zinc-900 focus:ring-0" placeholder="Focus border siyah" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="page-references">
+        <h2>Gercek Sayfa Referanslari</h2>
+        <p>Bir componenti degistirmeden once hangi sayfada kullanildigini kontrol etmek gerekir. Bu tablo gercek HTML, CSS ve JS referanslarini hizli gosterir.</p>
+        <table class="doc-table">
+          <thead><tr><th>Component / Davranis</th><th>Kullanildigi Sayfalar</th><th>CSS / JS Referansi</th><th>Not</th></tr></thead>
+          <tbody>
+            <tr><td>Header arama, hesap, sepet</td><td><code>index.html</code>, <code>siparislerim.html</code>, hesap sayfalari</td><td><code>shared.css</code>, <code>shared.js</code></td><td>Id ve data attribute standardi korunur.</td></tr>
+            <tr><td>Hediye ceki kartlari</td><td><code>index.html</code>, <code>markalar.html</code></td><td><code>page-js/index.js</code>, <code>page-js/markalar.js</code>, <code>shared.css</code></td><td>Ribbon ve kart grid burada yogun kullanilir.</td></tr>
+            <tr><td>Marka accordion</td><td><code>index.html</code></td><td><code>shared.js</code>, <code>data-brand-accordion-*</code></td><td>Tumunu goster/kapat davranisi ortaktir.</td></tr>
+            <tr><td>Urun detay secimleri</td><td><code>urun-hediye.html</code>, <code>urun-altin.html</code></td><td><code>shared.js</code>, <code>data-variant-button</code>, <code>data-quantity-button</code></td><td>Tutar ve adet state'i shared tarafinda calisir.</td></tr>
+            <tr><td>Siparis kartlari</td><td><code>siparislerim.html</code></td><td><code>page-js/siparislerim.js</code></td><td>Mobil detay ac/kapat ve detay drawer burada.</td></tr>
+            <tr><td>Sepet offcanvas</td><td>Tum normal HTML sayfalari</td><td><code>#cartButton</code>, <code>#cartModal</code>, <code>data-cart-close</code>, <code>shared.js</code></td><td>Sepet icerigi tum sayfalarda ayni kalmali.</td></tr>
+            <tr><td>Bize Ulasin offcanvas</td><td>Footer CTA olan sayfalar</td><td><code>#chatLauncher</code>, <code>#chatModal</code>, <code>data-chat-close</code></td><td>Form focus ve warning alert standardi korunur.</td></tr>
+            <tr><td>Guest form sayfalari</td><td><code>login.html</code>, <code>verify-otp.html</code>, <code>cuzdanlar.html</code></td><td><code>shared-guest.css</code>, <code>page-js/login.js</code>, <code>page-js/verify-otp.js</code></td><td>Normal <code>shared.css</code> ile karistirilmaz.</td></tr>
+            <tr><td>Dokumantasyon componentleri</td><td><code>doc.html</code></td><td>Inline <code>&lt;style&gt;</code> ve inline <code>&lt;script&gt;</code></td><td>Doc icin ayri CSS/JS dosyasi yok.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section" id="shared-js">
+        <h2>Shared JS Kullanimi</h2>
+        <p><code>shared.js</code> normal sayfalarda mutlaka sayfaya ozel JS dosyasindan sonra yuklenmelidir. Boylece sayfaya ozel render islemleri tamamlanir, ortak davranislar sonradan baglanir.</p>
+        <table class="doc-table">
+          <thead><tr><th>Fonksiyon</th><th>Ne yapar?</th><th>Gerekli HTML</th></tr></thead>
+          <tbody>
+            <tr><td><code>initAccountMenu</code></td><td>Hesabim menu hover/click davranisi.</td><td><code>#accountMenuButton</code>, <code>#accountMenuPanel</code></td></tr>
+            <tr><td><code>initSlidePanel</code></td><td>Sepet ve bize ulasin offcanvas.</td><td>Trigger, modal, panel, close data attribute.</td></tr>
+            <tr><td><code>initPolicyPanel</code></td><td>Aydinlatma ve cerez panel metni.</td><td><code>data-policy-type</code></td></tr>
+            <tr><td><code>initProductDetailControls</code></td><td>Urun tutar ve adet secimi.</td><td><code>data-variant-button</code>, <code>data-quantity-button</code></td></tr>
+            <tr><td><code>initBrandAccordion</code></td><td>Index/markalar marka accordion.</td><td><code>data-brand-accordion-*</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section" id="page-js">
+        <h2>Sayfa JS Kurallari</h2>
+        <p>Sayfa JS dosyalari sadece sayfanin kendi veri setini ve kendi componentlerini yonetmelidir. Header, sepet, chat, policy gibi tekrar eden davranislar sayfa JS dosyasina yazilmaz.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Dogru</h3>
+            <div class="doc-code"><pre><code>const phoneGrid = document.getElementById('phoneGrid');
+const phones = [...];
+const renderPhones = () =&gt; { ... };</code></pre></div>
+          </article>
+          <article class="doc-card">
+            <h3>Yanlis</h3>
+            <div class="doc-code"><pre><code>const cartModal = document.getElementById('cartModal');
+const openCartModal = () =&gt; { ... };
+// Bu shared.js icinde olmali.</code></pre></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="plugins">
+        <h2>JS Eklentileri</h2>
+        <p>Projeye harici kutuphane eklerken sadece ihtiyac olan sayfada yuklenmelidir. Global eklemek gerekiyorsa once etkisi dokumante edilmeli. SweetAlert gibi confirm/alert replacement'lari aksiyon onaylari icin uygundur.</p>
+        <h3 class="mt-6 font-headline text-xl font-extrabold">SweetAlert2 kurulumu</h3>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"&gt;&lt;/script&gt;</code></pre></div>
+        <h3 class="mt-6 font-headline text-xl font-extrabold">Silme onayi ornegi</h3>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>async function confirmDeleteAddress(label) {
+  const result = await Swal.fire({
+    title: 'Adresi silmek istiyor musunuz?',
+    text: `${label} kaydi silinecek.`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Evet, Sil',
+    cancelButtonText: 'Vazgec',
+    confirmButtonColor: getComputedStyle(document.documentElement)
+      .getPropertyValue('--hdm-color-error').trim() || '#ba1a1a',
+    cancelButtonColor: '#18181b',
+    customClass: {
+      popup: 'rounded-xl',
+      confirmButton: 'rounded-xl',
+      cancelButton: 'rounded-xl'
+    }
+  });
+
+  return result.isConfirmed;
+}</code></pre></div>
+        <h3 class="mt-6 font-headline text-xl font-extrabold">Basarili form mesaji</h3>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>Swal.fire({
+  title: 'Kaydedildi',
+  text: 'Bilgileriniz basariyla guncellendi.',
+  icon: 'success',
+  confirmButtonText: 'Tamam',
+  confirmButtonColor: getComputedStyle(document.documentElement)
+    .getPropertyValue('--hdm-color-primary-container').trim()
+});</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="validation">
+        <h2>Form Validasyon</h2>
+        <p>Basit validasyonlar HTML required ve sayfa JS ile yapilabilir. Hata metinleri input altinda gosterilmeli; sadece alert'e guvenilmemeli. Telefon/OTP gibi akislarda formatlama JS tarafinda kalabilir.</p>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>const form = document.getElementById('contactForm');
+const emailInput = document.getElementById('email');
+const errorText = document.getElementById('emailError');
+
+form.addEventListener('submit', (event) =&gt; {
+  event.preventDefault();
+
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+  errorText.classList.toggle('hidden', isEmailValid);
+  emailInput.classList.toggle('border-red-500', !isEmailValid);
+
+  if (!isEmailValid) return;
+  form.submit();
+});</code></pre></div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>function formatPhone(raw) {
+  const digits = raw.replace(/\D/g, '').slice(0, 11);
+  if (!digits) return '';
+  const normalized = digits.startsWith('0') ? digits : `0${digits}`;
+  return normalized
+    .slice(0, 11)
+    .replace(/(\d{4})(\d{3})(\d{2})(\d{0,2})/, (_, a, b, c, d) =&gt;
+      [a, b, c, d].filter(Boolean).join(' ')
+    );
+}</code></pre></div>
+      </section>
+
+      <section class="doc-section" id="checklist">
+        <h2>Kontrol Listesi</h2>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Tasarim QA</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Mobil ve desktop gorunumde text tasmasi yok.</li>
+              <li>Radiuslar <code>rounded-xl</code> standardinda.</li>
+              <li>Buton hover rengi dogru.</li>
+              <li>Header arama, hesap ve sepet ayni standartta.</li>
+              <li>Footer CTA <code>bg-primary-container</code>.</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>Teknik QA</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Sayfa JS icinde ortak offcanvas/header kodu yok.</li>
+              <li><code>node --check page-js/dosya.js</code> geciyor.</li>
+              <li>Yeni dosya eklendiyse HTML'de dogru sirada yukleniyor.</li>
+              <li>Inline CSS/JS sadece ozel durumlarda kullaniliyor.</li>
+              <li>Kullanilmayan dosyalar raporlanmadan silinmiyor.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="doc-section" id="review-checklist">
+        <h2>Kod Inceleme Checklist'i</h2>
+        <p>Her degisiklikten sonra bu listeyle hizli review yapilir. Amac tasarim tutarliligi, islev kaybi olmamasi ve ortak kodun tekrar edilmemesidir.</p>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>HTML Review</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Header/footer/offcanvas yapisi sayfa standardiyla uyumlu mu?</li>
+              <li>Tekrarlayan elementlerde <code>rounded-xl</code> korunmus mu?</li>
+              <li>Icon-only butonlarda <code>aria-label</code> var mi?</li>
+              <li>Accordion/dropdown/modal icin <code>aria-expanded</code> veya <code>aria-hidden</code> dusunulmus mu?</li>
+              <li>Gorsellerde <code>alt</code> metni var mi?</li>
+              <li>Mobilde siralama ve okuma akisi mantikli mi?</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>CSS / Tailwind Review</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Renkler tokenlardan mi geliyor?</li>
+              <li><code>shared.css</code> icine sadece ortak davranis mi eklendi?</li>
+              <li>Doc haric inline CSS eklenmedi mi?</li>
+              <li>Mobil/desktop breakpointleri ayni component icin tutarli mi?</li>
+              <li>Text tasmasi, button icinde kirilma veya kart yukseklik kaymasi var mi?</li>
+              <li>Danger aksiyonlari proje rengi yerine kirmizi mi?</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>JS Review</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Header, sepet, bize ulasin, policy gibi ortak kodlar sayfa JS'ine kopyalanmadi mi?</li>
+              <li>Sayfa JS dosyasi sadece kendi sayfasina ozel mi?</li>
+              <li><code>node --check page-js/dosya.js</code> temiz mi?</li>
+              <li>Event listener'lar ilgili element yoksa sessizce cikiyor mu?</li>
+              <li>Render edilen HTML'de data attribute'lar korunuyor mu?</li>
+              <li>Guest sayfalarina normal shared davranisi karistirilmadi mi?</li>
+            </ul>
+          </article>
+          <article class="doc-card">
+            <h3>Regression Review</h3>
+            <ul class="list-disc space-y-2 pl-5">
+              <li>Mobil ve desktop ekranlarda ana akislara bakildi mi?</li>
+              <li>Sepet ac/kapat, chat ac/kapat, hesap menu calisiyor mu?</li>
+              <li>Filtreler, siralama, accordion ve pagination davranisi korunuyor mu?</li>
+              <li>Urun detayinda tutar/adet secimi calisiyor mu?</li>
+              <li>Siparislerimde detay ac/kapat ve detay drawer calisiyor mu?</li>
+              <li>Kullanilmayan dosya silinecekse once raporlandi mi?</li>
+            </ul>
+          </article>
+        </div>
+        <div class="doc-code"><button class="doc-copy" type="button">Kopyala</button><pre><code>Review sirasi:
+1. HTML yapisini ve data attribute'lari kontrol et.
+2. Mobil/desktop tasma ve hizalama kontrolu yap.
+3. Ortak JS tekrarini ara.
+4. node --check page-js/[dosya].js calistir.
+5. Degisen sayfada header, sepet, chat ve ana CTA davranislarini test et.</code></pre></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const sidebar = document.querySelector('[data-doc-sidebar]');
+      const menuButton = document.querySelector('[data-doc-menu]');
+      const navLinks = Array.from(document.querySelectorAll('.doc-nav a'));
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      menuButton?.addEventListener('click', () => {
+        sidebar?.classList.toggle('is-open');
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          sidebar?.classList.remove('is-open');
+        });
+      });
+
+      const setActiveNav = () => {
+        let activeId = sections[0]?.id;
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top <= 140) {
+            activeId = section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`);
+        });
+      };
+
+      document.addEventListener('scroll', setActiveNav, { passive: true });
+      setActiveNav();
+
+      document.querySelectorAll('.doc-code').forEach((block) => {
+        const button = block.querySelector('.doc-copy');
+        const code = block.querySelector('code');
+        if (!button || !code) return;
+
+        button.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(code.textContent.trim());
+            button.textContent = 'Kopyalandi';
+            window.setTimeout(() => {
+              button.textContent = 'Kopyala';
+            }, 1200);
+          } catch (error) {
+            button.textContent = 'Secerek kopyala';
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-doc-slider]').forEach((slider) => {
+        const track = slider.querySelector('[data-doc-slider-track]');
+        const buttons = Array.from(slider.querySelectorAll('[data-doc-slide-to]'));
+        if (!track || buttons.length === 0) return;
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const index = Number(button.dataset.docSlideTo || 0);
+            track.style.transform = `translateX(-${index * 100}%)`;
+            buttons.forEach((item) => {
+              item.classList.toggle('is-active', item === button);
+            });
+          });
+        });
+      });
+
+      const demoPanel = document.querySelector('[data-doc-panel]');
+      const openDemoPanel = document.querySelector('[data-doc-open-panel]');
+      const closeDemoPanelButtons = document.querySelectorAll('[data-doc-close-panel]');
+
+      openDemoPanel?.addEventListener('click', () => {
+        demoPanel?.classList.add('is-open');
+        document.body.classList.add('overflow-hidden');
+      });
+
+      closeDemoPanelButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          demoPanel?.classList.remove('is-open');
+          document.body.classList.remove('overflow-hidden');
+        });
+      });
+
+      demoPanel?.addEventListener('click', (event) => {
+        if (event.target !== demoPanel) return;
+        demoPanel.classList.remove('is-open');
+        document.body.classList.remove('overflow-hidden');
+      });
+
+      document.querySelectorAll('[data-doc-tabs]').forEach((tabs) => {
+        const buttons = Array.from(tabs.querySelectorAll('[data-doc-tab]'));
+        const panels = Array.from(tabs.querySelectorAll('[data-doc-tab-panel]'));
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const target = button.dataset.docTab;
+            buttons.forEach((item) => {
+              const isActive = item === button;
+              item.classList.toggle('bg-primary-container', isActive);
+              item.classList.toggle('text-white', isActive);
+              item.classList.toggle('text-zinc-700', !isActive);
+            });
+            panels.forEach((panel) => {
+              panel.classList.toggle('is-active', panel.dataset.docTabPanel === target);
+            });
+          });
+        });
+      });
+
+      const bottomSheet = document.querySelector('[data-doc-sheet]');
+      const openBottomSheet = document.querySelector('[data-doc-open-sheet]');
+      const closeBottomSheetButtons = document.querySelectorAll('[data-doc-close-sheet]');
+
+      openBottomSheet?.addEventListener('click', () => {
+        bottomSheet?.classList.add('is-open');
+        document.body.classList.add('overflow-hidden');
+      });
+
+      closeBottomSheetButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          bottomSheet?.classList.remove('is-open');
+          document.body.classList.remove('overflow-hidden');
+        });
+      });
+
+      bottomSheet?.addEventListener('click', (event) => {
+        if (event.target !== bottomSheet) return;
+        bottomSheet.classList.remove('is-open');
+        document.body.classList.remove('overflow-hidden');
+      });
+
+      const toast = document.querySelector('[data-doc-toast]');
+      const toastButtons = document.querySelectorAll('[data-doc-show-toast]');
+      let toastTimer = null;
+      const toastContent = {
+        success: {
+          icon: 'check_circle',
+          className: 'bg-zinc-950 text-white',
+          iconClass: 'text-emerald-400',
+          text: 'Islem basariyla tamamlandi.'
+        },
+        warning: {
+          icon: 'info',
+          className: 'border border-amber-200 bg-amber-50 text-amber-950',
+          iconClass: 'text-amber-600',
+          text: 'Teslimat icin telefon secimi gerekli.'
+        },
+        danger: {
+          icon: 'error',
+          className: 'border border-red-200 bg-red-50 text-red-700',
+          iconClass: 'text-red-600',
+          text: 'Islem tamamlanamadi, lutfen tekrar deneyin.'
+        }
+      };
+
+      toastButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          if (!toast) return;
+          const type = button.dataset.toastType || 'success';
+          const content = toastContent[type] || toastContent.success;
+          toast.className = `doc-toast is-open ${content.className}`;
+          toast.innerHTML = `<span class="material-symbols-outlined text-[20px] ${content.iconClass}">${content.icon}</span><span class="text-sm font-bold">${content.text}</span>`;
+          clearTimeout(toastTimer);
+          toastTimer = window.setTimeout(() => {
+            toast.classList.remove('is-open');
+          }, 1800);
+        });
+      });
+
+      document.querySelectorAll('[data-doc-dropdown]').forEach((dropdown) => {
+        const trigger = dropdown.querySelector('[data-doc-dropdown-trigger]');
+        const panel = dropdown.querySelector('[data-doc-dropdown-panel]');
+        if (!trigger || !panel) return;
+
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          document.querySelectorAll('[data-doc-dropdown-panel]').forEach((item) => {
+            if (item !== panel) item.classList.remove('is-open');
+          });
+          panel.classList.toggle('is-open');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        document.querySelectorAll('[data-doc-dropdown-panel]').forEach((panel) => {
+          panel.classList.remove('is-open');
+        });
+      });
+
+      const modal = document.querySelector('[data-doc-modal]');
+      const openModal = document.querySelector('[data-doc-open-modal]');
+      const closeModalButtons = document.querySelectorAll('[data-doc-close-modal]');
+
+      openModal?.addEventListener('click', () => {
+        modal?.classList.add('is-open');
+        document.body.classList.add('overflow-hidden');
+      });
+
+      closeModalButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          modal?.classList.remove('is-open');
+          document.body.classList.remove('overflow-hidden');
+        });
+      });
+
+      modal?.addEventListener('click', (event) => {
+        if (event.target !== modal) return;
+        modal.classList.remove('is-open');
+        document.body.classList.remove('overflow-hidden');
+      });
+
+      document.querySelectorAll('[data-doc-accordion]').forEach((accordion) => {
+        const triggers = Array.from(accordion.querySelectorAll('[data-doc-accordion-trigger]'));
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener('click', () => {
+            const item = trigger.closest('article');
+            const panel = item?.querySelector('[data-doc-accordion-panel]');
+            const icon = item?.querySelector('[data-doc-accordion-icon]');
+            const isOpen = panel && !panel.classList.contains('hidden');
+
+            panel?.classList.toggle('hidden', isOpen);
+            icon?.classList.toggle('rotate-180', !isOpen);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -39,7 +39,8 @@
         image: './assets/brands/opet-logo.png',
         feePoints: 160,
         serviceRate: '%8',
-        ribbonStyle: 'header'
+        ribbonStyle: 'header',
+        mobileRibbonStyle: 'corner'
       },
       {
         name: 'Opet',
@@ -48,7 +49,8 @@
         image: './assets/brands/opet-logo.png',
         feePoints: 160,
         serviceRate: '%8',
-        ribbonStyle: 'header'
+        ribbonStyle: 'header',
+        mobileRibbonStyle: 'corner'
       },
       {
         name: 'HepsiBurada',
@@ -56,7 +58,8 @@
         price: '1.500 TL',
         image: './assets/brands/hepsiburada-logo.png',
         feePoints: 45,
-        serviceRate: '%3'
+        serviceRate: '%3',
+        mobileRibbonStyle: 'status'
       },
       {
         name: 'HepsiBurada',
@@ -64,7 +67,8 @@
         price: '150.000 TL',
         image: './assets/brands/hepsiburada-logo.png',
         feePoints: 4500,
-        serviceRate: '%3'
+        serviceRate: '%3',
+        mobileRibbonStyle: 'status'
       },
       {
         name: 'Migros',
@@ -87,7 +91,8 @@
         description: '1 GR (24 Ayar) Altın',
         image: './assets/brands/genc-altin-logo.png',
         feePoints: 872,
-        serviceRate: '12%'
+        serviceRate: '12%',
+        mobileRibbonStyle: 'circle'
       },
       {
         name: 'Genç Altın',
@@ -96,7 +101,8 @@
         description: '2.5 GR (24 Ayar) Altın',
         image: './assets/brands/genc-altin-logo.png',
         feePoints: 2180,
-        serviceRate: '12%'
+        serviceRate: '12%',
+        mobileRibbonStyle: 'circle'
       },
       {
         name: 'Boyner',
@@ -117,7 +123,8 @@
         image: './assets/brands/CarrefourSA-logo.png',
         feePoints: 1000,
         serviceRate: '%8',
-        ribbonStyle: 'side'
+        ribbonStyle: 'side',
+        mobileRibbonStyle: 'status'
       },
       {
         name: 'CarrefourSA',
@@ -126,7 +133,8 @@
         image: './assets/brands/CarrefourSA-logo.png',
         feePoints: 1000,
         serviceRate: '%8',
-        ribbonStyle: 'side'
+        ribbonStyle: 'side',
+        mobileRibbonStyle: 'circle'
       },
       {
         name: 'Mavi',
@@ -237,7 +245,7 @@
           ${item.feePoints ? isListLayout ? `
             <span class="inline-flex w-max rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-primary">${item.serviceRate || '%8'} Hizmet Bedeli</span>
           ` : `
-            <div class="service-ribbon service-ribbon--burst" aria-label="${item.serviceRate || '%8'} hizmet bedeli">
+            <div class="service-ribbon service-ribbon--burst service-ribbon--mobile-${item.mobileRibbonStyle || 'corner'}" aria-label="${item.serviceRate || '%8'} hizmet bedeli">
               <span class="service-ribbon__text">
                 <span class="service-ribbon__percent">${item.serviceRate || '%8'}</span>
                 <span class="service-ribbon__label">Hizmet</span>
