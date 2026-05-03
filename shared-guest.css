@@ -251,6 +251,11 @@ body.guest-page {
   isolation: isolate;
 }
 
+.guest-auth-page .guest-auth-primary-orb {
+  background-color: color-mix(in srgb, var(--hdm-color-primary-container) 18%, white);
+  opacity: 0.55;
+}
+
 .guest-auth-page .otp-code-input::-webkit-outer-spin-button,
 .guest-auth-page .otp-code-input::-webkit-inner-spin-button {
   appearance: none;

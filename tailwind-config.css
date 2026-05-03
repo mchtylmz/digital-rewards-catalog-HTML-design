@@ -21,11 +21,11 @@
     Renk degisimi yaparken once bu alani guncelleyin.
   ============================================================================
   */
-  --hdm-color-primary: #ce002c;
-  --hdm-color-primary-container: #ce002c;
-  --hdm-color-primary-fixed: #ce002c;
-  --hdm-color-primary-fixed-dim: #ce002c;
-  --hdm-color-inverse-primary: #ce002c;
+  --hdm-color-primary: #00B0F0;
+  --hdm-color-primary-container: #00B0F0;
+  --hdm-color-primary-fixed: #002677;
+  --hdm-color-primary-fixed-dim: #002677;
+  --hdm-color-inverse-primary: #002677;
   --hdm-color-search-button-icon: #ffffff;
 
   --hdm-color-on-tertiary-fixed-variant: #004788;
