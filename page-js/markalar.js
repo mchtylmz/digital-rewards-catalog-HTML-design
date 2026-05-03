@@ -1,23 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const brandAccordionToggle = document.querySelector('[data-brand-accordion-toggle]');
-  const brandAccordion = document.querySelector('.brand-accordion');
-  const brandAccordionPanel = document.querySelector('[data-brand-accordion-panel]');
-  const brandAccordionLabel = document.querySelector('[data-brand-accordion-label]');
-  const brandAccordionIcon = document.querySelector('[data-brand-accordion-icon]');
   const brandProductGrid = document.getElementById('brandProductGrid');
-
-  brandAccordionToggle?.addEventListener('click', () => {
-    const isExpanded = brandAccordionToggle.getAttribute('aria-expanded') === 'true';
-    brandAccordionToggle.setAttribute('aria-expanded', String(!isExpanded));
-    brandAccordion?.classList.toggle('is-expanded', !isExpanded);
-    brandAccordionPanel?.classList.toggle('is-open', !isExpanded);
-
-    if (brandAccordionLabel) {
-      brandAccordionLabel.textContent = isExpanded ? 'Tümünü Göster' : 'Daha Az Göster';
-    }
-
-    brandAccordionIcon?.classList.toggle('rotate-180', !isExpanded);
-  });
 
   const productItems = [
     { name: 'Boyner', price: '250 TL', image: './assets/brands/boyner-logo.png' },
@@ -29,9 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Boyner', price: '2.500 TL', image: './assets/brands/boyner-logo.png' },
     { name: 'Boyner', price: '3.000 TL', image: './assets/brands/boyner-logo.png' },
     { name: 'Boyner', price: '4.000 TL', image: './assets/brands/boyner-logo.png' },
-    { name: 'Boyner', price: '5.000 TL', image: './assets/brands/boyner-logo.png' },
-    { name: 'Boyner', price: '7.500 TL', image: './assets/brands/boyner-logo.png' },
-    { name: 'Boyner', price: '10.000 TL', image: './assets/brands/boyner-logo.png' }
+    { name: 'Boyner', price: '5.000 TL', image: './assets/brands/boyner-logo.png' }
   ];
 
   if (brandProductGrid) {
