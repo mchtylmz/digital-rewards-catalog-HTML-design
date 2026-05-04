@@ -298,10 +298,27 @@
     const filtersPanelBackdrop = document.getElementById('filtersPanelBackdrop');
     const filtersPanelSheet = document.getElementById('filtersPanelSheet');
     const mobileFiltersClose = document.getElementById('mobileFiltersClose');
+    const advancedFiltersPanel = document.getElementById('advancedFiltersPanel');
+    const mobileSelectedFilters = document.getElementById('mobileSelectedFilters');
+    const mobileSelectedFiltersList = mobileSelectedFilters?.querySelector('[data-selected-filter-list]');
     const brandFilterList = document.querySelector('[data-brand-filter-list]');
     const brandFilterToggle = document.querySelector('[data-brand-filter-toggle]');
     const brandFilterToggleLabel = document.querySelector('[data-brand-filter-toggle-label]');
     const brandFilterToggleIcon = document.querySelector('[data-brand-filter-toggle-icon]');
+    const filterAccordionToggles = document.querySelectorAll('[data-filter-accordion-toggle]');
+
+    filterAccordionToggles.forEach((toggle) => {
+      const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      const icon = toggle.querySelector('[data-filter-accordion-icon]');
+      toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isExpanded));
+        panel?.classList.toggle('hidden', isExpanded);
+        if (icon) {
+          icon.textContent = isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_up';
+        }
+      });
+    });
 
     brandFilterToggle?.addEventListener('click', () => {
       const isExpanded = brandFilterToggle.getAttribute('aria-expanded') === 'true';
@@ -326,6 +343,26 @@
       balanceOnly: Boolean(balanceFilterCheckbox?.checked),
     });
 
+    const brandMatchesUsage = (brandName, usageModes = []) => {
+      if (!usageModes.length) return true;
+      const meta = productMeta[brandName] || {};
+      return usageModes.some((value) => meta.usageModes?.includes(value));
+    };
+
+    const updateBrandOptionsByUsage = () => {
+      const usageModes = getCheckedValues(usageCheckboxes);
+      brandOptions.forEach((option) => {
+        const brandName = option.dataset.brandName || '';
+        const isVisible = brandMatchesUsage(brandName, usageModes);
+        option.classList.toggle('hidden', !isVisible);
+
+        const checkbox = option.querySelector('[data-brand-checkbox]');
+        if (!isVisible && checkbox) {
+          checkbox.checked = false;
+        }
+      });
+    };
+
     const hasActiveFilters = (filters) =>
       filters.brands.length > 0 || filters.usageModes.length > 0 || filters.categories.length > 0 || filters.balanceOnly;
 
@@ -346,6 +383,42 @@
       filterStatus.classList.toggle('hidden', !active);
     };
 
+    const usageLabelMap = {
+      online: 'Online',
+      store: 'Mağaza',
+      delivery: 'Adrese Teslim',
+    };
+
+    const categoryLabelMap = {
+      giyim: 'Giyim',
+      market: 'Market',
+      yakit: 'Yakıt',
+      turizm: 'Turizm',
+      elektronik: 'Elektronik',
+      'kucuk-ev-aletleri': 'Küçük Ev Aletleri',
+      spor: 'Spor',
+      kozmetik: 'Kozmetik',
+      kitap: 'Kitap',
+      oyun: 'Oyun',
+      teknoloji: 'Teknoloji',
+      'ev-yasam': 'Ev ve Yaşam',
+    };
+
+    const renderMobileSelectedFilters = (filters) => {
+      if (!mobileSelectedFilters || !mobileSelectedFiltersList) return;
+      const chips = [
+        ...filters.usageModes.map((value) => `Kullanım Alanı: ${usageLabelMap[value] || value}`),
+        ...filters.brands.map((value) => `Marka: ${value}`),
+        ...filters.categories.map((value) => `Kategori: ${categoryLabelMap[value] || value}`),
+        ...(filters.balanceOnly ? ['Bakiye: Uygun Olanlar'] : []),
+      ];
+
+      mobileSelectedFilters.classList.toggle('hidden', !chips.length);
+      mobileSelectedFiltersList.innerHTML = chips.map((chip) => `
+        <span class="inline-flex rounded-xl bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">${chip}</span>
+      `).join('');
+    };
+
     const updateResetFiltersButtonVisibility = () => {
       if (!resetFiltersButton) return;
       const active = hasActiveFilters(getActiveFilters());
@@ -354,9 +427,11 @@
     };
 
     const applyFilters = () => {
+      updateBrandOptionsByUsage();
       const filters = getActiveFilters();
       renderProducts(filterProducts(filters));
       updateFilterStatus(hasActiveFilters(filters));
+      renderMobileSelectedFilters(filters);
       updateResetFiltersButtonVisibility();
     };
 
@@ -375,35 +450,34 @@
     };
 
     const openMobileFilters = () => {
-      if (window.innerWidth >= 768 || !filtersPanel || !filtersPanelBackdrop || !filtersPanelSheet) return;
-      filtersPanel.classList.remove('hidden');
+      if (window.innerWidth >= 768 || !advancedFiltersPanel) return;
+      advancedFiltersPanel.classList.remove('hidden');
+      filtersPanelBackdrop?.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
-
       requestAnimationFrame(() => {
-        filtersPanelBackdrop.classList.remove('opacity-0');
-        filtersPanelBackdrop.classList.add('opacity-100');
-        filtersPanelSheet.classList.remove('translate-y-full');
-        filtersPanelSheet.classList.add('translate-y-0');
+        filtersPanelBackdrop?.classList.remove('opacity-0');
+        filtersPanelBackdrop?.classList.add('opacity-100');
+        advancedFiltersPanel.classList.remove('translate-y-full');
+        advancedFiltersPanel.classList.add('translate-y-0');
       });
-
       setMobileFiltersState(true);
     };
 
     const closeMobileFilters = () => {
-      if (window.innerWidth >= 768 || !filtersPanel || !filtersPanelBackdrop || !filtersPanelSheet) return;
-
-      filtersPanelBackdrop.classList.remove('opacity-100');
-      filtersPanelBackdrop.classList.add('opacity-0');
-      filtersPanelSheet.classList.remove('translate-y-0');
-      filtersPanelSheet.classList.add('translate-y-full');
-      document.body.classList.remove('overflow-hidden');
+      if (window.innerWidth < 768) {
+        advancedFiltersPanel?.classList.remove('translate-y-0');
+        advancedFiltersPanel?.classList.add('translate-y-full');
+        filtersPanelBackdrop?.classList.remove('opacity-100');
+        filtersPanelBackdrop?.classList.add('opacity-0');
+        document.body.classList.remove('overflow-hidden');
+        window.setTimeout(() => {
+          if (window.innerWidth < 768) {
+            advancedFiltersPanel?.classList.add('hidden');
+            filtersPanelBackdrop?.classList.add('hidden');
+          }
+        }, 300);
+      }
       setMobileFiltersState(false);
-
-      window.setTimeout(() => {
-        if (window.innerWidth < 768) {
-          filtersPanel.classList.add('hidden');
-        }
-      }, 300);
     };
 
     const resetFilters = () => {
@@ -450,11 +524,22 @@
 
       renderProducts(productCatalog);
       updateFilterStatus(false);
+      renderMobileSelectedFilters(getActiveFilters());
       updateResetFiltersButtonVisibility();
     };
 
     renderProducts(productCatalog);
+    updateBrandOptionsByUsage();
+    renderMobileSelectedFilters(getActiveFilters());
     updateResetFiltersButtonVisibility();
+    if (window.innerWidth < 768) {
+      advancedFiltersPanel?.classList.add('hidden', 'translate-y-full');
+      advancedFiltersPanel?.classList.remove('translate-y-0');
+      filtersPanelBackdrop?.classList.add('hidden', 'opacity-0');
+      filtersPanelBackdrop?.classList.remove('opacity-100');
+      document.body.classList.remove('overflow-hidden');
+      setMobileFiltersState(false);
+    }
 
     if (applyFiltersButton) {
       applyFiltersButton.addEventListener('click', () => {
@@ -469,7 +554,11 @@
       resetFiltersButton.addEventListener('click', resetFilters);
     }
 
-    [...brandCheckboxes, ...usageCheckboxes, ...sectorCheckboxes].forEach((input) => {
+    [...brandCheckboxes, ...usageCheckboxes].forEach((input) => {
+      input.addEventListener('change', applyFilters);
+    });
+
+    sectorCheckboxes.forEach((input) => {
       input.addEventListener('change', updateResetFiltersButtonVisibility);
     });
 
@@ -510,7 +599,18 @@
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         document.body.classList.remove('overflow-hidden');
+        advancedFiltersPanel?.classList.remove('hidden');
+        advancedFiltersPanel?.classList.remove('translate-y-full');
+        advancedFiltersPanel?.classList.add('translate-y-0');
+        filtersPanelBackdrop?.classList.add('hidden', 'opacity-0');
+        filtersPanelBackdrop?.classList.remove('opacity-100');
         setMobileFiltersState(false);
+      } else if (mobileFiltersToggle?.getAttribute('aria-expanded') !== 'true') {
+        advancedFiltersPanel?.classList.add('hidden', 'translate-y-full');
+        advancedFiltersPanel?.classList.remove('translate-y-0');
+        filtersPanelBackdrop?.classList.add('hidden', 'opacity-0');
+        filtersPanelBackdrop?.classList.remove('opacity-100');
+        document.body.classList.remove('overflow-hidden');
       }
     });
 

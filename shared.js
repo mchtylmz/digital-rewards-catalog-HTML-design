@@ -12,6 +12,48 @@
 
   const qs = (selector, root = document) => root.querySelector(selector);
   const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  function getFocusableElements(root) {
+    if (!root) return [];
+    return qsa(focusableSelector, root).filter((element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 || rect.height > 0;
+    });
+  }
+
+  function focusFirstInteractive(root) {
+    const first = getFocusableElements(root)[0];
+    (first || root)?.focus?.({ preventScroll: true });
+  }
+
+  function trapFocus(event, root) {
+    if (event.key !== 'Tab') return;
+    const focusableElements = getFocusableElements(root);
+    if (!focusableElements.length) {
+      event.preventDefault();
+      root?.focus?.({ preventScroll: true });
+      return;
+    }
+
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
 
   function togglePanel(panel, shouldOpen) {
     if (!panel) return;
@@ -84,6 +126,12 @@
       setOpen(false);
     });
 
+    document.addEventListener('keydown', (event) => {
+      if (!isOpen || event.key !== 'Escape') return;
+      setOpen(false);
+      button.focus({ preventScroll: true });
+    });
+
     window.addEventListener('resize', () => {
       if (isOpen) setOpen(true);
     });
@@ -95,9 +143,15 @@
     const panel = qs(config.panel);
     if (!trigger || !modal || !panel) return;
     let isOpen = false;
+    let previousFocus = null;
+
+    modal.setAttribute('role', modal.getAttribute('role') || 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    panel.setAttribute('tabindex', panel.getAttribute('tabindex') || '-1');
 
     const open = () => {
       isOpen = true;
+      previousFocus = document.activeElement;
       trigger.setAttribute('aria-expanded', 'true');
       if (config.activeTrigger) {
         trigger.classList.add('border-primary', 'bg-white');
@@ -112,6 +166,7 @@
       });
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('overflow-hidden');
+      window.setTimeout(() => focusFirstInteractive(panel), 80);
     };
 
     const close = () => {
@@ -132,6 +187,11 @@
         modal.classList.remove('flex');
       }, config.closeDelay || 300);
       document.body.classList.remove('overflow-hidden');
+      if (previousFocus && document.contains(previousFocus)) {
+        previousFocus.focus({ preventScroll: true });
+      } else {
+        trigger.focus({ preventScroll: true });
+      }
     };
 
     trigger.addEventListener('click', (event) => {
@@ -144,6 +204,7 @@
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+      if (modal.getAttribute('aria-hidden') === 'false') trapFocus(event, panel);
     });
   }
 
@@ -153,6 +214,12 @@
     const title = qs('#policyModalTitle');
     const content = qs('#policyModalContent');
     if (!modal || !panel || !title || !content) return;
+    let previousFocus = null;
+
+    modal.setAttribute('role', modal.getAttribute('role') || 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'policyModalTitle');
+    panel.setAttribute('tabindex', panel.getAttribute('tabindex') || '-1');
 
     const copy = {
       clarification: {
@@ -177,6 +244,7 @@
 
     const open = (type) => {
       const selected = copy[type] || copy.clarification;
+      previousFocus = document.activeElement;
       title.textContent = selected.title;
       content.innerHTML = selected.body;
       modal.classList.remove('hidden');
@@ -189,6 +257,7 @@
       });
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('overflow-hidden');
+      window.setTimeout(() => focusFirstInteractive(panel), 80);
     };
 
     const close = () => {
@@ -203,6 +272,9 @@
         modal.classList.remove('flex');
       }, 300);
       document.body.classList.remove('overflow-hidden');
+      if (previousFocus && document.contains(previousFocus)) {
+        previousFocus.focus({ preventScroll: true });
+      }
     };
 
     qsa('[data-policy-trigger]').forEach((trigger) => {
@@ -217,16 +289,59 @@
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') close();
+      if (modal.getAttribute('aria-hidden') === 'false') trapFocus(event, panel);
     });
   }
 
   function initProductDetailControls() {
     const selectedVariantPrice = qs('#selectedVariantPrice');
+    const selectedVariantUnitPrice = qs('#selectedVariantUnitPrice');
+    const selectedVariantTotalInline = qs('#selectedVariantTotalInline');
+    const selectedVariantButtonTotal = qs('#selectedVariantButtonTotal');
+    const selectedVariantServiceFee = qs('#selectedVariantServiceFee');
     const giftAmountSelect = qs('#giftAmountSelect');
     const variantButtons = qsa('[data-variant-button]');
     const quantityInput = qs('#quantityInput');
     const customQuantityInput = qs('#customQuantityInput');
     const quantityButtons = qsa('[data-quantity-button]');
+    const quantityStepButtons = qsa('[data-quantity-step]');
+    let selectedUnitPrice = giftAmountSelect?.value
+      || selectedVariantUnitPrice?.textContent?.replace(/[()]/g, '').trim()
+      || selectedVariantPrice?.textContent?.trim()
+      || selectedVariantTotalInline?.textContent?.trim()
+      || selectedVariantButtonTotal?.textContent?.trim()
+      || '';
+
+    const parsePrice = (price) => {
+      const unit = price.replace(/[0-9.\s]/g, '').trim();
+      const amount = Number(price.replace(/[^0-9]/g, ''));
+      return { amount: Number.isNaN(amount) ? 0 : amount, unit };
+    };
+
+    const formatPrice = (amount, unit) => {
+      return `${new Intl.NumberFormat('tr-TR').format(amount)} ${unit}`.trim();
+    };
+
+    const getQuantity = () => {
+      const rawValue = customQuantityInput?.value || quantityInput?.value || '1';
+      const quantity = Number(rawValue);
+      return Number.isNaN(quantity) || quantity < 1 ? 1 : quantity;
+    };
+
+    const updatePriceSummary = () => {
+      if (selectedVariantUnitPrice && selectedUnitPrice) {
+        selectedVariantUnitPrice.textContent = `(${selectedUnitPrice})`;
+      }
+
+      if (!selectedUnitPrice) return;
+      const { amount, unit } = parsePrice(selectedUnitPrice);
+      const totalPrice = formatPrice(amount * getQuantity(), unit);
+      const serviceFee = formatPrice(Math.round(amount * getQuantity() * 0.08), unit);
+      if (selectedVariantPrice) selectedVariantPrice.textContent = totalPrice;
+      if (selectedVariantTotalInline) selectedVariantTotalInline.textContent = totalPrice;
+      if (selectedVariantButtonTotal) selectedVariantButtonTotal.textContent = totalPrice;
+      if (selectedVariantServiceFee) selectedVariantServiceFee.textContent = serviceFee;
+    };
 
     const activateOptionButton = (buttons, activeButton) => {
       buttons.forEach((button) => {
@@ -243,14 +358,16 @@
       button.addEventListener('click', () => {
         if (giftAmountSelect) giftAmountSelect.value = '';
         activateOptionButton(variantButtons, button);
-        if (selectedVariantPrice) selectedVariantPrice.textContent = button.dataset.price;
+        selectedUnitPrice = button.dataset.price || selectedUnitPrice;
+        updatePriceSummary();
       });
     });
 
     giftAmountSelect?.addEventListener('change', () => {
       if (!giftAmountSelect.value) return;
       activateOptionButton(variantButtons, null);
-      if (selectedVariantPrice) selectedVariantPrice.textContent = giftAmountSelect.value;
+      selectedUnitPrice = giftAmountSelect.value;
+      updatePriceSummary();
     });
 
     quantityButtons.forEach((button) => {
@@ -258,12 +375,25 @@
         if (quantityInput) quantityInput.value = button.dataset.quantity;
         if (customQuantityInput) customQuantityInput.value = '';
         activateOptionButton(quantityButtons, button);
+        updatePriceSummary();
+      });
+    });
+
+    quantityStepButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const step = Number(button.dataset.quantityStep || 0);
+        const nextQuantity = Math.min(25, Math.max(1, getQuantity() + step));
+        if (quantityInput) quantityInput.value = String(nextQuantity);
+        if (customQuantityInput) customQuantityInput.value = String(nextQuantity);
+        activateOptionButton(quantityButtons, null);
+        updatePriceSummary();
       });
     });
 
     customQuantityInput?.addEventListener('focus', () => {
       activateOptionButton(quantityButtons, null);
       if (quantityInput) quantityInput.value = customQuantityInput.value;
+      updatePriceSummary();
     });
 
     customQuantityInput?.addEventListener('input', () => {
@@ -273,19 +403,24 @@
         ? ''
         : Math.min(25, Math.max(1, numericValue));
       if (quantityInput) quantityInput.value = customValue;
+      updatePriceSummary();
     });
 
     customQuantityInput?.addEventListener('blur', () => {
       const numericValue = Number(customQuantityInput.value);
       if (customQuantityInput.value === '' || Number.isNaN(numericValue)) {
-        customQuantityInput.value = '';
-        if (quantityInput) quantityInput.value = '';
+        customQuantityInput.value = '1';
+        if (quantityInput) quantityInput.value = '1';
+        updatePriceSummary();
         return;
       }
 
       customQuantityInput.value = String(Math.min(25, Math.max(1, numericValue)));
       if (quantityInput) quantityInput.value = customQuantityInput.value;
+      updatePriceSummary();
     });
+
+    updatePriceSummary();
   }
 
   function initBrandAccordion() {

@@ -24,6 +24,7 @@
 
 /* Guest base */
 .material-symbols-outlined {
+  font-family: "Material Symbols Outlined", "Segoe UI Symbol", "Apple Color Emoji", sans-serif;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
@@ -36,7 +37,7 @@
 }
 
 body.guest-page {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--hdm-font-body, 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -46,7 +47,7 @@ body.guest-page {
 .guest-page h3,
 .guest-page .font-headline,
 .guest-page .brand-logo {
-  font-family: 'Manrope', 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--hdm-font-manrope, 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
 }
 
 .guest-page a,

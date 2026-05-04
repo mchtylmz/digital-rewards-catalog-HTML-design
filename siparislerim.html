@@ -202,7 +202,7 @@
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">4 ürün</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
-                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</p>
+                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam</p>
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">10.368 TL</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
@@ -217,84 +217,93 @@
               </div>
             </div>
 
-            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5 lg:grid-cols-2">
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <div class="font-headline text-[2.05rem] font-black tracking-tighter text-black">KOTON</div>
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.200 Puan</span>
+            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <div class="font-headline text-[1.35rem] font-black tracking-tighter text-black">KOTON</div>
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">1.200 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254158</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">01.06.2024</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0555 555 55 55</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">24.10.24 - 08:56:05</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254158</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">01.06.2024</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0555 555 55 55</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">Ulaştırıldı</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">24.10.24 - 08:56:05</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
 
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-16 max-w-[86%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.000 Puan</span>
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-10 max-w-[92%] object-contain" />
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">1.000 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254159</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">İletildi</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2026-04-28 14:41:37</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254159</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">İletildi</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">2026-04-28 14:41:37</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
 
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-16 max-w-[86%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">100 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">108 Puan</span>
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-10 max-w-[92%] object-contain" />
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">100 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">108 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254170</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:12:54</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254170</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">Ulaştırıldı</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">2025-11-19 10:12:54</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
 
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/genc-altin-logo.png" alt="Genç Altın" class="max-h-20 max-w-[92%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold leading-tight text-zinc-900">1 Gr (24 Ayar)</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">7.268 Puan</span>
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[88px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/genc-altin-logo.png" alt="Genç Altın" class="max-h-12 max-w-[96%] object-contain" />
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254180</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Alıcı İsim Soyisim</dt><dd class="font-bold text-slate-700">Ramazan GÜLER</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Kargo Bilgisi</dt><dd class="font-bold text-slate-700">Hepsi Jet / 44646464655568</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Durum</dt><dd class="font-bold text-emerald-700">Teslim Edildi</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Ürün</dt><dd class="mt-1 font-headline text-base font-extrabold text-zinc-900">1 Gr (24 Ayar)</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Puan</dt><dd class="mt-1 font-headline text-base font-extrabold text-zinc-900">7.268 Puan</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254180</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Alıcı İsim Soyisim</dt><dd class="mt-1 font-bold text-slate-700">Ramazan GÜLER</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Kargo Bilgisi</dt><dd class="mt-1 font-bold text-slate-700">Hepsi Jet / 44646464655568</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Durum</dt><dd class="mt-1 font-bold text-emerald-700">Teslim Edildi</dd></div>
                   </dl>
-                  <button type="button" data-order-detail-trigger="genc-altin" class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary bg-white px-4 py-2.5 text-sm font-bold text-primary transition-colors hover:bg-primary-container/5 sm:w-max sm:self-end">
+                  <button type="button" data-order-detail-trigger="genc-altin" class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary bg-white px-4 py-2.5 text-sm font-bold text-primary transition-colors hover:bg-primary-container/5 sm:w-max sm:self-end xl:shrink-0 xl:self-center">
                     <span class="material-symbols-outlined text-[18px]">visibility</span>
                     Detaylarını Görüntüle
                   </button>
@@ -317,7 +326,7 @@
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">2 ürün</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
-                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</p>
+                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam</p>
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">1.100 TL</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
@@ -332,46 +341,52 @@
               </div>
             </div>
 
-            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5 lg:grid-cols-2">
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-16 max-w-[86%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">1.000 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">1.000 Puan</span>
+            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-10 max-w-[92%] object-contain" />
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">1.000 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">1.000 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254171</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">İletildi</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:10:24</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254171</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">İletildi</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">2025-11-19 10:10:24</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
 
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-16 max-w-[86%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">100 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">108 Puan</span>
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/opet-logo.png" alt="Opet" class="max-h-10 max-w-[92%] object-contain" />
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">100 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">108 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254172</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">Ulaştırıldı</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2025-11-19 10:12:54</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254172</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">Ulaştırıldı</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">2025-11-19 10:12:54</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -391,7 +406,7 @@
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">1 ürün</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
-                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam Tutar</p>
+                      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zinc-400">Toplam</p>
                       <p class="mt-1 font-headline text-lg font-extrabold text-zinc-900">5.500 TL</p>
                     </div>
                     <div class="rounded-xl bg-white px-4 py-3">
@@ -406,25 +421,28 @@
               </div>
             </div>
 
-            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5 lg:grid-cols-2">
-              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-                <div class="flex min-h-[180px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
-                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-16 max-w-[86%] object-contain" />
-                  <strong class="mt-5 font-headline text-[1.15rem] font-extrabold text-zinc-900">5.500 TL</strong>
-                  <span class="text-[1.15rem] font-semibold text-zinc-500">5.500 Puan</span>
+            <div data-order-mobile-content class="hidden grid-cols-1 gap-4 px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
+              <article class="grid gap-4 rounded-xl border border-zinc-200 bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)] sm:items-center">
+                <div class="flex min-h-[96px] flex-col items-center justify-center rounded-xl bg-white p-0 text-center">
+                  <img src="./assets/brands/mavi-logo.png" alt="Mavi" class="max-h-10 max-w-[92%] object-contain" />
+                  <strong class="mt-4 font-headline text-base font-extrabold text-zinc-900">5.500 TL</strong>
+                  <span class="mt-1 text-sm font-semibold text-zinc-500">5.500 Puan</span>
                 </div>
-                <div class="flex min-w-0 flex-col justify-between gap-4">
-                  <dl class="divide-y divide-zinc-100 text-sm">
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Sipariş No</dt><dd class="font-bold text-slate-700">456863254183</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="font-bold text-slate-700">31.12.2026</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Telefon</dt><dd class="font-bold text-slate-700">0554 312 49 17</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Mesaj Durumu</dt><dd class="font-bold text-emerald-700">İletildi</dd></div>
-                    <div class="grid grid-cols-[128px_1fr] gap-3 py-2"><dt class="text-zinc-400">Ulaşma Zamanı</dt><dd class="font-bold text-slate-700">2026-05-02 01:51:40</dd></div>
+                <div class="flex min-w-0 flex-col justify-between gap-4 xl:flex-row xl:items-center">
+                  <dl class="grid flex-1 gap-3 text-sm md:grid-cols-2 xl:grid-cols-4">
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Sipariş No</dt><dd class="mt-1 font-bold text-slate-700">456863254183</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Son Geçerlilik Tarihi</dt><dd class="mt-1 font-bold text-slate-700">31.12.2026</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Telefon</dt><dd class="mt-1 font-bold text-slate-700">0554 312 49 17</dd></div>
+                    <div class="rounded-xl bg-zinc-50 px-3 py-2"><dt class="block text-[11px] font-extrabold uppercase tracking-[0.12em] text-zinc-400">Mesaj Durumu</dt><dd class="mt-1 font-bold text-emerald-700">İletildi</dd></div>
                   </dl>
-                  <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max sm:self-end">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    Mesajı Yeniden Gönder
-                  </button>
+                  <div class="flex flex-col items-center gap-2 xl:shrink-0">
+                    <p class="text-center text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">Ulaşma Zamanı</p>
+                    <p class="text-center text-sm font-bold text-slate-700">2026-05-02 01:51:40</p>
+                    <button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 sm:w-max">
+                      <span class="material-symbols-outlined text-[18px]">send</span>
+                      Mesajı Yeniden Gönder
+                    </button>
+                  </div>
                 </div>
               </article>
             </div>

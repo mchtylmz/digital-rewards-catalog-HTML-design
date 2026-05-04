@@ -23,6 +23,7 @@
 }
 
 .material-symbols-outlined {
+  font-family: "Material Symbols Outlined", "Segoe UI Symbol", "Apple Color Emoji", sans-serif;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
@@ -35,7 +36,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--hdm-font-body, 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -45,7 +46,7 @@ h2,
 h3,
 .font-headline,
 .brand-logo {
-  font-family: 'Manrope', 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--hdm-font-manrope, 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -109,40 +110,10 @@ details > summary::-webkit-details-marker {
   border-bottom: 0;
 }
 
-.brand-filter-list:not(.is-expanded) > label:nth-of-type(n+8) {
-  display: none;
-}
-
 .brand-filter-list [data-brand-checkbox] {
-  position: absolute;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.brand-filter-list > label::before {
-  content: "";
-  display: inline-flex;
-  width: 0.9rem;
-  min-width: 0.9rem;
-  height: 1rem;
-  align-items: center;
-  justify-content: center;
-  color: var(--hediyemo-primary);
-  font-family: "Material Symbols Outlined";
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-right: -0.35rem;
-  opacity: 0;
-  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 20;
-}
-
-.brand-filter-list > label:has([data-brand-checkbox]:checked)::before {
-  content: "check";
+  position: static;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .contact-pulse-border {
@@ -365,7 +336,7 @@ input[type="radio"]:focus-visible {
 }
 
 .service-ribbon__points {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--hdm-font-manrope, 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -398,7 +369,7 @@ input[type="radio"]:focus-visible {
 }
 
 .service-ribbon--burst .service-ribbon__percent {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--hdm-font-manrope, 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -613,7 +584,7 @@ input[type="radio"]:focus-visible {
   background: #f4f4f5;
   padding: 0.25rem;
   text-align: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--hdm-font-manrope, 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   font-size: clamp(0.72rem, 1vw, 1.05rem);
   font-weight: 800;
   line-height: 1.05;

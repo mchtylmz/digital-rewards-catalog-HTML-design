@@ -212,13 +212,13 @@
     <section class="bg-white">
       <div class="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-6 pb-24 md:pt-6 lg:gap-10 lg:px-8">
       <aside class="col-span-12 space-y-0 md:col-span-3 md:space-y-6">
-        <div class="mb-0 grid grid-cols-2 overflow-hidden rounded-xl border border-zinc-200 bg-white md:hidden">
+        <div class="mb-4 grid grid-cols-2 overflow-hidden rounded-xl border border-zinc-200 bg-white md:hidden">
           <button
             id="mobileFiltersToggle"
             class="inline-flex w-full items-center justify-center gap-2 border-r border-zinc-200 bg-white px-5 py-3.5 text-left"
             type="button"
             aria-expanded="false"
-            aria-controls="filtersPanel"
+            aria-controls="advancedFiltersPanel"
           >
             <span class="material-symbols-outlined text-[21px] text-zinc-600">tune</span>
             <span class="font-headline text-[17px] font-bold tracking-tight text-zinc-700">Filtrele</span>
@@ -234,34 +234,27 @@
             <span class="font-headline text-[17px] font-bold tracking-tight text-zinc-700">Sıralama</span>
           </label>
         </div>
-        <div id="filtersPanel" class="hidden md:block">
-          <div id="filtersPanelBackdrop" class="fixed inset-0 z-[58] bg-black/35 opacity-0 transition-opacity duration-300 md:hidden"></div>
-          <div id="filtersPanelSheet" class="fixed inset-x-0 bottom-0 z-[59] max-h-[88vh] translate-y-full rounded-xl bg-white px-4 pb-5 pt-4 shadow-[0_-20px_60px_rgba(0,0,0,0.18)] transition-transform duration-300 md:static md:max-h-none md:translate-y-0 md:rounded-xl md:bg-white md:px-0 md:pb-0 md:pt-0 md:shadow-none">
-            <div class="mb-4 flex items-center justify-between md:hidden">
-              <div>
-                <p class="font-headline text-lg font-extrabold tracking-tight text-zinc-900">Hediye Çeklerini Filtrele</p>
-                <p class="mt-1 text-xs text-zinc-500">Seçimlerini yapıp uygula.</p>
-              </div>
-              <button
-                id="mobileFiltersClose"
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"
-                type="button"
-                aria-label="Filtre panelini kapat"
-              >
-                <span class="material-symbols-outlined text-[20px]">close</span>
-              </button>
-            </div>
-            <div class="max-h-[calc(88vh-6.5rem)] space-y-6 overflow-y-auto pr-1 md:max-h-none md:overflow-visible md:pr-0">
-            <div class="flex justify-start">
-              <button id="resetFiltersButton" class="hidden inline-flex items-center gap-2 rounded-xl border border-primary bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary-container hover:!text-white" type="button">
-                <span class="material-symbols-outlined text-[18px]">restart_alt</span>
-                <span>Filtreyi Sıfırla</span>
-              </button>
-            </div>
+        <div id="mobileSelectedFilters" class="sticky top-0 z-30 mb-4 hidden rounded-xl border border-zinc-200 bg-white/95 px-3 py-3 shadow-sm backdrop-blur md:top-28 md:z-20 md:bg-white md:backdrop-blur-0" aria-live="polite">
+          <div class="mb-2 flex items-center justify-between gap-3">
+            <p class="font-headline text-sm font-extrabold text-zinc-900">Seçilen Filtreler</p>
+            <button id="resetFiltersButton" class="hidden items-center gap-1 px-0 py-0 text-xs font-extrabold text-red-600 transition-colors hover:text-red-700" type="button" aria-label="Seçilen filtreleri sıfırla">
+              <span class="material-symbols-outlined text-[15px]">close</span>
+              <span>Kaldır</span>
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2" data-selected-filter-list></div>
+        </div>
+        <div id="filtersPanel" class="block">
+          <div id="filtersPanelBackdrop" class="fixed inset-0 z-[58] hidden bg-black/35 opacity-0 transition-opacity duration-300 md:hidden"></div>
+          <div id="filtersPanelSheet" class="bg-white md:mt-0 md:border-0 md:bg-white md:px-0 md:pb-0 md:pt-0 md:shadow-none">
+            <div class="space-y-6 pr-0 md:max-h-none md:overflow-visible">
             <div>
-              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
-                <div class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3"><h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kullanım Alanları</h3></div>
-                <div class="filter-option-list mt-6">
+              <div class="overflow-hidden rounded-xl border border-zinc-300 bg-white">
+                <button class="flex w-full items-center justify-between bg-zinc-50 px-5 py-3 text-left" type="button" data-filter-accordion-toggle aria-expanded="true" aria-controls="usageFilterContent">
+                  <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kullanım Alanları</h3>
+                  <span class="material-symbols-outlined text-[20px] text-zinc-500 transition-transform" data-filter-accordion-icon>keyboard_arrow_up</span>
+                </button>
+                <div id="usageFilterContent" class="filter-option-list px-5 py-6" data-filter-accordion-panel>
                   <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium text-zinc-700">
                     <input data-usage-checkbox data-filter-value="online" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                     <span>Online Kullanım</span>
@@ -279,9 +272,13 @@
             </div>
 
             <div>
-              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
-                <div class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3"><h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Markalar</h3></div>
-                <div class="mt-4">
+              <div class="overflow-hidden rounded-xl border border-zinc-300 bg-white">
+                <button class="flex w-full items-center justify-between bg-zinc-50 px-5 py-3 text-left" type="button" data-filter-accordion-toggle aria-expanded="true" aria-controls="brandFilterContent">
+                  <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Markalar</h3>
+                  <span class="material-symbols-outlined text-[20px] text-zinc-500 transition-transform" data-filter-accordion-icon>keyboard_arrow_up</span>
+                </button>
+                <div id="brandFilterContent" class="px-5 py-6" data-filter-accordion-panel>
+                <div class="mt-1">
                   <input
                     id="brandSearch"
                     type="text"
@@ -362,17 +359,32 @@
                 <span class="ml-auto inline-flex h-6 w-14 items-center justify-center rounded-xl bg-orange-50 px-1 text-[9px] font-extrabold text-orange-600">Koçtaş</span>
               </label>
                 </div>
-                <button class="mx-auto mt-4 flex w-max items-center justify-center gap-1.5 font-headline text-[12px] font-bold uppercase tracking-[0.12em] text-primary transition-colors hover:text-primary-container" type="button" aria-expanded="false" data-brand-filter-toggle>
-                  <span data-brand-filter-toggle-label>Tümünü Göster</span>
-                  <span class="material-symbols-outlined text-[20px] transition-transform duration-200" data-brand-filter-toggle-icon>keyboard_double_arrow_down</span>
-                </button>
+                </div>
               </div>
             </div>
 
+            <div id="advancedFiltersPanel" class="fixed inset-x-0 bottom-0 z-[59] hidden max-h-[92vh] translate-y-full space-y-6 overflow-y-auto rounded-t-xl bg-white px-4 pb-5 pt-0 shadow-[0_-20px_60px_rgba(0,0,0,0.18)] transition-transform duration-300 md:static md:block md:max-h-none md:translate-y-0 md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:shadow-none">
+            <div class="sticky top-0 z-10 -mx-4 flex items-center justify-between border-b border-zinc-100 bg-white px-4 py-4 md:hidden">
+              <div>
+                <p class="font-headline text-lg font-extrabold tracking-tight text-zinc-900">Filtrele</p>
+              </div>
+              <button
+                id="mobileFiltersClose"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"
+                type="button"
+                aria-label="Filtre panelini kapat"
+              >
+                <span class="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
             <div>
-              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
-                <div class="-mx-5 -mt-6 rounded-t-xl bg-zinc-50 px-5 py-3"><h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kategoriler</h3></div>
-                <div class="mt-4">
+              <div class="overflow-hidden rounded-xl border border-zinc-300 bg-white">
+                <button class="flex w-full items-center justify-between bg-zinc-50 px-5 py-3 text-left" type="button" data-filter-accordion-toggle aria-expanded="false" aria-controls="categoryFilterContent">
+                  <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Kategoriler</h3>
+                  <span class="material-symbols-outlined text-[20px] text-zinc-500 transition-transform" data-filter-accordion-icon>keyboard_arrow_down</span>
+                </button>
+                <div id="categoryFilterContent" class="hidden px-5 py-6" data-filter-accordion-panel>
+                <div>
                   <input
                     id="categorySearch"
                     type="text"
@@ -433,13 +445,20 @@
                 </div>
               </div>
             </div>
+            </div>
 
             <div>
-              <div class="rounded-xl border border-zinc-300 bg-white px-5 py-6">
+              <div class="overflow-hidden rounded-xl border border-zinc-300 bg-white">
+                <button class="flex w-full items-center justify-between bg-zinc-50 px-5 py-3 text-left" type="button" data-filter-accordion-toggle aria-expanded="false" aria-controls="balanceFilterContent">
+                  <h3 class="font-headline text-[16px] font-bold tracking-tight text-zinc-700">Bakiye</h3>
+                  <span class="material-symbols-outlined text-[20px] text-zinc-500 transition-transform" data-filter-accordion-icon>keyboard_arrow_down</span>
+                </button>
+                <div id="balanceFilterContent" class="hidden px-5 py-6" data-filter-accordion-panel>
                 <label class="flex cursor-pointer items-center gap-3 text-[14px] font-medium leading-6 text-zinc-700">
                   <input id="balanceFilterCheckbox" class="h-[1.05rem] w-[1.05rem] rounded-xl border-zinc-300 text-primary accent-primary focus:ring-primary/10" type="checkbox" />
                   <span>Bakiyeme uygun olan hediye çeklerini göster</span>
                 </label>
+                </div>
               </div>
             </div>
 
@@ -450,15 +469,14 @@
               </button>
             </div>
             </div>
+            </div>
           </div>
         </div>
       </aside>
 
       <div class="col-span-12 md:col-span-9">
-        <div class="mb-8 flex flex-wrap items-center justify-between gap-3">
-          <span id="filterStatus" class="hidden rounded-xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Filtre uygulandı</span>
-          <span id="sortStatus" class="hidden rounded-xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary md:hidden"></span>
-          <label class="ml-auto hidden items-center gap-3 md:inline-flex">
+        <div class="mb-8 hidden items-center justify-end md:flex">
+          <label class="ml-auto inline-flex items-center gap-3">
             <span class="text-sm font-semibold text-zinc-500">Sıralama</span>
             <select class="rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm font-semibold text-zinc-700 focus:border-zinc-900 focus:ring-0" aria-label="Hediye çekleri sıralama">
               <option>Popüler</option>

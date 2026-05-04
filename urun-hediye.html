@@ -124,78 +124,90 @@
 	                  <div class="flex flex-1 items-center justify-center px-3 pb-0 pt-8">
                     <img class="max-h-[82%] w-[90%] object-contain" src="./assets/brands/boyner-logo.png" alt="Boyner logo" />
                   </div>
-                  <div class="border-t border-dashed border-zinc-300 bg-zinc-50 px-5 py-5 text-center">
-                    <p class="font-headline text-[1.35rem] font-extrabold leading-tight tracking-tight text-zinc-950">Boyner</p>
-                    <p class="font-headline text-[1.25rem] font-extrabold leading-tight tracking-tight text-zinc-950">Hediye Çeki</p>
-                  </div>
                 </div>
 		                <div class="absolute right-[10px] top-12 flex flex-col items-center gap-3">
-		                  <div class="delivery-burst flex h-24 w-24 items-center justify-center bg-gradient-to-br from-fuchsia-500 to-violet-500 px-2.5 py-2 text-center text-white">
-		                    <p class="font-headline text-[0.9rem] font-extrabold leading-tight">Sadece<br />mağazada<br />geçerlidir.</p>
-		                  </div>
-		                  <div class="delivery-burst flex h-24 w-24 items-center justify-center bg-gradient-to-br from-fuchsia-500 to-violet-500 px-2.5 py-2 text-center text-white">
-		                    <p class="font-headline text-[0.9rem] font-extrabold leading-tight">Sadece<br />mağazada<br />geçerlidir.</p>
+		                  <div class="delivery-burst flex h-32 w-32 items-start justify-center bg-gradient-to-br from-fuchsia-500 to-violet-500 px-6 pb-5 pt-6 text-center text-white">
+		                    <p class="font-headline text-[0.85rem] font-extrabold leading-tight tracking-[0.035em]">Mağazada ve<br />İnternet Sitesinde<br />Geçerlidir</p>
 		                  </div>
 		                </div>
               </div>
             </div>
 
           <div class="space-y-5 lg:px-5 lg:pt-4">
-            <div class="flex items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
               <div class="min-w-0 flex-1">
                 <p id="selectedVariantTitle" class="font-headline text-lg font-extrabold leading-tight text-zinc-950 sm:text-xl">Boyner</p>
                 <p class="mt-1 font-headline text-base font-bold leading-tight text-zinc-500 sm:text-lg">Hediye Çeki</p>
               </div>
-              <div class="shrink-0 rounded-xl bg-primary-container px-4 py-3 text-right sm:px-5">
-                <p id="selectedVariantPrice" class="font-headline text-[1.6rem] font-black leading-none tracking-tight text-white sm:text-[2.25rem]">500 TL</p>
-              </div>
             </div>
 
-            <div class="space-y-4">
+            <div class="grid grid-cols-12 gap-4">
+              <div class="col-span-12 space-y-4 lg:col-span-5">
 	              <div>
 		                <p class="mb-2 text-sm font-bold text-zinc-800">Hediye çeki tutarını seçiniz (TL)</p>
-			                <div class="grid grid-cols-2 gap-2 sm:grid-cols-[repeat(3,minmax(0,1fr))_minmax(170px,1.35fr)]">
-			                  <button type="button" data-variant-button data-title="Boyner Hediye Çeki" data-price="500 TL" class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-bold text-white transition-colors">500</button>
-			                  <button type="button" data-variant-button data-title="Boyner Hediye Çeki" data-price="1.000 TL" class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-bold text-zinc-700 transition-colors hover:bg-zinc-200">1.000</button>
-			                  <button type="button" data-variant-button data-title="Boyner Hediye Çeki" data-price="2.000 TL" class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-bold text-zinc-700 transition-colors hover:bg-zinc-200">2.000</button>
-			                  <select id="giftAmountSelect" class="col-span-2 h-12 w-full rounded-xl border border-zinc-200 bg-white px-3 text-base font-semibold text-zinc-700 focus:border-zinc-900 focus:ring-0 sm:col-span-1">
-			                    <option value="">Tutar Seçiniz</option>
-			                    <option value="5.000 TL">5.000 TL</option>
-			                    <option value="10.000 TL">10.000 TL</option>
-			                    <option value="25.000 TL">25.000 TL</option>
-			                  </select>
-			                </div>
+		                <select id="giftAmountSelect" class="h-12 w-full rounded-xl border border-zinc-200 bg-white px-3 text-base font-semibold text-zinc-700 focus:border-zinc-900 focus:ring-0">
+		                  <option value="500 TL" selected>500 TL</option>
+		                  <option value="1.000 TL">1.000 TL</option>
+		                  <option value="2.000 TL">2.000 TL</option>
+		                  <option value="5.000 TL">5.000 TL</option>
+		                  <option value="10.000 TL">10.000 TL</option>
+		                  <option value="25.000 TL">25.000 TL</option>
+		                </select>
 		              </div>
 
 	              <div>
 	                <p class="mb-2 text-sm font-bold text-zinc-800">Adet seçiniz</p>
-	                <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+	                <div class="grid grid-cols-[3rem_minmax(0,1fr)_3rem] overflow-hidden rounded-xl border border-zinc-200 bg-white">
 		                  <input id="quantityInput" type="hidden" value="1" />
-			                  <button type="button" data-quantity-button data-quantity="1" class="rounded-xl bg-zinc-950 px-4 py-3 text-base font-bold text-white transition-colors">1</button>
-			                  <button type="button" data-quantity-button data-quantity="3" class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-bold text-zinc-700 transition-colors hover:bg-zinc-200">3</button>
-			                  <button type="button" data-quantity-button data-quantity="5" class="rounded-xl bg-zinc-100 px-4 py-3 text-base font-bold text-zinc-700 transition-colors hover:bg-zinc-200">5</button>
-			                  <input id="customQuantityInput" class="h-12 rounded-xl border border-zinc-200 bg-white px-3 text-center font-headline text-base font-bold text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-0" type="number" min="1" max="25" placeholder="Adet Yazınız" aria-label="Özel adet" />
+		                  <button type="button" data-quantity-step="-1" class="inline-flex h-12 items-center justify-center border-r border-zinc-200 bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200" aria-label="Adedi azalt">
+		                    <span class="material-symbols-outlined text-[20px]">remove</span>
+		                  </button>
+		                  <input id="customQuantityInput" class="h-12 border-0 bg-white px-3 text-center font-headline text-base font-bold text-zinc-900 placeholder:text-zinc-400 focus:ring-0" type="number" min="1" max="25" value="1" placeholder="Adet" aria-label="Adet" />
+		                  <button type="button" data-quantity-step="1" class="inline-flex h-12 items-center justify-center border-l border-zinc-200 bg-zinc-100 text-zinc-700 transition-colors hover:bg-zinc-200" aria-label="Adedi artır">
+		                    <span class="material-symbols-outlined text-[20px]">add</span>
+		                  </button>
 	                </div>
 	              </div>
+              </div>
 
-              <div class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-                <div class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[20px]">info</span>
-	                  <p>Hediye çeki kodu SMS ile gönderilir; teslimat için kayıtlı telefon seçimi gerekir.</p>
+              <div class="col-span-12 space-y-4 self-center lg:col-span-5 lg:col-start-8">
+                <div class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">info</span>
+	                    <p>Hediye çeki kodu SMS ile gönderilir; teslimat için kayıtlı telefon seçimi gerekir.</p>
+                  </div>
+                </div>
+
+                <div class="rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900">
+                  <div class="flex items-center gap-2">
+	                    <span class="material-symbols-outlined text-[20px]">sms</span>
+	                    <p>Telefon seçimi sepetin teslimat adımında yapılır ve mesaj durumu siparişlerim ekranından takip edilir.</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900">
-                <div class="flex items-center gap-2">
-	                  <span class="material-symbols-outlined text-[20px]">sms</span>
-	                  <p>Telefon seçimi sepetin teslimat adımında yapılır ve mesaj durumu siparişlerim ekranından takip edilir.</p>
-                </div>
-              </div>
+		              <div class="col-span-12 rounded-xl border border-primary/20 bg-primary-container/5 px-4 py-3 text-base font-extrabold text-zinc-950 sm:w-[calc((100%-0.75rem)/2)]">
+		                <div class="flex items-center justify-between gap-3 text-sm">
+		                  <span class="inline-flex items-center gap-2">
+		                    <span class="material-symbols-outlined text-[20px] text-primary">percent</span>
+		                    %8 Hizmet Bedeli
+		                  </span>
+		                  <span id="selectedVariantServiceFee" class="font-headline text-base font-black text-zinc-950">40 TL</span>
+		                </div>
+		                <div class="my-3 h-px bg-[repeating-linear-gradient(to_right,rgba(24,24,27,0.28)_0_6px,transparent_6px_13px)]"></div>
+		                <div class="flex items-center justify-between gap-3">
+		                  <span class="inline-flex items-center gap-2">
+		                    <span class="material-symbols-outlined text-[22px] text-primary">info</span>
+		                    Toplam tutar
+		                  </span>
+		                  <span id="selectedVariantTotalInline" class="font-headline text-[1.5rem] font-black text-zinc-950">500 TL</span>
+		                </div>
+		              </div>
 
-		              <div class="grid gap-3 sm:grid-cols-2">
+		              <div class="col-span-12 grid gap-3 sm:grid-cols-2">
 		                <button class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-5 py-4 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-primary-button transition-transform hover:-translate-y-0.5" type="button">
 		                  <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
-		                  Sepete Ekle
+		                  <span>Sepete Ekle</span>
 		                </button>
 		                <button class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-4 font-headline text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-[0_14px_30px_rgba(24,24,27,0.16)] transition-transform hover:-translate-y-0.5" type="button">
 		                  <span class="material-symbols-outlined text-[20px]">bolt</span>
@@ -203,7 +215,7 @@
 		                </button>
 		              </div>
 
-		              <div class="grid gap-3 pt-2">
+		              <div class="col-span-12 grid gap-3 pt-2">
 	                <div class="rounded-xl bg-zinc-50 p-4">
 	                  <span class="material-symbols-outlined text-primary">sms</span>
 	                  <p class="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-400">Teslimat</p>
