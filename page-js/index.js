@@ -31,6 +31,7 @@
 
     const productGrid = document.getElementById('productGrid');
     const productsPagination = document.getElementById('productsPagination');
+    const productListTitle = document.getElementById('productListTitle');
     const productItems = [
       {
         name: 'Opet',
@@ -221,6 +222,9 @@
       if (!productGrid) return;
       currentRenderedProducts = items;
       applyProductLayout();
+      if (productListTitle) {
+        productListTitle.textContent = `Hediye Çekleri (${items.length})`;
+      }
       const isListLayout = productLayoutMode === 'list';
 
       if (!items.length) {

@@ -222,8 +222,25 @@
     panel.setAttribute('tabindex', panel.getAttribute('tabindex') || '-1');
 
     const copy = {
+      about: {
+        title: 'Hakkımızda',
+        body: `
+          <p>hediyemo, kurumların ve kullanıcıların hediye çeki, puan, teslimat ve marka kullanım süreçlerini kolaylaştırmak için tasarlanmış dijital bir deneyimdir.</p>
+          <p>Platform; marka seçeneklerini inceleme, puan karşılığı ürün seçme, sipariş teslimat bilgilerini yönetme ve destek taleplerini tek yerden takip etme akışlarını sadeleştirir.</p>
+          <p>Amacımız, kullanıcıların hediye çeki ve altın ürünlerini hızlı, anlaşılır ve güvenli bir arayüz üzerinden yönetebilmesini sağlamaktır.</p>
+        `
+      },
+      guide: {
+        title: 'Kullanım Kılavuzu',
+        body: `
+          <p>Hediye çeki veya ürün seçmek için ana sayfadaki marka, kategori ve kullanım alanı filtrelerini kullanabilirsiniz.</p>
+          <p>Ürün detay sayfasında tutar, adet ve teslimat bilgilerini kontrol ederek ürünü sepete ekleyebilirsiniz.</p>
+          <p>Sepet ve teslimat adımlarında telefon veya adres seçimi yaptıktan sonra siparişinizi tamamlayabilirsiniz.</p>
+          <p>Siparişlerim ekranından gönderim durumunu, mesaj takibini ve ürün detaylarını görüntüleyebilirsiniz.</p>
+        `
+      },
       clarification: {
-        title: 'Aydınlatma Metni',
+        title: 'KVKK Aydınlatma Metni',
         body: `
           <p>Bu aydınlatma metni, hediyemo platformu üzerinden sunulan hizmetler kapsamında kişisel verilerin hangi amaçlarla işlendiğine, hangi yöntemlerle toplandığına ve hangi çerçevede korunduğuna ilişkin genel bilgilendirme amacıyla hazırlanmıştır.</p>
           <p>Kimlik bilgileri, iletişim verileri, sipariş geçmişi, puan kullanım detayları, üyelik hareketleri, çağrı merkezi kayıtları ve destek talepleri; hizmetin sürdürülebilmesi, işlem güvenliğinin sağlanması, kullanıcı deneyiminin iyileştirilmesi ve mevzuata uyum yükümlülüklerinin yerine getirilebilmesi amacıyla işlenebilir.</p>
@@ -445,6 +462,41 @@
     });
   }
 
+  function initChatTabsAndFaq() {
+    qsa('[data-chat-faq-item]').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        qsa('[data-chat-faq-item]').forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.open = false;
+          }
+        });
+      });
+    });
+
+    const chatTabs = qsa('[data-chat-tab]');
+    const chatTabPanels = qsa('[data-chat-tab-panel]');
+
+    chatTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.chatTab;
+
+        chatTabs.forEach((item) => {
+          const isActive = item === tab;
+          item.setAttribute('aria-selected', String(isActive));
+          item.classList.toggle('bg-primary-container', isActive);
+          item.classList.toggle('text-white', isActive);
+          item.classList.toggle('bg-zinc-50', !isActive);
+          item.classList.toggle('text-zinc-700', !isActive);
+        });
+
+        chatTabPanels.forEach((panel) => {
+          panel.classList.toggle('hidden', panel.dataset.chatTabPanel !== target);
+        });
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initAccountMenu();
     initPolicyPanel();
@@ -464,5 +516,6 @@
     });
     initProductDetailControls();
     initBrandAccordion();
+    initChatTabsAndFaq();
   });
 })();
