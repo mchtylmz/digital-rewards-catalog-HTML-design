@@ -29,35 +29,6 @@ Bu repository; ana listeleme ekranı, marka sayfası, ürün detayları, sepet a
 ## Ekran Görüntüleri
 
 Ekran görüntüleri `assets/readme/` klasörü altında saklanır ve README içinde göreli yollarla kullanılır.
-
-### Ana Sayfa
-
-![Ana sayfa](assets/readme/01-home.png)
-
-### Markalar Sayfası
-
-![Markalar sayfası](assets/readme/02-brands.png)
-
-### Ürün Detay: Hediye Çeki
-
-![Ürün detay hediye çeki](assets/readme/03-product-gift.png)
-
-### Siparişlerim
-
-![Siparişlerim](assets/readme/04-orders.png)
-
-### Hakkımızda
-
-![Hakkımızda](assets/readme/05-about.png)
-
-### Login
-
-![Login](assets/readme/06-login.png)
-
-### Mobil Ana Sayfa
-
-![Mobil ana sayfa](assets/readme/07-home-mobile.png)
-
 ---
 
 ## Proje Özeti
