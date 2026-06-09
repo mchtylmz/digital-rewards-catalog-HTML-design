@@ -585,13 +585,3 @@ Not: Chrome headless bazı sistemlerde arka plan servislerini geç kapatabilir. 
 
 ---
 
-## Marka Notu
-
-Footer metni:
-
-```text
-© 2026 HEDİYEMO — Mivento Bilişim Hizmetleri ve Ticaret A.Ş. Tüm hakları saklıdır.
-```
-
-HEDİYEMO marka adı görünür metinlerde büyük yazım standardıyla kullanılabilir. E-posta adresi ve URL gibi teknik alanlarda küçük yazım korunur.
-
